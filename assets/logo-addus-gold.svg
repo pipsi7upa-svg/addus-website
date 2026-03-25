@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&amp;display=swap');
+    .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.05em; }
+  </style>
+  <text class="logo-text" x="10" y="38" fill="#C8932A">addus.</text>
+</svg>

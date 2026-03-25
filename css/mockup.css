@@ -1,0 +1,343 @@
+/* =========================================
+   MOCKUP.CSS — Hero Live Showcase System
+   addus. Web Agency
+   ========================================= */
+
+
+/* ══════════════════════════════════════════
+   HERO LAYOUT
+══════════════════════════════════════════ */
+
+/* minmax(0, fr) prevents long pre-chip text from expanding the left column
+   and squeezing the showcase on the right */
+.hero__container {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr) !important;
+  gap: var(--space-10) !important;
+  align-items: center !important;
+  padding-top: var(--space-14) !important;
+  padding-bottom: var(--space-10) !important;
+}
+
+.hero__content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hero__showcase {
+  min-width: 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero__headline {
+  font-size: clamp(2rem, 2.8vw, 3.25rem) !important;
+  letter-spacing: -0.04em !important;
+}
+
+
+/* ══════════════════════════════════════════
+   SHOWCASE STAGE
+══════════════════════════════════════════ */
+
+.showcase-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+/* ── Decorative depth panels ── */
+.showcase-panel {
+  position: absolute;
+  border-radius: 10px;
+  overflow: hidden;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.showcase-panel--back {
+  top: 6%;
+  left: 5%;
+  right: -4%;
+  bottom: 0;
+  transform: rotate(-2deg) scale(0.87);
+  opacity: 0.28;
+  z-index: 1;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, rgba(200,147,42,0.08) 0%, rgba(14,17,23,0.9) 100%);
+  transition: background 0.8s ease;
+}
+
+.showcase-panel--mid {
+  top: 3%;
+  left: 2%;
+  right: -2%;
+  bottom: 0;
+  transform: rotate(-0.8deg) scale(0.94);
+  opacity: 0.50;
+  z-index: 2;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: linear-gradient(145deg, rgba(200,147,42,0.05) 0%, rgba(20,27,38,0.95) 100%);
+  transition: background 0.8s ease;
+}
+
+/* ── Front viewport ── */
+.showcase-panel--front {
+  inset: 0;
+  z-index: 3;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.70),
+    0 0 0 1px rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  animation: showcaseFloat 7s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes showcaseFloat {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Pause float animation during transitions */
+.showcase-panel--front.is-switching {
+  animation-play-state: paused;
+}
+
+
+/* ══════════════════════════════════════════
+   IFRAMES — All 4 preloaded, stacked
+══════════════════════════════════════════ */
+
+.showcase-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  /* Hidden by default; JS controls visibility via classes */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  overscroll-behavior: contain;
+}
+
+/* Block all scroll/touch/wheel events from reaching the parent page */
+.showcase-stage {
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+/* Active iframe: fully visible */
+.showcase-iframe.is-active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Clean crossfade — no scale, no blur, no movement */
+.showcase-iframe.is-leaving {
+  animation: scLeave 0.32s ease forwards;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.showcase-iframe.is-entering {
+  animation: scEnter 0.42s ease forwards;
+  z-index: 2;
+}
+
+@keyframes scLeave {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes scEnter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ══════════════════════════════════════════
+   ACTIVITY SCANNER (bottom of front panel)
+══════════════════════════════════════════ */
+
+.showcase-scanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 10;
+  overflow: hidden;
+  background: rgba(200, 147, 42, 0.08);
+}
+
+.showcase-scanner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-accent) 40%,
+    #E8B84B 50%,
+    var(--color-accent) 60%,
+    transparent 100%
+  );
+  animation: scannerMove 2.8s ease-in-out infinite;
+}
+
+@keyframes scannerMove {
+  0%   { transform: translateX(-100%); opacity: 0;   }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(100%);  opacity: 0;   }
+}
+
+/* Pause scanner during switching */
+.showcase-panel--front.is-switching .showcase-scanner::after {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+
+/* ══════════════════════════════════════════
+   DEMO INDICATOR (left column, below CTAs)
+══════════════════════════════════════════ */
+
+.demo-now {
+  margin-top: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.demo-now__line {
+  width: 2px;
+  height: 36px;
+  background: var(--color-accent);
+  border-radius: 1px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.demo-now__items {
+  position: relative;
+  height: 40px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.demo-now__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.demo-now__item.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.demo-now__item.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.demo-now__item.is-entering {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: demoItemEnter 0.4s ease 0.12s forwards;
+}
+
+@keyframes demoItemEnter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.demo-now__type {
+  display: block;
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.demo-now__name {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+
+/* Hover-to-pause: dim scanner + show tooltip */
+.showcase-stage:hover .showcase-scanner::after {
+  animation-play-state: paused;
+  opacity: 0.3;
+}
+
+
+/* ══════════════════════════════════════════
+   ENTRANCE ANIMATION
+══════════════════════════════════════════ */
+
+.hero__showcase.animate-in {
+  animation: showcaseEnter 1.0s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+  animation-delay: var(--delay, 80ms) !important;
+}
+
+@keyframes showcaseEnter {
+  from {
+    opacity: 0;
+    transform: translateX(52px) translateY(8px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .hero__container {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding-top: var(--space-10) !important;
+  }
+  .hero__showcase {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .demo-now { margin-top: 12px; }
+}
+
+@media (max-width: 640px) {
+  .showcase-panel--back,
+  .showcase-panel--mid { display: none; }
+
+  .showcase-stage { aspect-ratio: 16 / 10; }
+
+  .showcase-pills {
+    display: none; /* pills hidden on mobile, just show label */
+  }
+}

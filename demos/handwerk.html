@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al-Hassan Elektro GmbH – Elektriker in Dortmund</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1a2744;
+      --navy-dark:   #111d36;
+      --navy-mid:    #243156;
+      --orange:      #E8752A;
+      --orange-h:    #d4641e;
+      --white:       #ffffff;
+      --light:       #f4f5f7;
+      --grey:        #e8eaed;
+      --text:        #1a2744;
+      --muted:       #5a6482;
+      --border:      #dde0e8;
+      --radius:      10px;
+      --shadow:      0 2px 16px rgba(26,39,68,.10);
+      --shadow-lg:   0 8px 40px rgba(26,39,68,.15);
+    }
+
+    html, body { overflow: hidden; height: 100%; }
+    .page-wrap { height: 100%; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+    .page-wrap::-webkit-scrollbar { display: none; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overscroll-behavior: none;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.82);
+      font-size: .82rem;
+      padding: 8px 0;
+    }
+    .topbar-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .topbar-item { display: flex; align-items: center; gap: 6px; }
+    .topbar-item a { color: rgba(255,255,255,.82); text-decoration: none; transition: color .2s; }
+    .topbar-item a:hover { color: var(--orange); }
+    .topbar-item svg { width: 13px; height: 13px; opacity: .75; flex-shrink: 0; }
+    .badge-notdienst {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--orange); color: #fff;
+      font-weight: 700; font-size: .76rem; padding: 3px 10px;
+      border-radius: 20px; letter-spacing: .03em;
+    }
+    .pulse-dot {
+      width: 7px; height: 7px; background: #fff; border-radius: 50%;
+      animation: pulseAnim 1.5s ease-in-out infinite;
+    }
+    @keyframes pulseAnim {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.45; transform:scale(.75); }
+    }
+
+    /* ── NAV ── */
+    .navbar {
+      background: var(--navy); position: sticky; top: 0; z-index: 200;
+      box-shadow: 0 2px 14px rgba(0,0,0,.22);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .logo-link { display: flex; align-items: center; gap: 11px; text-decoration: none; color: #fff; }
+    .logo-icon {
+      width: 37px; height: 37px; background: var(--orange); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .logo-icon svg { width: 20px; height: 20px; }
+    .logo-name { font-size: 1.06rem; font-weight: 700; line-height: 1.2; }
+    .logo-sub  { font-size: .7rem; font-weight: 400; opacity: .6; letter-spacing: .05em; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.8); text-decoration: none;
+      font-size: .91rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: background .2s, color .2s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,.09); color: #fff; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 22px; border-radius: var(--radius);
+      font-family: 'Inter', sans-serif; font-size: .92rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; border: 2px solid transparent;
+      text-decoration: none; line-height: 1;
+    }
+    .btn-orange { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .btn-orange:hover {
+      background: var(--orange-h); border-color: var(--orange-h);
+      transform: translateY(-1px); box-shadow: 0 5px 18px rgba(232,117,42,.38);
+    }
+    .btn-outline-orange {
+      background: transparent; color: var(--orange); border-color: var(--orange);
+    }
+    .btn-outline-orange:hover { background: var(--orange); color: #fff; }
+    .btn-outline-white {
+      background: transparent; color: #fff; border-color: rgba(255,255,255,.5);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+    .btn-lg { padding: 14px 30px; font-size: 1rem; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy); min-height: 560px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; padding: 64px 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      align-items: center; width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(232,117,42,.14); color: var(--orange);
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 5px 12px;
+      border-radius: 4px; margin-bottom: 18px;
+      border: 1px solid rgba(232,117,42,.28);
+    }
+    .hero-title {
+      font-size: clamp(1.85rem, 3.4vw, 2.75rem); font-weight: 700;
+      line-height: 1.16; color: #fff; margin-bottom: 14px;
+    }
+    .hero-title em { color: var(--orange); font-style: normal; }
+    .hero-sub {
+      font-size: 1.04rem; color: rgba(255,255,255,.68);
+      margin-bottom: 26px; letter-spacing: .04em;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+      color: #fff; font-size: .83rem; font-weight: 600;
+      padding: 7px 14px; border-radius: 30px;
+    }
+    .chip-gold { color: #fbbf24; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero-img-wrap {
+      position: relative; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 22px 64px rgba(0,0,0,.38);
+    }
+    .hero-img-wrap img {
+      width: 100%; height: 410px; object-fit: cover; display: block;
+    }
+    .hero-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,39,68,.3) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-floater {
+      position: absolute; bottom: 20px; left: 20px; z-index: 3;
+      background: #fff; border-radius: 10px; padding: 12px 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .floater-icon {
+      width: 42px; height: 42px; background: rgba(232,117,42,.1);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .floater-icon svg { width: 22px; height: 22px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .floater-text { font-size: .77rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+    .floater-text span { display: block; font-weight: 400; color: var(--muted); font-size: .71rem; }
+
+    /* ── LAYOUT HELPERS ── */
+    section { padding: 78px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .sec-tag {
+      display: inline-block; color: var(--orange);
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; margin-bottom: 9px;
+    }
+    .sec-title {
+      font-size: clamp(1.55rem, 2.6vw, 2.15rem); font-weight: 700;
+      color: var(--text); line-height: 1.2; margin-bottom: 10px;
+    }
+    .sec-lead {
+      color: var(--muted); font-size: .97rem;
+      max-width: 530px; margin-bottom: 46px; line-height: 1.75;
+    }
+
+    /* ── SERVICES ── */
+    #leistungen { background: var(--light); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+    }
+    .svc-card {
+      background: var(--white); border-radius: 14px; padding: 32px;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+      position: relative; overflow: hidden;
+    }
+    .svc-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%; background: var(--orange);
+      opacity: 0; transition: opacity .25s;
+    }
+    .svc-card:hover, .svc-card.mock-hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .svc-card:hover::before, .svc-card.mock-hover::before { opacity: 1; }
+    .svc-icon {
+      width: 54px; height: 54px; background: rgba(232,117,42,.1);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px;
+    }
+    .svc-icon svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .svc-title { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+    .svc-desc { color: var(--muted); font-size: .89rem; line-height: 1.65; }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 14px; color: var(--orange);
+      font-size: .87rem; font-weight: 600; text-decoration: none;
+      transition: gap .18s;
+    }
+    .svc-link:hover { gap: 8px; }
+
+    /* ── TRUST NUMBERS ── */
+    #referenzen { background: var(--white); }
+    .kpi-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; margin-bottom: 54px;
+    }
+    .kpi-cell {
+      text-align: center; padding: 36px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .kpi-cell:last-child { border-right: none; }
+    .kpi-num { font-size: 2.6rem; font-weight: 700; color: var(--orange); line-height: 1; }
+    .kpi-lbl { font-size: .88rem; color: var(--muted); margin-top: 6px; font-weight: 500; }
+
+    .reviews-label { font-size: 1.05rem; font-weight: 700; margin-bottom: 20px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .review-card {
+      background: var(--light); border-radius: 12px; padding: 22px;
+      border: 1px solid var(--border);
+    }
+    .review-stars { display: flex; align-items: center; gap: 3px; margin-bottom: 10px; }
+    .review-text {
+      font-size: .87rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 14px; font-style: italic;
+    }
+    .review-author { font-size: .83rem; font-weight: 700; }
+    .review-place  { font-size: .76rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── ABOUT ── */
+    #ueber-uns { background: var(--light); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .about-body { font-size: .94rem; color: var(--muted); line-height: 1.8; }
+    .about-body p + p { margin-top: 14px; }
+    .check-list {
+      display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 26px;
+    }
+    .check-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .88rem; font-weight: 600;
+    }
+    .check-item::before { content: '✓'; color: var(--orange); font-size: 1rem; }
+    .team-card {
+      background: var(--white); border-radius: 14px; padding: 30px;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+    }
+    .team-label {
+      font-size: .75rem; font-weight: 700; color: var(--orange);
+      letter-spacing: .09em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .team-members { display: flex; flex-direction: column; gap: 16px; }
+    .team-member { display: flex; align-items: center; gap: 14px; }
+    .avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .95rem; color: #fff; flex-shrink: 0;
+    }
+    .member-name { font-size: .9rem; font-weight: 700; line-height: 1.3; }
+    .member-role { font-size: .78rem; color: var(--muted); }
+    .team-more {
+      margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: .82rem; color: var(--muted);
+    }
+
+    /* ── QUOTE FORM ── */
+    #anfrage { background: var(--navy); }
+    .quote-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 58px; align-items: start;
+    }
+    .quote-left-text { color: #fff; }
+    .quote-left-text .sec-tag { color: var(--orange); }
+    .quote-left-text .sec-title { color: #fff; }
+    .quote-lead {
+      color: rgba(255,255,255,.62); font-size: .97rem; line-height: 1.75; margin-bottom: 30px;
+    }
+    .trust-items { display: flex; flex-direction: column; gap: 14px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,.78); font-size: .89rem; }
+    .trust-bullet {
+      width: 30px; height: 30px; flex-shrink: 0;
+      background: rgba(232,117,42,.17); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-bullet svg { width: 15px; height: 15px; stroke: var(--orange); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .call-box {
+      margin-top: 34px; padding: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 10px;
+    }
+    .call-box-label { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.85); margin-bottom: 7px; }
+    .call-box-number { font-size: 1.4rem; font-weight: 700; color: var(--orange); text-decoration: none; }
+    .call-box-hours  { font-size: .77rem; color: rgba(255,255,255,.45); margin-top: 4px; }
+
+    .form-card {
+      background: var(--white); border-radius: 16px; padding: 40px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.26);
+    }
+    .form-card-title { font-size: 1.18rem; font-weight: 700; margin-bottom: 4px; }
+    .form-card-sub   { font-size: .84rem; color: var(--muted); margin-bottom: 26px; }
+    .form-card-sub span { color: var(--orange); }
+    .fg { margin-bottom: 17px; }
+    .fg label {
+      display: block; font-size: .82rem; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .fg label em { color: var(--orange); font-style: normal; }
+    .fc {
+      width: 100%; padding: 11px 13px;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: .9rem;
+      color: var(--text); background: var(--white);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    .fc:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,117,42,.11); }
+    .fc::placeholder { color: #aab1c3; }
+    select.fc { cursor: pointer; }
+    textarea.fc { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .btn-submit { width: 100%; padding: 14px; font-size: 1rem; border-radius: 8px; margin-top: 8px; }
+
+    .success-toast {
+      display: none; margin-top: 14px;
+      background: #ecfdf5; border: 1.5px solid #6ee7b7;
+      border-radius: 10px; padding: 15px 18px;
+      color: #065f46; font-size: .89rem; font-weight: 600;
+      align-items: center; gap: 9px;
+    }
+    .success-toast.show { display: flex; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.65);
+      padding: 52px 0 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand-desc {
+      font-size: .87rem; line-height: 1.72;
+      color: rgba(255,255,255,.5); margin-top: 12px;
+    }
+    .cert-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .cert-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(232,117,42,.14); color: var(--orange);
+      border: 1px solid rgba(232,117,42,.25);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: .74rem; font-weight: 600;
+    }
+    .footer-col h4 { color: #fff; font-size: .88rem; font-weight: 700; margin-bottom: 15px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { color: rgba(255,255,255,.58); text-decoration: none; font-size: .84rem; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.09); padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px; font-size: .79rem;
+    }
+    .footer-legal { display: flex; gap: 18px; }
+    .footer-legal a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .79rem; transition: color .2s; }
+    .footer-legal a:hover { color: var(--orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-img-wrap { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .kpi-row { grid-template-columns: 1fr; }
+      .kpi-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .kpi-cell:last-child { border-bottom: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .quote-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .topbar-left { gap: 8px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- ── TOP BAR ── -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span class="topbar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.22 2 2 0 012.21 0h3a2 2 0 012 1.72c.13.81.35 1.6.7 2.35a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.35 1.54.57 2.35.7A2 2 0 0122 14.92z"/>
+        </svg>
+        <a href="tel:+4923198765432">0231 98765432</a>
+      </span>
+      <span class="topbar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:info@alhassan-elektro.de">info@alhassan-elektro.de</a>
+      </span>
+    </div>
+    <span class="badge-notdienst"><span class="pulse-dot"></span> 24h Notdienst</span>
+  </div>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo-link">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="10"/><path d="M7 6.5A8 8 0 1 0 17 6.5"/></svg></div>
+      <div>
+        <div class="logo-name">Al-Hassan Elektro</div>
+        <div class="logo-sub">GmbH · Dortmund</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#anfrage">Notdienst</a></li>
+    </ul>
+    <a href="#anfrage" class="btn btn-orange">Kostenlos anfragen</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Elektriker in Dortmund &amp; Umgebung</div>
+      <h1 class="hero-title">
+        Ihr zuverlässiger<br>
+        <em>Elektriker in Dortmund</em><br>
+        &amp; Umgebung
+      </h1>
+      <p class="hero-sub">Schnell · Zuverlässig · Festpreise</p>
+      <div class="hero-chips">
+        <span class="chip"><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;flex-shrink:0;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4,9 Google</span>
+        <span class="chip"><svg style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Seit 2008</span>
+        <span class="chip"><svg style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 1.200+ Aufträge</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#anfrage" class="btn btn-orange btn-lg">Jetzt anfragen</a>
+        <a href="tel:+4923198765432" class="btn btn-outline-white btn-lg">Tel. direkt anrufen</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600"
+        alt="Elektrotechniker bei der Arbeit"
+        loading="lazy"
+      />
+      <div class="hero-floater">
+        <div class="floater-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="floater-text">
+          Innerhalb 60 Min. vor Ort
+          <span>beim Notdienst · 24 h täglich</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── SERVICES ── -->
+<section id="leistungen">
+  <div class="container">
+    <div class="sec-tag">Unsere Leistungen</div>
+    <h2 class="sec-title">Alles rund um Elektro — aus einer Hand</h2>
+    <p class="sec-lead">Von der einfachen Reparatur bis zur kompletten Smart-Home-Installation. Ihr verlässlicher Partner im Ruhrgebiet.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="svc-title">Elektroinstallation</div>
+        <p class="svc-desc">Neuinstallation, Erweiterung und Modernisierung Ihrer elektrischen Anlagen — normgerecht, sicher und sauber. Inklusive Dokumentation und Abnahmeprotokoll gemäß VDE-Vorschriften.</p>
+        <a href="#anfrage" class="svc-link">Anfragen →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="svc-title">Smart Home</div>
+        <p class="svc-desc">Licht, Heizung, Jalousien und Sicherheit intelligent steuern. Wir planen und installieren Ihr Smart-Home-System — kompatibel mit KNX, Loxone und gängigen Systemen.</p>
+        <a href="#anfrage" class="svc-link">Anfragen →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="svc-title">Notdienst 24/7</div>
+        <p class="svc-desc">Stromausfall, Kurzschluss oder Sicherungsdefekt — unsere Notfall-Techniker sind <strong>innerhalb von 60 Minuten</strong> bei Ihnen. An 365 Tagen, auch an Feiertagen.</p>
+        <a href="tel:+4923198765432" class="svc-link">Jetzt anrufen →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+        <div class="svc-title">E-Check</div>
+        <p class="svc-desc">Sicherheitsprüfung Ihrer Anlagen nach DGUV Vorschrift 3 (ehemals BGV A3). Pflicht für Betriebe, empfohlen für Privathaushalte. Mit offiziellem Prüfprotokoll und Plakette.</p>
+        <a href="#anfrage" class="svc-link">Anfragen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFERENZEN / TRUST ── -->
+<section id="referenzen">
+  <div class="container">
+    <div class="sec-tag">Referenzen &amp; Bewertungen</div>
+    <h2 class="sec-title">Dortmund vertraut uns seit 2008</h2>
+    <p class="sec-lead">Über 1.200 abgeschlossene Aufträge — vom Privathaushalt bis zum mittelständischen Unternehmen.</p>
+    <div class="kpi-row">
+      <div class="kpi-cell">
+        <div class="kpi-num" style="display:flex;align-items:center;gap:6px;"><svg style="width:22px;height:22px;fill:#fbbf24;stroke:none;flex-shrink:0;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4,9</div>
+        <div class="kpi-lbl">Google-Bewertung<br>(187 Rezensionen)</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.200+</div>
+        <div class="kpi-lbl">Abgeschlossene<br>Aufträge</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">Seit 2008</div>
+        <div class="kpi-lbl">Zuverlässig in<br>Dortmund &amp; Umgebung</div>
+      </div>
+    </div>
+    <div class="reviews-label">Aktuelle Kundenstimmen</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars"><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="review-text">„Super schneller Service! Hatte am Samstagabend einen Stromausfall, der Techniker war innerhalb von 45 Minuten da. Sehr freundlich und kompetent."</p>
+        <div class="review-author">Thomas K.</div>
+        <div class="review-place">März 2025 · Dortmund-Mitte</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="review-text">„Unser Haus mit Smart-Home ausstatten lassen. Von der Planung bis zur Inbetriebnahme alles tadellos. Das Preis-Leistungs-Verhältnis ist absolut top."</p>
+        <div class="review-author">Familie Meier</div>
+        <div class="review-place">Februar 2025 · Dortmund-Aplerbeck</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg style="width:13px;height:13px;fill:#fbbf24;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="review-text">„E-Check für unsere Praxis durchgeführt. Sehr professionell, pünktlich, das Protokoll war sofort fertig. Klare Empfehlung für alle Gewerbetreibenden."</p>
+        <div class="review-author">Dr. S. Rüther</div>
+        <div class="review-place">Januar 2025 · Dortmund-Innenstadt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ÜBER UNS ── -->
+<section id="ueber-uns" style="background:var(--light);">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="sec-tag">Über uns</div>
+        <h2 class="sec-title">Ihr Partner für Elektrotechnik seit 2008</h2>
+        <div class="about-body">
+          <p>Al-Hassan Elektro GmbH wurde 2008 von Inhaber Ahmad Al-Hassan in Dortmund gegründet. Was mit einem kleinen Handwerksbetrieb begann, ist heute ein 12-köpfiges Team qualifizierter Elektrofachkräfte, das Privat- und Gewerbekunden im gesamten Ruhrgebiet betreut.</p>
+          <p>Uns ist es wichtig, transparent zu kommunizieren, Festpreise anzubieten und pünktlich zu erscheinen. Das klingt selbstverständlich — in der Praxis setzt uns das von vielen Mitbewerbern ab.</p>
+          <p>Als zertifizierter Meisterbetrieb arbeiten wir ausschließlich nach den aktuellen VDE-Normen und bieten auf alle Installationsarbeiten eine Gewährleistung von 5 Jahren.</p>
+        </div>
+        <div class="check-list">
+          <span class="check-item">Meisterbetrieb</span>
+          <span class="check-item">Festpreisgarantie</span>
+          <span class="check-item">5 Jahre Gewährleistung</span>
+          <span class="check-item">DGUV-zertifiziert</span>
+          <span class="check-item">Pünktlich &amp; zuverlässig</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-label">Unser Team</div>
+        <div class="team-members">
+          <div class="team-member">
+            <div class="avatar" style="background:var(--navy);">AH</div>
+            <div>
+              <div class="member-name">Ahmad Al-Hassan</div>
+              <div class="member-role">Geschäftsführer · Elektroingenieur</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="avatar" style="background:var(--navy-mid);">MK</div>
+            <div>
+              <div class="member-name">Markus Krause</div>
+              <div class="member-role">Projektleiter Smart Home</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="avatar" style="background:#374b7a;">SF</div>
+            <div>
+              <div class="member-name">Sven Fischer</div>
+              <div class="member-role">Notdienst-Koordinator</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="avatar" style="background:#2e4070;">LB</div>
+            <div>
+              <div class="member-name">Lena Brandt</div>
+              <div class="member-role">Auftragsplanung &amp; Kundendienst</div>
+            </div>
+          </div>
+        </div>
+        <div class="team-more">+ 8 weitere qualifizierte Elektrofachkräfte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE FORM ── -->
+<section id="anfrage">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-left-text">
+        <div class="sec-tag">Kostenloses Angebot</div>
+        <h2 class="sec-title" style="color:#fff;">Kostenloses Angebot anfordern</h2>
+        <p class="quote-lead">Schildern Sie uns Ihr Anliegen — wir melden uns innerhalb von 2 Stunden mit einem unverbindlichen Festpreisangebot.</p>
+        <div class="trust-items">
+          <div class="trust-item">
+            <div class="trust-bullet"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Kostenlos &amp; unverbindlich</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-bullet"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <span>Antwort innerhalb von 2 Stunden</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-bullet"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <span>Festpreisangebot ohne versteckte Kosten</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-bullet"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <span>Ihre Daten sind sicher (DSGVO-konform)</span>
+          </div>
+        </div>
+        <div class="call-box">
+          <div class="call-box-label" style="display:flex;align-items:center;gap:7px;"><svg style="width:14px;height:14px;stroke:rgba(255,255,255,.85);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>Lieber direkt anrufen?</div>
+          <a href="tel:+4923198765432" class="call-box-number">0231 98765432</a>
+          <div class="call-box-hours">Mo–Fr 7–18 Uhr · Notdienst rund um die Uhr</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Anfrage senden</div>
+        <div class="form-card-sub">Felder mit <span>*</span> sind Pflichtfelder.</div>
+        <form id="quoteForm" onsubmit="return false;">
+          <div class="fg">
+            <label for="leistung">Gewünschte Leistung <em>*</em></label>
+            <select id="leistung" class="fc">
+              <option value="">Bitte wählen …</option>
+              <option value="elektroinstallation">Elektroinstallation</option>
+              <option value="smarthome">Smart Home</option>
+              <option value="notdienst">Notdienst</option>
+              <option value="echeck">E-Check</option>
+              <option value="photovoltaik">Photovoltaik</option>
+              <option value="wallbox">Ladestation / Wallbox</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="beschreibung">Projektbeschreibung <em>*</em></label>
+            <textarea id="beschreibung" class="fc" placeholder="Beschreiben Sie kurz Ihr Anliegen …" rows="4" spellcheck="false"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="name">Name <em>*</em></label>
+              <input type="text" id="name" class="fc" placeholder="Max Mustermann" spellcheck="false" autocomplete="off" />
+            </div>
+            <div class="fg">
+              <label for="telefon">Telefon <em>*</em></label>
+              <input type="tel" id="telefon" class="fc" placeholder="0172 …" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="plz">PLZ</label>
+              <input type="text" id="plz" class="fc" placeholder="44xxx" maxlength="5" spellcheck="false" autocomplete="off" />
+            </div>
+            <div class="fg">
+              <label for="email-field">E-Mail</label>
+              <input type="email" id="email-field" class="fc" placeholder="max@beispiel.de" />
+            </div>
+          </div>
+          <button type="button" class="btn btn-orange btn-submit" onclick="handleSubmit()">
+            Anfrage kostenfrei absenden
+          </button>
+          <div class="success-toast" id="successToast">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Anfrage gesendet — Wir melden uns innerhalb von 2 Stunden!
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo-link" style="color:#fff;">
+          <div class="logo-icon" style="width:32px;height:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="width:17px;height:17px;"><line x1="12" y1="2" x2="12" y2="10"/><path d="M7 6.5A8 8 0 1 0 17 6.5"/></svg></div>
+          <div style="margin-left:9px;">
+            <div class="logo-name" style="font-size:.98rem;">Al-Hassan Elektro GmbH</div>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Ihr zuverlässiger Elektriker in Dortmund und dem Ruhrgebiet. Meisterbetrieb seit 2008. Festpreisgarantie. 24/7 Notdienst.</p>
+        <div class="cert-badges">
+          <span class="cert-badge"><svg style="width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Meisterbetrieb</span>
+          <span class="cert-badge"><svg style="width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> DGUV Zertifiziert</span>
+          <span class="cert-badge"><svg style="width:11px;height:11px;fill:currentColor;stroke:none;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> VDE-geprüft</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#">Elektroinstallation</a></li>
+          <li><a href="#">Smart Home</a></li>
+          <li><a href="#">Notdienst 24/7</a></li>
+          <li><a href="#">E-Check</a></li>
+          <li><a href="#">Photovoltaik</a></li>
+          <li><a href="#">Wallbox / Ladestation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+4923198765432">0231 98765432</a></li>
+          <li><a href="mailto:info@alhassan-elektro.de">info@alhassan-elektro.de</a></li>
+          <li><a href="#">Rheinlanddamm 115</a></li>
+          <li><a href="#">44139 Dortmund</a></li>
+          <li><a href="#">Mo–Fr: 7:00–18:00 Uhr</a></li>
+          <li><a href="#">Notdienst: 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Al-Hassan Elektro GmbH · Alle Rechte vorbehalten</span>
+      <div class="footer-legal">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div><!-- /.page-wrap -->
+
+<script>
+  // ── Simple submit handler ──
+  function handleSubmit() {
+    document.getElementById('successToast').classList.add('show');
+  }
+
+  // ── Utility ──
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function typeInto(el, text, delay) {
+    el.focus({ preventScroll: true });
+    el.value = '';
+    for (const ch of text) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input'));
+      await sleep(delay);
+    }
+    el.blur();
+  }
+
+  function hoverEl(el, dur) {
+    return new Promise(function(res) {
+      if (!el) { res(); return; }
+      el.classList.add('mock-hover');
+      setTimeout(function() {
+        el.classList.remove('mock-hover');
+        setTimeout(res, 220);
+      }, dur);
+    });
+  }
+
+  // ── Demo animation ──
+  var _demoRun = 0;
+
+  async function runDemo() {
+    var rid = ++_demoRun;
+    function ok() { return _demoRun === rid; }
+    function wait(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+    var pw = document.querySelector('.page-wrap');
+
+    pw.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Reset form
+    document.getElementById('leistung').value = '';
+    document.getElementById('beschreibung').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('plz').value = '';
+    var toast = document.getElementById('successToast');
+    toast.classList.remove('show');
+
+    var svcCards = document.querySelectorAll('.svc-card');
+
+    // 1. Browse services section
+    await wait(800); if (!ok()) return;
+    var elSvc = document.getElementById('leistungen');
+    pw.scrollTo({ top: elSvc ? elSvc.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(1000); if (!ok()) return;
+
+    await hoverEl(svcCards[1], 1200); if (!ok()) return;
+    await hoverEl(svcCards[0], 1000); if (!ok()) return;
+    await hoverEl(svcCards[3], 900);  if (!ok()) return;
+
+    // 2. Scroll to reviews
+    await wait(400); if (!ok()) return;
+    var elRef = document.getElementById('referenzen');
+    pw.scrollTo({ top: elRef ? elRef.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(1200); if (!ok()) return;
+
+    // 3. Scroll to form
+    var elAnfrage = document.getElementById('anfrage');
+    pw.scrollTo({ top: elAnfrage ? elAnfrage.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(900); if (!ok()) return;
+
+    // Pick Leistung
+    document.getElementById('leistung').value = 'smarthome';
+    document.getElementById('leistung').dispatchEvent(new Event('change'));
+    await wait(600); if (!ok()) return;
+
+    // Type description
+    await typeInto(
+      document.getElementById('beschreibung'),
+      'Wir möchten 4 Zimmer mit intelligentem Licht und Rollladensteuerung ausstatten.',
+      30
+    );
+    if (!ok()) return;
+    await wait(500); if (!ok()) return;
+
+    // Name
+    await typeInto(document.getElementById('name'), 'Familie Weber', 48);
+    if (!ok()) return;
+    await wait(350); if (!ok()) return;
+
+    // PLZ
+    await typeInto(document.getElementById('plz'), '44139', 65);
+    if (!ok()) return;
+    await wait(700); if (!ok()) return;
+
+    // Show success toast
+    toast.classList.add('show');
+    await wait(1000); if (!ok()) return;
+    window.parent.postMessage('demo-complete', '*');
+
+    // Reset for next replay
+    await wait(1500);
+    if (!ok()) return;
+    toast.classList.remove('show');
+    document.getElementById('leistung').value = '';
+    document.getElementById('beschreibung').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('plz').value = '';
+    pw.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  window.addEventListener('message', function(e) {
+    if (e.data === 'demo-start') runDemo();
+  });
+</script>
+</body>
+</html>

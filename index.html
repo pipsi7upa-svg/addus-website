@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="addus. — Strategische Websites, die Besucher in zahlende Kunden verwandeln. Webdesign für KMU und Mittelstand. Kostenlose Strategie-Session buchen.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="addus. — Websites, die Kunden gewinnen">
+  <meta property="og:description" content="Strategische Websites, die Besucher in zahlende Kunden verwandeln — messbar, schnell und auf Ihr Wachstum ausgelegt.">
+  <meta property="og:locale"      content="de_DE">
+  <title>addus. — Websites, die Kunden gewinnen. Nicht nur gut aussehen.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/mockup.css">
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" aria-label="addus. — Zur Startseite">addus.</a>
+      <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="#kontakt" class="navbar__cta">Termin buchen</a>
+      <button class="navbar__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ 1. HERO ══ -->
+    <section id="hero" class="hero" aria-labelledby="hero-headline">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow"></div>
+      </div>
+
+      <div class="hero__container">
+
+        <!-- Left: Text Content -->
+        <div class="hero__content">
+          <h1 class="hero__headline animate-in" id="hero-headline" style="--delay: 180ms">
+            <span class="h1-light">Nicht noch eine Website.</span><br>
+            <span class="h1-accent">Eine die</span>
+            <span class="h1-accent">Kunden bringt.</span>
+          </h1>
+          <p class="hero__sub animate-in" style="--delay: 320ms">
+            Webdesign für Restaurants, Handwerker und lokale Unternehmen — strategisch gedacht, schnell umgesetzt, messbar wirksam.
+          </p>
+          <div class="hero__actions animate-in" style="--delay: 440ms">
+            <a href="#kontakt" class="hero-link">
+              <span class="hero-link__line"></span>
+              <span class="hero-link__text">Projekt starten</span>
+              <svg class="hero-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <button class="hero-link hero-link--calc" id="openCalcBtn" type="button">
+              <span class="hero-link__line"></span>
+              <span class="hero-link__text">Webseitenkosten berechnen</span>
+              <span class="hero-link__badge">45 Sek.</span>
+            </button>
+          </div>
+
+          <div class="hero__proof animate-in" style="--delay: 580ms">
+            <span>147 Projekte</span>
+            <span class="proof-dot"></span>
+            <span>14 Tage Go-Live</span>
+            <span class="proof-dot"></span>
+            <span>4.9/5 Google</span>
+          </div>
+        </div>
+
+        <!-- Right: Live Website Showcase -->
+        <div class="hero__showcase animate-in" style="--delay: 80ms">
+
+          <div class="showcase-stage" id="showcaseStage">
+
+            <!-- Decorative depth panels (no iframes — pure visual depth) -->
+            <div class="showcase-panel showcase-panel--back"  id="showcaseBack"></div>
+            <div class="showcase-panel showcase-panel--mid"   id="showcaseMid"></div>
+
+            <!-- Front viewport: all 4 demos preloaded, only 1 visible -->
+            <div class="showcase-panel showcase-panel--front" id="showcaseFront">
+
+              <iframe id="sc-0" src="demos/restaurant.html"
+                class="showcase-iframe is-active"
+                title="Demo: Bella Vista Restaurant"
+                data-rw="1200" data-rh="900"
+                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+
+              <iframe id="sc-1" src="demos/steuerberater.html"
+                class="showcase-iframe"
+                title="Demo: Müller & Partner Steuerberatung"
+                data-rw="1300" data-rh="975"
+                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+
+              <iframe id="sc-2" src="demos/handwerk.html"
+                class="showcase-iframe"
+                title="Demo: Al-Hassan Elektro"
+                data-rw="1300" data-rh="975"
+                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+
+              <iframe id="sc-3" src="demos/ecommerce.html"
+                class="showcase-iframe"
+                title="Demo: SportGear Pro Shop"
+                data-rw="1380" data-rh="1035"
+                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+
+              <!-- Thin activity scanner at bottom -->
+              <div class="showcase-scanner" id="showcaseScanner"></div>
+
+
+            </div><!-- /front panel -->
+
+          </div><!-- /showcase-stage -->
+
+          <!-- Demo indicator below stage -->
+          <div class="demo-now" id="demoNow">
+            <div class="demo-now__line"></div>
+            <div class="demo-now__items">
+              <div class="demo-now__item is-active" data-idx="0">
+                <span class="demo-now__type">Gastronomie</span>
+                <span class="demo-now__name">Bella Vista Ristorante</span>
+              </div>
+              <div class="demo-now__item" data-idx="1">
+                <span class="demo-now__type">Steuerberatung</span>
+                <span class="demo-now__name">Müller &amp; Partner</span>
+              </div>
+              <div class="demo-now__item" data-idx="2">
+                <span class="demo-now__type">Handwerk</span>
+                <span class="demo-now__name">Al-Hassan Elektro</span>
+              </div>
+              <div class="demo-now__item" data-idx="3">
+                <span class="demo-now__type">E-Commerce</span>
+                <span class="demo-now__name">SportGear Pro</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /hero__showcase -->
+
+      </div><!-- /hero__container -->
+    </section>
+
+    <!-- ══ PAIN / DREAM SECTION ══ -->
+    <section class="pain-dream">
+      <div class="pain-dream__inner">
+        <div class="pain-dream__header reveal">
+          <h2 class="pain-dream__title">Fühlen Sie sich frustriert über Ihre Webseite?</h2>
+          <p class="pain-dream__sub">Wenn die eigene Webseite zur Bremse wird und Wachstum ausbleibt, spüren Sie das jeden Tag.</p>
+        </div>
+        <div class="pain-dream__grid">
+          <div class="pain-dream__col pain-dream__col--pain reveal">
+            <h3>Ihre Situation</h3>
+            <ul>
+              <li>Veraltetes Design, das nicht überzeugt</li>
+              <li>Hohe Absprungrate und wenige Anfragen</li>
+              <li>Keine Handyoptimierung, lange Ladezeiten</li>
+              <li>Zeit- und Kostenfresser ohne Ergebnisse</li>
+              <li>Viel investiert — ohne spürbaren Erfolg</li>
+            </ul>
+          </div>
+          <div class="pain-dream__col pain-dream__col--dream reveal">
+            <h3>Ihr Wunschzustand</h3>
+            <ul>
+              <li>Modernes Design, das Vertrauen schafft</li>
+              <li>Besucher, die bleiben und Kontakt aufnehmen</li>
+              <li>Technisch einwandfrei, schnell, mobilfreundlich</li>
+              <li>Effiziente Investition mit messbaren Erfolgen</li>
+              <li>Nachhaltiger Mehrwert durch gezielte Strategie</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pain-dream__cta reveal">
+          <button class="calc-trigger" id="openCalcBtn2" type="button">Jetzt Webseitenkosten berechnen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BRUSHSTROKE DIVIDER ══ -->
+    <div class="brushstroke-divider" aria-hidden="true">
+      <svg class="brushstroke-svg" viewBox="0 0 1200 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Paint body — heavy distortion like thick wet paint -->
+          <filter id="bfBody" x="-10%" y="-100%" width="120%" height="300%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="5" seed="3" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <!-- Bristle strands — medium distortion -->
+          <filter id="bfBristle" x="-10%" y="-100%" width="120%" height="300%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.1" numOctaves="4" seed="9" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <!-- Dry brush edges — fine grain -->
+          <filter id="bfDry" x="-10%" y="-100%" width="120%" height="300%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.07 0.14" numOctaves="5" seed="17" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <!-- Splatter — high frequency noise -->
+          <filter id="bfSplat" x="-15%" y="-120%" width="130%" height="340%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.1 0.2" numOctaves="3" seed="23" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+
+        <!-- 1. Shadow / bleed under the stroke (like paint soaking into paper) -->
+        <path class="brushstroke-path" d="M-30,82 C60,58 170,98 310,74 C450,48 550,92 690,76 C830,58 920,88 1070,68 C1140,58 1210,76 1230,74" fill="none" stroke="#1a1200" stroke-width="38" stroke-linecap="round" stroke-opacity="0.08" filter="url(#bfBody)"/>
+
+        <!-- 2. Wide soft base — the loaded brush first touches -->
+        <path class="brushstroke-path" d="M-25,78 C70,50 175,94 315,68 C455,40 555,88 695,72 C835,54 925,82 1075,64 C1145,56 1215,72 1225,70" fill="none" stroke="#8B6914" stroke-width="34" stroke-linecap="round" stroke-opacity="0.3" filter="url(#bfBody)"/>
+
+        <!-- 3. Core body — the richest paint deposit -->
+        <path class="brushstroke-path" d="M-18,76 C80,44 185,92 325,64 C465,36 560,84 700,68 C840,50 930,78 1080,60 C1150,52 1218,68 1222,66" fill="none" stroke="#C8932A" stroke-width="22" stroke-linecap="round" stroke-opacity="0.85" filter="url(#bfBody)"/>
+
+        <!-- 4. Pressure variation — thinner where brush lifts slightly -->
+        <path class="brushstroke-path" d="M-10,74 C95,46 195,86 335,62 C475,38 565,80 705,66 C845,50 935,74 1085,58 C1152,50 1220,64 1224,64" fill="none" stroke="#C8932A" stroke-width="14" stroke-linecap="round" stroke-opacity="0.7" filter="url(#bfBristle)"/>
+
+        <!-- 5. Wet highlight — where paint pools and catches light -->
+        <path class="brushstroke-path" d="M5,70 C105,48 205,82 345,60 C485,38 575,76 715,64 C855,48 945,70 1090,56 C1155,50 1215,62 1220,60" fill="none" stroke="#EDBE5A" stroke-width="7" stroke-linecap="round" stroke-opacity="0.5" filter="url(#bfBristle)"/>
+
+        <!-- 6. Upper bristle trail — individual hair mark -->
+        <path class="brushstroke-path" d="M8,64 C115,44 235,76 375,56 C515,36 595,68 735,58 C875,44 965,64 1100,52 C1160,46 1215,56 1220,54" fill="none" stroke="#D4A64E" stroke-width="3" stroke-linecap="round" stroke-opacity="0.45" filter="url(#bfBristle)"/>
+
+        <!-- 7. Lower bristle trail -->
+        <path class="brushstroke-path" d="M-32,88 C65,68 185,100 325,80 C465,58 555,94 695,80 C835,62 925,86 1070,70 C1140,64 1215,78 1225,78" fill="none" stroke="#906B18" stroke-width="3.5" stroke-linecap="round" stroke-opacity="0.35" filter="url(#bfBristle)"/>
+
+        <!-- 8. Dry brush edge — top (paint running thin) -->
+        <path class="brushstroke-path" d="M20,58 C130,42 250,66 390,50 C530,36 620,60 760,52 C900,40 980,58 1110,46 C1165,42 1210,50 1215,48" fill="none" stroke="#C8932A" stroke-width="2" stroke-linecap="round" stroke-opacity="0.2" stroke-dasharray="8 6 2 10" filter="url(#bfDry)"/>
+
+        <!-- 9. Dry brush edge — bottom -->
+        <path class="brushstroke-path" d="M-15,96 C80,82 200,106 340,90 C480,72 560,100 700,88 C840,72 930,92 1070,80 C1140,74 1215,86 1222,86" fill="none" stroke="#8B6914" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.2" stroke-dasharray="6 8 3 12" filter="url(#bfDry)"/>
+
+        <!-- 10. Paint splatter — tiny droplets above -->
+        <path class="brushstroke-path" d="M50,48 C160,40 290,52 430,44 C570,38 680,50 820,42 C960,36 1060,48 1180,40" fill="none" stroke="#C8932A" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.2" stroke-dasharray="1 24 2 18 1 30" filter="url(#bfSplat)"/>
+
+        <!-- 11. Paint splatter — tiny droplets below -->
+        <path class="brushstroke-path" d="M35,104 C140,96 270,110 420,100 C570,92 670,106 820,98 C960,90 1070,104 1180,96" fill="none" stroke="#A07A1C" stroke-width="2" stroke-linecap="round" stroke-opacity="0.15" stroke-dasharray="2 28 1 22 3 32" filter="url(#bfSplat)"/>
+      </svg>
+    </div>
+
+    <!-- ══ BENTO GALLERY ══ -->
+    <section id="galerie" class="bento-section">
+      <!-- Splatter drops -->
+      <div class="paint-splatter" aria-hidden="true">
+        <svg class="splat-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="splatTexture" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.06 0.09" numOctaves="5" seed="5" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+              <feGaussianBlur stdDeviation="0.3"/>
+            </filter>
+          </defs>
+          <ellipse class="splat-drop splat-drop--1" cx="60" cy="55" rx="28" ry="24" fill="#111" filter="url(#splatTexture)"/>
+          <ellipse class="splat-drop splat-drop--2" cx="115" cy="40" rx="18" ry="15" fill="#1a1a1a" filter="url(#splatTexture)"/>
+          <ellipse class="splat-drop splat-drop--3" cx="30" cy="35" rx="11" ry="9" fill="#0d0d0d" filter="url(#splatTexture)"/>
+          <circle class="splat-drop splat-drop--4" cx="150" cy="30" r="7" fill="#222" filter="url(#splatTexture)"/>
+          <circle class="splat-drop splat-drop--5" cx="90" cy="85" r="8" fill="#151515" filter="url(#splatTexture)"/>
+          <circle class="splat-drop splat-drop--6" cx="165" cy="60" r="5" fill="#1a1a1a" filter="url(#splatTexture)"/>
+          <circle class="splat-drop splat-drop--7" cx="15" cy="70" r="6" fill="#111" filter="url(#splatTexture)"/>
+          <path class="splat-drop splat-drop--drip" d="M58,78 Q57,95 59,108" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" filter="url(#splatTexture)"/>
+          <path class="splat-drop splat-drop--drip2" d="M113,54 Q112,65 114,74" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" filter="url(#splatTexture)"/>
+        </svg>
+      </div>
+
+      <!-- Paint drip: thick blob at top → line flows down -->
+      <svg class="paint-drip" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <filter id="dripTexture" x="-30%" y="-5%" width="160%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.08" numOctaves="5" seed="11" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <linearGradient id="dripFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#000" stop-opacity="0.9"/>
+            <stop offset="10%" stop-color="#050505" stop-opacity="0.75"/>
+            <stop offset="30%" stop-color="#0a0a0a" stop-opacity="0.55"/>
+            <stop offset="55%" stop-color="#0d0d0d" stop-opacity="0.35"/>
+            <stop offset="80%" stop-color="#111" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#111" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Main drip — starts under the blob, flows down -->
+        <path class="drip-path drip-path--main"
+          d="M20,30 C19,60 18,100 17,150 C16,210 19,280 18,360 C17,440 20,520 19,600 C18,680 20,760 19,840 C18,900 19,960 19,1000"
+          fill="none" stroke="url(#dripFade)" stroke-width="5" stroke-linecap="round"
+          filter="url(#dripTexture)"/>
+
+        <!-- Thin side drip — starts from blob edge (26,28), slightly right -->
+        <path class="drip-path drip-path--thin"
+          d="M26,28 C25,70 28,140 26,230 C24,330 27,430 25,530 C23,630 26,720 25,780"
+          fill="none" stroke="#050505" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.22"
+          filter="url(#dripTexture)"/>
+
+        <!-- Paint bulges along the drip where gravity slows it -->
+        <ellipse class="drip-blob" cx="14" cy="200" rx="5" ry="8" fill="#111" opacity="0" filter="url(#dripTexture)"/>
+        <ellipse class="drip-blob" cx="15" cy="500" rx="4" ry="6" fill="#1a1a1a" opacity="0" filter="url(#dripTexture)"/>
+        <ellipse class="drip-blob" cx="13" cy="780" rx="3" ry="4" fill="#1a1a1a" opacity="0" filter="url(#dripTexture)"/>
+
+        <!-- SOURCE BLOB — drawn LAST so it sits ON TOP of the drip lines -->
+        <ellipse class="drip-source" cx="20" cy="18" rx="18" ry="14" fill="#111" filter="url(#splatTexture)"/>
+      </svg>
+      <div class="bento-section__inner">
+        <div class="bento-header reveal">
+          <span class="bento-label">Unsere Arbeit</span>
+          <h2 class="bento-title">Einblicke in aktuelle Projekte.</h2>
+          <p class="bento-sub">Ein Auszug aus Websites, die wir für unsere Kunden gebaut haben.</p>
+        </div>
+        <div class="bento-grid reveal">
+          <div class="bento-item bento-item--tall" data-bento="0">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurant mit gedeckten Tischen" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">Gastronomie</span>
+              <h3>Bella Vista Ristorante</h3>
+              <p>Online-Reservierung und Speisekarte</p>
+            </div>
+          </div>
+          <div class="bento-item bento-item--wide" data-bento="1">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Elektriker bei der Arbeit" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">Handwerk</span>
+              <h3>Müller Haustechnik</h3>
+              <p>3x mehr Kundenanfragen nach Relaunch</p>
+            </div>
+          </div>
+          <div class="bento-item bento-item--tall" data-bento="2">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Moderne Arztpraxis" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">Gesundheit</span>
+              <h3>Bergmann Physiotherapie</h3>
+              <p>Online-Terminbuchung und lokales SEO</p>
+            </div>
+          </div>
+          <div class="bento-item bento-item--wide" data-bento="3">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Modernes Ladengeschäft" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">E-Commerce</span>
+              <h3>SportGear Pro Shop</h3>
+              <p>Shopify-Relaunch mit mehr Umsatz</p>
+            </div>
+          </div>
+          <div class="bento-item" data-bento="4">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Beratungsgespräch im Büro" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">Beratung</span>
+              <h3>Richter Steuerberatung</h3>
+              <p>Professioneller Neuauftritt</p>
+            </div>
+          </div>
+          <div class="bento-item" data-bento="5">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Moderne Wohnung Interieur" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <span class="bento-tag">Immobilien</span>
+              <h3>Schneider Immobilien</h3>
+              <p>Lead-Generierung und Exposés</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ 2. TRUST & AUTHORITY ══ -->
+    <section class="logos-section section__inner" aria-label="Unsere Kunden">
+      <p class="logos-section__headline reveal">Vertraut von Handwerkern, Gastronomen und Beratern in <span class="shine-text shine-text--gold">ganz Deutschland</span></p>
+      <div class="logos-grid reveal reveal-delay-1">
+        <span class="client-name">Müller Haustechnik</span>
+        <span class="client-sep">·</span>
+        <span class="client-name">Bergmann Physiotherapie</span>
+        <span class="client-sep">·</span>
+        <span class="client-name">Richter Steuerberatung</span>
+        <span class="client-sep">·</span>
+        <span class="client-name">Al-Hassan Elektro</span>
+        <span class="client-sep">·</span>
+        <span class="client-name">Café Bella Vista</span>
+        <span class="client-sep">·</span>
+        <span class="client-name">Immobilien Schneider</span>
+      </div>
+    </section>
+
+    <section id="vertrauen" class="section" aria-labelledby="trust-headline">
+      <div class="section__inner">
+        <div class="section-header--center reveal">
+          <span class="section-label">UNSERE ERGEBNISSE</span>
+          <h2 class="section-headline" id="trust-headline">Zahlen, die für uns sprechen.</h2>
+          <p class="section-sub section-sub--center">Was unsere Kunden bisher erreicht haben.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card reveal reveal-delay-1">
+            <div class="kpi-number">3x</div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-label">mehr Kundenanfragen</div>
+            <div class="kpi-detail">im Durchschnitt nach dem Relaunch</div>
+            <p class="kpi-quote">"Wir haben im ersten Jahr 3x mehr Anfragen bekommen." — Markus H., Sanitärmeister</p>
+          </div>
+          <div class="kpi-card reveal reveal-delay-2">
+            <div class="kpi-number" data-counter data-target="147">147</div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-label">Zufriedene Kunden in 8 Jahren</div>
+            <div class="stars" aria-label="5 von 5 Sternen">4.9 von 5 Sternen</div>
+            <div class="kpi-detail">4.9 von 5 Sternen · 98 Google-Bewertungen</div>
+          </div>
+          <div class="kpi-card reveal reveal-delay-3">
+            <div class="kpi-number">14</div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-label">Tage bis Ihre Website online ist</div>
+            <div class="kpi-detail">Design, Texte und Technik — alles inklusive</div>
+          </div>
+        </div>
+
+        <!-- Awards -->
+        <div class="awards-row reveal">
+          <div class="award-badge">Google Partner</div>
+          <div class="award-badge">DSGVO-konform</div>
+          <div class="award-badge">Festpreise</div>
+          <div class="award-badge">Persönlicher Ansprechpartner</div>
+        </div>
+
+        <!-- Featured Testimonial -->
+        <div class="testimonial-featured reveal">
+          <div class="testimonial-featured__video">
+            <div class="testimonial-featured__video-bg">
+              <div class="video-avatar">TM</div>
+            </div>
+            <div class="play-btn" aria-label="Video abspielen">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+            </div>
+            <div class="video-caption">
+              <div class="video-caption__name">Thomas Müller</div>
+              <div class="video-caption__role">Geschäftsführer, Müller Haustechnik GmbH</div>
+            </div>
+          </div>
+          <div class="testimonial-featured__quote">
+            <div class="quote-mark" aria-hidden="true">"</div>
+            <p class="quote-text">Wir haben jahrelang mit einer veralteten Website gekämpft. Null Anfragen, schlechte Google-Platzierungen. Nach dem Relaunch: 3x mehr Anfragen, Seite 1 bei Google — und plötzlich rufen Kunden bei uns an, nicht mehr umgekehrt.</p>
+            <div class="quote-author">
+              <strong>Thomas Müller</strong>
+              <span>Müller Haustechnik GmbH · SHK-Handwerk · Ergebnis nach 90 Tagen</span>
+            </div>
+            <div class="stars" aria-label="5 Sterne">4.9 von 5 Sternen</div>
+            <a href="#portfolio" class="quote-cta">Weitere Erfolgsgeschichten →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 3. SERVICES ══ -->
+    <section id="leistungen" class="section section--alt" aria-labelledby="services-headline">
+      <div class="section__inner">
+        <div class="reveal">
+          <span class="section-label">LEISTUNGEN</span>
+          <h2 class="section-headline" id="services-headline">Alles, was Ihr Unternehmen<br>online braucht.</h2>
+          <p class="section-sub">Von der neuen Website bis zur Google-Sichtbarkeit. Wir kümmern uns um alles.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div>
+              <div class="service-card__title">Webdesign</div>
+              <h3 class="service-card__headline">Eine Website, die Vertrauen schafft</h3>
+            </div>
+            <p class="service-card__desc">Professionelles Design, das zu Ihrem Unternehmen passt. Mobilfreundlich, schnell und einfach zu pflegen.</p>
+            <ul class="service-card__features">
+              <li>Individuelles Design für Ihre Branche</li>
+              <li>Optimiert für Handy und Tablet</li>
+              <li>Schnelle Ladezeiten</li>
+              <li>Inhalte selbst ändern — ohne Vorkenntnisse</li>
+            </ul>
+            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div>
+              <div class="service-card__title">Google-Sichtbarkeit</div>
+              <h3 class="service-card__headline">Gefunden werden, wenn Kunden suchen</h3>
+            </div>
+            <p class="service-card__desc">Damit Ihre Kunden Sie bei Google finden — in Ihrer Stadt, für Ihre Leistungen.</p>
+            <ul class="service-card__features">
+              <li>Google-Eintrag einrichten und optimieren</li>
+              <li>Für die richtigen Suchbegriffe sichtbar werden</li>
+              <li>Lokale Sichtbarkeit in Ihrer Region</li>
+              <li>Monatlicher Bericht über Ihre Ergebnisse</li>
+            </ul>
+            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div>
+              <div class="service-card__title">Online-Shop</div>
+              <h3 class="service-card__headline">Shops, die verkaufen</h3>
+            </div>
+            <p class="service-card__desc">Ein eigener Online-Shop für Ihre Produkte. Einfach zu verwalten, sicher für Ihre Kunden.</p>
+            <ul class="service-card__features">
+              <li>Shopify oder WooCommerce</li>
+              <li>Einfache Produktverwaltung</li>
+              <li>Sichere Bezahlung und Versand</li>
+              <li>Beratung zu Produktfotos</li>
+            </ul>
+            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
+          </div>
+
+        </div>
+
+        <!-- Industry Pills -->
+        <div class="industry-block reveal">
+          <h3 class="industry-block__headline">Wir arbeiten mit diesen Branchen.</h3>
+          <p class="industry-block__sub">Jede Branche hat eigene Anforderungen. Wir kennen sie.</p>
+          <div class="industry-pills" role="list">
+            <button class="industry-pill is-active" role="listitem"><span>Gastronomie</span></button>
+            <button class="industry-pill" role="listitem"><span>Handwerk</span></button>
+            <button class="industry-pill" role="listitem"><span>Arztpraxis</span></button>
+            <button class="industry-pill" role="listitem"><span>Online-Shop</span></button>
+            <button class="industry-pill" role="listitem"><span>Immobilien</span></button>
+            <button class="industry-pill" role="listitem"><span>Beratung</span></button>
+          </div>
+        </div>
+
+        <!-- CTA Block -->
+        <div class="services-cta-block reveal">
+          <div class="services-cta-block__text">
+            <h3>Nicht sicher, was Sie brauchen? Kein Problem.</h3>
+            <p>In einem kurzen Gespräch schauen wir uns Ihre aktuelle Website an und besprechen, was wir für Sie tun können.</p>
+            <p class="services-cta-block__testimonial">"Das ehrlichste Gespräch, das ich je mit einer Agentur hatte." — <strong>Peter W., Steuerberater</strong></p>
+          </div>
+          <div class="services-cta-block__actions">
+            <a href="#kontakt" class="btn-primary">
+              Kostenlos beraten lassen
+              <svg class="btn-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 10h6M10 7l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 4. PAKETE ══ -->
+    <section id="pakete" class="section" aria-labelledby="pakete-headline">
+      <div class="section__inner">
+        <div class="section-header--center reveal">
+          <span class="section-label">PAKETE & PREISE</span>
+          <h2 class="section-headline" id="pakete-headline">Das richtige Paket<br>für jeden Betrieb.</h2>
+          <p class="section-sub section-sub--center">Klare Preise, keine Überraschungen. Von der kleinen Visitenkarten-Seite bis zur kompletten digitalen Infrastruktur — alles inkl. Design, Entwicklung und Support.</p>
+        </div>
+
+        <div class="pakete-grid pakete-grid--4 reveal">
+
+          <!-- Paket 300 € -->
+          <div class="paket-card">
+            <div class="paket-card__for">
+              <span class="paket-for-tag">Ideal für</span>
+              <span class="paket-for-list">Imbiss · Lieferservice · Foodtruck · Kleinstbetrieb</span>
+            </div>
+            <div class="paket-card__label">Einsteiger</div>
+            <div class="paket-card__name">Basic</div>
+            <div class="paket-card__price">
+              <span class="paket-price-value">300&nbsp;€</span>
+            </div>
+            <div class="paket-card__timeline">In 7 Tagen online</div>
+            <p class="paket-card__desc">Eine saubere, schnelle Präsenz online — damit Kunden Sie finden, Ihre Öffnungszeiten sehen und Sie anrufen können.</p>
+            <ul class="paket-card__features">
+              <li>1 Seite (Landingpage)</li>
+              <li>Speisekarte oder Leistungsübersicht</li>
+              <li>Kontakt &amp; Anfahrt</li>
+              <li>Mobil optimiert</li>
+              <li>Google Business Eintrag einrichten</li>
+              <li>14 Tage Support</li>
+            </ul>
+            <a href="#kontakt" class="paket-card__cta paket-card__cta--outline">Jetzt anfragen →</a>
+          </div>
+
+          <!-- Paket 800 € -->
+          <div class="paket-card">
+            <div class="paket-card__for">
+              <span class="paket-for-tag">Ideal für</span>
+              <span class="paket-for-list">Restaurant · Café · Friseursalon · Bäckerei · Blumenladen</span>
+            </div>
+            <div class="paket-card__label">Lokal & Sichtbar</div>
+            <div class="paket-card__name">Standard</div>
+            <div class="paket-card__price">
+              <span class="paket-price-value">800&nbsp;€</span>
+            </div>
+            <div class="paket-card__timeline">In 10 Tagen online</div>
+            <p class="paket-card__desc">Professioneller Auftritt mit allem was ein lokaler Betrieb braucht — Speisekarte, Reservierung, Fotos und Google-Sichtbarkeit.</p>
+            <ul class="paket-card__features">
+              <li>Bis zu 4 Seiten</li>
+              <li>Speisekarte / Leistungsseite</li>
+              <li>Online-Reservierung oder Terminbuchung</li>
+              <li>Galerie &amp; Bilder-Sektion</li>
+              <li>Google Maps &amp; lokales SEO</li>
+              <li>Instagram-Link Integration</li>
+              <li>30 Tage Support</li>
+            </ul>
+            <a href="#kontakt" class="paket-card__cta paket-card__cta--outline">Jetzt anfragen →</a>
+          </div>
+
+          <!-- Paket 1.200 € (Featured) -->
+          <div class="paket-card paket-card--featured">
+            <div class="paket-card__badge">Meistgewählt</div>
+            <div class="paket-card__for">
+              <span class="paket-for-tag">Ideal für</span>
+              <span class="paket-for-list">Steuerberater · Arztpraxis · Anwalt · Handwerker · Berater</span>
+            </div>
+            <div class="paket-card__label">Professionell</div>
+            <div class="paket-card__name">Business</div>
+            <div class="paket-card__price">
+              <span class="paket-price-value">1.200&nbsp;€</span>
+            </div>
+            <div class="paket-card__timeline">In 14 Tagen online</div>
+            <p class="paket-card__desc">Für Selbstständige und kleine Unternehmen, die nicht nur präsent sein, sondern aktiv neue Mandanten und Kunden gewinnen wollen.</p>
+            <ul class="paket-card__features">
+              <li>Bis zu 7 Seiten</li>
+              <li>CMS — Inhalte selbst bearbeiten</li>
+              <li>Kontaktformular mit automatischer E-Mail</li>
+              <li>Vollständiges lokales SEO-Setup</li>
+              <li>Google Analytics &amp; Auswertung</li>
+              <li>DSGVO-konformes Cookie-Banner</li>
+              <li>Bewertungen / Referenzen Sektion</li>
+              <li>60 Tage Support</li>
+            </ul>
+            <a href="#kontakt" class="paket-card__cta paket-card__cta--primary">Jetzt beraten lassen →</a>
+          </div>
+
+          <!-- Paket Auf Anfrage -->
+          <div class="paket-card">
+            <div class="paket-card__for">
+              <span class="paket-for-tag">Ideal für</span>
+              <span class="paket-for-list">Immobilien · Finanzunternehmen · Kette · Mittelstand</span>
+            </div>
+            <div class="paket-card__label">Maßgeschneidert</div>
+            <div class="paket-card__name">Enterprise</div>
+            <div class="paket-card__price">
+              <span class="paket-price-value">Auf Anfrage</span>
+            </div>
+            <div class="paket-card__timeline">Individuell abgestimmt</div>
+            <p class="paket-card__desc">Für Unternehmen mit besonderen Anforderungen — mehrsprachig, mit Kundenportal, Automatisierungen oder komplexen Integrationen.</p>
+            <ul class="paket-card__features">
+              <li>Unbegrenzte Seiten &amp; Funktionen</li>
+              <li>Persönliche Strategie-Session (90 Min.)</li>
+              <li>Eigenes Design nach Ihren Vorgaben</li>
+              <li>Anbindung an Ihre Buchungssoftware</li>
+              <li>Automatische Terminbestätigung</li>
+              <li>Mehrsprachigkeit möglich</li>
+              <li>Persönlicher Ansprechpartner</li>
+              <li>Laufende Betreuung optional</li>
+            </ul>
+            <a href="#kontakt" class="paket-card__cta paket-card__cta--outline">Erstgespräch vereinbaren →</a>
+          </div>
+
+        </div>
+
+        <!-- Vergleichs-Hinweis -->
+        <div class="pakete-compare reveal">
+          <div class="pakete-compare__item">
+            <span class="pakete-compare__icon">✓</span>
+            <span>Alle Preise sind Festpreise — keine Stundensätze</span>
+          </div>
+          <div class="pakete-compare__item">
+            <span class="pakete-compare__icon">✓</span>
+            <span>Hosting ab 19&nbsp;€/Monat optional dazubuchbar</span>
+          </div>
+          <div class="pakete-compare__item">
+            <span class="pakete-compare__icon">✓</span>
+            <span>Nicht sicher welches Paket passt? Wir beraten kostenlos.</span>
+          </div>
+        </div>
+
+        <p class="pakete-hinweis reveal">Alle Preise zzgl. MwSt. · Ratenzahlung möglich · Keine versteckten Folgekosten</p>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 5. PORTFOLIO ══ -->
+    <section id="portfolio" class="section" aria-labelledby="portfolio-headline">
+      <div class="section__inner">
+        <div class="reveal">
+          <span class="section-label">REFERENZEN & ERGEBNISSE</span>
+          <h2 class="section-headline" id="portfolio-headline">Projekte unserer Kunden.</h2>
+          <p class="section-sub">Einige Beispiele aus unserer Arbeit.</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="portfolio-filters reveal" role="group" aria-label="Portfolio filtern">
+          <button class="filter-btn is-active" data-filter="all">Alle Projekte</button>
+          <button class="filter-btn" data-filter="gastronomie">Gastronomie</button>
+          <button class="filter-btn" data-filter="handwerk">Handwerk</button>
+          <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+          <button class="filter-btn" data-filter="b2b">B2B</button>
+          <button class="filter-btn" data-filter="medizin">Medizin</button>
+        </div>
+
+        <!-- Featured Case Study -->
+        <div class="case-study-featured reveal">
+          <div class="case-study-featured__preview">
+            <div class="cs-preview-screen" style="display:flex;align-items:center;justify-content:center;padding:40px;">
+              <div style="text-align:center;">
+                <div style="font-size:1.5rem;font-weight:700;color:var(--color-text-primary);margin-bottom:8px;">Müller Haustechnik</div>
+                <div style="font-size:0.85rem;color:var(--color-text-muted);">mueller-haustechnik.de</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-study-featured__body">
+            <div>
+              <div class="cs-meta">
+                <span class="cs-tag">SHK-Handwerk</span>
+                <span class="cs-client">Müller Haustechnik GmbH, München</span>
+              </div>
+              <h3 class="cs-title">Von Seite 8 auf Seite 1 — und 340% mehr Anfragen</h3>
+              <div class="cs-story">
+                <div class="cs-story-block">
+                  <h4>Herausforderung</h4>
+                  <p>Veraltete Website, Seite 8 bei Google, 0 Online-Anfragen pro Monat. Kunden gingen zur Konkurrenz.</p>
+                </div>
+                <div class="cs-story-block">
+                  <h4>Unsere Lösung</h4>
+                  <p>Kompletter Relaunch mit Local-SEO-Kampagne und konversionsoptimiertem Design.</p>
+                </div>
+              </div>
+              <a href="#kontakt" class="service-card__link" style="margin-top:var(--space-4)">Vollständige Case Study lesen →</a>
+            </div>
+            <div class="cs-results">
+              <div class="cs-result-card">
+                <div class="kpi-number" data-counter data-target="340" data-prefix="+" data-suffix="%">+340%</div>
+                <div class="cs-result-label">mehr Anfragen</div>
+              </div>
+              <div class="cs-result-card">
+                <div class="kpi-number" style="color:var(--color-warm)">#1</div>
+                <div class="cs-result-label">Google Ranking</div>
+              </div>
+              <div class="cs-result-card">
+                <div class="kpi-number" style="color:var(--color-success);font-size:var(--text-2xl)">21 Tage</div>
+                <div class="cs-result-label">bis Go-Live</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <div class="portfolio-card reveal reveal-delay-1" data-category="medizin">
+            <div class="portfolio-card__thumb">
+              <div class="pc-thumb-content" style="text-align:center">
+                <div style="font-size:2rem;margin-bottom:8px"></div>
+                <div class="pc-line pc-line--1"></div>
+                <div class="pc-line pc-line--2"></div>
+                <div class="pc-line pc-line--3"></div>
+                <div class="pc-cards"><div class="pc-card-mini"></div><div class="pc-card-mini"></div></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tag">Gesundheit</div>
+              <h4 class="portfolio-card__title">Bergmann Physiotherapie</h4>
+              <p class="portfolio-card__desc">Kompletter Relaunch mit Online-Terminbuchung und lokalem SEO-Fokus.</p>
+              <div class="portfolio-card__metrics">
+                <span class="metric-chip">+1.200% Anfragen</span>
+                <span class="metric-chip metric-chip--accent">#1 Google</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card reveal reveal-delay-2" data-category="b2b">
+            <div class="portfolio-card__thumb">
+              <div class="pc-thumb-content" style="text-align:center">
+                <div style="font-size:2rem;margin-bottom:8px"></div>
+                <div class="pc-line pc-line--1" style="background:linear-gradient(90deg,rgba(79,195,247,0.5),rgba(30,58,95,0.3))"></div>
+                <div class="pc-line pc-line--2"></div>
+                <div class="pc-line pc-line--3"></div>
+                <div class="pc-cards"><div class="pc-card-mini"></div><div class="pc-card-mini"></div><div class="pc-card-mini"></div></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tag">Finanzen / B2B</div>
+              <h4 class="portfolio-card__title">Richter Steuerberatung</h4>
+              <p class="portfolio-card__desc">Professioneller Neuauftritt mit Mandanten-Akquise-Fokus.</p>
+              <div class="portfolio-card__metrics">
+                <span class="metric-chip">ROI 340%</span>
+                <span class="metric-chip metric-chip--accent">+85 Neukunden</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card reveal reveal-delay-2" data-category="gastronomie">
+            <div class="portfolio-card__thumb">
+              <div class="pc-thumb-content" style="text-align:center">
+                <div style="font-size:2rem;margin-bottom:8px"></div>
+                <div class="pc-line pc-line--1" style="background:linear-gradient(90deg,rgba(200,96,42,0.5),rgba(212,167,106,0.3))"></div>
+                <div class="pc-line pc-line--2"></div>
+                <div class="pc-line pc-line--3"></div>
+                <div class="pc-cards"><div class="pc-card-mini"></div><div class="pc-card-mini"></div></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tag">Gastronomie</div>
+              <h4 class="portfolio-card__title">Bella Vista Ristorante</h4>
+              <p class="portfolio-card__desc">Neue Website mit Online-Reservierung, Speisekarte & Google-Optimierung.</p>
+              <div class="portfolio-card__metrics">
+                <span class="metric-chip">+220% Reservierungen</span>
+                <span class="metric-chip metric-chip--accent">#1 "Restaurant München"</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card reveal reveal-delay-3" data-category="ecommerce">
+            <div class="portfolio-card__thumb">
+              <div class="pc-thumb-content" style="text-align:center">
+                <div style="font-size:2rem;margin-bottom:8px"></div>
+                <div class="pc-line pc-line--1" style="background:linear-gradient(90deg,rgba(124,58,237,0.5),rgba(79,70,229,0.3))"></div>
+                <div class="pc-line pc-line--2"></div>
+                <div class="pc-line pc-line--3"></div>
+                <div class="pc-cards"><div class="pc-card-mini"></div><div class="pc-card-mini"></div><div class="pc-card-mini"></div></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tag">E-Commerce</div>
+              <h4 class="portfolio-card__title">SportGear Pro Shop</h4>
+              <p class="portfolio-card__desc">Shopify-Relaunch mit Checkout-Optimierung und Performance-Boost.</p>
+              <div class="portfolio-card__metrics">
+                <span class="metric-chip">+165% Umsatz</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Carousel -->
+        <div class="testimonial-carousel reveal">
+          <div class="carousel-track" aria-live="polite">
+            <div class="carousel-slides">
+              <div class="carousel-slide">
+                <blockquote class="carousel-slide__quote">"Wir hatten vorher 2–3 Anfragen im Monat online. Heute sind es 30–40. Die neue Website hat unser Unternehmen verändert."</blockquote>
+                <div class="carousel-slide__author">— Anna Bergmann, Bergmann Physiotherapie Köln</div>
+                <span class="carousel-slide__kpi">+1.200% Online-Anfragen</span>
+              </div>
+              <div class="carousel-slide">
+                <blockquote class="carousel-slide__quote">"Ich war skeptisch wegen des Preises. Aber schon im ersten Monat hat die neue Website mehr als das Doppelte der Investition reingeholt. Bester ROI meiner Geschichte."</blockquote>
+                <div class="carousel-slide__author">— Klaus Richter, Richter Steuerberatung Hamburg</div>
+                <span class="carousel-slide__kpi">ROI: 340% im ersten Quartal</span>
+              </div>
+              <div class="carousel-slide">
+                <blockquote class="carousel-slide__quote">"Die haben wirklich verstanden, wie mein Handwerksbetrieb tickt. Nicht einfach irgendeine Website gebaut, sondern eine, die meinen Kunden überzeugt. Läuft."</blockquote>
+                <div class="carousel-slide__author">— Ibrahim Al-Hassan, Al-Hassan Elektro GmbH Dortmund</div>
+                <span class="carousel-slide__kpi">Seite 1 Google in 6 Wochen</span>
+              </div>
+              <div class="carousel-slide">
+                <blockquote class="carousel-slide__quote">"Ich dachte, so eine Website ist nur was für große Ketten. Aber schon in der ersten Woche nach dem Launch hatten wir jeden Abend ausgebucht — das gab es vorher nie."</blockquote>
+                <div class="carousel-slide__author">— Marco Ferretti, Bella Vista Ristorante München</div>
+                <span class="carousel-slide__kpi">+220% Reservierungen in 30 Tagen</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots" role="tablist" aria-label="Testimonials">
+            <button class="carousel-dot is-active" role="tab" aria-selected="true"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false"></button>
+          </div>
+        </div>
+
+        <!-- Portfolio CTA -->
+        <div class="portfolio-cta reveal">
+          <p>Lassen Sie uns über Ihr Projekt sprechen.</p>
+          <a href="#kontakt" class="btn-primary">
+            Kostenlos beraten lassen
+            <svg class="btn-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 10h6M10 7l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+          <span class="portfolio-cta__phone">oder direkt: <a href="tel:+498900000000">+49 89 XXX XXXX</a></span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 5. ÜBER UNS ══ -->
+    <section id="ueber-uns" class="section section--alt" aria-labelledby="about-headline">
+      <div class="section__inner">
+        <div class="reveal">
+          <span class="section-label">WER WIR SIND</span>
+          <h2 class="section-headline" id="about-headline">Wer hinter addus. steckt.</h2>
+        </div>
+
+        <!-- Founder Block -->
+        <div class="founder-block reveal">
+          <div class="founder-photo">
+            <div class="founder-photo-bg">
+              <div class="founder-avatar">GF</div>
+            </div>
+          </div>
+          <div class="founder-content">
+            <blockquote>
+              "Ich habe früher selbst einen kleinen Betrieb geführt. Ich weiß, wie es ist, wenn die Website nichts bringt.<br><br>
+              Deshalb bauen wir Websites, die wirklich funktionieren. Seit 2016 — für mehr als 140 Unternehmen."
+            </blockquote>
+            <div class="founder-sig">
+              Addus Gründer
+              <small>Geschäftsführer & Head of Strategy · addus. GmbH</small>
+            </div>
+            <div class="founder-links">
+              <a href="#" class="founder-link">LinkedIn-Profil</a>
+              <a href="#kontakt" class="founder-link">Direktgespräch buchen</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="section-header--center reveal" style="margin-bottom:var(--space-10)">
+          <h3 class="section-headline" style="font-size:var(--text-2xl)">Unser Team.</h3>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card reveal reveal-delay-1">
+            <div class="team-card__photo">
+              <div class="team-avatar team-avatar--1">LD</div>
+            </div>
+            <div class="team-card__body">
+              <div class="team-card__name">Lisa D.</div>
+              <div class="team-card__position">Lead Designer & UX-Strategin</div>
+              <div class="team-card__spec">"Webdesign &amp; Gestaltung"</div>
+              <div class="team-card__facts">
+                <div class="team-fact">9 Jahre Erfahrung</div>
+                <div class="team-fact">60+ Websites designed</div>
+              </div>
+              <a href="#" class="team-card__linkedin">LinkedIn</a>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-2">
+            <div class="team-card__photo">
+              <div class="team-avatar team-avatar--2">MK</div>
+            </div>
+            <div class="team-card__body">
+              <div class="team-card__name">Markus K.</div>
+              <div class="team-card__position">Lead Developer</div>
+              <div class="team-card__spec">"Technik &amp; Entwicklung"</div>
+              <div class="team-card__facts">
+                <div class="team-fact">100+ Websites umgesetzt</div>
+                <div class="team-fact">8 Jahre Frontend-Entwicklung</div>
+              </div>
+              <a href="#" class="team-card__linkedin">LinkedIn</a>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-3">
+            <div class="team-card__photo">
+              <div class="team-avatar team-avatar--3">SR</div>
+            </div>
+            <div class="team-card__body">
+              <div class="team-card__name">Sarah R.</div>
+              <div class="team-card__position">Head of SEO & Content</div>
+              <div class="team-card__spec">"Google &amp; Suchmaschinen"</div>
+              <div class="team-card__facts">
+                <div class="team-fact">200+ Websites auf Seite 1</div>
+                <div class="team-fact">Google-zertifiziert seit 2018</div>
+              </div>
+              <a href="#" class="team-card__linkedin">LinkedIn</a>
+            </div>
+          </div>
+          <div class="team-card reveal reveal-delay-4">
+            <div class="team-card__photo">
+              <div class="team-avatar team-avatar--4">TW</div>
+            </div>
+            <div class="team-card__body">
+              <div class="team-card__name">Tobias W.</div>
+              <div class="team-card__position">Project Manager</div>
+              <div class="team-card__spec">"Ihr persönlicher Ansprechpartner"</div>
+              <div class="team-card__facts">
+                <div class="team-fact">100% Kundenzufriedenheit</div>
+                <div class="team-fact">Spricht: DE, EN, FR</div>
+              </div>
+              <a href="#" class="team-card__linkedin">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values -->
+        <div class="section-header--center reveal" style="margin:var(--space-16) 0 var(--space-10)">
+          <h3 class="section-headline" style="font-size:var(--text-2xl)">Was uns antreibt.</h3>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal reveal-delay-1">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            <div class="value-title">Ergebnisorientierung</div>
+            <p class="value-desc">Was zählt, sind Ihre Ergebnisse: Mehr Anfragen, mehr Kunden, mehr Umsatz.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span>
+            <div class="value-title">Ehrliche Beratung</div>
+            <p class="value-desc">Wir sagen Ihnen, was Sie brauchen — nicht was Sie hören wollen. Auch wenn das manchmal unbequem ist.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="value-title">Langfristige Partnerschaft</div>
+            <p class="value-desc">Wir sind kein Projekt-Dienstleister. Wir werden Ihr digitales Team. Durchschnittliche Kundenbeziehung: 4,2 Jahre.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 6. BLOG ══ -->
+    <section id="blog" class="section" aria-labelledby="blog-headline">
+      <div class="section__inner">
+        <div class="reveal">
+          <span class="section-label">WISSEN & INSIGHTS</span>
+          <h2 class="section-headline" id="blog-headline">Tipps und Wissen für Unternehmer.</h2>
+          <p class="section-sub">Praktische Tipps rund um Webdesign, Google-Sichtbarkeit und Online-Marketing.</p>
+        </div>
+
+        <!-- Featured Article -->
+        <a href="#" class="blog-featured reveal">
+          <div class="blog-featured__img">
+            <div class="blog-img-illustration">
+              <div class="blog-img-icon"></div>
+              <div class="blog-img-bars">
+                <div class="blog-bar blog-bar--1"></div>
+                <div class="blog-bar blog-bar--2"></div>
+                <div class="blog-bar blog-bar--3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-featured__body">
+            <div class="blog-meta">
+              <span class="blog-tag">SEO</span>
+              <span class="blog-readtime">7 Min Lesezeit</span>
+              <span class="blog-date">März 2026</span>
+            </div>
+            <h3 class="blog-featured__title">Warum viele Handwerker-Websites keine Anfragen bringen — und was Sie dagegen tun können</h3>
+            <p class="blog-featured__excerpt">Die häufigsten Fehler bei Handwerker-Websites — und wie Sie mit einfachen Maßnahmen mehr Kunden gewinnen.</p>
+            <div class="blog-author">
+              <div class="author-avatar">SR</div>
+              <div>
+                <div class="author-name">Sarah R.</div>
+                <div class="author-role">Head of SEO & Content</div>
+              </div>
+            </div>
+            <span class="blog-read-link">Jetzt lesen →</span>
+          </div>
+        </a>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+          <a href="#" class="blog-card reveal reveal-delay-1">
+            <div class="blog-card__img"></div>
+            <div class="blog-card__body">
+              <div class="blog-meta"><span class="blog-tag">Handwerk</span><span class="blog-readtime">8 Min</span></div>
+              <h4 class="blog-card__title">5 Website-Fehler, die Ihr Handwerksunternehmen täglich Kunden kosten</h4>
+              <p class="blog-card__excerpt">Diese Fehler sehen wir bei 9 von 10 Handwerker-Websites — und keiner weiß, dass er Geld verliert.</p>
+              <div class="blog-card__footer">
+                <div class="blog-author"><div class="author-avatar" style="width:24px;height:24px;font-size:0.6rem">SR</div><div class="author-name" style="font-size:0.7rem">Sarah R.</div></div>
+                <span class="blog-read-link" style="font-size:var(--text-xs)">Lesen →</span>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="blog-card reveal reveal-delay-2">
+            <div class="blog-card__img"></div>
+            <div class="blog-card__body">
+              <div class="blog-meta"><span class="blog-tag">SEO</span><span class="blog-readtime">12 Min</span></div>
+              <h4 class="blog-card__title">Google My Business 2026: Der komplette Leitfaden für lokale Unternehmen</h4>
+              <p class="blog-card__excerpt">Alles, was Sie wissen müssen, um lokal auf Google gefunden zu werden — step by step.</p>
+              <div class="blog-card__footer">
+                <div class="blog-author"><div class="author-avatar" style="width:24px;height:24px;font-size:0.6rem">SR</div><div class="author-name" style="font-size:0.7rem">Sarah R.</div></div>
+                <span class="blog-read-link" style="font-size:var(--text-xs)">Lesen →</span>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="blog-card reveal reveal-delay-3">
+            <div class="blog-card__img"></div>
+            <div class="blog-card__body">
+              <div class="blog-meta"><span class="blog-tag">KI</span><span class="blog-readtime">6 Min</span></div>
+              <h4 class="blog-card__title">Drei digitale Werkzeuge, die unseren Kunden Zeit sparen</h4>
+              <p class="blog-card__excerpt">Was unseren Kunden im Alltag wirklich hilft.</p>
+              <div class="blog-card__footer">
+                <div class="blog-author"><div class="author-avatar" style="width:24px;height:24px;font-size:0.6rem">MK</div><div class="author-name" style="font-size:0.7rem">Markus K.</div></div>
+                <span class="blog-read-link" style="font-size:var(--text-xs)">Lesen →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Newsletter CTA -->
+        <div class="newsletter-cta reveal">
+          <span class="newsletter-cta__icon"></span>
+          <div class="newsletter-cta__kicker">Monatlich · Wertvoll · Kostenlos</div>
+          <h3 class="newsletter-cta__title">Unser Newsletter für Unternehmer</h3>
+          <div class="newsletter-features">
+            <span class="nl-feature">1 umsetzbarer Website-Tipp</span>
+            <span class="nl-feature">1 SEO-Quick-Win der Woche</span>
+            <span class="nl-feature">Aktuelle Google-Updates</span>
+          </div>
+          <form class="newsletter-form" novalidate>
+            <input class="nl-input" type="email" placeholder="ihre@email.de" autocomplete="email" required>
+            <button class="nl-btn" type="submit" data-orig-text="Abonnieren →">Abonnieren →</button>
+          </form>
+          <p class="newsletter-social-proof">Bereits <strong>Mehr als 2.800 Unternehmer</strong> abonniert · Kein Spam · Abmeldung jederzeit</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ 7. KONTAKT ══ -->
+    <section id="kontakt" class="section contact-section" aria-labelledby="contact-headline">
+      <div class="section__inner">
+        <div class="section-header--center reveal">
+          <span class="section-label">NÄCHSTER SCHRITT</span>
+          <h2 class="section-headline" id="contact-headline">Bereit für mehr Kunden?<br>Lassen Sie uns reden.</h2>
+          <p class="section-sub section-sub--center">Kein Hochdruckverkauf. Kein Standardangebot ohne Analyse. Nur ein ehrliches Gespräch darüber, ob und wie wir Ihnen helfen können.</p>
+          <div class="hero__trust" style="justify-content:center;margin-top:var(--space-5)">
+            <div class="trust-chip">✓ 100% kostenlos & unverbindlich</div>
+            <div class="trust-chip">✓ Antwort in 4 Stunden</div>
+            <div class="trust-chip">✓ Echter Experte, kein Call-Center</div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Form -->
+          <div>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">Vorname *</label>
+                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Max" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Nachname *</label>
+                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Mustermann" required autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">E-Mail-Adresse *</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="max@unternehmen.de" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Telefon (optional)</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+49 89 ..." autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="interest">Ich interessiere mich für</label>
+                <div class="form-checks">
+                  <label class="form-check"><input type="checkbox" name="interest" value="neuentwicklung"> <span>Website-Neuentwicklung</span></label>
+                  <label class="form-check"><input type="checkbox" name="interest" value="relaunch"> <span>Website-Relaunch</span></label>
+                  <label class="form-check"><input type="checkbox" name="interest" value="seo"> <span>SEO & Sichtbarkeit</span></label>
+                  <label class="form-check"><input type="checkbox" name="interest" value="ecommerce"> <span>E-Commerce / Shop</span></label>
+                  <label class="form-check"><input type="checkbox" name="interest" value="beratung"> <span>Beratung & Strategie</span></label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Ihre Nachricht *</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Erzählen Sie uns kurz von Ihrem Projekt und Ihren Zielen..." required></textarea>
+              </div>
+              <label class="dsgvo-check">
+                <input type="checkbox" id="dsgvoCheck" required>
+                <span>Ich stimme der <a href="#">Datenschutzerklärung</a> zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *</span>
+              </label>
+              <div class="form-submit-area">
+                <button class="btn-submit" type="submit" id="submitBtn" disabled>
+                  Nachricht senden →
+                </button>
+                <p style="font-size:var(--text-xs);color:var(--color-text-muted)">Keine Kreditkarte. Keine versteckten Kosten. Antwort innerhalb von 4 Stunden.</p>
+              </div>
+            </form>
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <div class="success-icon">✓</div>
+              <h3 class="success-title"><span class="success-name">Hallo</span>, Ihre Nachricht ist angekommen!</h3>
+              <p class="success-msg">Wir melden uns innerhalb von 4 Stunden — oder noch heute, falls Sie vor 15 Uhr schreiben. Schon neugierig? Schauen Sie sich unsere <a href="#portfolio" style="color:var(--color-accent)">Case Studies</a> an.</p>
+            </div>
+          </div>
+
+          <!-- Direct Contact -->
+          <div class="contact-direct">
+            <p class="contact-info-title">Direktkontakt</p>
+            <div class="contact-info-items">
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+                <div class="contact-info-item__text">
+                  <strong><a href="tel:+498900000000">+49 89 XXX XXXX</a></strong>
+                  <span>Mo–Fr 9–18 Uhr</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div class="contact-info-item__text">
+                  <strong><a href="mailto:hallo@addus.de">hallo@addus.de</a></strong>
+                  <span>Antwort &lt; 4 Stunden</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <div class="contact-info-item__text">
+                  <strong>Musterstraße 42</strong>
+                  <span>80333 München</span>
+                </div>
+              </div>
+            </div>
+            <hr class="contact-divider">
+            <div class="response-times">
+              <div class="resp-time"><strong>Heute noch</strong> Rückruf möglich</div>
+              <div class="resp-time">Angebot in <strong>48 Stunden</strong></div>
+              <div class="resp-time">Projektstart in <strong>7 Tagen</strong></div>
+            </div>
+            <hr class="contact-divider">
+            <div class="book-direct">
+              <p class="book-direct__title">Direkt Termin buchen</p>
+              <div class="cal-placeholder" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Freie Termine der nächsten 7 Tage anzeigen
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section reveal">
+          <div class="section-header--center" style="margin-bottom:var(--space-10)">
+            <h3 class="section-headline" style="font-size:var(--text-2xl)">Die häufigsten Fragen.<br>Ehrliche Antworten.</h3>
+          </div>
+          <div class="faq-list" role="list">
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was kostet eine neue Website?
+                <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro. Im kostenlosen Erstgespräch finden wir das passende Paket für Sie.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Wie lange dauert ein Website-Projekt?
+                <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Unser Standard: 21 Werktage von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen. Immer pünktlich — das ist keine Phrase, sondern vertragliche Vereinbarung.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Kann ich meine Website danach selbst bearbeiten?
+                <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket. Sie brauchen kein technisches Vorwissen.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was, wenn mir das Ergebnis nicht gefällt?
+                <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie — oder wir arbeiten nach, bis es stimmt.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Übernehmt ihr auch bestehende Websites?
+                <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Ja. Website-Audits, Relaunch bestehender Seiten und Performance-Optimierungen gehören zu unseren häufigsten Projekten. Wir analysieren, was Sie haben, und zeigen Ihnen den besten Weg vorwärts.</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__top">
+      <div class="footer-brand">
+        <div class="footer-logo">addus.</div>
+        <div class="footer-tagline">Websites, die wachsen.</div>
+        <p class="footer-desc">Wir helfen kleinen und mittleren Unternehmen, online mehr Kunden zu gewinnen. Seit 2016.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+          <a href="#" class="social-link" aria-label="Xing">X</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#leistungen">Webdesign</a></li>
+          <li><a href="#leistungen">SEO</a></li>
+          <li><a href="#leistungen">E-Commerce</a></li>
+          <li><a href="#kontakt">Wartung & Support</a></li>
+          <li><a href="#kontakt">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#ueber-uns">Team</a></li>
+          <li><a href="#portfolio">Referenzen</a></li>
+          <li><a href="#">Karriere</a></li>
+          <li><a href="#">Presse</a></li>
+          <li><a href="#">Partner</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressourcen</h4>
+        <ul>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Webinare</a></li>
+          <li><a href="#">Glossar</a></li>
+          <li><a href="#kontakt">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+498900000000">+49 89 XXX XXXX</a></li>
+          <li><a href="mailto:hallo@addus.de">hallo@addus.de</a></li>
+          <li><a href="#">München</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__middle">
+      <div class="footer-newsletter-mini">
+        <span>Einmal im Monat. Nur Wissen. Kein Spam.</span>
+        <form class="nl-mini-form" novalidate>
+          <input class="nl-mini-input" type="email" placeholder="ihre@email.de" autocomplete="email" required>
+          <button class="nl-mini-btn" type="submit" data-orig-text="→">→</button>
+        </form>
+      </div>
+      <div class="footer-trust-badges">
+        <span class="trust-badge-mini">Google Partner</span>
+        <span class="trust-badge-mini">DSGVO-konform</span>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer-legal">
+        <span>© 2026 addus. GmbH</span>
+        <a href="#">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="#">AGB</a>
+        <a href="#">Cookie-Einstellungen</a>
+        <a href="#">Sitemap</a>
+      </div>
+      <div class="footer-credit">Aus München. Für Unternehmen in ganz Deutschland.</div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <a href="#kontakt" class="sticky-cta" id="stickyCtaBtn" aria-label="Jetzt Termin buchen">Termin buchen →</a>
+
+  <!-- Preview Modal -->
+  <div class="preview-modal" id="previewModal" role="dialog" aria-modal="true" aria-label="Website Vorschau">
+    <div class="preview-modal__backdrop" id="previewBackdrop"></div>
+    <div class="preview-modal__window">
+      <div class="preview-modal__bar">
+        <div class="browser-dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="preview-modal__url">
+          <span class="url-lock">🔒</span>
+          <span class="url-text" id="modalUrl"></span>
+        </div>
+        <button class="preview-modal__close" id="previewClose" aria-label="Vorschau schließen">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <iframe class="preview-modal__frame" id="previewFrame" title="Website Vollbild-Vorschau"></iframe>
+    </div>
+  </div>
+
+  <!-- ══ KOSTENRECHNER MODAL ══ -->
+  <div class="calc-modal" id="calcModal" aria-hidden="true">
+    <div class="calc-modal__backdrop" id="calcClose"></div>
+    <div class="calc-modal__box">
+      <button class="calc-modal__x" id="calcCloseBtn" type="button" aria-label="Schließen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="calc-progress"><div class="calc-progress__bar" id="calcBar"></div></div>
+      <div class="calc-steps" id="calcSteps">
+        <div class="calc-step is-active" data-step="1">
+          <h3>Wonach suchen Sie?</h3>
+          <p class="calc-hint">Eine Webseite verbindet mehrere Unterseiten über ein Menü.<br>Eine Landingpage zeigt alles kompakt auf einer einzelnen Seite.</p>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="webseite" data-price="0"><span class="calc-opt__letter">A</span>Eine Webseite mit mehreren Seiten</button>
+            <button class="calc-opt" data-val="landingpage" data-price="0"><span class="calc-opt__letter">B</span>Eine Landingpage (alles auf einer Seite)</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="2">
+          <h3>Kommen wir zu den Einzelheiten.</h3>
+          <p class="calc-hint">Es folgen ein paar kurze Fragen zum Umfang, zu Ihren Inhalten und zu Extras.</p>
+          <button class="calc-next" id="calcIntroNext" type="button">Weiter</button>
+        </div>
+        <div class="calc-step" data-step="3">
+          <h3>Haben Sie bereits eine Website?</h3>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="bestehend" data-price="0"><span class="calc-opt__letter">A</span>Ja — wir möchten sie überarbeiten lassen</button>
+            <button class="calc-opt" data-val="neu" data-price="50"><span class="calc-opt__letter">B</span>Nein — wir starten komplett neu</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="4">
+          <h3>Wie viele Unterseiten brauchen Sie?</h3>
+          <p class="calc-hint">Als Unterseite zählt jede Seite im Menü — z.B. Über uns, Leistungen, Kontakt.</p>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="klein" data-price="300"><span class="calc-opt__letter">A</span>3–5 Seiten</button>
+            <button class="calc-opt" data-val="mittel" data-price="500"><span class="calc-opt__letter">B</span>5–10 Seiten</button>
+            <button class="calc-opt" data-val="gross" data-price="700"><span class="calc-opt__letter">C</span>10–15 Seiten</button>
+            <button class="calc-opt" data-val="sehr-gross" data-price="900"><span class="calc-opt__letter">D</span>15+ Seiten</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="5">
+          <h3>Haben Sie eigenes Bild- und Videomaterial?</h3>
+          <p class="calc-hint">Fotos von Ihrem Geschäft, Team oder Produkten.</p>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="eigenes" data-price="0"><span class="calc-opt__letter">A</span>Ja, wir haben eigenes Material</button>
+            <button class="calc-opt" data-val="teilweise" data-price="30"><span class="calc-opt__letter">B</span>Teilweise — wir brauchen Unterstützung</button>
+            <button class="calc-opt" data-val="keines" data-price="60"><span class="calc-opt__letter">C</span>Nein — bitte komplett übernehmen</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="6">
+          <h3>Wer schreibt die Texte für die Website?</h3>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="selbst" data-price="0"><span class="calc-opt__letter">A</span>Wir liefern die Texte selbst</button>
+            <button class="calc-opt" data-val="gemeinsam" data-price="40"><span class="calc-opt__letter">B</span>Gemeinsam — wir liefern Stichpunkte, Sie formulieren</button>
+            <button class="calc-opt" data-val="komplett" data-price="80"><span class="calc-opt__letter">C</span>Bitte komplett übernehmen</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="7">
+          <h3>Welchen Anspruch haben Sie ans Design?</h3>
+          <div class="calc-options">
+            <button class="calc-opt" data-val="sauber" data-price="0"><span class="calc-opt__letter">A</span>Sauber und professionell</button>
+            <button class="calc-opt" data-val="individuell" data-price="60"><span class="calc-opt__letter">B</span>Individuell — passend zu unserer Marke</button>
+            <button class="calc-opt" data-val="premium" data-price="120"><span class="calc-opt__letter">C</span>Premium — wir wollen auffallen</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="8">
+          <h3>Brauchen Sie Zusatzoptionen?</h3>
+          <p class="calc-hint">Mehrfachauswahl möglich.</p>
+          <div class="calc-options calc-options--multi">
+            <button class="calc-opt" data-val="buchung" data-price="60">Online-Terminbuchung / Reservierung</button>
+            <button class="calc-opt" data-val="shop" data-price="100">Online-Shop / Produktverkauf</button>
+            <button class="calc-opt" data-val="mehrsprachig" data-price="60">Mehrsprachigkeit</button>
+            <button class="calc-opt" data-val="suche" data-price="30">Suchfunktion</button>
+            <button class="calc-opt" data-val="mitglieder" data-price="80">Mitgliederbereich / Login</button>
+            <button class="calc-opt" data-val="seo" data-price="60">Google-Sichtbarkeit (SEO)</button>
+          </div>
+          <button class="calc-next" id="calcMultiNext" type="button">Weiter</button>
+        </div>
+        <div class="calc-step" data-step="9">
+          <h3>Ihre Kostenschätzung ist fertig.</h3>
+          <p class="calc-hint">Tragen Sie Ihre Daten ein, um das Ergebnis zu sehen.</p>
+          <div class="calc-form">
+            <input class="calc-input" type="text" id="calcName" placeholder="Vor- und Nachname *" required autocomplete="name" spellcheck="false">
+            <input class="calc-input" type="text" id="calcFirma" placeholder="Firma / Unternehmen" autocomplete="organization" spellcheck="false">
+            <input class="calc-input" type="email" id="calcEmail" placeholder="E-Mail-Adresse *" required autocomplete="email" spellcheck="false">
+            <div class="calc-phone-row">
+              <select class="calc-country" id="calcCountry" autocomplete="tel-country-code">
+                <option value="+49" selected>DE +49</option>
+                <option value="+43">AT +43</option>
+                <option value="+41">CH +41</option>
+                <option value="+31">NL +31</option>
+                <option value="+32">BE +32</option>
+                <option value="+352">LU +352</option>
+                <option value="+48">PL +48</option>
+                <option value="+45">DK +45</option>
+                <option value="+33">FR +33</option>
+                <option value="+39">IT +39</option>
+                <option value="+44">UK +44</option>
+              </select>
+              <input class="calc-input calc-input--phone" type="tel" id="calcPhone" placeholder="Telefonnummer (optional)" autocomplete="tel-national" spellcheck="false">
+            </div>
+            <!-- Honeypot — hidden from humans, bots fill it -->
+            <input type="text" name="website" id="calcHoney" class="calc-honey" tabindex="-1" autocomplete="off">
+            <label class="calc-consent" id="calcConsentLabel">
+              <input type="checkbox" id="calcConsent">
+              <span>Ich bestätige, dass meine Angaben korrekt sind und bin damit einverstanden, dass addus. mich bezüglich meiner Anfrage kontaktiert. <a href="#datenschutz">Datenschutzerklärung</a></span>
+            </label>
+            <button class="calc-next calc-next--submit" id="calcSubmit" type="button" disabled>Kostenschätzung anzeigen</button>
+          </div>
+        </div>
+        <div class="calc-step" data-step="result">
+          <h3>Das Projekt für Ihre neue Webseite wird in etwa kosten:</h3>
+          <div class="calc-result">
+            <span class="calc-result__price" id="calcPrice">0</span>
+            <span class="calc-result__currency">,00 €</span>
+          </div>
+          <p class="calc-result__note">Dieser Betrag ist ein Richtwert. Nach einem persönlichen Gespräch kann sich der Preis ändern.</p>
+          <p class="calc-result__cta-text">Wenn Sie jetzt mit unserem Team sprechen möchten:</p>
+          <div class="calc-result__actions">
+            <a href="#kontakt" class="calc-cta" id="calcCta">Kostenloses Erstgespräch vereinbaren</a>
+            <button class="calc-restart" id="calcRestart" type="button">Nochmal berechnen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/hero.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Showcase Panel Cycling -->
+  <script>
+  (function() {
+    'use strict';
+
+    const DEMOS = [
+      { name: 'Gastronomie'    },
+      { name: 'Steuerberatung' },
+      { name: 'Handwerk'       },
+      { name: 'E-Commerce'     },
+    ];
+
+    // ── DOM refs ──
+    const frames     = Array.from(document.querySelectorAll('.showcase-iframe'));
+    const labels     = Array.from(document.querySelectorAll('.demo-now__item'));
+    const frontPanel = document.getElementById('showcaseFront');
+    const stage      = document.getElementById('showcaseStage');
+
+    if (!frames.length || !frontPanel) return;
+
+    let current   = 0;
+    let switching = false;
+    let fallback  = null;
+    let paused    = false;
+
+
+    // ── Tell a demo to start its animation ──
+    // Uses both timeout + load event — whichever fires first wins.
+    // Handles cross-origin (file://) where contentDocument is inaccessible.
+    function startDemo(idx) {
+      var f = frames[idx];
+      if (!f) return;
+      var sent = false;
+      var send = function() {
+        if (sent) return;
+        sent = true;
+        try { f.contentWindow.postMessage('demo-start', '*'); } catch(e) {}
+      };
+      // Fire after a short delay (handles already-loaded iframes)
+      setTimeout(send, 400);
+      // Backup: fire after iframe load event (handles not-yet-loaded)
+      f.addEventListener('load', function() { setTimeout(send, 200); }, { once: true });
+    }
+
+    // ── Core switch: CSS class crossfade between stacked iframes ──
+    function switchTo(next) {
+      next = ((next % DEMOS.length) + DEMOS.length) % DEMOS.length;
+      if (switching || next === current) return;
+      switching = true;
+      clearTimeout(fallback);
+
+      const leaving  = frames[current];
+      const entering = frames[next];
+
+      // Pause float animation + scanner while switching
+      frontPanel.classList.add('is-switching');
+
+      var leavingLabel  = labels[current];
+      var enteringLabel = labels[next];
+
+      // Kick off leave + enter CSS animations simultaneously
+      leaving.classList.remove('is-active');
+      leaving.classList.add('is-leaving');
+      entering.classList.add('is-entering');
+
+      // Sync labels with iframe transition
+      if (leavingLabel) {
+        leavingLabel.classList.remove('is-active');
+        leavingLabel.classList.add('is-leaving');
+      }
+      if (enteringLabel) {
+        enteringLabel.classList.add('is-entering');
+      }
+
+      // After leave anim (~320ms): clean up leaving frame + label
+      setTimeout(function() {
+        leaving.classList.remove('is-leaving');
+        if (leavingLabel) leavingLabel.classList.remove('is-leaving');
+      }, 350);
+
+      // After enter anim (~420ms): complete the switch
+      setTimeout(function() {
+        entering.classList.remove('is-entering');
+        entering.classList.add('is-active');
+        if (enteringLabel) {
+          enteringLabel.classList.remove('is-entering');
+          enteringLabel.classList.add('is-active');
+        }
+        frontPanel.classList.remove('is-switching');
+
+        current   = next;
+        switching = false;
+
+        // Signal the new demo to begin
+        startDemo(next);
+
+        // Safety fallback: if demo never sends demo-complete within 35s, advance
+        fallback = setTimeout(function() { switchTo(current + 1); }, 35000);
+
+      }, 720);
+    }
+
+    // ── Handle demo-complete from iframes ──
+    // Only accept from the currently active iframe — ignores stale messages
+    // from previous demos that are still finishing in the background.
+    window.addEventListener('message', function(e) {
+      if (e.data !== 'demo-complete') return;
+      try {
+        if (e.source !== frames[current].contentWindow) return;
+      } catch(err) {}
+      clearTimeout(fallback);
+      // Switch immediately (demo already showed success for 1s)
+      if (!switching) switchTo(current + 1);
+    });
+
+    // ── Hover-to-pause: slow down auto-advance while user inspects ──
+    if (stage) {
+      stage.addEventListener('mouseenter', function() { paused = true; });
+      stage.addEventListener('mouseleave', function() { paused = false; });
+    }
+
+    // ── Boot: wait for first iframe to load, then fire demo-start ──
+    var booted = false;
+    function boot() {
+      if (booted) return;
+      booted = true;
+      startDemo(0);
+      // Safety fallback in case restaurant never sends demo-complete
+      fallback = setTimeout(function() { switchTo(1); }, 35000);
+    }
+
+    // Use both a timeout and load event — whichever fires first wins.
+    // Handles cross-origin (file://) where contentDocument is inaccessible.
+    var f0 = frames[0];
+    setTimeout(boot, 1000);
+    f0.addEventListener('load', function() { setTimeout(boot, 300); }, { once: true });
+
+  })();
+  </script>
+
+
+</body>
+</html>

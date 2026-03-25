@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addus. Logo Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0D1117;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      gap: 60px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #C8932A;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .logo-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-card.dark  { background: #0D1117; }
+    .logo-card.light { background: #f5f5f5; }
+    .logo-card.gold-bg { background: #C8932A; }
+
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0.4) 0%,
+        #ffffff 25%,
+        #C8932A 50%,
+        #ffffff 75%,
+        rgba(255,255,255,0.4) 100%
+      );
+      background-size: 300% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    }
+
+    .white   { color: #ffffff; }
+    .gold    { color: #C8932A; }
+    .dark-text { color: #0D1117; }
+
+    .label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-card.light .label { color: rgba(0,0,0,0.4); }
+    .logo-card.gold-bg .label { color: rgba(0,0,0,0.5); }
+
+    @keyframes shine {
+      from { background-position: 100% 0; }
+      to   { background-position: 0% 0; }
+    }
+
+    .size-row {
+      display: flex;
+      align-items: baseline;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .size-row .logo-text { font-size: 1.5rem; }
+    .size-row .logo-text:nth-child(2) { font-size: 2rem; }
+    .size-row .logo-text:nth-child(3) { font-size: 3rem; }
+    .size-row .logo-text:nth-child(4) { font-size: 4rem; }
+
+    .tip {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>addus. — Logo Varianten</h1>
+
+  <div class="logo-grid">
+
+    <!-- Gradient auf Dunkel -->
+    <div class="logo-card dark">
+      <span class="logo-text gradient">addus.</span>
+      <span class="label">Gradient — dunkler Hintergrund (Hauptlogo)</span>
+    </div>
+
+    <!-- Weiß auf Dunkel -->
+    <div class="logo-card dark">
+      <span class="logo-text white">addus.</span>
+      <span class="label">Weiß — dunkler Hintergrund</span>
+    </div>
+
+    <!-- Gold auf Dunkel -->
+    <div class="logo-card dark">
+      <span class="logo-text gold">addus.</span>
+      <span class="label">Gold — dunkler Hintergrund</span>
+    </div>
+
+    <!-- Dunkel auf Hell -->
+    <div class="logo-card light">
+      <span class="logo-text dark-text">addus.</span>
+      <span class="label">Dunkel — heller Hintergrund</span>
+    </div>
+
+    <!-- Weiß auf Gold -->
+    <div class="logo-card gold-bg">
+      <span class="logo-text white">addus.</span>
+      <span class="label">Weiß — Gold-Hintergrund</span>
+    </div>
+
+    <!-- Dunkel auf Gold -->
+    <div class="logo-card gold-bg">
+      <span class="logo-text dark-text">addus.</span>
+      <span class="label">Dunkel — Gold-Hintergrund</span>
+    </div>
+
+  </div>
+
+  <!-- Größen-Vergleich -->
+  <h1 style="margin-top: 20px;">Größen</h1>
+  <div class="logo-card dark" style="width: 100%; max-width: 1000px;">
+    <div class="size-row">
+      <span class="logo-text gradient">addus.</span>
+      <span class="logo-text gradient">addus.</span>
+      <span class="logo-text gradient">addus.</span>
+      <span class="logo-text gradient">addus.</span>
+    </div>
+    <span class="label">Klein — Mittel — Groß — XL</span>
+  </div>
+
+  <p class="tip">Rechtsklick auf ein Logo → "Untersuchen" → Screenshot machen, oder einfach einen Screenshot (Win + Shift + S) für PNG-Export nutzen.</p>
+
+</body>
+</html>

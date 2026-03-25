@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="25%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#C8932A"/>
+      <stop offset="75%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.4)"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&amp;display=swap');
+    .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.05em; }
+  </style>
+  <text class="logo-text" x="10" y="38" fill="url(#logoGrad)">addus.</text>
+</svg>

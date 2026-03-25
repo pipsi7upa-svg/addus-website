@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Müller &amp; Partner Steuerberatung Hamburg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1E3A5F;
+      --navy-dark:  #152d4d;
+      --navy-mid:   #254a78;
+      --navy-light: #e8eef5;
+      --gold:       #C8A135;
+      --gold-light: #f5eed9;
+      --white:      #ffffff;
+      --off-white:  #fafafa;
+      --light-grey: #f2f4f7;
+      --text:       #1a2744;
+      --muted:      #566580;
+      --border:     #dce2ea;
+      --radius:     10px;
+      --shadow:     0 2px 18px rgba(30,58,95,.09);
+      --shadow-lg:  0 10px 44px rgba(30,58,95,.16);
+    }
+
+    html, body { overflow: hidden; height: 100%; }
+    .page-wrap { height: 100%; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+    .page-wrap::-webkit-scrollbar { display: none; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 16px;
+      overscroll-behavior: none;
+    }
+    h1, h2, h3, h4 { font-family: 'Source Serif 4', Georgia, serif; }
+
+    /* ── NAVIGATION ── */
+    .navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 200;
+      box-shadow: 0 1px 12px rgba(30,58,95,.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+    .logo-emblem {
+      width: 42px; height: 42px; background: var(--navy); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .logo-emblem svg { width: 22px; height: 22px; fill: var(--gold); }
+    .logo-text-wrap { line-height: 1.2; }
+    .logo-name {
+      font-family: 'Source Serif 4', serif; font-size: 1.07rem; font-weight: 700;
+      color: var(--navy); letter-spacing: -.01em;
+    }
+    .logo-tagline { font-size: .72rem; color: var(--muted); letter-spacing: .05em; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 700;
+      padding: 8px 15px; border-radius: 6px; transition: background .2s, color .2s;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .nav-links a:hover { background: var(--navy-light); color: var(--navy); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 22px; border-radius: var(--radius);
+      font-family: 'Lato', sans-serif; font-size: .88rem; font-weight: 700;
+      cursor: pointer; transition: all .22s; border: 2px solid transparent;
+      text-decoration: none; letter-spacing: .03em; text-transform: uppercase;
+    }
+    .btn-navy { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .btn-navy:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 5px 18px rgba(30,58,95,.28); }
+    .btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .btn-gold:hover { background: #b8912b; transform: translateY(-1px); box-shadow: 0 5px 18px rgba(200,161,53,.35); }
+    .btn-outline-navy { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-outline-navy:hover { background: var(--navy); color: #fff; }
+    .btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+    .btn-lg { padding: 14px 32px; font-size: .95rem; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 420px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400');
+      background-size: cover; background-position: center 30%;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(21,45,77,.88) 45%, rgba(21,45,77,.5) 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      padding: 56px 28px 48px;
+    }
+    .hero-content { max-width: 620px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,161,53,.18); color: var(--gold);
+      border: 1px solid rgba(200,161,53,.35);
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: 5px 13px; border-radius: 4px; margin-bottom: 20px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+    }
+    .hero-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.85rem); font-weight: 700;
+      color: #fff; line-height: 1.15; margin-bottom: 18px;
+      font-family: 'Source Serif 4', serif;
+    }
+    .hero-sub {
+      font-size: 1.06rem; color: rgba(255,255,255,.72);
+      margin-bottom: 36px; line-height: 1.7; font-weight: 300;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-scroll-hint {
+      position: absolute; bottom: 0; right: 0; left: 0; z-index: 2;
+      display: flex; justify-content: center; padding-bottom: 28px;
+    }
+    .scroll-arrow {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s;
+    }
+    .scroll-arrow:hover { background: rgba(255,255,255,.22); }
+    .scroll-arrow svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 11px;
+    }
+    .sec-label-line {
+      width: 28px; height: 2px; background: var(--gold); border-radius: 1px;
+    }
+    .sec-title {
+      font-size: clamp(1.55rem, 2.6vw, 2.2rem); font-weight: 700;
+      font-family: 'Source Serif 4', serif; color: var(--text);
+      line-height: 1.18; margin-bottom: 12px;
+    }
+    .sec-lead {
+      color: var(--muted); font-size: .97rem; max-width: 520px;
+      line-height: 1.78; margin-bottom: 50px;
+    }
+    .center-text { text-align: center; }
+    .center-text .sec-lead { max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    /* ── SERVICES ── */
+    #leistungen { background: var(--off-white); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    }
+    .svc-card {
+      background: var(--white); border-radius: 14px; padding: 34px 28px;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+      display: flex; flex-direction: column;
+    }
+    .svc-card:hover, .svc-card.mock-hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+    .svc-icon-box {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: var(--navy-light); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+    }
+    .svc-icon-box svg { width: 26px; height: 26px; stroke: var(--navy); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .svc-title {
+      font-family: 'Source Serif 4', serif; font-size: 1.12rem;
+      font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3;
+    }
+    .svc-desc { color: var(--muted); font-size: .89rem; line-height: 1.7; flex: 1; }
+    .svc-more {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 18px; color: var(--navy); font-size: .87rem;
+      font-weight: 700; text-decoration: none; transition: gap .18s;
+    }
+    .svc-more:hover { gap: 8px; }
+    .svc-divider {
+      width: 32px; height: 3px; background: var(--gold);
+      border-radius: 2px; margin: 14px 0;
+    }
+
+    /* ── TRUST KPI ── */
+    #vertrauen { background: var(--navy); }
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    }
+    .kpi-cell {
+      text-align: center; padding: 48px 24px;
+      border-right: 1px solid rgba(255,255,255,.1);
+      position: relative;
+    }
+    .kpi-cell:last-child { border-right: none; }
+    .kpi-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 3rem; font-weight: 700; color: var(--gold);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .kpi-label { color: rgba(255,255,255,.65); font-size: .92rem; line-height: 1.5; }
+    .kpi-sublabel { color: rgba(255,255,255,.38); font-size: .78rem; margin-top: 4px; }
+
+    /* ── TEAM ── */
+    #team { background: var(--white); }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .team-card {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .team-card:hover, .team-card.mock-hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .team-img {
+      width: 100%; height: 260px; object-fit: cover; object-position: top;
+      display: block;
+    }
+    .team-body { padding: 22px 22px 24px; }
+    .team-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.07rem; font-weight: 700; margin-bottom: 4px;
+    }
+    .team-title { font-size: .83rem; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+    .team-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+    .team-qualif {
+      margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border);
+    }
+    .qualif-tag {
+      display: inline-block; background: var(--navy-light); color: var(--navy);
+      font-size: .73rem; font-weight: 700; padding: 3px 9px;
+      border-radius: 4px; margin: 2px 2px 0 0;
+    }
+
+    /* ── PROCESS ── */
+    #ablauf { background: var(--light-grey); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute; top: 28px; left: 12%; right: 12%;
+      height: 2px; background: linear-gradient(to right, var(--gold), rgba(200,161,53,.2));
+      z-index: 0;
+    }
+    .step-card {
+      text-align: center; padding: 30px 20px 24px;
+      background: var(--white); border-radius: 14px;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      position: relative; z-index: 1;
+    }
+    .step-number {
+      width: 52px; height: 52px; background: var(--gold); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Source Serif 4', serif; font-size: 1.25rem; font-weight: 700;
+      margin: 0 auto 16px;
+    }
+    .step-title {
+      font-family: 'Source Serif 4', serif; font-size: .97rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: .84rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── CONTACT FORM ── */
+    #kontakt { background: var(--off-white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start;
+    }
+    .contact-left {}
+    .contact-left .sec-title { font-size: 1.75rem; }
+    .contact-info-items { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+    .ci-item { display: flex; align-items: flex-start; gap: 14px; }
+    .ci-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--navy-light); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ci-icon svg { width: 19px; height: 19px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ci-label { font-size: .78rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .06em; }
+    .ci-value { font-size: .93rem; color: var(--text); font-weight: 400; line-height: 1.5; }
+    .ci-value a { color: var(--navy); text-decoration: none; font-weight: 700; }
+    .ci-value a:hover { color: var(--gold); }
+    .map-placeholder {
+      margin-top: 30px; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); height: 160px;
+      background: var(--navy-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: .88rem; text-align: center; padding: 20px;
+    }
+
+    .form-card {
+      background: var(--white); border-radius: 16px; padding: 40px;
+      box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+    }
+    .form-card-title {
+      font-family: 'Source Serif 4', serif; font-size: 1.4rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .form-card-sub { font-size: .86rem; color: var(--muted); margin-bottom: 28px; }
+    .fg { margin-bottom: 17px; }
+    .fg label {
+      display: block; font-size: .81rem; font-weight: 700;
+      color: var(--text); margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .fg label em { color: var(--gold); font-style: normal; }
+    .fc {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-size: .92rem;
+      color: var(--text); background: var(--white);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    .fc:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(30,58,95,.10); }
+    .fc::placeholder { color: #aab3c5; }
+    select.fc { cursor: pointer; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-privacy {
+      font-size: .78rem; color: var(--muted); margin-top: 10px; line-height: 1.6;
+    }
+    .form-privacy a { color: var(--navy); }
+
+    .success-toast {
+      display: none; margin-top: 16px;
+      background: #f0fdf4; border: 1.5px solid #86efac;
+      border-radius: 10px; padding: 15px 18px;
+      color: #166534; font-size: .9rem; font-weight: 700;
+      align-items: center; gap: 9px;
+    }
+    .success-toast.show { display: flex; }
+    .toast-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.1fr; gap: 48px;
+      padding-bottom: 48px;
+    }
+    .footer-logo-emblem {
+      width: 38px; height: 38px; background: rgba(200,161,53,.2);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .footer-logo-emblem svg { width: 20px; height: 20px; fill: var(--gold); }
+    .footer-brand-name {
+      font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 700;
+      color: #fff; margin-bottom: 2px;
+    }
+    .footer-brand-tag { font-size: .68rem; color: rgba(255,255,255,.4); letter-spacing: .05em; }
+    .footer-desc {
+      margin-top: 14px; font-size: .86rem; line-height: 1.72;
+      color: rgba(255,255,255,.48);
+    }
+    .footer-certs { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .footer-cert {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(200,161,53,.12); color: var(--gold);
+      border: 1px solid rgba(200,161,53,.22);
+      border-radius: 5px; padding: 4px 10px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .footer-col h4 {
+      color: rgba(255,255,255,.85); font-family: 'Source Serif 4', serif;
+      font-size: .9rem; font-weight: 700; margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a { color: rgba(255,255,255,.52); text-decoration: none; font-size: .84rem; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-col address { font-style: normal; font-size: .84rem; line-height: 1.9; color: rgba(255,255,255,.52); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px; font-size: .78rem;
+    }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .78rem; transition: color .2s; }
+    .footer-legal-links a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .kpi-cell:last-child { border-bottom: none; }
+      .team-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- ── NAVIGATION ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo-wrap">
+      <div class="logo-emblem">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="logo-text-wrap">
+        <div class="logo-name">Müller &amp; Partner</div>
+        <div class="logo-tagline">Steuerberatung · Hamburg</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#mandanten">Mandanten</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="btn btn-navy">Erstgespräch buchen</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Steuerberatung Hamburg · Seit 1998
+      </div>
+      <h1 class="hero-title">
+        Verlässliche Steuerberatung für Selbstständige und Unternehmen.
+      </h1>
+      <p class="hero-sub">
+        Seit 1998 vertrauen über 340 Mandanten in Hamburg auf unsere Expertise. Kompetent, diskret und persönlich — weil Ihre Finanzen Chefsache sind.
+      </p>
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn btn-gold btn-lg">Erstgespräch vereinbaren</a>
+        <a href="tel:+4940123456789" class="btn btn-outline-white btn-lg">040 123 456 789</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-arrow" onclick="var e=document.getElementById('leistungen');document.querySelector('.page-wrap').scrollTo({top:e?e.offsetTop-20:0,behavior:'smooth'})">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- ── LEISTUNGEN ── -->
+<section id="leistungen">
+  <div class="container">
+    <div class="center-text" style="margin-bottom:0;">
+      <div class="sec-label" style="justify-content:center;"><span class="sec-label-line"></span>Unsere Leistungen<span class="sec-label-line"></span></div>
+      <h2 class="sec-title">Umfassende Beratung aus einer Hand</h2>
+      <p class="sec-lead">Von der laufenden Buchhaltung bis zur strategischen Steuerplanung — wir begleiten Sie in jeder Phase Ihrer unternehmerischen Entwicklung.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="18" y="3" width="4" height="18" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="2" y="13" width="4" height="8" rx="1"/></svg></div>
+        <div class="svc-divider"></div>
+        <div class="svc-title">Jahresabschluss &amp; Buchhaltung</div>
+        <p class="svc-desc">Erstellung von Jahresabschlüssen nach HGB, laufende Finanzbuchhaltung, Lohn- und Gehaltsabrechnung sowie betriebswirtschaftliche Auswertungen auf Wunsch monatlich.</p>
+        <a href="#kontakt" class="svc-more">Mehr erfahren →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <div class="svc-divider"></div>
+        <div class="svc-title">Steueroptimierung &amp; Beratung</div>
+        <p class="svc-desc">Individuelle Steuergestaltung für Selbstständige, GmbHs und Kapitalgesellschaften. Einkommensteuer, Körperschaftsteuer, Erbschaftsteuer und Vermögensplanung.</p>
+        <a href="#kontakt" class="svc-more">Mehr erfahren →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+        <div class="svc-divider"></div>
+        <div class="svc-title">Unternehmensberatung &amp; Gründung</div>
+        <p class="svc-desc">Begleitung bei der Unternehmensgründung, Rechtsformwahl, Businessplan, Finanzierungsberatung und Unternehmensnachfolge. Ihr Partner vom ersten Tag an.</p>
+        <a href="#kontakt" class="svc-more">Mehr erfahren →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST KPI ── -->
+<section id="mandanten" style="padding:0;">
+  <div id="vertrauen">
+    <div class="container" style="padding-top:0;padding-bottom:0;">
+      <div class="kpi-grid">
+        <div class="kpi-cell">
+          <div class="kpi-num">340+</div>
+          <div class="kpi-label">Aktive Mandanten</div>
+          <div class="kpi-sublabel">Vom Freiberufler bis zum mittelständischen Unternehmen</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-num">25</div>
+          <div class="kpi-label">Jahre Erfahrung</div>
+          <div class="kpi-sublabel">Seit der Kanzleigründung 1998</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-num">98%</div>
+          <div class="kpi-label">Mandantenzufriedenheit</div>
+          <div class="kpi-sublabel">Laut unserer jährlichen Befragung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team">
+  <div class="container">
+    <div class="sec-label"><span class="sec-label-line"></span>Unser Team</div>
+    <h2 class="sec-title">Persönliche Beratung auf höchstem Niveau</h2>
+    <p class="sec-lead">Lernen Sie die Menschen kennen, die sich um Ihre steuerlichen Angelegenheiten kümmern.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <img
+          class="team-img"
+          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400"
+          alt="Dr. Hans-Georg Müller"
+        />
+        <div class="team-body">
+          <div class="team-name">Dr. Hans-Georg Müller</div>
+          <div class="team-title">Geschäftsführender Partner · Steuerberater</div>
+          <p class="team-desc">Gründer der Kanzlei mit über 30 Jahren Erfahrung. Spezialisiert auf Unternehmenssteuern und Erbschaftsteuer. Lehrbeauftragter an der Universität Hamburg.</p>
+          <div class="team-qualif">
+            <span class="qualif-tag">StB</span>
+            <span class="qualif-tag">WP</span>
+            <span class="qualif-tag">Unternehmenssteuer</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img
+          class="team-img"
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400"
+          alt="Sabine Hoffmann"
+        />
+        <div class="team-body">
+          <div class="team-name">Sabine Hoffmann</div>
+          <div class="team-title">Partnerin · Steuerberaterin</div>
+          <p class="team-desc">Expertin für internationale Steuerplanung und Selbstständige. Begleitet Mandanten bei Auslandssachverhalten und optimiert die Steuerstruktur für Freiberufler und GmbH-Inhaber.</p>
+          <div class="team-qualif">
+            <span class="qualif-tag">StB</span>
+            <span class="qualif-tag">Int. Steuerrecht</span>
+            <span class="qualif-tag">Selbstständige</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img
+          class="team-img"
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400"
+          alt="Markus Berger"
+        />
+        <div class="team-body">
+          <div class="team-name">Markus Berger</div>
+          <div class="team-title">Associate Partner · Steuerberater</div>
+          <p class="team-desc">Schwerpunkte: Unternehmensgründungen, GmbH-Beratung und betriebliche Altersvorsorge. Betreut vorrangig Startups und wachsende Unternehmen in der Aufbauphase.</p>
+          <div class="team-qualif">
+            <span class="qualif-tag">StB</span>
+            <span class="qualif-tag">Gründungsberatung</span>
+            <span class="qualif-tag">GmbH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="ablauf">
+  <div class="container">
+    <div class="center-text">
+      <div class="sec-label" style="justify-content:center;"><span class="sec-label-line"></span>So arbeiten wir<span class="sec-label-line"></span></div>
+      <h2 class="sec-title">Ihr Weg zu uns — unkompliziert</h2>
+      <p class="sec-lead">Vier Schritte bis zu Ihrer maßgeschneiderten Steuerberatung.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Erstgespräch anfragen</div>
+        <p class="step-desc">Füllen Sie unser Kontaktformular aus oder rufen Sie uns an. Kostenlos und unverbindlich.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Persönliches Gespräch</div>
+        <p class="step-desc">Wir lernen Ihre Situation kennen und erarbeiten erste Empfehlungen — in der Kanzlei oder digital.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Individuelle Strategie</div>
+        <p class="step-desc">Auf Basis Ihrer Ziele entwickeln wir eine maßgeschneiderte Steuer- und Planungsstrategie.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-title">Laufende Betreuung</div>
+        <p class="step-desc">Ihr persönlicher Ansprechpartner steht Ihnen dauerhaft zur Seite — reaktionsschnell und diskret.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT FORM ── -->
+<section id="kontakt">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="sec-label"><span class="sec-label-line"></span>Kontakt</div>
+        <h2 class="sec-title" style="font-size:1.75rem;">Erstgespräch vereinbaren</h2>
+        <p style="color:var(--muted); font-size:.95rem; line-height:1.78; margin-bottom:0;">
+          Wir freuen uns auf Ihre Anfrage. Schildern Sie uns Ihr Anliegen — wir melden uns innerhalb eines Werktages.
+        </p>
+        <div class="contact-info-items">
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="ci-label">Adresse</div>
+              <div class="ci-value">Jungfernstieg 30<br>20354 Hamburg</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+            <div>
+              <div class="ci-label">Telefon</div>
+              <div class="ci-value"><a href="tel:+4940123456789">040 123 456 789</a></div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="ci-label">E-Mail</div>
+              <div class="ci-value"><a href="mailto:info@mueller-partner-stb.de">info@mueller-partner-stb.de</a></div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <div class="ci-label">Öffnungszeiten</div>
+              <div class="ci-value">Mo–Do: 8:00–18:00 Uhr<br>Fr: 8:00–14:00 Uhr</div>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          Jungfernstieg 30 · 20354 Hamburg<br>
+          <span style="font-size:.78rem;color:var(--muted);margin-top:4px;display:block;">Gut erreichbar mit S-Bahn (Jungfernstieg) und U-Bahn (Jungfernstieg)</span>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Erstgespräch anfragen</div>
+        <div class="form-card-sub">Kostenlos und unverbindlich. Wir melden uns innerhalb eines Werktages.</div>
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-row">
+            <div class="fg">
+              <label for="name">Name <em>*</em></label>
+              <input type="text" id="name" class="fc" placeholder="Klaus Hoffmann" spellcheck="false" autocomplete="off" />
+            </div>
+            <div class="fg">
+              <label for="company">Unternehmen</label>
+              <input type="text" id="company" class="fc" placeholder="Hoffmann GmbH" spellcheck="false" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="phone">Telefon <em>*</em></label>
+              <input type="tel" id="phone" class="fc" placeholder="040 …" />
+            </div>
+            <div class="fg">
+              <label for="email-field">E-Mail <em>*</em></label>
+              <input type="email" id="email-field" class="fc" placeholder="info@beispiel.de" />
+            </div>
+          </div>
+          <div class="fg">
+            <label for="anliegen">Anliegen <em>*</em></label>
+            <select id="anliegen" class="fc">
+              <option value="">Bitte wählen …</option>
+              <option value="existenzgruendung">Existenzgründung / GmbH</option>
+              <option value="jahresabschluss">Jahresabschluss &amp; Buchhaltung</option>
+              <option value="steuererklaerung">Steuererklärung (privat)</option>
+              <option value="steueroptimierung">Steueroptimierung</option>
+              <option value="unternehmensberatung">Unternehmensberatung</option>
+              <option value="lohn">Lohnbuchhaltung</option>
+              <option value="nachfolge">Unternehmensnachfolge</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="wunschtermin">Bevorzugter Termin</label>
+            <select id="wunschtermin" class="fc">
+              <option value="">Keine Präferenz</option>
+              <option value="mo-vor">Montag Vormittag</option>
+              <option value="mo-nach">Montag Nachmittag</option>
+              <option value="di-vor">Dienstag Vormittag</option>
+              <option value="di-nach">Dienstag Nachmittag</option>
+              <option value="mi-vor">Mittwoch Vormittag</option>
+              <option value="mi-nach">Mittwoch Nachmittag</option>
+              <option value="do-vor">Donnerstag Vormittag</option>
+              <option value="do-nach">Donnerstag Nachmittag</option>
+              <option value="fr-vor">Freitag Vormittag</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="nachricht">Kurze Beschreibung</label>
+            <textarea id="nachricht" class="fc" rows="3" placeholder="Schildern Sie kurz Ihre Situation oder Ihr Anliegen …" spellcheck="false"></textarea>
+          </div>
+          <div class="form-privacy">
+            Mit dem Absenden stimmen Sie unserer <a href="#">Datenschutzerklärung</a> zu. Ihre Daten werden vertraulich behandelt und nicht weitergegeben.
+          </div>
+          <button type="button" class="btn btn-navy btn-lg" style="width:100%;margin-top:16px;" onclick="handleSubmit()">
+            Erstgespräch anfragen
+          </button>
+          <div class="success-toast" id="successToast">
+            <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Termin-Anfrage gesendet — Wir melden uns bis morgen!
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:2px;">
+          <div class="footer-logo-emblem">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="footer-brand-name">Müller &amp; Partner</div>
+            <div class="footer-brand-tag">Steuerberatungsgesellschaft mbH</div>
+          </div>
+        </div>
+        <p class="footer-desc">Seit 1998 vertrauenswürdiger Steuerberater für Selbstständige, Freiberufler und mittelständische Unternehmen in Hamburg und deutschlandweit.</p>
+        <div class="footer-certs">
+          <span class="footer-cert">StBK Hamburg</span>
+          <span class="footer-cert">DStV Mitglied</span>
+          <span class="footer-cert">DATEV Kanzlei</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#">Jahresabschluss</a></li>
+          <li><a href="#">Buchhaltung</a></li>
+          <li><a href="#">Steueroptimierung</a></li>
+          <li><a href="#">Gründungsberatung</a></li>
+          <li><a href="#">Lohnabrechnung</a></li>
+          <li><a href="#">Unternehmensnachfolge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kanzlei</h4>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Karriere</a></li>
+          <li><a href="#">Mandantenportal</a></li>
+          <li><a href="#">Aktuelles</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <address>
+          Jungfernstieg 30<br>
+          20354 Hamburg<br><br>
+          <a href="tel:+4940123456789" style="color:rgba(255,255,255,.65);text-decoration:none;">040 123 456 789</a><br>
+          <a href="mailto:info@mueller-partner-stb.de" style="color:rgba(255,255,255,.65);text-decoration:none;font-size:.82rem;">info@mueller-partner-stb.de</a><br><br>
+          Mo–Do: 8–18 Uhr<br>
+          Fr: 8–14 Uhr
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Müller &amp; Partner Steuerberatungsgesellschaft mbH · Alle Rechte vorbehalten</span>
+      <div class="footer-legal-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div><!-- /.page-wrap -->
+
+<script>
+  // ── Submit handler ──
+  function handleSubmit() {
+    const toast = document.getElementById('successToast');
+    toast.classList.add('show');
+  }
+
+  // ── Helpers ──
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function typeInto(el, text, delay) {
+    el.focus({ preventScroll: true });
+    el.value = '';
+    for (const ch of text) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input'));
+      await sleep(delay);
+    }
+    el.blur();
+  }
+
+  // ── Demo animation ──
+  function hoverEl(el, dur) {
+    return new Promise(function(res) {
+      if (!el) { res(); return; }
+      el.classList.add('mock-hover');
+      setTimeout(function() {
+        el.classList.remove('mock-hover');
+        setTimeout(res, 200);
+      }, dur);
+    });
+  }
+
+  var _demoRun = 0;
+
+  async function runDemo() {
+    var rid = ++_demoRun;
+    function ok() { return _demoRun === rid; }
+    function wait(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+    var pw = document.querySelector('.page-wrap');
+
+    pw.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Reset form
+    document.getElementById('name').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('anliegen').value = '';
+    document.getElementById('wunschtermin').value = '';
+    var toast = document.getElementById('successToast');
+    toast.classList.remove('show');
+
+    var svcCards  = document.querySelectorAll('.svc-card');
+    var teamCards = document.querySelectorAll('.team-card');
+
+    // 1. Scroll to services section
+    await wait(800); if (!ok()) return;
+    var elLeistungen = document.getElementById('leistungen');
+    pw.scrollTo({ top: elLeistungen ? elLeistungen.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(1000); if (!ok()) return;
+
+    // Browse services
+    await hoverEl(svcCards[0], 1100); if (!ok()) return;
+    await hoverEl(svcCards[1], 1000); if (!ok()) return;
+    await hoverEl(svcCards[2], 900);  if (!ok()) return;
+
+    // 2. Scroll to team
+    await wait(400); if (!ok()) return;
+    var elTeam = document.getElementById('team');
+    pw.scrollTo({ top: elTeam ? elTeam.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(1000); if (!ok()) return;
+
+    // Hover team members
+    await hoverEl(teamCards[0], 900); if (!ok()) return;
+    await hoverEl(teamCards[1], 700); if (!ok()) return;
+
+    // 3. Scroll to contact form
+    await wait(400); if (!ok()) return;
+    var elKontakt = document.getElementById('kontakt');
+    pw.scrollTo({ top: elKontakt ? elKontakt.offsetTop - 20 : 0, behavior: 'smooth' });
+    await wait(900); if (!ok()) return;
+
+    // Type Name
+    await typeInto(document.getElementById('name'), 'Klaus Hoffmann', 46);
+    if (!ok()) return;
+    await wait(400); if (!ok()) return;
+
+    // Type Unternehmen
+    await typeInto(document.getElementById('company'), 'Hoffmann GmbH', 48);
+    if (!ok()) return;
+    await wait(400); if (!ok()) return;
+
+    // Select Anliegen
+    document.getElementById('anliegen').value = 'existenzgruendung';
+    document.getElementById('anliegen').dispatchEvent(new Event('change'));
+    await wait(600); if (!ok()) return;
+
+    // Select preferred time
+    document.getElementById('wunschtermin').value = 'di-vor';
+    document.getElementById('wunschtermin').dispatchEvent(new Event('change'));
+    await wait(700); if (!ok()) return;
+
+    // Show toast
+    toast.classList.add('show');
+    await wait(1000); if (!ok()) return;
+    window.parent.postMessage('demo-complete', '*');
+
+    // Reset for next replay
+    await wait(1500);
+    if (!ok()) return;
+    toast.classList.remove('show');
+    document.getElementById('name').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('anliegen').value = '';
+    document.getElementById('wunschtermin').value = '';
+    pw.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  window.addEventListener('message', function(e) {
+    if (e.data === 'demo-start') runDemo();
+  });
+</script>
+</body>
+</html>
