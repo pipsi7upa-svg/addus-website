@@ -576,19 +576,19 @@
   letter-spacing: 0.04em;
 }
 
-/* Gold shiny text effect — logo-style sweep on scroll reveal (yellow) */
+/* Gold shiny text effect — seamless infinite loop right to left (yellow) */
 .shine-text--gold {
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 215, 0, 0.5) 0%,
-    #FFD700 15%,
-    #ffffff 30%,
-    #FFD700 50%,
-    rgba(255, 215, 0, 0.5) 100%
-  );
-  background-size: 300% 100%;
-  background-position: 100% 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #FFD700 0%,
+      #FFD700 30%,
+      #ffffff 50%,
+      #FFD700 70%,
+      #FFD700 100%
+    );
+  background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -596,12 +596,12 @@
 }
 
 .reveal.is-visible .shine-text--gold {
-  animation: goldShine 2.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s infinite;
+  animation: goldShine 2.5s linear infinite;
 }
 
 @keyframes goldShine {
-  from { background-position: 100% 0; }
-  to   { background-position: 0% 0; }
+  from { background-position: 0 0; }
+  to   { background-position: -200% 0; }
   text-transform: uppercase;
   font-family: var(--font-body);
   margin-bottom: var(--space-10);
