@@ -673,13 +673,14 @@
   90%, 100% { transform: scale(1); opacity: 1; }
 }
 
-/* Lock opens/closes */
+/* Lock opens/closes — translate shackle up */
 .xci--lock .xci-shackle {
   animation: xciLock 3s ease-in-out infinite;
+  transform-origin: center;
 }
 @keyframes xciLock {
-  0%, 40%, 100% { d: path("M14 18V13a6 6 0 0 1 12 0v5"); }
-  50%, 90% { d: path("M14 18V13a6 6 0 0 1 12 0v2"); }
+  0%, 40%, 100% { transform: translateY(0); }
+  50%, 90% { transform: translateY(-4px); }
 }
 
 /* Toggle slides */
