@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /demos/
 
-Sitemap: https://pipsi7upa-svg.github.io/addus-website/sitemap.xml
+Sitemap: https://addus-web.de/sitemap.xml
