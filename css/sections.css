@@ -1272,8 +1272,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
-  gap: 1px;
-  background: #e5e7eb;
+  gap: var(--space-5);
 }
 
 .trust__review {
