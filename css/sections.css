@@ -221,23 +221,24 @@
   position: relative;
 }
 
-/* Flashlight spotlight that follows cursor */
-.pain-dream__rows::after {
-  content: '';
+/* Flashlight glow follows cursor */
+.pain-dream__light {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 2;
   opacity: 0;
-  transition: opacity 0.3s;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 30%, transparent 70%);
+  background: radial-gradient(circle,
+    rgba(200,147,42,0.06) 0%,
+    rgba(200,147,42,0.02) 35%,
+    transparent 65%
+  );
   transform: translate(-50%, -50%);
-  left: var(--flash-x, -200px);
-  top: var(--flash-y, -200px);
+  transition: opacity 0.4s;
 }
-.pain-dream__rows:hover::after {
+.pain-dream__rows:hover .pain-dream__light {
   opacity: 1;
 }
 
@@ -245,7 +246,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.4s ease;
+  border-left: 2px solid transparent;
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
   position: relative;
 }
 
@@ -254,7 +256,8 @@
 }
 
 .pd-row:hover {
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(255, 255, 255, 0.02);
+  border-left-color: var(--color-accent);
 }
 
 /* Pain side */
@@ -278,24 +281,24 @@
 }
 
 .pd-row:hover .pd-row__num {
-  color: rgba(200, 147, 42, 0.3);
+  color: var(--color-accent);
 }
 
 .pd-row__pain p {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.3);
   line-height: 1.55;
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.06);
+  text-decoration-color: rgba(255, 255, 255, 0.08);
   text-decoration-thickness: 1px;
-  transition: color 0.5s ease, text-shadow 0.5s ease, text-decoration-color 0.5s ease;
+  transition: color 0.3s var(--ease-out), text-shadow 0.3s, text-decoration-color 0.3s;
 }
 
 .pd-row:hover .pd-row__pain p {
-  color: #fff;
-  text-shadow: 0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.15);
-  text-decoration-color: rgba(255,255,255,0.25);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 16px rgba(255,255,255,0.15);
+  text-decoration-color: rgba(255,71,87,0.35);
 }
 
 /* Dream side */
@@ -309,14 +312,14 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.55;
-  transition: color 0.5s ease, text-shadow 0.5s ease;
+  transition: color 0.3s var(--ease-out), text-shadow 0.3s;
 }
 
 .pd-row:hover .pd-row__dream p {
-  color: #1DB954;
-  text-shadow: 0 0 30px rgba(29,185,84,0.5), 0 0 60px rgba(29,185,84,0.15);
+  color: var(--color-accent);
+  text-shadow: 0 0 16px rgba(200,147,42,0.2);
 }
 
 /* ── CTA ── */
