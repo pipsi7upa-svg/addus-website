@@ -218,6 +218,7 @@
 .pain-dream__hint {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-family: var(--font-body);
   font-size: var(--text-sm);
@@ -225,18 +226,11 @@
   color: rgba(255,255,255,0.5);
   letter-spacing: 0.02em;
   margin-bottom: var(--space-3);
-  padding-left: clamp(16px, 2vw, 28px);
   transition: opacity 0.5s;
 }
 
-/* Cursor icon — gentle horizontal sweep */
 .pd-hint__cursor {
   color: var(--color-accent);
-  animation: pdCursorSweep 2s ease-in-out infinite;
-}
-@keyframes pdCursorSweep {
-  0%, 100% { transform: translateX(0); opacity: 0.6; }
-  50% { transform: translateX(12px); opacity: 1; }
 }
 
 /* Hide hint when rows are hovered */
