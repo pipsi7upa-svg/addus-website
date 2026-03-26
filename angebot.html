@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sonderangebot: Professionelle Website für nur 699€ netto. Premium Webdesign von addus. — jetzt 65% sparen.">
+  <meta name="robots" content="index, follow">
+  <title>Sonderangebot — Professionelle Website für 699€ | addus.</title>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <style>
+    /* ── Hero Offer ── */
+    .offer-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px var(--container-pad) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(200,147,42,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .offer-hero__inner {
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+    .offer-badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #0D1117;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+    }
+    .offer-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+    }
+    .offer-hero__sub {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-8);
+    }
+
+    /* ── Pricing Card ── */
+    .offer-pricing {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10) var(--space-8);
+      margin: 0 auto var(--space-10);
+      max-width: 480px;
+      position: relative;
+    }
+    .offer-pricing__old {
+      font-family: var(--font-body);
+      font-size: var(--text-xl);
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      margin-bottom: var(--space-2);
+    }
+    .offer-pricing__price {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 800;
+      color: var(--color-accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .offer-pricing__price span {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      letter-spacing: 0;
+    }
+    .offer-pricing__note {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-2);
+    }
+    .offer-pricing__save {
+      display: inline-block;
+      background: rgba(29,185,84,0.12);
+      color: var(--color-success);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-3);
+    }
+
+    /* ── CTA Button ── */
+    .offer-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-accent);
+      color: #0D1117;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .offer-cta:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ── Checklist ── */
+    .offer-includes {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 var(--container-pad) var(--space-16);
+    }
+    .offer-includes__title {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    .offer-check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-3);
+    }
+    .offer-check {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 12px 16px;
+      background: var(--color-glass);
+      border: 1px solid var(--color-glass-border);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--color-text-primary);
+    }
+    .offer-check__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: rgba(200,147,42,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 11px;
+    }
+
+    /* ── Features Grid ── */
+    .offer-features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--space-16) var(--container-pad) var(--space-20);
+    }
+    .offer-features__header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    .offer-features__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-3);
+    }
+    .offer-features__sub {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+    }
+    .feature-card {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      transition: border-color var(--dur-fast) var(--ease-out);
+    }
+    .feature-card:hover {
+      border-color: rgba(200,147,42,0.3);
+    }
+    .feature-card__icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(200,147,42,0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      color: var(--color-accent);
+      font-size: 18px;
+    }
+    .feature-card__title {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: var(--space-2);
+    }
+    .feature-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Bottom CTA ── */
+    .offer-bottom {
+      text-align: center;
+      padding: var(--space-16) var(--container-pad) var(--space-20);
+      position: relative;
+    }
+    .offer-bottom::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,147,42,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .offer-bottom__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: var(--space-3);
+      position: relative;
+    }
+    .offer-bottom__sub {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .offer-extras {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-6);
+      position: relative;
+    }
+
+    /* ── Legal ── */
+    .offer-legal {
+      text-align: center;
+      padding: var(--space-8) var(--container-pad);
+      border-top: 1px solid var(--color-glass-border);
+    }
+    .offer-legal p {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .offer-legal a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Divider ── */
+    .offer-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--color-glass-border);
+      margin: 0 auto var(--space-16);
+    }
+
+    @media (max-width: 600px) {
+      .offer-check-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .offer-pricing { padding: var(--space-8) var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="addus. — Zur Startseite">addus.</a>
+      <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="index.html#leistungen">Leistungen</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#ueber-uns">Über uns</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="index.html#kontakt" class="navbar__cta">Termin buchen</a>
+      <button class="navbar__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO OFFER ══ -->
+    <section class="offer-hero">
+      <div class="offer-hero__inner">
+        <span class="offer-badge">Sonderangebot — Nur für kurze Zeit</span>
+        <h1 class="offer-hero__title">Professionelle Website erstellen lassen.</h1>
+        <p class="offer-hero__sub">Eine Premium-Website, die bei anderen Agenturen 4.000–8.000 € kostet — sichern Sie sich jetzt Ihren Vorteil.</p>
+
+        <div class="offer-pricing">
+          <div class="offer-pricing__old">Statt 1.999 €</div>
+          <div class="offer-pricing__price">699 € <span>netto</span></div>
+          <div class="offer-pricing__note">Einmalig. Keine versteckten Kosten.</div>
+          <div class="offer-pricing__save">Sie sparen 1.300 € (65 %)</div>
+        </div>
+
+        <a href="index.html#kontakt" class="offer-cta">Kostenlose Beratung buchen &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ══ INCLUDED ══ -->
+    <section class="offer-includes">
+      <p class="offer-includes__title">Alles inklusive</p>
+      <div class="offer-check-grid">
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Premium Webdesign — modern und individuell
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Bis zu 8 Unterseiten / Menüpunkte
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Mobile optimiert — perfekt auf jedem Gerät
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Google indexiert — von Anfang an sichtbar
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Eigene Bearbeitung der Website (CMS)
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Domain & Hosting — 12 Monate geschenkt
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          SSL-Zertifikat inklusive
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Datenschutz & Impressum — DSGVO-konform
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          Hochwertige Stock-Fotos inklusive
+        </div>
+        <div class="offer-check">
+          <span class="offer-check__icon">&#10003;</span>
+          E-Mail-Adressen mit eigener Domain
+        </div>
+      </div>
+    </section>
+
+    <div class="offer-divider"></div>
+
+    <!-- ══ FEATURES ══ -->
+    <section class="offer-features">
+      <div class="offer-features__header">
+        <h2 class="offer-features__title">Was Sie für 699 € bekommen.</h2>
+        <p class="offer-features__sub">Kein Baukasten. Kein Template. Echtes Webdesign.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          </div>
+          <div class="feature-card__title">Premium Design</div>
+          <p class="feature-card__desc">Modernstes Webdesign mit klarer Struktur und professionellem Look — für einen Auftritt, der überzeugt.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="feature-card__title">Mobile Optimiert</div>
+          <p class="feature-card__desc">Mobile First — für mehr Reichweite, bessere Nutzererfahrung und starke Wirkung auf allen Geräten.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <div class="feature-card__title">Individuelles Design</div>
+          <p class="feature-card__desc">Kein Baukasten: Individuelles Webdesign, modern, hochwertig und auf Sie zugeschnitten.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-card__title">Beratung durch Experten</div>
+          <p class="feature-card__desc">Ein erfahrenes Team an Ihrer Seite — mit Experten, die ein perfektes Ergebnis sicherstellen.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="feature-card__title">Schnelle Ladezeiten</div>
+          <p class="feature-card__desc">Für bessere Google-Rankings und eine starke Nutzererfahrung auf Ihrer neuen Website.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <div class="feature-card__title">Statistiken</div>
+          <p class="feature-card__desc">Sehen Sie jederzeit wie Ihre Website läuft — mit Statistiken zu Besuchern, Seitenaufrufen und Anfragen.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="feature-card__title">Google Indexiert</div>
+          <p class="feature-card__desc">Ihre Website wird bei Google gefunden — für mehr Sichtbarkeit und echte Chancen auf neue Kunden.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="feature-card__title">SSL-Zertifikat</div>
+          <p class="feature-card__desc">Für eine sichere Website mit dem kleinen Schloss und großem Vertrauen bei Ihren Besuchern.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="feature-card__title">Technische Wartung</div>
+          <p class="feature-card__desc">Immer aktuell, sicher und funktionsfähig — Sie müssen sich um nichts kümmern.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-card__title">Datenschutz & Impressum</div>
+          <p class="feature-card__desc">DSGVO-konform — Impressum und Datenschutzerklärung übernehmen wir für Sie.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="feature-card__title">E-Mail-Adressen</div>
+          <p class="feature-card__desc">Unbegrenzt E-Mail-Adressen inklusive für Ihren professionellen Auftritt mit eigener Domain.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="feature-card__title">Stock-Fotos</div>
+          <p class="feature-card__desc">Unbegrenzt hochwertige Bilder für Ihre neue Website — lizenziert und bereits im Preis enthalten.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BOTTOM CTA ══ -->
+    <section class="offer-bottom">
+      <h2 class="offer-bottom__title">Sie wünschen weitere Leistungen?</h2>
+      <p class="offer-bottom__sub">Ob Logo, Onlineshop oder SEO — wir beraten, Sie entscheiden. Jetzt kostenlos Erstgespräch buchen.</p>
+      <a href="index.html#kontakt" class="offer-cta">Kostenlose Beratung buchen &rarr;</a>
+      <p class="offer-extras">Oder rufen Sie direkt an: <a href="tel:+4917621214416" style="color:var(--color-accent);">+49 176 2121 44 16</a></p>
+    </section>
+
+  </main>
+
+  <!-- ══ LEGAL ══ -->
+  <div class="offer-legal">
+    <p>Die Preise verstehen sich zzgl. der gesetzlichen MwSt. Unser Service richtet sich an Unternehmen und Selbstständige. Es gelten unsere <a href="agb.html">AGB</a>. | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__bottom">
+      <div class="footer-legal">
+        <span>&copy; 2026 addus.</span>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="javascript:void(0)" onclick="Cookiebot.renew()">Cookie-Einstellungen</a>
+      </div>
+      <div class="footer-credit">Aus Lüneburg. Für Unternehmen in ganz Deutschland.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
