@@ -214,6 +214,38 @@
   margin-top: var(--space-4);
 }
 
+/* ── Hover hint ── */
+.pain-dream__hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-4);
+  animation: pdHintPulse 2.5s ease-in-out infinite;
+  transition: opacity 0.4s;
+}
+.pain-dream__hint svg {
+  animation: pdHintArrow 1.5s ease-in-out infinite;
+  opacity: 0.4;
+}
+@keyframes pdHintPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes pdHintArrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+/* Hide hint when rows are hovered */
+.pain-dream__hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── Comparison rows ── */
 .pain-dream__rows {
   display: flex;
