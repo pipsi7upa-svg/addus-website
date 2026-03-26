@@ -85,14 +85,13 @@
     offerPriceObs.observe(offerPriceEl);
   }
 
-  /* ─── Pain/Dream light effect ──────────────────── */
+  /* ─── Pain/Dream flashlight ─────────────────────── */
   var pdRows = document.querySelector('.pain-dream__rows');
-  var pdLight = document.querySelector('.pain-dream__light');
-  if (pdRows && pdLight) {
+  if (pdRows) {
     pdRows.addEventListener('mousemove', function (e) {
       var r = pdRows.getBoundingClientRect();
-      pdLight.style.left = (e.clientX - r.left) + 'px';
-      pdLight.style.top = (e.clientY - r.top) + 'px';
+      pdRows.style.setProperty('--flash-x', (e.clientX - r.left) + 'px');
+      pdRows.style.setProperty('--flash-y', (e.clientY - r.top) + 'px');
     });
   }
 
