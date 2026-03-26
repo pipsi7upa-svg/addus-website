@@ -271,7 +271,8 @@
 }
 
 .pd-row:hover .pd-row__pain p {
-  color: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
 /* Dream side */
@@ -291,7 +292,8 @@
 }
 
 .pd-row:hover .pd-row__dream p {
-  color: var(--color-accent);
+  color: #1DB954;
+  text-shadow: 0 0 20px rgba(29,185,84,0.3);
 }
 
 /* ── CTA ── */
