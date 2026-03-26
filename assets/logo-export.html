@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; }
+    body { background: #0D1117; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 80px; }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 80px;
+      background: #0D1117;
+    }
+    .logo-box.light { background: #ffffff; }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .xl { font-size: 80px; }
+    .lg { font-size: 60px; }
+    .md { font-size: 40px; }
+    .white { color: #ffffff; }
+    .gold { color: #C8932A; }
+    .dark { color: #0D1117; }
+    .label { color: rgba(255,255,255,0.3); font-family: sans-serif; font-size: 12px; text-align: center; margin-top: -60px; }
+  </style>
+</head>
+<body>
+
+  <!-- Exakte Canvas-Größen für perfekten Export -->
+  <canvas id="c1" width="800" height="200"></canvas>
+  <p class="label">Weiß auf dunkel — 800x200px</p>
+
+  <canvas id="c2" width="800" height="200"></canvas>
+  <p class="label">Gold auf dunkel — 800x200px</p>
+
+  <canvas id="c3" width="800" height="200"></canvas>
+  <p class="label">Dunkel auf hell — 800x200px</p>
+
+  <canvas id="c4" width="400" height="100"></canvas>
+  <p class="label">Gold auf dunkel (klein) — 400x100px</p>
+
+  <p class="label" style="margin-top: 40px; color: #C8932A;">Rechtsklick auf ein Logo → "Bild speichern unter" → fertig als PNG!</p>
+
+  <script>
+    const font = '800 72px Syne, sans-serif';
+    const fontSm = '800 36px Syne, sans-serif';
+
+    document.fonts.load(font).then(() => {
+      // 1. Weiß auf dunkel
+      const c1 = document.getElementById('c1').getContext('2d');
+      c1.fillStyle = '#0D1117';
+      c1.fillRect(0, 0, 800, 200);
+      c1.font = font;
+      c1.letterSpacing = '-0.05em';
+      c1.fillStyle = '#ffffff';
+      c1.textAlign = 'center';
+      c1.textBaseline = 'middle';
+      c1.fillText('addus.', 400, 105);
+
+      // 2. Gold auf dunkel
+      const c2 = document.getElementById('c2').getContext('2d');
+      c2.fillStyle = '#0D1117';
+      c2.fillRect(0, 0, 800, 200);
+      c2.font = font;
+      c2.fillStyle = '#C8932A';
+      c2.textAlign = 'center';
+      c2.textBaseline = 'middle';
+      c2.fillText('addus.', 400, 105);
+
+      // 3. Dunkel auf hell
+      const c3 = document.getElementById('c3').getContext('2d');
+      c3.fillStyle = '#ffffff';
+      c3.fillRect(0, 0, 800, 200);
+      c3.font = font;
+      c3.fillStyle = '#0D1117';
+      c3.textAlign = 'center';
+      c3.textBaseline = 'middle';
+      c3.fillText('addus.', 400, 105);
+
+      // 4. Klein — Gold auf dunkel
+      const c4 = document.getElementById('c4').getContext('2d');
+      c4.fillStyle = '#0D1117';
+      c4.fillRect(0, 0, 400, 100);
+      c4.font = fontSm;
+      c4.fillStyle = '#C8932A';
+      c4.textAlign = 'center';
+      c4.textBaseline = 'middle';
+      c4.fillText('addus.', 200, 53);
+
+      // Alle Canvas als Bilder ersetzen für Rechtsklick-Download
+      document.querySelectorAll('canvas').forEach(canvas => {
+        const img = new Image();
+        img.src = canvas.toDataURL('image/png');
+        img.style.display = 'block';
+        canvas.replaceWith(img);
+      });
+    });
+  </script>
+
+</body>
+</html>
