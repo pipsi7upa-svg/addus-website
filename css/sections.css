@@ -223,10 +223,17 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.75);
   letter-spacing: 0.02em;
   margin-bottom: var(--space-3);
   transition: opacity 0.5s;
+}
+.pain-dream__hint span {
+  animation: pdHintFade 2.5s ease-in-out infinite;
+}
+@keyframes pdHintFade {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 .pd-hint__cursor {
