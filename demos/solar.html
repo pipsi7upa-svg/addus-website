@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonnenkraft Weber — Photovoltaik aus Lüneburg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --yellow: #FFC107;
+      --yellow-dark: #e5ad06;
+      --dark: #1a1a2e;
+      --gray: #4a5568;
+      --light-gray: #f7f8fa;
+      --white: #ffffff;
+      --font: 'Montserrat', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Navbar ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav__logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--yellow);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav__logo-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .nav__logo-sub {
+      font-size: 0.65rem;
+      color: var(--gray);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--dark); }
+    .nav__cta {
+      background: var(--yellow);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 24px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav__cta:hover { background: var(--yellow-dark); }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.7) 0%, rgba(26,26,46,0.3) 60%, transparent 100%);
+    }
+    .hero__content {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,193,7,0.15);
+      border: 1px solid rgba(255,193,7,0.3);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero__title {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    .hero__title span { color: var(--yellow); }
+    .hero__sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 480px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .hero__btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn--primary {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+    .btn--primary:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .btn--outline:hover { border-color: var(--white); }
+
+    /* ── Trust / Google ── */
+    .trust {
+      padding: 64px 24px;
+      background: var(--white);
+    }
+    .trust__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .trust__review { }
+    .trust__google {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .trust__google-logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .trust__stars { display: flex; gap: 3px; }
+    .trust__quote {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .trust__author { font-weight: 600; color: var(--yellow-dark); font-size: 0.9rem; }
+    .trust__company { font-size: 0.8rem; color: var(--gray); }
+    .trust__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .trust__stat {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--light-gray);
+      border-radius: 12px;
+    }
+    .trust__stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .trust__stat-label {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .trust__inner { grid-template-columns: 1fr; }
+      .trust__stats { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── Vorteile Banner ── */
+    .vorteile {
+      background: var(--yellow);
+      padding: 64px 24px;
+    }
+    .vorteile__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .vorteile__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(26,26,46,0.5);
+      margin-bottom: 8px;
+    }
+    .vorteile__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 32px;
+    }
+    .vorteile__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 48px;
+    }
+    .vorteile__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .vorteile__check {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--white);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .vorteile__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Leistungen ── */
+    .leistungen {
+      padding: 80px 24px;
+      background: var(--white);
+    }
+    .leistungen__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .leistungen__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      margin-bottom: 8px;
+    }
+    .leistungen__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .leistungen__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .leistungen__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .leistungen__icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,193,7,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow-dark);
+    }
+    .leistungen__item strong {
+      display: block;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .leistungen__illustration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .leistungen__illustration img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .leistungen__inner { grid-template-columns: 1fr; }
+      .leistungen__illustration { order: -1; }
+    }
+
+    /* ── USPs / Warum wir ── */
+    .usps {
+      padding: 80px 24px;
+      background: var(--light-gray);
+    }
+    .usps__inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .usps__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      margin-bottom: 8px;
+    }
+    .usps__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 48px;
+    }
+    .usps__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .usp-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .usp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .usp-card__icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,193,7,0.1);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--yellow-dark);
+    }
+    .usp-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .usp-card__desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .usps__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── CTA Bottom ── */
+    .cta-bottom {
+      padding: 80px 24px;
+      background: var(--dark);
+      text-align: center;
+    }
+    .cta-bottom__title {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-bottom__sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 32px 24px;
+      background: #111;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer a { color: var(--yellow); }
+
+    /* ── Scroll reveal ── */
+    .sr { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .sr.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <div>
+          <div class="nav__logo-text">Sonnenkraft Weber</div>
+          <div class="nav__logo-sub">Photovoltaik & Energie</div>
+        </div>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#vorteile">Vorteile</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#warum">Warum wir</a></li>
+        <li><a href="#kontakt" class="nav__cta">Beratung anfragen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&h=900&fit=crop" alt="Haus mit Photovoltaik-Anlage">
+    </div>
+    <div class="hero__content">
+      <div class="hero__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+        Ihr Partner in der Region
+      </div>
+      <h1 class="hero__title">Wir planen und bauen <span>Ihre Photovoltaik Anlage</span></h1>
+      <p class="hero__sub">Unabhängig. Nachhaltig. Wirtschaftlich. Profitieren Sie von unserer Erfahrung aus über 500 installierten Anlagen in Norddeutschland.</p>
+      <div class="hero__btns">
+        <a href="#kontakt" class="btn btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          Jetzt kostenlos beraten lassen
+        </a>
+        <a href="#leistungen" class="btn btn--outline">Unsere Leistungen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Google Review -->
+  <section class="trust sr">
+    <div class="trust__inner">
+      <div class="trust__review">
+        <div class="trust__google">
+          <span class="trust__google-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
+          <div class="trust__stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </div>
+        </div>
+        <p class="trust__quote">"Ich war anfangs unsicher, ob sich eine PV-Anlage für unser Dach lohnt. Das Team von Sonnenkraft Weber hat alles durchgerechnet, geplant und innerhalb von 3 Wochen installiert. Seitdem sparen wir jeden Monat bares Geld. Der Service war erstklassig — kann ich nur weiterempfehlen!"</p>
+        <div class="trust__author">— Familie Hartmann</div>
+        <div class="trust__company">Einfamilienhaus, Lüneburg</div>
+      </div>
+      <div class="trust__stats">
+        <div class="trust__stat">
+          <div class="trust__stat-num">500+</div>
+          <div class="trust__stat-label">Installierte Anlagen</div>
+        </div>
+        <div class="trust__stat">
+          <div class="trust__stat-num">4.9</div>
+          <div class="trust__stat-label">Google Bewertung</div>
+        </div>
+        <div class="trust__stat">
+          <div class="trust__stat-num">15+</div>
+          <div class="trust__stat-label">Jahre Erfahrung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vorteile Banner -->
+  <section class="vorteile sr" id="vorteile">
+    <div class="vorteile__inner">
+      <div class="vorteile__label">Ihre Vorteile</div>
+      <h2 class="vorteile__title">Profitieren auch Sie von Solarenergie</h2>
+      <div class="vorteile__grid">
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Bis zu 80 % Ihrer Stromkosten einsparen
+        </div>
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Unabhängigkeit von steigenden Energiepreisen
+        </div>
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Staatliche Förderungen & Steuererleichterungen
+        </div>
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Wertsteigerung Ihrer Immobilie
+        </div>
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Aktiver Beitrag zum Klimaschutz
+        </div>
+        <div class="vorteile__item">
+          <div class="vorteile__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Amortisation bereits nach 6–8 Jahren
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section class="leistungen sr" id="leistungen">
+    <div class="leistungen__inner">
+      <div>
+        <div class="leistungen__label">Full Service</div>
+        <h2 class="leistungen__title">Unsere Leistungen — wir übernehmen alles</h2>
+        <ul class="leistungen__list">
+          <li class="leistungen__item">
+            <div class="leistungen__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><strong>Persönliche Beratung</strong>Kostenlose Vor-Ort-Begehung und individuelle Analyse Ihres Daches und Verbrauchs.</div>
+          </li>
+          <li class="leistungen__item">
+            <div class="leistungen__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <div><strong>Planung & Projektierung</strong>Wir planen Ihre Anlage maßgeschneidert — inklusive Statik, Netzanmeldung und Förderanträge.</div>
+          </li>
+          <li class="leistungen__item">
+            <div class="leistungen__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><strong>Installation & Montage</strong>Fachgerechte Montage durch unsere zertifizierten Elektriker — sauber, schnell und termingerecht.</div>
+          </li>
+          <li class="leistungen__item">
+            <div class="leistungen__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><strong>Wartung & Service</strong>Langfristige Betreuung mit regelmäßigen Checks, Monitoring und schnellem Support.</div>
+          </li>
+        </ul>
+      </div>
+      <div class="leistungen__illustration">
+        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=500&fit=crop" alt="Solarpanel Installation">
+      </div>
+    </div>
+  </section>
+
+  <!-- USPs -->
+  <section class="usps sr" id="warum">
+    <div class="usps__inner">
+      <div class="usps__label">Warum wir</div>
+      <h2 class="usps__title">Ihre Vorteile — warum Sie uns beauftragen sollten</h2>
+      <div class="usps__grid">
+        <div class="usp-card">
+          <div class="usp-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="usp-card__title">Vertrauen</div>
+          <p class="usp-card__desc">Über 500 zufriedene Kunden und 4.9 Sterne bei Google. Wir liefern, was wir versprechen.</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="usp-card__title">Schnelligkeit</div>
+          <p class="usp-card__desc">Von der Beratung bis zur fertigen Anlage in nur 3–4 Wochen. Keine langen Wartezeiten.</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="usp-card__title">Kompetenz</div>
+          <p class="usp-card__desc">Zertifizierte Fachbetriebe mit über 15 Jahren Erfahrung in Planung und Installation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bottom -->
+  <section class="cta-bottom sr" id="kontakt">
+    <h2 class="cta-bottom__title">Bereit für Ihre eigene Solaranlage?</h2>
+    <p class="cta-bottom__sub">Lassen Sie sich kostenlos und unverbindlich beraten. Wir rechnen Ihnen aus, was Sie sparen können.</p>
+    <a href="tel:+4917621214416" class="btn btn--primary">Jetzt anrufen — kostenlos beraten lassen</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Sonnenkraft Weber — Demo erstellt von <a href="../index.html">addus.</a></p>
+  </footer>
+
+  <script>
+    // Sticky nav
+    window.addEventListener('scroll', function() {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll reveal
+    var srEls = document.querySelectorAll('.sr');
+    var srObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); srObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    srEls.forEach(function(el) { srObs.observe(el); });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
