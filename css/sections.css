@@ -274,28 +274,46 @@
   letter-spacing: 0.02em;
   flex-shrink: 0;
   user-select: none;
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
-.pd-row:hover .pd-row__num {
-  color: rgba(200, 147, 42, 0.3);
+/* Dim all nums when hovering section */
+.pain-dream__rows:hover .pd-row__num {
+  color: rgba(200, 147, 42, 0.05);
+}
+
+/* Neon glow on hovered row */
+.pain-dream__rows:hover .pd-row:hover .pd-row__num {
+  color: var(--color-accent);
+  text-shadow:
+    0 0 7px var(--color-accent),
+    0 0 20px var(--color-accent),
+    0 0 40px rgba(200,147,42,0.4),
+    0 0 80px rgba(200,147,42,0.15);
 }
 
 .pd-row__pain p {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
   line-height: 1.55;
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.06);
+  text-decoration-color: rgba(255, 255, 255, 0.1);
   text-decoration-thickness: 1px;
-  transition: color 0.5s ease, text-shadow 0.5s ease, text-decoration-color 0.5s ease;
+  transition: color 0.4s ease, text-shadow 0.4s ease, text-decoration-color 0.4s ease;
 }
 
-.pd-row:hover .pd-row__pain p {
+/* When hovering the section, dim all rows */
+.pain-dream__rows:hover .pd-row__pain p {
+  color: rgba(255, 255, 255, 0.08);
+  text-decoration-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Only the hovered row lights up */
+.pain-dream__rows:hover .pd-row:hover .pd-row__pain p {
   color: #fff;
-  text-shadow: 0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.15);
-  text-decoration-color: rgba(255,255,255,0.25);
+  text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 50px rgba(255,255,255,0.1);
+  text-decoration-color: rgba(255,255,255,0.2);
 }
 
 /* Dream side */
@@ -309,14 +327,20 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.55;
-  transition: color 0.5s ease, text-shadow 0.5s ease;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
-.pd-row:hover .pd-row__dream p {
+/* When hovering the section, dim all */
+.pain-dream__rows:hover .pd-row__dream p {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* Only the hovered row lights up green */
+.pain-dream__rows:hover .pd-row:hover .pd-row__dream p {
   color: #1DB954;
-  text-shadow: 0 0 30px rgba(29,185,84,0.5), 0 0 60px rgba(29,185,84,0.15);
+  text-shadow: 0 0 20px rgba(29,185,84,0.4), 0 0 50px rgba(29,185,84,0.1);
 }
 
 /* ── CTA ── */
