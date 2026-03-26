@@ -309,11 +309,11 @@
   text-decoration-color: rgba(255, 255, 255, 0.03);
 }
 
-/* Only the hovered row lights up */
+/* Only the hovered row lights up — warm red for pain */
 .pain-dream__rows:hover .pd-row:hover .pd-row__pain p {
-  color: #fff;
-  text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 50px rgba(255,255,255,0.1);
-  text-decoration-color: rgba(255,255,255,0.2);
+  color: #FF6B6B;
+  text-shadow: 0 0 18px rgba(255,107,107,0.35), 0 0 45px rgba(255,107,107,0.1);
+  text-decoration-color: rgba(255,107,107,0.3);
 }
 
 /* Dream side */
@@ -337,10 +337,10 @@
   color: rgba(255, 255, 255, 0.08);
 }
 
-/* Only the hovered row lights up green */
+/* Only the hovered row lights up — emerald for dream */
 .pain-dream__rows:hover .pd-row:hover .pd-row__dream p {
-  color: #1DB954;
-  text-shadow: 0 0 20px rgba(29,185,84,0.4), 0 0 50px rgba(29,185,84,0.1);
+  color: #34D399;
+  text-shadow: 0 0 18px rgba(52,211,153,0.35), 0 0 45px rgba(52,211,153,0.1);
 }
 
 /* ── CTA ── */
