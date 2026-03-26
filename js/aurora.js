@@ -148,9 +148,19 @@
 
   // Reduced motion: show static frame
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isVisible = true;
+
+  // Pause rendering when hero is scrolled out of view to save GPU
+  var heroSection = canvas.closest('section') || canvas.parentElement;
+  if (heroSection && typeof IntersectionObserver !== 'undefined') {
+    new IntersectionObserver(function(entries) {
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && !prefersReduced) rafId = requestAnimationFrame(render);
+    }, { threshold: 0 }).observe(heroSection);
+  }
 
   function render() {
-    if (gl.isContextLost()) return;
+    if (gl.isContextLost() || !isVisible) return;
     gl.uniform1f(uTime, (performance.now() - t0) / 1000.0);
     gl.uniform2f(uMouse, mousePos.x * canvas.width, (1.0 - mousePos.y) * canvas.height);
     gl.drawArrays(gl.TRIANGLES, 0, 6);

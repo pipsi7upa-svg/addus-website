@@ -3,16 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="addus. — Strategische Websites, die Besucher in zahlende Kunden verwandeln. Webdesign für KMU und Mittelstand. Kostenlose Strategie-Session buchen.">
+  <meta name="description" content="Professionelle Website erstellen lassen ab 699€ ✓ Webdesign für KMU & Handwerk ✓ 4.9★ Google-Bewertung ✓ In 14 Tagen online ✓ Festpreis ✓ DSGVO-konform — addus.">
   <meta name="robots" content="index, follow">
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="addus. — Websites, die Kunden gewinnen">
-  <meta property="og:description" content="Strategische Websites, die Besucher in zahlende Kunden verwandeln — messbar, schnell und auf Ihr Wachstum ausgelegt.">
+  <meta property="og:description" content="Professionelle Website erstellen lassen ab 699€. Webdesign für KMU & Handwerk. 4.9★ bei Google. In 14 Tagen online.">
   <meta property="og:locale"      content="de_DE">
+  <meta property="og:url"         content="https://addus.de/">
+  <meta property="og:image"       content="https://addus.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="addus. — Websites, die Kunden gewinnen">
+  <meta name="twitter:description" content="Professionelle Website erstellen lassen ab 699€. 4.9★ bei Google.">
+  <meta name="theme-color" content="#0D1117">
+  <meta name="author" content="Adam Dia, addus.">
+  <meta name="geo.region" content="DE">
+  <link rel="canonical" href="https://addus.de/">
+  <link rel="alternate" hreflang="de" href="https://addus.de/">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
   <title>addus. — Websites, die Kunden gewinnen. Nicht nur gut aussehen.</title>
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript" async></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/hero.css">
@@ -28,7 +43,7 @@
       <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
         <ul role="list">
           <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#vertrauen">Portfolio</a></li>
           <li><a href="#ueber-uns">Über uns</a></li>
           <li><a href="#blog">Blog</a></li>
         </ul>
@@ -65,7 +80,7 @@
             <a href="#kontakt" class="hero-link">
               <span class="hero-link__line"></span>
               <span class="hero-link__text">Projekt starten</span>
-              <svg class="hero-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              <svg class="hero-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <button class="hero-link hero-link--calc" id="openCalcBtn" type="button">
               <span class="hero-link__line"></span>
@@ -105,19 +120,19 @@
                 class="showcase-iframe"
                 title="Demo: Müller & Partner Steuerberatung"
                 data-rw="1300" data-rh="975"
-                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <iframe id="sc-2" src="demos/handwerk.html"
                 class="showcase-iframe"
                 title="Demo: Al-Hassan Elektro"
                 data-rw="1300" data-rh="975"
-                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <iframe id="sc-3" src="demos/ecommerce.html"
                 class="showcase-iframe"
                 title="Demo: SportGear Pro Shop"
                 data-rw="1380" data-rh="1035"
-                loading="eager" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <!-- Thin activity scanner at bottom -->
               <div class="showcase-scanner" id="showcaseScanner"></div>
@@ -155,97 +170,105 @@
       </div><!-- /hero__container -->
     </section>
 
-<!-- ══ 2. SHOWCASE + TRUST ══ -->
-    <section class="showcase-trust" aria-label="Unsere Arbeit">
-      <div class="showcase-trust__inner">
+<!-- ══ TRUST ══ -->
+    <section id="vertrauen" class="trust" aria-labelledby="trust-headline">
 
-        <!-- Left: Text + Review -->
-        <div class="showcase-trust__content reveal">
-          <h2 class="showcase-trust__title">Websites für KMU & Handwerk</h2>
-          <p class="showcase-trust__desc">Wir setzen Ihre besten Arbeiten in Szene. Auf den Punkt gebracht, vorteilhaft und ansprechend für Ihre potenziellen Kunden. Der Konkurrenz immer einen Schritt voraus.</p>
+      <!-- Hero-Banner: Google Rating -->
+      <div class="trust__hero reveal">
+        <div class="trust__hero-inner">
+          <div class="trust__google-badge">
+            <svg class="trust__g-logo" viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <div class="trust__g-info">
+              <div class="trust__g-stars">
+                <span class="trust__g-score">4.9</span>
+                <svg viewBox="0 0 120 20" width="100" height="17" aria-label="4.9 von 5 Sternen">
+                  <defs><polygon id="tstar" points="10,1 12.6,7.2 19.5,7.6 14.2,12 15.8,18.8 10,15.4 4.2,18.8 5.8,12 0.5,7.6 7.4,7.2"/></defs>
+                  <use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/>
+                </svg>
+              </div>
+              <span class="trust__g-count">98 Bewertungen auf Google</span>
+            </div>
+          </div>
+          <h2 class="trust__hero-title" id="trust-headline">Unsere Kunden vertrauen uns.<br>Das können Sie auch.</h2>
+        </div>
+      </div>
 
-          <div class="showcase-trust__google">
-            <span class="showcase-trust__google-logo">G<span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
-            <div class="showcase-trust__stars">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C8932A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C8932A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C8932A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C8932A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C8932A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      <!-- Zahlen -->
+      <div class="trust__numbers">
+        <div class="trust__num reveal">
+          <span class="trust__num-value" data-counter data-target="147">147</span>
+          <span class="trust__num-label">abgeschlossene<br>Projekte</span>
+        </div>
+        <div class="trust__num reveal">
+          <span class="trust__num-value">3x</span>
+          <span class="trust__num-label">mehr Anfragen<br>nach Relaunch</span>
+        </div>
+        <div class="trust__num reveal">
+          <span class="trust__num-value">14</span>
+          <span class="trust__num-label">Tage bis<br>Ihre Website steht</span>
+        </div>
+        <div class="trust__num reveal">
+          <span class="trust__num-value">100%</span>
+          <span class="trust__num-label">Festpreis<br>ohne Überraschungen</span>
+        </div>
+      </div>
+
+      <!-- Echte Bewertungen -->
+      <div class="trust__reviews">
+        <div class="trust__reviews-inner">
+
+          <div class="trust__review reveal">
+            <div class="trust__review-stars" aria-hidden="true">
+              <svg viewBox="0 0 120 20" width="88" height="15"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
+            </div>
+            <blockquote class="trust__review-text">"Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!"</blockquote>
+            <div class="trust__review-author">
+              <strong>Thomas K. <svg class="trust__verified" viewBox="0 0 20 20" width="14" height="14" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
+              <span>Müller Haustechnik, Lüneburg</span>
             </div>
           </div>
 
-          <blockquote class="showcase-trust__quote">
-            „Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair! Kann ich nur jedem weiterempfehlen!"
-          </blockquote>
-          <div class="showcase-trust__author">
-            <span class="showcase-trust__name">— Thomas K.</span>
-            <span class="showcase-trust__company">Müller Haustechnik, Lüneburg</span>
+          <div class="trust__review reveal">
+            <div class="trust__review-stars" aria-hidden="true">
+              <svg viewBox="0 0 120 20" width="88" height="15"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
+            </div>
+            <blockquote class="trust__review-text">"Wir haben im ersten Jahr 3x mehr Anfragen bekommen als vorher. Adam arbeitet schnell, zuverlässig und hält was er verspricht. Absolute Empfehlung."</blockquote>
+            <div class="trust__review-author">
+              <strong>Markus H. <svg class="trust__verified" viewBox="0 0 20 20" width="14" height="14" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
+              <span>Sanitärmeister, Hamburg</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: Stacked Screenshots (5 cards like reference) -->
-        <div class="showcase-trust__screens reveal reveal-delay-1">
-          <div class="showcase-trust__screen showcase-trust__screen--1">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=560&h=360&fit=crop" alt="Website Projekt 1" loading="lazy">
+          <div class="trust__review reveal">
+            <div class="trust__review-stars" aria-hidden="true">
+              <svg viewBox="0 0 120 20" width="88" height="15"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
+            </div>
+            <blockquote class="trust__review-text">"Das ehrlichste Gespräch, das ich je mit einer Agentur hatte. Kein Upselling, keine leeren Versprechen. Einfach gute Arbeit zu einem fairen Preis."</blockquote>
+            <div class="trust__review-author">
+              <strong>Peter W. <svg class="trust__verified" viewBox="0 0 20 20" width="14" height="14" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
+              <span>Steuerberater, Düsseldorf</span>
+            </div>
           </div>
-          <div class="showcase-trust__screen showcase-trust__screen--2">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=220&fit=crop" alt="Website Projekt 2" loading="lazy">
-          </div>
-          <div class="showcase-trust__screen showcase-trust__screen--3">
-            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=480&h=320&fit=crop" alt="Website Projekt 3" loading="lazy">
-          </div>
-          <div class="showcase-trust__screen showcase-trust__screen--4">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=280&h=200&fit=crop" alt="Website Projekt 4" loading="lazy">
-          </div>
-          <div class="showcase-trust__screen showcase-trust__screen--5">
-            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=400&h=280&fit=crop" alt="Website Projekt 5" loading="lazy">
-          </div>
-        </div>
 
+        </div>
       </div>
-    </section>
 
-    <section id="vertrauen" class="section" aria-labelledby="trust-headline">
-      <div class="section__inner">
-        <div class="section-header--center reveal">
-          <span class="section-label">UNSERE ERGEBNISSE</span>
-          <h2 class="section-headline" id="trust-headline">Zahlen, die für uns sprechen.</h2>
-          <p class="section-sub section-sub--center">Was unsere Kunden bisher erreicht haben.</p>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card reveal reveal-delay-1">
-            <div class="kpi-number">3x</div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-label">mehr Kundenanfragen</div>
-            <div class="kpi-detail">im Durchschnitt nach dem Relaunch</div>
-            <p class="kpi-quote">"Wir haben im ersten Jahr 3x mehr Anfragen bekommen." — Markus H., Sanitärmeister</p>
-          </div>
-          <div class="kpi-card reveal reveal-delay-2">
-            <div class="kpi-number" data-counter data-target="147">147</div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-label">Zufriedene Kunden in 8 Jahren</div>
-            <div class="stars" aria-label="5 von 5 Sternen">4.9 von 5 Sternen</div>
-            <div class="kpi-detail">4.9 von 5 Sternen · 98 Google-Bewertungen</div>
-          </div>
-          <div class="kpi-card reveal reveal-delay-3">
-            <div class="kpi-number">14</div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-label">Tage bis Ihre Website online ist</div>
-            <div class="kpi-detail">Design, Texte und Technik — alles inklusive</div>
-          </div>
-        </div>
-
-        <!-- Awards -->
-        <div class="awards-row reveal">
-          <div class="award-badge">Google Partner</div>
-          <div class="award-badge">DSGVO-konform</div>
-          <div class="award-badge">Festpreise</div>
-          <div class="award-badge">Persönlicher Ansprechpartner</div>
-        </div>
-
+      <!-- Trust Badges -->
+      <div class="trust__badges reveal">
+        <span class="trust__badge">DSGVO-konform</span>
+        <span class="trust__badge-dot" aria-hidden="true"></span>
+        <span class="trust__badge">Festpreisgarantie</span>
+        <span class="trust__badge-dot" aria-hidden="true"></span>
+        <span class="trust__badge">Persönlicher Ansprechpartner</span>
+        <span class="trust__badge-dot" aria-hidden="true"></span>
+        <span class="trust__badge">SSL-verschlüsselt</span>
       </div>
+
     </section>
 
 <!-- ══ PAIN / DREAM SECTION ══ -->
@@ -315,97 +338,107 @@
     </section>
 
 <!-- ══ 3. SERVICES ══ -->
-    <section id="leistungen" class="section section--alt" aria-labelledby="services-headline">
-      <div class="section__inner">
-        <div class="reveal">
-          <span class="section-label">LEISTUNGEN</span>
-          <h2 class="section-headline" id="services-headline">Alles, was Ihr Unternehmen<br>online braucht.</h2>
-          <p class="section-sub">Von der neuen Website bis zur Google-Sichtbarkeit. Wir kümmern uns um alles.</p>
-        </div>
+    <section id="leistungen" class="lst" aria-labelledby="services-headline">
 
-        <div class="services-grid">
-          <!-- Service 1 -->
-          <div class="service-card reveal reveal-delay-1">
-            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-            <div>
-              <div class="service-card__title">Webdesign</div>
-              <h3 class="service-card__headline">Eine Website, die Vertrauen schafft</h3>
+      <!-- Header -->
+      <div class="lst__head reveal">
+        <span class="lst__tag">Was wir tun</span>
+        <h2 class="lst__title" id="services-headline">Drei Disziplinen.<br>Ein Ziel: Ihr Wachstum.</h2>
+      </div>
+
+      <!-- Service Accordion -->
+      <div class="lst__accordion">
+
+        <article class="lst__item is-open reveal" data-srv="1">
+          <button class="lst__trigger" aria-expanded="true">
+            <span class="lst__num">01</span>
+            <span class="lst__name">Webdesign</span>
+            <span class="lst__arrow" aria-hidden="true"></span>
+          </button>
+          <div class="lst__panel">
+            <div class="lst__panel-inner">
+              <div class="lst__col-left">
+                <h3 class="lst__headline">Eine Website, die Vertrauen schafft &mdash; ab dem ersten Klick.</h3>
+                <p class="lst__text">Kein Template. Kein Baukasten. Wir bauen Ihre Website von Grund auf, zugeschnitten auf Ihre Branche, Ihre Kunden und Ihr Ziel: mehr Anfragen.</p>
+                <a href="#kontakt" class="lst__cta">Projekt besprechen</a>
+              </div>
+              <ul class="lst__col-right">
+                <li><strong>Individuell</strong> &mdash; Design für Ihre Branche, nicht von der Stange</li>
+                <li><strong>Mobiloptimiert</strong> &mdash; Perfekt auf jedem Gerät</li>
+                <li><strong>Schnell</strong> &mdash; Ladezeiten unter 2 Sekunden</li>
+                <li><strong>Selbst editierbar</strong> &mdash; Texte und Bilder ohne Vorkenntnisse ändern</li>
+              </ul>
             </div>
-            <p class="service-card__desc">Professionelles Design, das zu Ihrem Unternehmen passt. Mobilfreundlich, schnell und einfach zu pflegen.</p>
-            <ul class="service-card__features">
-              <li>Individuelles Design für Ihre Branche</li>
-              <li>Optimiert für Handy und Tablet</li>
-              <li>Schnelle Ladezeiten</li>
-              <li>Inhalte selbst ändern — ohne Vorkenntnisse</li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
           </div>
+        </article>
 
-          <!-- Service 2 -->
-          <div class="service-card reveal reveal-delay-2">
-            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-            <div>
-              <div class="service-card__title">Google-Sichtbarkeit</div>
-              <h3 class="service-card__headline">Gefunden werden, wenn Kunden suchen</h3>
+        <article class="lst__item reveal" data-srv="2">
+          <button class="lst__trigger" aria-expanded="false">
+            <span class="lst__num">02</span>
+            <span class="lst__name">Google-Sichtbarkeit</span>
+            <span class="lst__arrow" aria-hidden="true"></span>
+          </button>
+          <div class="lst__panel">
+            <div class="lst__panel-inner">
+              <div class="lst__col-left">
+                <h3 class="lst__headline">Gefunden werden, wenn Kunden nach Ihnen suchen.</h3>
+                <p class="lst__text">Ihre Website kann noch so gut sein &mdash; wenn sie niemand findet, bringt sie nichts. Wir sorgen dafür, dass Google Sie kennt.</p>
+                <a href="#kontakt" class="lst__cta">Sichtbarkeit prüfen</a>
+              </div>
+              <ul class="lst__col-right">
+                <li><strong>Google Business</strong> &mdash; Eintrag einrichten und optimieren</li>
+                <li><strong>SEO-Grundlagen</strong> &mdash; Für die richtigen Suchbegriffe sichtbar</li>
+                <li><strong>Lokal stark</strong> &mdash; In Ihrer Region auf Seite 1</li>
+                <li><strong>Transparenz</strong> &mdash; Monatlicher Bericht über Ihre Ergebnisse</li>
+              </ul>
             </div>
-            <p class="service-card__desc">Damit Ihre Kunden Sie bei Google finden — in Ihrer Stadt, für Ihre Leistungen.</p>
-            <ul class="service-card__features">
-              <li>Google-Eintrag einrichten und optimieren</li>
-              <li>Für die richtigen Suchbegriffe sichtbar werden</li>
-              <li>Lokale Sichtbarkeit in Ihrer Region</li>
-              <li>Monatlicher Bericht über Ihre Ergebnisse</li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
           </div>
+        </article>
 
-          <!-- Service 3 -->
-          <div class="service-card reveal reveal-delay-3">
-            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-            <div>
-              <div class="service-card__title">Online-Shop</div>
-              <h3 class="service-card__headline">Shops, die verkaufen</h3>
+        <article class="lst__item reveal" data-srv="3">
+          <button class="lst__trigger" aria-expanded="false">
+            <span class="lst__num">03</span>
+            <span class="lst__name">Online-Shop</span>
+            <span class="lst__arrow" aria-hidden="true"></span>
+          </button>
+          <div class="lst__panel">
+            <div class="lst__panel-inner">
+              <div class="lst__col-left">
+                <h3 class="lst__headline">Ein Shop, der verkauft. Nicht nur gut aussieht.</h3>
+                <p class="lst__text">Produkte online verkaufen muss nicht kompliziert sein. Wir bauen Shops, die Ihre Kunden verstehen und zum Kauf führen.</p>
+                <a href="#kontakt" class="lst__cta">Shop planen</a>
+              </div>
+              <ul class="lst__col-right">
+                <li><strong>Shopify / WooCommerce</strong> &mdash; Die richtige Plattform für Sie</li>
+                <li><strong>Einfach verwalten</strong> &mdash; Produkte selbst pflegen</li>
+                <li><strong>Sicher bezahlen</strong> &mdash; Alle gängigen Zahlungsmethoden</li>
+                <li><strong>Beratung</strong> &mdash; Von Produktfotos bis Versandlogik</li>
+              </ul>
             </div>
-            <p class="service-card__desc">Ein eigener Online-Shop für Ihre Produkte. Einfach zu verwalten, sicher für Ihre Kunden.</p>
-            <ul class="service-card__features">
-              <li>Shopify oder WooCommerce</li>
-              <li>Einfache Produktverwaltung</li>
-              <li>Sichere Bezahlung und Versand</li>
-              <li>Beratung zu Produktfotos</li>
-            </ul>
-            <a href="#kontakt" class="service-card__link">Mehr erfahren →</a>
           </div>
-
-        </div>
-
-        <!-- Industry Pills -->
-        <div class="industry-block reveal">
-          <h3 class="industry-block__headline">Wir arbeiten mit diesen Branchen.</h3>
-          <p class="industry-block__sub">Jede Branche hat eigene Anforderungen. Wir kennen sie.</p>
-          <div class="industry-pills" role="list">
-            <button class="industry-pill is-active" role="listitem"><span>Gastronomie</span></button>
-            <button class="industry-pill" role="listitem"><span>Handwerk</span></button>
-            <button class="industry-pill" role="listitem"><span>Arztpraxis</span></button>
-            <button class="industry-pill" role="listitem"><span>Online-Shop</span></button>
-            <button class="industry-pill" role="listitem"><span>Immobilien</span></button>
-            <button class="industry-pill" role="listitem"><span>Beratung</span></button>
-          </div>
-        </div>
-
-        <!-- CTA Block -->
-        <div class="services-cta-block reveal">
-          <div class="services-cta-block__text">
-            <h3>Nicht sicher, was Sie brauchen? Kein Problem.</h3>
-            <p>In einem kurzen Gespräch schauen wir uns Ihre aktuelle Website an und besprechen, was wir für Sie tun können.</p>
-            <p class="services-cta-block__testimonial">"Das ehrlichste Gespräch, das ich je mit einer Agentur hatte." — <strong>Peter W., Steuerberater</strong></p>
-          </div>
-          <div class="services-cta-block__actions">
-            <a href="#kontakt" class="btn-primary">
-              Kostenlos beraten lassen
-            </a>
-          </div>
-        </div>
+        </article>
 
       </div>
+
+      <!-- Branchen -->
+      <div class="lst__branchen reveal">
+        <p class="lst__branchen-label">Branchen, die wir kennen:</p>
+        <div class="lst__branchen-list">
+          <span>Gastronomie</span>
+          <span>Handwerk</span>
+          <span>Arztpraxis</span>
+          <span>E-Commerce</span>
+          <span>Immobilien</span>
+          <span>Beratung</span>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="lst__bottom reveal">
+        <p class="lst__bottom-q">Nicht sicher, was Sie brauchen?</p>
+        <a href="#kontakt" class="lst__bottom-btn">Lassen Sie uns reden</a>
+      </div>
+
     </section>
 
 <!-- ══ CUSTOMER STORY ══ -->
@@ -436,7 +469,7 @@
         </div>
         <div class="customer-story__aside reveal reveal-delay-2">
           <div class="customer-story__portrait">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop&crop=face" alt="Thomas K., Geschäftsführer" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop&crop=face" alt="Thomas K., Geschäftsführer" loading="lazy" width="600" height="750">
           </div>
           <div class="customer-story__quote-card">
             <blockquote>
@@ -584,59 +617,60 @@
     </section>
 
 <!-- ══ 5. ÜBER UNS ══ -->
-    <section id="ueber-uns" class="section section--alt" aria-labelledby="about-headline">
-      <div class="section__inner">
-        <div class="reveal">
-          <span class="section-label">WER DAHINTER STECKT</span>
-          <h2 class="section-headline" id="about-headline">Ein Mensch. Kein Konzern.</h2>
+    <section id="ueber-uns" class="abt" aria-labelledby="about-headline">
+
+      <div class="abt__split">
+
+        <!-- Photo -->
+        <div class="abt__photo reveal">
+          <img src="Bilder/WhatsApp Image 2026-03-26 at 20.07.04.jpeg" alt="Adam Dia — Gründer von addus." width="600" height="750" loading="lazy">
         </div>
 
-        <!-- Founder Block -->
-        <div class="founder-block reveal">
-          <div class="founder-photo">
-            <div class="founder-photo-bg">
-              <div class="founder-avatar">AD</div>
-            </div>
-          </div>
-          <div class="founder-content">
-            <blockquote>
-              "Ich bin Adam, 20 Jahre alt und Informatik-Student. addus. ist kein großes Unternehmen mit 50 Mitarbeitern — es bin ich. Allein.<br><br>
-              Das ist mein Vorteil: Kein Projektmanager, der Ihre Wünsche falsch weitergibt. Keine Warteschlange. Sie reden direkt mit dem Menschen, der Ihre Website baut.<br><br>
-              Ich programmiere, designe und optimiere alles selbst. Schnell, persönlich und zu einem fairen Preis — weil bei mir kein teurer Overhead mitbezahlt wird."
-            </blockquote>
-            <div class="founder-sig">
-              Adam Dia
-              <small>Gründer & Entwickler · addus.</small>
-            </div>
-            <div class="founder-links">
-              <a href="#kontakt" class="founder-link">Direktgespräch buchen</a>
-            </div>
-          </div>
-        </div>
+        <!-- Text -->
+        <div class="abt__content reveal">
+          <span class="abt__tag">Über mich</span>
+          <h2 class="abt__title" id="about-headline">Ich bin Adam.<br>Ich baue Ihre Website.</h2>
 
-        <!-- Values -->
-        <div class="section-header--center reveal" style="margin:var(--space-16) 0 var(--space-10)">
-          <h3 class="section-headline" style="font-size:var(--text-2xl)">Warum das funktioniert.</h3>
-        </div>
-        <div class="values-grid">
-          <div class="value-card reveal reveal-delay-1">
-            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-            <div class="value-title">Direkte Kommunikation</div>
-            <p class="value-desc">Kein Mittelsmann. Sie sprechen immer direkt mit mir — dem, der Ihre Website tatsächlich baut.</p>
+          <div class="abt__body">
+            <p class="abt__intro">Kein Team. Keine Agentur. Nur ich &mdash; Informatik-Student, 20 Jahre alt, und die Person, die Ihr Projekt von Anfang bis Ende umsetzt.</p>
+            <p>Das klingt ungewöhnlich. Ist es auch. Und genau das ist der Punkt: Sie reden mit dem Menschen, der Ihre Website tatsächlich baut. Kein Projektmanager dazwischen, kein Briefing das falsch ankommt, keine Wartezeiten.</p>
+            <p>Ich programmiere, designe und optimiere alles selbst. Schnell, persönlich und zu einem Preis, der fair ist &mdash; weil Sie bei mir für die Arbeit zahlen, nicht für einen Firmennamen.</p>
           </div>
-          <div class="value-card reveal reveal-delay-2">
-            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-            <div class="value-title">Schnell & flexibel</div>
-            <p class="value-desc">Keine Abstimmungsrunden, keine Wartezeiten. Ich setze um — oft noch am gleichen Tag.</p>
+
+          <div class="abt__sig">
+            <span class="abt__sig-name">Adam Dia</span>
+            <span class="abt__sig-role">Gründer & Entwickler</span>
           </div>
-          <div class="value-card reveal reveal-delay-3">
-            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></span>
-            <div class="value-title">Ehrlich & fair</div>
-            <p class="value-desc">Kein Agentur-Overhead, keine versteckten Kosten. Sie zahlen für die Arbeit — nicht für den Firmennamen.</p>
-          </div>
+
+          <a href="#kontakt" class="abt__cta">Direkt mit mir sprechen</a>
         </div>
 
       </div>
+
+      <!-- Drei Gründe -->
+      <div class="abt__reasons">
+        <div class="abt__reasons-head reveal">
+          <h3>Warum das funktioniert.</h3>
+        </div>
+        <div class="abt__reasons-grid">
+          <div class="abt__reason reveal">
+            <span class="abt__reason-num">01</span>
+            <strong>Direkte Kommunikation</strong>
+            <p>Sie sprechen immer mit mir &mdash; dem, der Ihre Website tatsächlich baut. Kein Mittelsmann, kein stille Post.</p>
+          </div>
+          <div class="abt__reason reveal">
+            <span class="abt__reason-num">02</span>
+            <strong>Schnell & flexibel</strong>
+            <p>Keine Abstimmungsrunden mit fünf Leuten. Ich setze um &mdash; oft noch am gleichen Tag.</p>
+          </div>
+          <div class="abt__reason reveal">
+            <span class="abt__reason-num">03</span>
+            <strong>Ehrlich & fair</strong>
+            <p>Kein Agentur-Overhead, keine versteckten Kosten. Sie zahlen für Ergebnisse, nicht für Hierarchien.</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
 <!-- ══ 6. BLOG ══ -->
@@ -649,7 +683,7 @@
         </div>
 
         <!-- Featured Article -->
-        <a href="#" class="blog-featured reveal">
+        <a href="javascript:void(0)" class="blog-featured reveal">
           <div class="blog-featured__img">
             <div class="blog-img-illustration">
               <div class="blog-img-icon"></div>
@@ -681,7 +715,7 @@
 
         <!-- Blog Grid -->
         <div class="blog-grid">
-          <a href="#" class="blog-card reveal reveal-delay-1">
+          <a href="javascript:void(0)" class="blog-card reveal reveal-delay-1">
             <div class="blog-card__img"></div>
             <div class="blog-card__body">
               <div class="blog-meta"><span class="blog-tag">Handwerk</span><span class="blog-readtime">8 Min</span></div>
@@ -693,7 +727,7 @@
               </div>
             </div>
           </a>
-          <a href="#" class="blog-card reveal reveal-delay-2">
+          <a href="javascript:void(0)" class="blog-card reveal reveal-delay-2">
             <div class="blog-card__img"></div>
             <div class="blog-card__body">
               <div class="blog-meta"><span class="blog-tag">SEO</span><span class="blog-readtime">12 Min</span></div>
@@ -705,7 +739,7 @@
               </div>
             </div>
           </a>
-          <a href="#" class="blog-card reveal reveal-delay-3">
+          <a href="javascript:void(0)" class="blog-card reveal reveal-delay-3">
             <div class="blog-card__img"></div>
             <div class="blog-card__body">
               <div class="blog-meta"><span class="blog-tag">KI</span><span class="blog-readtime">6 Min</span></div>
@@ -775,7 +809,7 @@
               </div>
               <label class="dsgvo-check">
                 <input type="checkbox" id="dsgvoCheck" required>
-                <span>Ich stimme der <a href="#">Datenschutzerklärung</a> zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *</span>
+                <span>Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *</span>
               </label>
               <div class="form-submit-area">
                 <button class="btn-submit" type="submit" id="submitBtn" disabled>
@@ -787,7 +821,7 @@
             <div class="form-success" id="formSuccess" aria-live="polite">
               <div class="success-icon">✓</div>
               <h3 class="success-title"><span class="success-name">Hallo</span>, Ihre Nachricht ist angekommen!</h3>
-              <p class="success-msg">Wir melden uns innerhalb von 4 Stunden — oder noch heute, falls Sie vor 15 Uhr schreiben. Schon neugierig? Schauen Sie sich unsere <a href="#portfolio" style="color:var(--color-accent)">Case Studies</a> an.</p>
+              <p class="success-msg">Wir melden uns innerhalb von 4 Stunden — oder noch heute, falls Sie vor 15 Uhr schreiben. Schon neugierig? Schauen Sie sich unsere <a href="#vertrauen" style="color:var(--color-accent)">Case Studies</a> an.</p>
             </div>
           </div>
 
@@ -891,10 +925,10 @@
         <div class="footer-tagline">Websites, die wachsen.</div>
         <p class="footer-desc">Wir helfen kleinen und mittleren Unternehmen, online mehr Kunden zu gewinnen. Seit 2016.</p>
         <div class="footer-socials">
-          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-          <a href="#" class="social-link" aria-label="Instagram">IG</a>
-          <a href="#" class="social-link" aria-label="YouTube">▶</a>
-          <a href="#" class="social-link" aria-label="Xing">X</a>
+          <a href="javascript:void(0)" class="social-link" aria-label="LinkedIn" aria-disabled="true">in</a>
+          <a href="javascript:void(0)" class="social-link" aria-label="Instagram" aria-disabled="true">IG</a>
+          <a href="javascript:void(0)" class="social-link" aria-label="YouTube" aria-disabled="true">▶</a>
+          <a href="javascript:void(0)" class="social-link" aria-label="Xing" aria-disabled="true">X</a>
         </div>
       </div>
       <div class="footer-col">
@@ -912,20 +946,20 @@
         <ul>
           <li><a href="#ueber-uns">Über uns</a></li>
           <li><a href="#ueber-uns">Team</a></li>
-          <li><a href="#portfolio">Referenzen</a></li>
-          <li><a href="#">Karriere</a></li>
-          <li><a href="#">Presse</a></li>
-          <li><a href="#">Partner</a></li>
+          <li><a href="#vertrauen">Referenzen</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Karriere</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Presse</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Partner</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Ressourcen</h4>
         <ul>
           <li><a href="#blog">Blog</a></li>
-          <li><a href="#">Newsletter</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Webinare</a></li>
-          <li><a href="#">Glossar</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Newsletter</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Downloads</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Webinare</a></li>
+          <li><a href="javascript:void(0)" aria-disabled="true">Glossar</a></li>
           <li><a href="#kontakt">FAQ</a></li>
         </ul>
       </div>
@@ -1047,8 +1081,11 @@
           <h3>Ihre Kostenschätzung ist fertig.</h3>
           <p class="calc-hint">Tragen Sie Ihre Daten ein, um das Ergebnis zu sehen.</p>
           <div class="calc-form">
+            <label for="calcName" class="sr-only">Vor- und Nachname</label>
             <input class="calc-input" type="text" id="calcName" placeholder="Vor- und Nachname *" required autocomplete="name" spellcheck="false">
+            <label for="calcFirma" class="sr-only">Firma / Unternehmen</label>
             <input class="calc-input" type="text" id="calcFirma" placeholder="Firma / Unternehmen" autocomplete="organization" spellcheck="false">
+            <label for="calcEmail" class="sr-only">E-Mail-Adresse</label>
             <input class="calc-input" type="email" id="calcEmail" placeholder="E-Mail-Adresse *" required autocomplete="email" spellcheck="false">
             <div class="calc-phone-row">
               <select class="calc-country" id="calcCountry" autocomplete="tel-country-code">
@@ -1064,6 +1101,7 @@
                 <option value="+39">IT +39</option>
                 <option value="+44">UK +44</option>
               </select>
+              <label for="calcPhone" class="sr-only">Telefonnummer</label>
               <input class="calc-input calc-input--phone" type="tel" id="calcPhone" placeholder="Telefonnummer (optional)" autocomplete="tel-national" spellcheck="false">
             </div>
             <!-- Honeypot — hidden from humans, bots fill it -->
@@ -1091,6 +1129,144 @@
       </div>
     </div>
   </div>
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "addus.",
+        "url": "https://addus.de/",
+        "description": "Strategische Websites, die Besucher in zahlende Kunden verwandeln.",
+        "inLanguage": "de-DE",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://addus.de/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "addus.",
+        "url": "https://addus.de/",
+        "logo": "https://addus.de/assets/logo-addus.svg",
+        "image": "https://addus.de/assets/adam.jpg",
+        "description": "Webdesign-Agentur für KMU und Mittelstand. Professionelle Websites, Google-Sichtbarkeit und Online-Shops — schnell, persönlich und zu fairen Festpreisen.",
+        "founder": {
+          "@type": "Person",
+          "name": "Adam Dia",
+          "jobTitle": "Gründer & Entwickler"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "DE"
+        },
+        "priceRange": "€€",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Deutschland"
+        },
+        "serviceType": ["Webdesign", "SEO", "Online-Shop", "Google-Sichtbarkeit", "Website-Erstellung"],
+        "knowsAbout": ["Webdesign", "Suchmaschinenoptimierung", "E-Commerce", "WordPress", "Shopify"],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "98",
+          "reviewCount": "98"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Thomas K." },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Markus H." },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Wir haben im ersten Jahr 3x mehr Anfragen bekommen als vorher. Adam arbeitet schnell, zuverlässig und hält was er verspricht. Absolute Empfehlung."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Peter W." },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Das ehrlichste Gespräch, das ich je mit einer Agentur hatte. Kein Upselling, keine leeren Versprechen. Einfach gute Arbeit zu einem fairen Preis."
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Webdesign-Leistungen",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Professionelle Website", "description": "Individuelles Webdesign für Ihr Unternehmen" },
+              "price": "699",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Google-Sichtbarkeit", "description": "SEO und lokale Google-Optimierung" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Online-Shop", "description": "E-Commerce mit Shopify oder WooCommerce" }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was kostet eine neue Website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro. Im kostenlosen Erstgespräch finden wir das passende Paket für Sie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert ein Website-Projekt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unser Standard: 21 Werktage von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen. Immer pünktlich — das ist keine Phrase, sondern vertragliche Vereinbarung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich meine Website danach selbst bearbeiten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket. Sie brauchen kein technisches Vorwissen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was, wenn mir das Ergebnis nicht gefällt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie — oder wir arbeiten nach, bis es stimmt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Übernehmt ihr auch bestehende Websites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Website-Audits, Relaunch bestehender Seiten und Performance-Optimierungen gehören zu unseren häufigsten Projekten. Wir analysieren, was Sie haben, und zeigen Ihnen den besten Weg vorwärts."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <script src="js/aurora.js"></script>
   <script src="js/hero.js"></script>

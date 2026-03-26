@@ -287,7 +287,6 @@
   padding: 14px 0;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: gap 0.3s ease;
 }
 
 .hero-link:first-child {
@@ -300,7 +299,8 @@
   background: var(--color-accent);
   border-radius: 1px;
   flex-shrink: 0;
-  transition: width 0.3s ease;
+  transform-origin: left center;
+  transition: transform 0.3s ease;
 }
 
 .hero-link__text {
@@ -318,12 +318,8 @@
   transition: transform 0.3s ease;
 }
 
-.hero-link:hover {
-  gap: 20px;
-}
-
 .hero-link:hover .hero-link__line {
-  width: 48px;
+  transform: scaleX(1.5);
 }
 
 .hero-link:hover .hero-link__arrow {
@@ -848,6 +844,7 @@
   transform: perspective(1200px) rotateY(-5deg) rotateX(2deg);
   transition: transform 0.7s var(--ease-premium);
   animation: mockupFloat 7s ease-in-out 1.35s infinite;
+  will-change: transform;
 }
 
 .hero__visual:hover .browser-mockup {
@@ -1410,6 +1407,7 @@
   box-shadow: var(--shadow-lg);
   white-space: nowrap;
   z-index: var(--z-raised);
+  will-change: transform;
 }
 
 .float-badge--1 {
@@ -1524,6 +1522,7 @@
   gap: var(--space-6);
   animation: marquee 28s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 
 @keyframes marquee {
@@ -1664,3 +1663,40 @@
     letter-spacing: -0.03em;
   }
 }
+
+/* Mobile nav overlay (moved from JS injection) */
+@media (max-width: 640px) {
+  .navbar__nav--open {
+    display: flex !important;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(8, 14, 24, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding: 1.5rem 1.5rem 2rem;
+    z-index: 99;
+    animation: slideDown 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .navbar__nav--open ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  .navbar__nav--open a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1.125rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .navbar__nav--open a::after { display: none; }
+}
+
+/* Keyframes moved from JS injection */
+@keyframes rippleOut { to { transform: scale(3); opacity: 0; } }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }

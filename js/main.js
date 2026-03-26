@@ -89,10 +89,17 @@
   var pdRows = document.querySelector('.pain-dream__rows');
   var pdHint = document.querySelector('.pain-dream__hint');
   if (pdRows) {
+    var pdTicking = false;
     pdRows.addEventListener('mousemove', function (e) {
-      var r = pdRows.getBoundingClientRect();
-      pdRows.style.setProperty('--flash-x', (e.clientX - r.left) + 'px');
-      pdRows.style.setProperty('--flash-y', (e.clientY - r.top) + 'px');
+      var cx = e.clientX, cy = e.clientY;
+      if (pdTicking) return;
+      pdTicking = true;
+      requestAnimationFrame(function () {
+        var r = pdRows.getBoundingClientRect();
+        pdRows.style.setProperty('--flash-x', (cx - r.left) + 'px');
+        pdRows.style.setProperty('--flash-y', (cy - r.top) + 'px');
+        pdTicking = false;
+      });
     });
     if (pdHint) {
       pdRows.addEventListener('mouseenter', function () {
@@ -123,6 +130,26 @@
         item.classList.add('is-open');
         btn.setAttribute('aria-expanded', 'true');
         answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ─── Leistungen Accordion ──────────────────────── */
+  document.querySelectorAll('.lst__trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.lst__item');
+      var wasOpen = item.classList.contains('is-open');
+
+      // Close all
+      document.querySelectorAll('.lst__item.is-open').forEach(function (open) {
+        open.classList.remove('is-open');
+        open.querySelector('.lst__trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (if was closed)
+      if (!wasOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
@@ -231,13 +258,6 @@
         </svg>
         Wird gesendet…`;
 
-      if (!document.getElementById('spin-kf')) {
-        const style = document.createElement('style');
-        style.id = 'spin-kf';
-        style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-        document.head.appendChild(style);
-      }
-
       // Simulate send (replace with real fetch to backend)
       await new Promise((r) => setTimeout(r, 1400));
 
@@ -277,13 +297,13 @@
   /* ─── Sticky "Termin buchen" floating button ─────── */
   const stickyCtaEl = document.getElementById('stickyCtaBtn');
   if (stickyCtaEl) {
-    window.addEventListener(
-      'scroll',
-      () => {
-        stickyCtaEl.classList.toggle('is-visible', window.scrollY > 600);
-      },
-      { passive: true }
-    );
+    const heroEl = document.getElementById('hero');
+    if (heroEl) {
+      new IntersectionObserver(
+        ([entry]) => stickyCtaEl.classList.toggle('is-visible', !entry.isIntersecting),
+        { threshold: 0 }
+      ).observe(heroEl);
+    }
   }
 
   /* Industry website cycler is handled by hero.js */

@@ -6,8 +6,10 @@
 (function () {
   'use strict';
 
-  /* ─── Debug logger + persistent on-page panel ───── */
+  /* ─── Debug logger + persistent on-page panel (dev only) ───── */
   (function buildDebugPanel() {
+    var isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.search.includes('debug');
+    if (!isDev) { window._addusDBG = { addLine: function() {} }; return; }
     // Create the floating panel
     const panel = document.createElement('div');
     panel.id = 'addus-debug-panel';
@@ -165,70 +167,6 @@
   }
 
 
-  /* ─── Brushstroke: scroll-progressive multi-layer SVG drawing ──── */
-  var brushPaths = document.querySelectorAll('.brushstroke-path');
-  if (brushPaths.length) {
-    // Measure and init each path
-    var pathData = [];
-    brushPaths.forEach(function(p, i) {
-      var len = p.getTotalLength();
-      p.style.strokeDasharray = len;
-      p.style.strokeDashoffset = len;
-      // Each layer starts slightly later for a natural bristle spread
-      pathData.push({ el: p, len: len, delay: i * 0.04 });
-    });
-
-    var divider = document.querySelector('.brushstroke-divider');
-    var bsTicking = false;
-    var splatTriggered = false;
-
-    window.addEventListener('scroll', function() {
-      if (bsTicking) return;
-      bsTicking = true;
-      requestAnimationFrame(function() {
-        var rect = divider.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var start = vh;
-        var end = vh * 0.15;
-        var rawProgress = 1 - Math.max(0, Math.min(1, (rect.top - end) / (start - end)));
-
-        pathData.forEach(function(d) {
-          var p = Math.max(0, Math.min(1, (rawProgress - d.delay) / (1 - d.delay)));
-          var eased = p < 0.5
-            ? 4 * p * p * p
-            : 1 - Math.pow(-2 * p + 2, 3) / 2;
-          d.el.style.strokeDashoffset = d.len * (1 - eased);
-        });
-
-        // Trigger paint splatter when brush is nearly done
-        if (rawProgress > 0.85 && !splatTriggered) {
-          splatTriggered = true;
-          var splatter = document.querySelector('.paint-splatter');
-          if (splatter) splatter.classList.add('is-visible');
-
-          // Start the long drip after splatter lands
-          var paintDrip = document.querySelector('.paint-drip');
-          if (paintDrip) {
-            // Measure drip paths and set their lengths
-            var dripPaths = paintDrip.querySelectorAll('.drip-path');
-            dripPaths.forEach(function(dp) {
-              var len = dp.getTotalLength();
-              dp.style.setProperty('--drip-len', len);
-              dp.style.strokeDasharray = len;
-              dp.style.strokeDashoffset = len;
-            });
-            // Trigger the flow animation after a short delay (splatter needs to land first)
-            setTimeout(function() {
-              paintDrip.classList.add('is-flowing');
-            }, 400);
-          }
-        }
-
-        bsTicking = false;
-      });
-    }, { passive: true });
-  }
-
   /* ─── Blob parallax (desktop + pointer device only) ─ */
   if (!prefersReducedMotion) {
     const blobs = document.querySelectorAll('.blob');
@@ -242,6 +180,7 @@
       let currentX = 0;
       let currentY = 0;
       let rafId = null;
+      let blobsVisible = true;
 
       const onMouseMove = (e) => {
         targetX = (e.clientX / window.innerWidth - 0.5) * 50;
@@ -249,7 +188,7 @@
       };
 
       const tickBlobs = () => {
-        // Smooth lerp
+        if (!blobsVisible) return;
         currentX += (targetX - currentX) * 0.045;
         currentY += (targetY - currentY) * 0.045;
 
@@ -264,12 +203,21 @@
       document.addEventListener('mousemove', onMouseMove, { passive: true });
       rafId = requestAnimationFrame(tickBlobs);
 
+      // Pause when hero is out of view to save CPU
+      const heroEl = document.getElementById('hero');
+      if (heroEl) {
+        new IntersectionObserver(([entry]) => {
+          blobsVisible = entry.isIntersecting;
+          if (blobsVisible && !rafId) rafId = requestAnimationFrame(tickBlobs);
+        }, { threshold: 0 }).observe(heroEl);
+      }
+
       // Pause when tab is hidden to save CPU
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           cancelAnimationFrame(rafId);
           rafId = null;
-        } else {
+        } else if (blobsVisible) {
           rafId = requestAnimationFrame(tickBlobs);
         }
       });
@@ -280,15 +228,6 @@
   const primaryBtn = document.querySelector('.btn-primary');
 
   if (primaryBtn) {
-    // Inject ripple keyframe once
-    if (!document.getElementById('ripple-kf')) {
-      const style = document.createElement('style');
-      style.id = 'ripple-kf';
-      style.textContent =
-        '@keyframes rippleOut { to { transform: scale(3); opacity: 0; } }';
-      document.head.appendChild(style);
-    }
-
     primaryBtn.addEventListener('click', function (e) {
       if (prefersReducedMotion) return;
 
@@ -376,14 +315,14 @@
 
   const openPreview = () => {
     if (!previewModal || !previewFrame) return;
-    const activeFrame = frames[currentIndustry];
+    const activeFrame = frames.find(f => f.classList.contains('is-active')) || frames[0];
     if (activeFrame) {
       previewFrame.src = activeFrame.getAttribute('src');
     }
-    if (previewModalUrl) previewModalUrl.textContent = industries[currentIndustry]?.url || '';
+    if (previewModalUrl) previewModalUrl.textContent = activeFrame?.src || '';
     previewModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    DBG.log('Preview modal opened for:', industries[currentIndustry]?.name);
+    DBG.log('Preview modal opened');
   };
 
   const closePreview = () => {
@@ -407,46 +346,6 @@
   const navEl = document.querySelector('.navbar__nav');
 
   if (burger && navEl) {
-    // Inject mobile nav styles once
-    if (!document.getElementById('mobile-nav-style')) {
-      const style = document.createElement('style');
-      style.id = 'mobile-nav-style';
-      style.textContent = `
-        @media (max-width: 640px) {
-          .navbar__nav--open {
-            display: flex !important;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            background: rgba(8, 14, 24, 0.97);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.10);
-            padding: 1.5rem 1.5rem 2rem;
-            z-index: 99;
-            animation: slideDown 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
-          }
-          .navbar__nav--open ul {
-            flex-direction: column;
-            gap: 0;
-          }
-          .navbar__nav--open a {
-            display: block;
-            padding: 0.75rem 0;
-            font-size: 1.125rem;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-          }
-          .navbar__nav--open a::after { display: none; }
-          @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-12px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-        }
-      `;
-      document.head.appendChild(style);
-    }
-
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!expanded));
