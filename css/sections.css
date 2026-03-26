@@ -230,7 +230,7 @@
 }
 
 .pd-hint__cursor {
-  color: var(--color-accent);
+  display: none;
 }
 
 /* Hide hint when rows are hovered */
