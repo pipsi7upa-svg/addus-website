@@ -649,6 +649,130 @@
   line-height: 1.5;
 }
 
+/* ── Animated Icons ── */
+
+/* Bell rings */
+.xci--bell svg {
+  transform-origin: 20px 6px;
+  animation: xciBellRing 3s ease-in-out infinite;
+}
+.xci--bell .xci-dot {
+  animation: xciDotPop 3s ease-in-out infinite;
+}
+@keyframes xciBellRing {
+  0%, 70%, 100% { transform: rotate(0); }
+  75% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+  85% { transform: rotate(8deg); }
+  90% { transform: rotate(-6deg); }
+  95% { transform: rotate(3deg); }
+}
+@keyframes xciDotPop {
+  0%, 70% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.3); opacity: 1; }
+  90%, 100% { transform: scale(1); opacity: 1; }
+}
+
+/* Lock opens/closes */
+.xci--lock .xci-shackle {
+  animation: xciLock 3s ease-in-out infinite;
+}
+@keyframes xciLock {
+  0%, 40%, 100% { d: path("M14 18V13a6 6 0 0 1 12 0v5"); }
+  50%, 90% { d: path("M14 18V13a6 6 0 0 1 12 0v2"); }
+}
+
+/* Toggle slides */
+.xci--toggle .xci-knob {
+  animation: xciToggle 2.4s ease-in-out infinite;
+}
+@keyframes xciToggle {
+  0%, 40% { cx: 12; }
+  50%, 90% { cx: 28; }
+  100% { cx: 12; }
+}
+
+/* Eye slash appears/disappears */
+.xci--eye .xci-slash {
+  animation: xciEye 3s ease-in-out infinite;
+}
+@keyframes xciEye {
+  0%, 40%, 100% { opacity: 0; }
+  50%, 90% { opacity: 1; }
+}
+
+/* Heart fills with bounce */
+.xci--heart .xci-heart {
+  transform-origin: 20px 22px;
+  animation: xciHeart 2.5s ease-in-out infinite;
+}
+@keyframes xciHeart {
+  0%, 40%, 100% { fill: none; transform: scale(1); }
+  50% { fill: #EF4444; transform: scale(1.2); }
+  60%, 90% { fill: #EF4444; transform: scale(1); }
+}
+
+/* Download arrow bounces */
+.xci--download .xci-arrow {
+  animation: xciDownload 2.8s ease-in-out infinite;
+}
+@keyframes xciDownload {
+  0%, 60%, 100% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(6px); opacity: 0; }
+  80% { transform: translateY(-6px); opacity: 0; }
+  90% { transform: translateY(0); opacity: 1; }
+}
+
+/* Search pulses */
+.xci--search svg {
+  animation: xciSearch 3s ease-in-out infinite;
+}
+@keyframes xciSearch {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Pen writes */
+.xci--pen svg {
+  animation: xciPen 3s ease-in-out infinite;
+}
+@keyframes xciPen {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+/* Layout fades sections */
+.xci--layout svg {
+  animation: xciLayout 3s ease-in-out infinite;
+}
+@keyframes xciLayout {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Phone tilts */
+.xci--phone svg {
+  transform-origin: center;
+  animation: xciPhone 4s ease-in-out infinite;
+}
+@keyframes xciPhone {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(90deg); }
+  75% { transform: rotate(0); }
+}
+
+/* Clipboard check appears */
+.xci--clipboard svg line {
+  animation: xciClipLines 3s ease-in-out infinite;
+}
+@keyframes xciClipLines {
+  0%, 40%, 100% { opacity: 0.4; }
+  50%, 90% { opacity: 0; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .xclsv__inner {
@@ -661,7 +785,19 @@
   .xclsv__now { font-size: clamp(3.5rem, 16vw, 5rem); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .xclsv__cta::after { animation: none; }
+  .xclsv__cta::after,
+  .xci--bell svg,
+  .xci--lock .xci-shackle,
+  .xci--toggle .xci-knob,
+  .xci--eye .xci-slash,
+  .xci--heart .xci-heart,
+  .xci--download .xci-arrow,
+  .xci--search svg,
+  .xci--pen svg,
+  .xci--layout svg,
+  .xci--phone svg,
+  .xci--clipboard svg line,
+  .xci--bell .xci-dot { animation: none; }
   .xclsv__now { transition: opacity 0.3s, transform 0.3s; }
 }
 
