@@ -90,8 +90,7 @@
   var pdHint = document.querySelector('.pain-dream__hint');
   if (pdRows) {
     var pdTicking = false;
-    pdRows.addEventListener('mousemove', function (e) {
-      var cx = e.clientX, cy = e.clientY;
+    var updateFlash = function (cx, cy) {
       if (pdTicking) return;
       pdTicking = true;
       requestAnimationFrame(function () {
@@ -100,7 +99,14 @@
         pdRows.style.setProperty('--flash-y', (cy - r.top) + 'px');
         pdTicking = false;
       });
+    };
+    pdRows.addEventListener('mousemove', function (e) {
+      updateFlash(e.clientX, e.clientY);
     });
+    pdRows.addEventListener('touchmove', function (e) {
+      var t = e.touches[0];
+      updateFlash(t.clientX, t.clientY);
+    }, { passive: true });
     if (pdHint) {
       pdRows.addEventListener('mouseenter', function () {
         pdHint.classList.add('is-hidden');
@@ -108,6 +114,12 @@
       pdRows.addEventListener('mouseleave', function () {
         pdHint.classList.remove('is-hidden');
       });
+      pdRows.addEventListener('touchstart', function () {
+        pdHint.classList.add('is-hidden');
+      }, { passive: true });
+      pdRows.addEventListener('touchend', function () {
+        pdHint.classList.remove('is-hidden');
+      }, { passive: true });
     }
   }
 
@@ -451,8 +463,12 @@
       });
     }
 
+    var formSubmitted = false;
     if (calcSubmit) {
       calcSubmit.addEventListener('click', function() {
+        // Rate limit: prevent double submission
+        if (formSubmitted) return;
+
         var nameVal = document.getElementById('calcName').value.trim();
         var emailVal = document.getElementById('calcEmail').value.trim();
         var honeyVal = document.getElementById('calcHoney').value;
@@ -512,6 +528,9 @@
         formData.append('Design', answers.step7 || '—');
         formData.append('Extras', extras.length ? extras.join(', ') : 'Keine');
         formData.append('Geschätzter Preis', finalPrice + ',00 €');
+
+        formSubmitted = true;
+        calcSubmit.disabled = true;
 
         fetch('https://formspree.io/f/mojpqqyy', {
           method: 'POST',

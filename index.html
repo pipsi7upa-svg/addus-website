@@ -1348,7 +1348,7 @@
       var send = function() {
         if (sent) return;
         sent = true;
-        try { f.contentWindow.postMessage('demo-start', '*'); } catch(e) {}
+        try { f.contentWindow.postMessage('demo-start', location.origin); } catch(e) {}
       };
       // Fire after a short delay (handles already-loaded iframes)
       setTimeout(send, 400);
@@ -1431,6 +1431,8 @@
     if (stage) {
       stage.addEventListener('mouseenter', function() { paused = true; });
       stage.addEventListener('mouseleave', function() { paused = false; });
+      stage.addEventListener('touchstart', function() { paused = true; }, { passive: true });
+      stage.addEventListener('touchend', function() { paused = false; }, { passive: true });
     }
 
     // ── Boot: wait for first iframe to load, then fire demo-start ──

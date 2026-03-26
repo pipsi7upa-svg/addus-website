@@ -140,11 +140,18 @@
   window.addEventListener('resize', resize);
   resize();
 
-  canvas.addEventListener('mousemove', function (e) {
+  var updateMouse = function (cx, cy) {
     var r = canvas.getBoundingClientRect();
-    mousePos.x = (e.clientX - r.left) / r.width;
-    mousePos.y = (e.clientY - r.top) / r.height;
+    mousePos.x = (cx - r.left) / r.width;
+    mousePos.y = (cy - r.top) / r.height;
+  };
+  canvas.addEventListener('mousemove', function (e) {
+    updateMouse(e.clientX, e.clientY);
   });
+  canvas.addEventListener('touchmove', function (e) {
+    var t = e.touches[0];
+    updateMouse(t.clientX, t.clientY);
+  }, { passive: true });
 
   // Reduced motion: show static frame
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
