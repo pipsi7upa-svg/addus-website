@@ -62,6 +62,30 @@
 
   document.querySelectorAll('[data-counter]').forEach((el) => counterObserver.observe(el));
 
+  /* ─── Price counter for offer section ────────────── */
+  const offerPriceEl = document.querySelector('[data-price-target]');
+  if (offerPriceEl) {
+    const offerTarget = parseInt(offerPriceEl.dataset.priceTarget, 10);
+    const offerPriceObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !offerPriceEl.dataset.animated) {
+          offerPriceEl.dataset.animated = 'true';
+          const dur = 1800;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = p === 1 ? 1 : 1 - Math.pow(2, -12 * p);
+            offerPriceEl.textContent = Math.floor(offerTarget * eased) + ' €';
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      });
+    }, { threshold: 0.5 });
+    offerPriceObs.observe(offerPriceEl);
+  }
+
+
   /* ─── FAQ Accordion ──────────────────────────────── */
   document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
