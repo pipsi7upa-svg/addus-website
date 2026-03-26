@@ -1646,8 +1646,21 @@
   }
 
   .pre-chip {
-    font-size: 0.58rem;
+    font-size: 0.65rem;
     text-align: left;
+  }
+
+  .navbar__burger {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    min-height: 48px;
+    padding: 14px 24px;
+    font-size: var(--text-base);
   }
 
   .ticker::before,
@@ -1686,8 +1699,9 @@
   }
   .navbar__nav--open a {
     display: block;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     font-size: 1.125rem;
+    min-height: 48px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .navbar__nav--open a::after { display: none; }
