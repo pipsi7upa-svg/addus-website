@@ -219,27 +219,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   font-family: var(--font-body);
-  font-size: var(--text-xs);
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 0.04em;
-  margin-bottom: var(--space-4);
-  animation: pdHintPulse 2.5s ease-in-out infinite;
-  transition: opacity 0.4s;
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-5);
+  transition: opacity 0.5s;
 }
-.pain-dream__hint svg {
-  animation: pdHintArrow 1.5s ease-in-out infinite;
-  opacity: 0.4;
+.pain-dream__hint span {
+  animation: pdHintFade 3s ease-in-out infinite;
 }
-@keyframes pdHintPulse {
-  0%, 100% { opacity: 0.5; }
+@keyframes pdHintFade {
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
-@keyframes pdHintArrow {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(5px); }
+
+/* Cursor icon animation — moves side to side */
+.pd-hint__cursor {
+  color: var(--color-accent);
+  animation: pdCursorMove 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(200,147,42,0.4));
 }
+@keyframes pdCursorMove {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, 4px); }
+  50% { transform: translate(-6px, -2px); }
+  75% { transform: translate(8px, -3px); }
+}
+
 /* Hide hint when rows are hovered */
 .pain-dream__hint.is-hidden {
   opacity: 0;
