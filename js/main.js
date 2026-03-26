@@ -86,6 +86,16 @@
   }
 
 
+  /* ─── Pain/Dream flashlight effect ──────────────── */
+  var pdRows = document.querySelector('.pain-dream__rows');
+  if (pdRows) {
+    pdRows.addEventListener('mousemove', function (e) {
+      var rect = pdRows.getBoundingClientRect();
+      pdRows.style.setProperty('--flash-x', (e.clientX - rect.left) + 'px');
+      pdRows.style.setProperty('--flash-y', (e.clientY - rect.top) + 'px');
+    });
+  }
+
   /* ─── FAQ Accordion ──────────────────────────────── */
   document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
