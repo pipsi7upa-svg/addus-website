@@ -122,17 +122,19 @@
       }, { passive: true });
     }
 
-    // On mobile: first tap on any row reveals ALL dream texts
-    var pdAllRows = document.querySelectorAll('.pd-row');
-    var pdRevealed = false;
-    pdAllRows.forEach(function(row) {
-      row.addEventListener('click', function() {
-        if (window.matchMedia('(hover: none)').matches && !pdRevealed) {
-          pdRevealed = true;
-          pdAllRows.forEach(function(r) { r.classList.add('is-tapped'); });
-        }
-      });
-    });
+    // On non-hover devices: reveal dream texts on scroll instead of tap
+    if (window.matchMedia('(hover: none)').matches) {
+      var pdAllRows = document.querySelectorAll('.pd-row');
+      var pdScrollObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-tapped');
+            pdScrollObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      pdAllRows.forEach(function(row) { pdScrollObserver.observe(row); });
+    }
   }
 
   /* ─── FAQ Accordion ──────────────────────────────── */

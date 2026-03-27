@@ -278,7 +278,7 @@
   color: #fff;
 }
 
-/* Touch tap toggle for mobile */
+/* Scroll reveal for non-hover devices */
 .pd-row.is-tapped .pd-row__dream p {
   opacity: 1;
   transform: translateY(0);
@@ -288,6 +288,19 @@
   opacity: 0.4;
 }
 .pd-row.is-tapped .pd-row__num {
+  color: var(--color-accent);
+}
+
+/* Hero-style text markers */
+.pd-mark {
+  background: rgba(255,71,87,0.12);
+  color: var(--color-danger);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-style: normal;
+}
+.pd-mark--gold {
+  background: rgba(200,147,42,0.12);
   color: var(--color-accent);
 }
 
