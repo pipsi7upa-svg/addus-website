@@ -127,9 +127,9 @@
   overscroll-behavior: contain;
 }
 
-/* Block all scroll/touch/wheel events from reaching the parent page */
+/* On desktop: block iframe scroll from reaching parent page */
+/* On mobile: touch-blocker handles this instead */
 .showcase-stage {
-  touch-action: none;
   overscroll-behavior: contain;
 }
 
