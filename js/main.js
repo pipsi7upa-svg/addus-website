@@ -122,11 +122,14 @@
       }, { passive: true });
     }
 
-    // Toggle dream-text on tap for touch devices
-    document.querySelectorAll('.pd-row').forEach(function(row) {
+    // On mobile: first tap on any row reveals ALL dream texts
+    var pdAllRows = document.querySelectorAll('.pd-row');
+    var pdRevealed = false;
+    pdAllRows.forEach(function(row) {
       row.addEventListener('click', function() {
-        if (window.matchMedia('(hover: none)').matches) {
-          row.classList.toggle('is-tapped');
+        if (window.matchMedia('(hover: none)').matches && !pdRevealed) {
+          pdRevealed = true;
+          pdAllRows.forEach(function(r) { r.classList.add('is-tapped'); });
         }
       });
     });

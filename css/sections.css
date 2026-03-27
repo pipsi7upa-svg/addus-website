@@ -211,7 +211,17 @@
 /* ── CTA ── */
 .pain-dream__cta {
   text-align: center;
-  margin-top: var(--space-16);
+  margin-top: var(--space-8);
+}
+@media (max-width: 640px) {
+  .pain-dream__cta {
+    margin-top: var(--space-6);
+  }
+  .pain-dream__cta .calc-trigger {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 0.95rem;
+  }
 }
 
 .calc-trigger {
@@ -1418,7 +1428,7 @@
   }
   .trust__num:nth-child(2)::after { display: none; }
   .trust__reviews-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2584,7 +2594,11 @@
 
 @media (max-width: 640px) {
   .abt__photo {
-    max-width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .abt__photo img {
+    border-radius: 16px;
   }
 }
 

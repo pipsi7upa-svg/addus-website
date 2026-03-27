@@ -336,9 +336,19 @@
   .showcase-panel--back,
   .showcase-panel--mid { display: none; }
 
-  .showcase-stage { aspect-ratio: 16 / 10; }
+  .showcase-stage {
+    aspect-ratio: 3 / 4;
+    touch-action: none;
+    pointer-events: none;
+  }
+  .showcase-panel--front {
+    pointer-events: none;
+  }
+  .showcase-iframe {
+    pointer-events: none;
+  }
 
   .showcase-pills {
-    display: none; /* pills hidden on mobile, just show label */
+    display: none;
   }
 }
