@@ -103,10 +103,6 @@
     pdRows.addEventListener('mousemove', function (e) {
       updateFlash(e.clientX, e.clientY);
     });
-    pdRows.addEventListener('touchmove', function (e) {
-      var t = e.touches[0];
-      updateFlash(t.clientX, t.clientY);
-    }, { passive: true });
     if (pdHint) {
       pdRows.addEventListener('mouseenter', function () {
         pdHint.classList.add('is-hidden');
@@ -114,12 +110,6 @@
       pdRows.addEventListener('mouseleave', function () {
         pdHint.classList.remove('is-hidden');
       });
-      pdRows.addEventListener('touchstart', function () {
-        pdHint.classList.add('is-hidden');
-      }, { passive: true });
-      pdRows.addEventListener('touchend', function () {
-        pdHint.classList.remove('is-hidden');
-      }, { passive: true });
     }
 
     // On non-hover devices: same glow effect as desktop but triggered by scroll
@@ -131,6 +121,7 @@
             pdAllRows.forEach(function(r) { r.classList.remove('is-active-row'); });
             entry.target.classList.add('is-active-row');
             pdRows.classList.add('has-active');
+            if (pdHint) pdHint.classList.add('is-hidden');
           }
         });
       }, { threshold: 0.6 });
