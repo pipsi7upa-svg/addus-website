@@ -122,17 +122,18 @@
       }, { passive: true });
     }
 
-    // On non-hover devices: reveal dream texts on scroll instead of tap
+    // On non-hover devices: highlight ONE row at a time based on scroll position
     if (window.matchMedia('(hover: none)').matches) {
       var pdAllRows = document.querySelectorAll('.pd-row');
       var pdScrollObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-tapped');
-            pdScrollObserver.unobserve(entry.target);
+            // Remove active from all, add to current
+            pdAllRows.forEach(function(r) { r.classList.remove('is-active-row'); });
+            entry.target.classList.add('is-active-row');
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.6 });
       pdAllRows.forEach(function(row) { pdScrollObserver.observe(row); });
     }
   }
