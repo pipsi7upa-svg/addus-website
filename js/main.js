@@ -1,10 +1,39 @@
 /**
  * main.js — All Section Interactions
- * addus. Web Agency
  */
 
 (function () {
   'use strict';
+
+  /* ─── Anti-scanner / Anti-scraper protection ────── */
+  // Block right-click context menu on production
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+    // Disable dev tools keyboard shortcuts for casual snoopers
+    document.addEventListener('keydown', function(e) {
+      // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      if (e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+          (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+      }
+    });
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    // Disable text selection on non-content areas
+    document.querySelectorAll('.navbar, .footer, .hero').forEach(function(el) {
+      el.style.userSelect = 'none';
+      el.style.webkitUserSelect = 'none';
+    });
+  }
+
+  // Clear console messages to hide errors from scanners
+  if (typeof console.clear === 'function' && location.hostname !== 'localhost') {
+    setTimeout(function() {
+      console.clear();
+      console.log('%c⚠ addus. Security', 'font-size:20px;font-weight:bold;color:#C8932A;');
+      console.log('%cDiese Website ist geschützt. Unbefugter Zugriff wird protokolliert.', 'font-size:12px;color:#94A3B8;');
+    }, 2000);
+  }
 
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
