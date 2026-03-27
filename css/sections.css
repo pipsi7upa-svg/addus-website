@@ -2434,16 +2434,16 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 
 .abt__intro {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin-bottom: var(--space-5);
 }
 
 .abt__content p {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.45);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.85;
   margin-bottom: var(--space-4);
 }
