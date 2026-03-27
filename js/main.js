@@ -291,7 +291,9 @@
   const formSuccess = document.getElementById('formSuccess');
   const submitBtn = document.getElementById('submitBtn');
   const firstNameInput = document.getElementById('firstName');
-  let contactTurnstileVerified = false;
+  // Skip Turnstile on local/file environments where it can't load
+  var isLocal = location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  let contactTurnstileVerified = isLocal;
 
   // Turnstile callbacks
   window.onTurnstileSuccess = function () {
@@ -679,5 +681,80 @@
       if (e.key === 'Escape' && calcModal.classList.contains('is-open')) closeCalc();
     });
   }
+
+  /* ─── Review Carousel ────────────────────────── */
+  (function () {
+    var revEl = document.getElementById('reviewCarousel');
+    if (!revEl) return;
+    var revSlides = revEl.querySelectorAll('.trust__slide');
+    var revDots = document.querySelectorAll('.trust__dot');
+    var revCounter = document.getElementById('reviewCurrent');
+    var revSection = revEl.closest('.trust__reviews');
+    var revCur = 0;
+    var revInterval = 6000;
+    var revTimer = null;
+    var revStarted = false;
+
+    function revGoTo(idx) {
+      revSlides[revCur].classList.remove('is-active');
+      revDots[revCur].classList.remove('is-active', 'is-running');
+      revDots[revCur].classList.add('is-done');
+
+      revCur = idx;
+
+      revDots.forEach(function (d, i) {
+        if (i > revCur) d.classList.remove('is-done', 'is-active', 'is-running');
+      });
+      for (var i = 0; i < revCur; i++) {
+        revDots[i].classList.add('is-done');
+        revDots[i].classList.remove('is-active', 'is-running');
+      }
+
+      revSlides[revCur].classList.add('is-active');
+      revDots[revCur].classList.remove('is-done');
+      revDots[revCur].classList.add('is-active', 'is-running');
+      var fill = revDots[revCur].querySelector('.trust__dot-fill');
+      fill.style.animation = 'none';
+      fill.offsetHeight;
+      fill.style.animation = '';
+
+      if (revCounter) revCounter.textContent = revCur + 1;
+    }
+
+    function revNext() {
+      revGoTo((revCur + 1) % revSlides.length);
+    }
+
+    function revStart() {
+      clearInterval(revTimer);
+      // Sync dot animation with timer
+      revDots[revCur].classList.add('is-running');
+      var fill = revDots[revCur].querySelector('.trust__dot-fill');
+      fill.style.animation = 'none';
+      fill.offsetHeight;
+      fill.style.animation = '';
+      revTimer = setInterval(revNext, revInterval);
+    }
+
+    revDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        revDots.forEach(function (d) { d.classList.remove('is-done', 'is-active'); });
+        revGoTo(parseInt(dot.dataset.slide, 10));
+        revStart();
+      });
+    });
+
+    var revObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !revStarted) {
+          revStarted = true;
+          revStart();
+          revObs.unobserve(revSection);
+        }
+      });
+    }, { threshold: 0.15 });
+    revObs.observe(revSection);
+
+  })();
 
 })();
