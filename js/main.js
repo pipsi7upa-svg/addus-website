@@ -112,20 +112,43 @@
       });
     }
 
-    // On non-hover devices: same glow effect as desktop but triggered by scroll
+    // On non-hover devices: highlight row closest to screen center on scroll
     if (window.matchMedia('(hover: none)').matches) {
       var pdAllRows = document.querySelectorAll('.pd-row');
-      var pdScrollObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            pdAllRows.forEach(function(r) { r.classList.remove('is-active-row'); });
-            entry.target.classList.add('is-active-row');
-            pdRows.classList.add('has-active');
-            if (pdHint) pdHint.classList.add('is-hidden');
+      var pdScrollTicking = false;
+
+      var updateActiveRow = function() {
+        var midY = window.innerHeight / 2;
+        var closest = null;
+        var closestDist = Infinity;
+
+        pdAllRows.forEach(function(row) {
+          var rect = row.getBoundingClientRect();
+          var rowMid = rect.top + rect.height / 2;
+          var dist = Math.abs(rowMid - midY);
+          if (dist < closestDist && rect.top < window.innerHeight && rect.bottom > 0) {
+            closestDist = dist;
+            closest = row;
           }
         });
-      }, { threshold: 0.6 });
-      pdAllRows.forEach(function(row) { pdScrollObserver.observe(row); });
+
+        if (closest && !closest.classList.contains('is-active-row')) {
+          pdAllRows.forEach(function(r) { r.classList.remove('is-active-row'); });
+          closest.classList.add('is-active-row');
+          pdRows.classList.add('has-active');
+          if (pdHint) pdHint.classList.add('is-hidden');
+        }
+      };
+
+      window.addEventListener('scroll', function() {
+        if (!pdScrollTicking) {
+          pdScrollTicking = true;
+          requestAnimationFrame(function() {
+            updateActiveRow();
+            pdScrollTicking = false;
+          });
+        }
+      }, { passive: true });
     }
   }
 
