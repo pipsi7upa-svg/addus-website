@@ -327,6 +327,8 @@
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
+  .pain-dream { padding: var(--space-16) 0; }
+  .pain-dream__header { margin-bottom: var(--space-10); }
   .pd-row {
     grid-template-columns: 1fr;
   }
@@ -336,7 +338,10 @@
   }
   .pd-row__dream {
     padding-top: var(--space-2);
-    padding-left: calc(clamp(16px, 2vw, 28px) + 48px);
+    padding-left: calc(clamp(16px, 2vw, 28px) + 1.5rem);
+  }
+  .pain-dream__title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
   }
 }
 
@@ -660,6 +665,8 @@ html.js-ready .reveal.is-visible .xclsv__now {
 @media (max-width: 480px) {
   .xclsv__now { font-size: clamp(2.4rem, 12vw, 3.5rem); }
   .xclsv__card { flex: 0 0 200px; padding: var(--space-6) var(--space-5); }
+  .xclsv__price-strip .lst__bottom-btn { width: 100%; text-align: center; }
+  .xclsv__head { padding-bottom: var(--space-10); }
 }
 @media (prefers-reduced-motion: reduce) {
   .xclsv__cta::after,
@@ -863,16 +870,22 @@ html.js-ready .reveal.is-visible .xclsv__now {
   .cs__portrait img {
     height: 300px;
   }
+  .cs__head { padding-bottom: var(--space-10); }
   .cs__stats {
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-6);
   }
   .cs__stat {
-    min-width: 80px;
+    flex: 1 1 calc(50% - var(--space-6));
+    min-width: 0;
   }
   .cs__cta .pd-cta-btn {
     width: 100%;
     justify-content: center;
+  }
+  .cs__blockquote {
+    font-size: 0.85rem;
+    padding: var(--space-3) var(--space-4);
   }
 }
 
@@ -2541,7 +2554,11 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 
 @media (max-width: 640px) {
   .abt { padding: var(--space-16) 0; }
+  .abt__head { padding-bottom: var(--space-10); }
   .abt__photo { max-width: 280px; margin: 0 auto; }
+  .abt__photo img { height: 360px; }
+  .abt__intro { font-size: clamp(1.1rem, 4vw, 1.3rem); }
+  .abt__card { padding: var(--space-6); }
 }
 
 
@@ -2686,11 +2703,15 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 }
 
 @media (max-width: 768px) {
+  .blg { padding: var(--space-16) 0; }
+  .blg__head { padding-bottom: var(--space-10); }
   .blg__trigger { gap: var(--space-3); }
   .blg__name { font-size: clamp(1rem, 4vw, 1.4rem); }
   .blg__meta-row { display: none; }
   .blg__arrow { width: 32px; height: 32px; }
+  .blg__preview { max-height: 80px; opacity: 1; }
   .blg__preview p { padding-left: 0; }
+  .blg__bottom { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
@@ -3148,12 +3169,17 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 }
 
 @media (max-width: 768px) {
+  .ktk { padding: var(--space-16) 0; }
+  .ktk__head { padding-bottom: var(--space-10); }
   .ktk__row { flex-wrap: wrap; gap: var(--space-3); }
   .ktk__row-label { min-width: auto; font-size: clamp(1rem, 4vw, 1.4rem); }
-  .ktk__row-value { width: 100%; order: 5; padding-left: calc(32px + var(--space-6)); }
+  .ktk__row-value { width: 100%; order: 5; padding-left: 0; font-size: var(--text-xs); }
   .ktk__row-sub { display: none; }
+  .ktk__row .blg__arrow { width: 32px; height: 32px; }
   .ktk__form-name,
   .ktk__faq-name { font-size: clamp(1rem, 4vw, 1.4rem); }
+  .ktk__form-arrow,
+  .ktk__faq-arrow { width: 32px; height: 32px; }
 }
 
 @media (max-width: 640px) {
@@ -3237,7 +3263,12 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 .form-checks {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-2);
+  gap: var(--space-3) var(--space-2);
+}
+
+@media (max-width: 480px) {
+  .form-checks { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
 }
 
 .form-check {
@@ -3557,6 +3588,23 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .faq-question { padding: var(--space-4) var(--space-5); font-size: var(--text-sm); min-height: 48px; }
+  .faq-answer-inner { padding: 0 var(--space-5) var(--space-4); font-size: var(--text-xs); }
+  .form-submit-hint { font-size: var(--text-xs); }
+  .btn-submit { width: 100%; min-height: 48px; }
+  .form-input, .form-textarea { min-height: 48px; font-size: 16px; }
+  .form-check { min-height: 44px; }
+  .dsgvo-check { min-height: 44px; }
+  .lst__trigger { min-height: 48px; }
+  .lst__cta { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+  .pd-cta-btn { min-height: 48px; }
+  .trust__dot { min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center; }
+  .ktk__row { min-height: 48px; }
+  .ktk__form-trigger, .ktk__faq-trigger { min-height: 48px; }
+  .blg__trigger { min-height: 48px; }
 }
 
 

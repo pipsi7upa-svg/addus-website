@@ -333,7 +333,7 @@
 
       try {
         const formData = new FormData(contactForm);
-        const res = await fetch('https://formspree.io/f/xdkodwkw', {
+        const res = await fetch('https://formspree.io/f/mojpqqyy', {
           method: 'POST',
           body: formData,
           headers: { 'Accept': 'application/json' }

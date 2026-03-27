@@ -1644,6 +1644,26 @@ html.js-ready .animate-in {
     padding-bottom: var(--space-8);
   }
 
+  .hero__actions {
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-link {
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-link__text {
+    font-size: var(--text-base);
+  }
+
+  .hero__proof {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .hero__ctas {
     flex-direction: column;
     width: 100%;
