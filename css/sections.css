@@ -1031,7 +1031,7 @@
 
 .bento-label {
   display: inline-block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -1040,7 +1040,7 @@
 }
 
 .bento-title {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -1050,7 +1050,7 @@
 }
 
 .bento-sub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 400;
   color: #9ca3af;
@@ -1115,7 +1115,7 @@
 
 .bento-tag {
   display: inline-block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.64rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -1125,7 +1125,7 @@
 }
 
 .bento-overlay h3 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
@@ -1134,7 +1134,7 @@
 }
 
 .bento-overlay p {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.45;
@@ -1318,7 +1318,7 @@
 }
 
 .trust__g-score {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 700;
   color: #202124;
@@ -1327,7 +1327,7 @@
 }
 
 .trust__g-count {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   color: #70757a;
 }
