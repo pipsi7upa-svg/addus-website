@@ -348,40 +348,39 @@
 
 .xclsv {
   position: relative;
-  background: #f7f8fc;
+  background: #fff;
   overflow: hidden;
-  min-height: 100vh;
-  height: auto;
-  scroll-snap-align: start;
+  padding: var(--space-24) 0;
 }
-.xclsv__glow {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateZ(0);
-  width: 800px;
-  height: 500px;
-  background: radial-gradient(ellipse, rgba(59,147,247,0.06) 0%, transparent 70%);
-  pointer-events: none;
+
+.xclsv__head {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad) var(--space-16);
+}
+
+.xclsv__lst-title {
+  color: #1a1a2e;
 }
 
 .xclsv__inner {
-  max-width: 1100px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-12) var(--container-pad);
+  padding: 0 var(--container-pad);
+}
+
+.xclsv__split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
-  align-items: center;
-  min-height: 100vh;
+  align-items: start;
+  border-top: 1px solid #e5e7eb;
+  padding-top: var(--space-10);
 }
 
-/* ── Left: Fixed Offer ── */
+/* ── Left: Offer ── */
 .xclsv__hero {
-  order: 1;
-  align-self: center;
   text-align: center;
-  margin-bottom: 0;
 }
 
 /* Mini checklist inside hero */
@@ -403,7 +402,7 @@
   font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: #3B93F7;
+  color: var(--color-accent);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: var(--space-5);
@@ -411,14 +410,14 @@
 .xclsv__pulse span {
   width: 7px;
   height: 7px;
-  background: #3B93F7;
+  background: var(--color-accent);
   border-radius: 50%;
   animation: xclsvPulse 2s ease-in-out infinite;
   will-change: opacity, box-shadow;
 }
 @keyframes xclsvPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(59,147,247,0.4); }
-  50%      { opacity: 0.5; box-shadow: 0 0 0 10px rgba(59,147,247,0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200,147,42,0.4); }
+  50%      { opacity: 0.5; box-shadow: 0 0 0 10px rgba(200,147,42,0); }
 }
 
 .xclsv__headline {
@@ -438,7 +437,7 @@
   margin-bottom: var(--space-8);
 }
 .xclsv__sub strong {
-  color: #3B93F7;
+  color: var(--color-accent);
   font-weight: 700;
 }
 
@@ -455,9 +454,9 @@
 }
 .xclsv__now {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 6.5rem);
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
   font-weight: 800;
-  color: #3B93F7;
+  color: var(--color-accent);
   letter-spacing: -0.04em;
   line-height: 0.9;
   font-variant-numeric: tabular-nums;
@@ -531,8 +530,8 @@ html.js-ready .reveal.is-visible .xclsv__now {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: #3B93F7;
-  color: #fff;
+  background: var(--color-accent);
+  color: #000;
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 700;
@@ -540,7 +539,7 @@ html.js-ready .reveal.is-visible .xclsv__now {
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: all var(--dur-normal) var(--ease-out);
-  box-shadow: 0 4px 20px rgba(59,147,247,0.25);
+  box-shadow: 0 4px 20px rgba(200,147,42,0.25);
 }
 .xclsv__cta::after {
   content: '';
@@ -559,9 +558,9 @@ html.js-ready .reveal.is-visible .xclsv__now {
   100% { left: 150%; }
 }
 .xclsv__cta:hover {
-  background: #2b7de9;
+  background: var(--color-accent-hover, #D4A03A);
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(59,147,247,0.35);
+  box-shadow: 0 8px 30px rgba(200,147,42,0.35);
 }
 .xclsv__cta span { position: relative; z-index: 1; }
 
@@ -572,21 +571,20 @@ html.js-ready .reveal.is-visible .xclsv__now {
   line-height: 1.5;
 }
 .xclsv__legal a {
-  color: #3B93F7;
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 /* ── Right: Auto-scrolling card loop ── */
 .xclsv__grid {
-  order: 2;
   position: relative;
-  height: calc(100vh - 200px);
+  height: 520px;
   max-height: 520px;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: rgba(59,147,247,0.03);
-  border: 1px solid #e8ecf3;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
   contain: layout style paint;
 }
 /* Fade edges */
@@ -602,11 +600,11 @@ html.js-ready .reveal.is-visible .xclsv__now {
 }
 .xclsv__grid::before {
   top: 0;
-  background: linear-gradient(to bottom, #f7f8fc, transparent);
+  background: linear-gradient(to bottom, #fafafa, transparent);
 }
 .xclsv__grid::after {
   bottom: 0;
-  background: linear-gradient(to top, #f7f8fc, transparent);
+  background: linear-gradient(to top, #fafafa, transparent);
 }
 /* Auto-scrolling track */
 .xclsv__grid-track {
@@ -633,7 +631,7 @@ html.js-ready .reveal.is-visible .xclsv__now {
   transition: background 0.2s;
 }
 .xclsv__card:hover {
-  background: rgba(59,147,247,0.03);
+  background: rgba(200,147,42,0.03);
 }
 .xclsv__card-icon {
   width: 48px;
@@ -642,8 +640,8 @@ html.js-ready .reveal.is-visible .xclsv__now {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #3B93F7;
-  background: rgba(59,147,247,0.06);
+  color: var(--color-accent);
+  background: rgba(200,147,42,0.08);
   border-radius: var(--radius-lg);
 }
 .xclsv__card h3,
@@ -807,27 +805,18 @@ html.js-ready .reveal.is-visible .xclsv__now {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .xclsv {
-    min-height: auto;
-  }
-  .xclsv__inner {
+  .xclsv { padding: var(--space-16) 0; }
+  .xclsv__split {
     grid-template-columns: 1fr;
     gap: var(--space-8);
-    min-height: auto;
-    padding: var(--space-8) var(--container-pad);
   }
-  .xclsv__hero { order: 1; }
-  .xclsv__grid { order: 2; max-height: 400px; }
+  .xclsv__grid { max-height: 400px; }
   .xclsv__hero-checks { grid-template-columns: 1fr; }
   .xclsv__now { font-size: clamp(3.5rem, 16vw, 5rem); }
 }
 
 @media (max-width: 480px) {
-  .xclsv__inner {
-    padding: var(--space-6) var(--space-4);
-  }
   .xclsv__now { font-size: clamp(2.8rem, 14vw, 4rem); }
-  .xclsv__headline { font-size: clamp(1.5rem, 5vw, 2rem); }
   .xclsv__grid { max-height: 320px; }
   .xclsv__hero-checks { gap: 4px 8px; }
   .xclsv__cta { padding: 14px 32px; font-size: var(--text-sm); }
