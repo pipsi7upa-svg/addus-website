@@ -350,36 +350,37 @@
   position: relative;
   background: #fff;
   overflow: hidden;
-  padding: var(--space-24) 0;
-}
-
-.xclsv__head {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-pad) var(--space-16);
-}
-
-.xclsv__lst-title {
-  color: #1a1a2e;
+  min-height: 100vh;
+  height: auto;
 }
 
 .xclsv__inner {
-  max-width: var(--container-max);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--container-pad);
-}
-
-.xclsv__split {
+  padding: var(--space-12) var(--container-pad);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
-  align-items: start;
-  border-top: 1px solid #e5e7eb;
-  padding-top: var(--space-10);
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ── Tag (lst-style label) ── */
+.xclsv__tag {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-5);
 }
 
 /* ── Left: Offer ── */
 .xclsv__hero {
+  order: 1;
+  align-self: center;
   text-align: center;
 }
 
@@ -422,10 +423,10 @@
 
 .xclsv__headline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.9rem, 4.2vw, 3.4rem);
   font-weight: 800;
   color: #1a1a2e;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: var(--space-3);
 }
@@ -578,8 +579,9 @@ html.js-ready .reveal.is-visible .xclsv__now {
 
 /* ── Right: Auto-scrolling card loop ── */
 .xclsv__grid {
+  order: 2;
   position: relative;
-  height: 520px;
+  height: calc(100vh - 200px);
   max-height: 520px;
   overflow: hidden;
   border-radius: var(--radius-xl);
@@ -626,7 +628,7 @@ html.js-ready .reveal.is-visible .xclsv__now {
   align-items: center;
   gap: var(--space-4);
   background: #fff;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid #e5e7eb;
   padding: var(--space-4) var(--space-5);
   transition: background 0.2s;
 }
@@ -805,18 +807,23 @@ html.js-ready .reveal.is-visible .xclsv__now {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .xclsv { padding: var(--space-16) 0; }
-  .xclsv__split {
+  .xclsv { min-height: auto; }
+  .xclsv__inner {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+    min-height: auto;
+    padding: var(--space-8) var(--container-pad);
   }
-  .xclsv__grid { max-height: 400px; }
+  .xclsv__hero { order: 1; }
+  .xclsv__grid { order: 2; max-height: 400px; }
   .xclsv__hero-checks { grid-template-columns: 1fr; }
   .xclsv__now { font-size: clamp(3.5rem, 16vw, 5rem); }
 }
 
 @media (max-width: 480px) {
+  .xclsv__inner { padding: var(--space-6) var(--space-4); }
   .xclsv__now { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .xclsv__headline { font-size: clamp(1.5rem, 5vw, 2rem); }
   .xclsv__grid { max-height: 320px; }
   .xclsv__hero-checks { gap: 4px 8px; }
   .xclsv__cta { padding: 14px 32px; font-size: var(--text-sm); }
