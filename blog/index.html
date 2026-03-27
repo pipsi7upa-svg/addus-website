@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Tipps zu Webdesign, SEO & Online-Marketing | addus.</title>
+  <meta name="description" content="Praktische Tipps und Wissen rund um Webdesign, SEO, Google-Sichtbarkeit und Online-Marketing für kleine und mittlere Unternehmen.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://addus-web.de/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog — Tipps zu Webdesign, SEO & Online-Marketing">
+  <meta property="og:description" content="Praktische Tipps rund um Webdesign, SEO und Online-Marketing für Unternehmen.">
+  <meta property="og:url" content="https://addus-web.de/blog/">
+  <meta property="og:image" content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1200/addus/adam-portrait.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="addus.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Adam Dia">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://addus-web.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Blog — addus.",
+    "description": "Praktische Tipps und Wissen rund um Webdesign, SEO und Online-Marketing für Unternehmen.",
+    "url": "https://addus-web.de/blog/",
+    "publisher": { "@type": "Organization", "name": "addus.", "url": "https://addus-web.de" }
+  }
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script type="text/plain" data-cookieconsent="statistics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0D1117; --surface: #161B22; --border: #30363D; --text: #E6EDF3; --text-muted: #8B949E; --accent: #C8932A; --accent-hover: #D4A03A; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 17px; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s; }
+
+    /* Navbar */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav__inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav__logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .nav__links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+    .nav__links a { color: var(--text-muted); }
+    .nav__links a:hover { color: var(--accent); }
+
+    /* Header */
+    .blog-header { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    .blog-header h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 0.75rem; }
+    .blog-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; }
+
+    /* Blog Grid */
+    .blog-grid { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* Blog Card */
+    .blog-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+    .blog-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .blog-card__accent { height: 4px; background: linear-gradient(90deg, var(--accent), transparent); }
+    .blog-card__body { padding: 1.5rem 1.75rem; }
+    .blog-card__meta { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; font-size: 0.8rem; }
+    .blog-card__tag { background: rgba(200,147,42,0.15); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 50px; font-weight: 600; }
+    .blog-card__time { color: var(--text-muted); }
+    .blog-card__title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; color: var(--text); }
+    .blog-card__excerpt { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+    .blog-card__footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+    .blog-card__author { color: var(--text-muted); }
+    .blog-card__link { color: var(--accent); font-weight: 600; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .footer__inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+
+    @media (min-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+    }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    :focus:not(:focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .blog-header { padding: 2rem 1rem 1.5rem; }
+      .blog-grid { padding: 0 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://addus-web.de" class="nav__logo">addus.</a>
+      <div class="nav__links">
+        <a href="https://addus-web.de">Startseite</a>
+        <a href="https://addus-web.de/#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-header">
+    <h1>Blog.</h1>
+    <p>Praktische Tipps und Wissen rund um Webdesign, SEO und Online-Marketing — für Unternehmer, die online sichtbar werden wollen.</p>
+  </header>
+
+  <main class="blog-grid">
+
+    <a href="google-my-business-2026-leitfaden.html" class="blog-card">
+      <div class="blog-card__accent"></div>
+      <div class="blog-card__body">
+        <div class="blog-card__meta">
+          <span class="blog-card__tag">SEO</span>
+          <span class="blog-card__time">12 Min Lesezeit</span>
+        </div>
+        <h2 class="blog-card__title">Google My Business 2026: Der komplette Leitfaden für lokale Unternehmen.</h2>
+        <p class="blog-card__excerpt">Profil einrichten, Bewertungen nutzen und bei Google Maps ganz oben stehen — komplett kostenlos.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__author">Adam Dia · März 2026</span>
+          <span class="blog-card__link">Lesen →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="was-kostet-eine-website-2026.html" class="blog-card">
+      <div class="blog-card__accent"></div>
+      <div class="blog-card__body">
+        <div class="blog-card__meta">
+          <span class="blog-card__tag">Webdesign</span>
+          <span class="blog-card__time">8 Min Lesezeit</span>
+        </div>
+        <h2 class="blog-card__title">Was kostet eine Website 2026? Der ehrliche Preisvergleich.</h2>
+        <p class="blog-card__excerpt">Baukasten, Freelancer oder Agentur? Konkrete Zahlen und Empfehlung — ohne Marketing-Blabla.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__author">Adam Dia · März 2026</span>
+          <span class="blog-card__link">Lesen →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="5-website-fehler-kleine-unternehmen.html" class="blog-card">
+      <div class="blog-card__accent"></div>
+      <div class="blog-card__body">
+        <div class="blog-card__meta">
+          <span class="blog-card__tag">Website-Tipps</span>
+          <span class="blog-card__time">7 Min Lesezeit</span>
+        </div>
+        <h2 class="blog-card__title">5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten.</h2>
+        <p class="blog-card__excerpt">Diese Fehler sehe ich bei 9 von 10 Websites — und die Inhaber wissen nicht mal, dass sie Geld verlieren.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__author">Adam Dia · März 2026</span>
+          <span class="blog-card__link">Lesen →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="warum-jedes-unternehmen-eine-website-braucht.html" class="blog-card">
+      <div class="blog-card__accent"></div>
+      <div class="blog-card__body">
+        <div class="blog-card__meta">
+          <span class="blog-card__tag">Business</span>
+          <span class="blog-card__time">6 Min Lesezeit</span>
+        </div>
+        <h2 class="blog-card__title">Warum jedes Unternehmen 2026 eine Website braucht.</h2>
+        <p class="blog-card__excerpt">93% aller Kaufentscheidungen beginnen online. 6 Gründe, warum Sie ohne Website unsichtbar bleiben.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__author">Adam Dia · März 2026</span>
+          <span class="blog-card__link">Lesen →</span>
+        </div>
+      </div>
+    </a>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 addus. — <a href="https://addus-web.de">Startseite</a> · <a href="https://addus-web.de/impressum.html">Impressum</a> · <a href="https://addus-web.de/datenschutz.html">Datenschutz</a> · <a href="https://addus-web.de/agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

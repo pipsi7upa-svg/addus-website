@@ -8,8 +8,8 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-DNS-Prefetch-Control" content="on">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://consentcdn.cookiebot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com data:; connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com; frame-src https://consentcdn.cookiebot.com; base-uri 'self'; form-action 'self'; object-src 'none'; media-src 'none'; upgrade-insecure-requests;">
-  <meta name="description" content="Website erstellen lassen für nur 699€ netto ✓ Premium Webdesign ✓ Mobiloptimiert ✓ CMS ✓ Domain & Hosting 12 Mon. gratis ✓ DSGVO-konform — addus. Sonderangebot">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.clarity.ms https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com data:; connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com; frame-src https://consentcdn.cookiebot.com; base-uri 'self'; form-action 'self'; object-src 'none'; media-src 'none'; upgrade-insecure-requests;">
+  <meta name="description" content="Website erstellen lassen für nur 699€ netto ✓ Premium Webdesign ✓ Mobiloptimiert ✓ Domain & Hosting 12 Mon. gratis ✓ DSGVO-konform — addus.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sonderangebot — Professionelle Website für 699€">
   <meta property="og:description" content="Website erstellen lassen für nur 699€ netto. Premium Webdesign, mobiloptimiert, DSGVO-konform.">
@@ -21,15 +21,46 @@
   <meta property="og:site_name" content="addus.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://addus-web.de/angebot.html">
-  <title>Sonderangebot — Professionelle Website für 699€ | addus.</title>
+  <title>Website ab 699€ Lüneburg | Webdesign — addus.</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://addus-web.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Sonderangebot" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Professionelle Website — addus. Sonderangebot",
+    "description": "Professionelle Website mit individuellem Design, SEO-Optimierung, CMS, Domain und Hosting. Fertig in 14 Tagen.",
+    "brand": { "@type": "Organization", "name": "addus." },
+    "offers": {
+      "@type": "Offer",
+      "price": "699",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "url": "https://addus-web.de/angebot.html"
+    }
+  }
+  </script>
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script type="text/plain" data-cookieconsent="statistics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/sections.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sections.css"></noscript>
   <style>
     /* ── Hero Offer ── */
     .offer-hero {
@@ -564,6 +595,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
