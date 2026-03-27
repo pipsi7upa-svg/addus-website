@@ -107,11 +107,13 @@
     :focus:not(:focus-visible) { outline: none; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
 
+    .article img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; aspect-ratio: 800 / 418; object-fit: cover; }
     @media (max-width: 600px) {
       body { font-size: 16px; }
       .article { padding: 2rem 1rem 3rem; }
       .price-table { font-size: 0.8rem; }
       .price-table td, .price-table th { padding: 0.5rem 0.6rem; }
+      .article img { border-radius: 8px; margin-bottom: 1.5rem; }
     }
   </style>
 
@@ -216,7 +218,7 @@
                  https://images.pexels.com/photos/3305/numbers-money-calculating-calculation.jpg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800 800w,
                  https://images.pexels.com/photos/3305/numbers-money-calculating-calculation.jpg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200 1200w"
          sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 800px"
-         alt="Taschenrechner und Münzen — Kosten einer Website kalkulieren" width="800" height="418" loading="eager" decoding="async" fetchpriority="high" style="border-radius:12px;margin-bottom:2rem;">
+         alt="Taschenrechner und Münzen — Kosten einer Website kalkulieren" width="800" height="418" loading="eager" decoding="async" fetchpriority="high">
 
     <p>Ich bin Adam, 20 Jahre alt, Informatik-Student und Webentwickler. Ich baue Websites für kleine und mittlere Unternehmen — und ich kriege diese Frage jede Woche mindestens dreimal: <strong>„Was kostet eine Website eigentlich?"</strong></p>
 

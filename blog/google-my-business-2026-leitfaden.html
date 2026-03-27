@@ -109,9 +109,11 @@
     :focus:not(:focus-visible) { outline: none; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
 
+    .article img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; aspect-ratio: 800 / 418; object-fit: cover; }
     @media (max-width: 600px) {
       body { font-size: 16px; }
       .article { padding: 2rem 1rem 3rem; }
+      .article img { border-radius: 8px; margin-bottom: 1.5rem; }
     }
   </style>
 
@@ -216,7 +218,7 @@
                  https://images.pexels.com/photos/5921677/pexels-photo-5921677.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800 800w,
                  https://images.pexels.com/photos/5921677/pexels-photo-5921677.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200 1200w"
          sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 800px"
-         alt="Smartphone mit Google Maps Navigation — lokale Unternehmen finden" width="800" height="418" loading="eager" decoding="async" fetchpriority="high" style="border-radius:12px;margin-bottom:2rem;">
+         alt="Smartphone mit Google Maps Navigation — lokale Unternehmen finden" width="800" height="418" loading="eager" decoding="async" fetchpriority="high">
 
     <p>Wenn jemand in Lüneburg „Elektriker in der Nähe" oder „Friseur Lüneburg" googelt, erscheint als Erstes das <strong>Google Maps Pack</strong> — drei lokale Ergebnisse mit Bewertungen, Öffnungszeiten und Telefonnummer. Wer dort auftaucht, bekommt die Kunden. Wer nicht dort steht, existiert für die meisten Menschen nicht.</p>
 
