@@ -366,15 +366,8 @@
 
 @media (max-width: 480px) {
   .showcase-stage {
-    aspect-ratio: auto;
-    height: 65vh;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 10px;
-  }
-}
-
-@media (max-width: 375px) {
-  .showcase-stage {
-    height: 55vh;
   }
 }

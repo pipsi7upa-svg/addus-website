@@ -281,7 +281,10 @@
       const rh = parseInt(f.dataset.rh, 10) || DEF_RH;
       const scaleW = cw / rw;
       const scaleH = ch / rh;
-      const scale = Math.max(scaleW, scaleH);
+      // On mobile (taller container): scale to width so content isn't cut off
+      // On desktop: scale to width (same behavior as before)
+      const scale = scaleW;
+      const scaledH = rh * scale;
       f.style.width           = rw + 'px';
       f.style.height          = rh + 'px';
       f.style.transform       = `scale(${scale})`;
