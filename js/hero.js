@@ -276,19 +276,24 @@
       DBG.warn(`updateFrameScale: container too small (${cw}×${ch}px)`);
       return;
     }
+    const isMobile = window.innerWidth <= 900;
     frames.forEach((f) => {
-      const rw = parseInt(f.dataset.rw, 10) || DEF_RW;
-      const rh = parseInt(f.dataset.rh, 10) || DEF_RH;
-      const scaleW = cw / rw;
-      const scaleH = ch / rh;
-      // On mobile (taller container): scale to width so content isn't cut off
-      // On desktop: scale to width (same behavior as before)
-      const scale = scaleW;
-      const scaledH = rh * scale;
-      f.style.width           = rw + 'px';
-      f.style.height          = rh + 'px';
-      f.style.transform       = `scale(${scale})`;
-      f.style.transformOrigin = '0 0';
+      if (isMobile) {
+        // On mobile: let CSS handle it — iframe fills container naturally
+        f.style.width           = '100%';
+        f.style.height          = '100%';
+        f.style.transform       = 'none';
+        f.style.transformOrigin = '';
+      } else {
+        // On desktop: scale iframe from native resolution to fit container
+        const rw = parseInt(f.dataset.rw, 10) || DEF_RW;
+        const rh = parseInt(f.dataset.rh, 10) || DEF_RH;
+        const scale = cw / rw;
+        f.style.width           = rw + 'px';
+        f.style.height          = rh + 'px';
+        f.style.transform       = `scale(${scale})`;
+        f.style.transformOrigin = '0 0';
+      }
     });
     DBG.log(`updateFrameScale: panel=${cw}×${ch}px, ${frames.length} frames scaled`);
   };
