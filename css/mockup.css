@@ -342,7 +342,7 @@
   .showcase-panel--mid { display: none; }
 
   .showcase-stage {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border-radius: 12px;
   }
@@ -364,10 +364,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  .showcase-stage {
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-}
