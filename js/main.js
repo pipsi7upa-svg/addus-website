@@ -122,15 +122,15 @@
       }, { passive: true });
     }
 
-    // On non-hover devices: highlight ONE row at a time based on scroll position
+    // On non-hover devices: same glow effect as desktop but triggered by scroll
     if (window.matchMedia('(hover: none)').matches) {
       var pdAllRows = document.querySelectorAll('.pd-row');
       var pdScrollObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            // Remove active from all, add to current
             pdAllRows.forEach(function(r) { r.classList.remove('is-active-row'); });
             entry.target.classList.add('is-active-row');
+            pdRows.classList.add('has-active');
           }
         });
       }, { threshold: 0.6 });

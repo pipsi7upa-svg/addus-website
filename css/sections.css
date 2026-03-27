@@ -278,32 +278,46 @@
   color: #fff;
 }
 
-/* Mobile scroll highlight — one row at a time */
+/* Mobile scroll highlight — same glow effects as desktop hover */
 @media (hover: none) {
-  .pd-row {
-    transition: border-color 0.3s, background 0.3s;
-    border-left: 3px solid transparent;
-    padding-left: var(--space-3);
+  /* Dim all rows when any row is active */
+  .pain-dream__rows.has-active .pd-row__num {
+    color: rgba(200, 147, 42, 0.05);
+  }
+  .pain-dream__rows.has-active .pd-row__pain p {
+    color: rgba(255, 255, 255, 0.08);
+    text-decoration-color: rgba(255, 255, 255, 0.03);
+  }
+  .pain-dream__rows.has-active .pd-row__dream p {
+    color: rgba(255, 255, 255, 0.08);
   }
 
-  .pd-row.is-active-row {
-    border-left-color: var(--color-accent);
-    background: rgba(200,147,42,0.04);
-    border-radius: 0 8px 8px 0;
-  }
-
+  /* Active row: neon glow number */
   .pd-row.is-active-row .pd-row__num {
     color: var(--color-accent);
+    text-shadow:
+      0 0 7px var(--color-accent),
+      0 0 20px var(--color-accent),
+      0 0 40px rgba(200,147,42,0.4),
+      0 0 80px rgba(200,147,42,0.15);
   }
 
+  /* Active row: red glow for pain */
+  .pd-row.is-active-row .pd-row__pain p {
+    color: #FF6B6B;
+    text-shadow: 0 0 18px rgba(255,107,107,0.35), 0 0 45px rgba(255,107,107,0.1);
+    text-decoration-color: rgba(255,107,107,0.3);
+  }
+
+  /* Active row: green glow for dream */
   .pd-row.is-active-row .pd-row__dream p {
-    opacity: 1;
-    transform: translateY(0);
-    color: var(--color-accent);
+    color: #34D399;
+    text-shadow: 0 0 18px rgba(52,211,153,0.35), 0 0 45px rgba(52,211,153,0.1);
   }
 
-  .pd-row:not(.is-active-row) .pd-row__pain p {
-    opacity: 0.5;
+  /* Active row: subtle background */
+  .pd-row.is-active-row {
+    background: rgba(255, 255, 255, 0.015);
   }
 }
 
