@@ -342,7 +342,9 @@
   .showcase-panel--mid { display: none; }
 
   .showcase-stage {
-    aspect-ratio: 9 / 14;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 12px;
   }
 
   .showcase-touch-blocker {
@@ -350,17 +352,11 @@
     position: absolute;
     inset: 0;
     z-index: 10;
-    background: transparent;
     touch-action: pan-y;
   }
 
   .showcase-panel--front {
     inset: 0;
-    border-radius: 10px;
-  }
-
-  .showcase-iframe.is-active {
-    object-fit: cover;
   }
 
   .showcase-pills {

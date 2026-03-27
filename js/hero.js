@@ -279,7 +279,9 @@
     frames.forEach((f) => {
       const rw = parseInt(f.dataset.rw, 10) || DEF_RW;
       const rh = parseInt(f.dataset.rh, 10) || DEF_RH;
-      const scale = cw / rw;
+      const scaleW = cw / rw;
+      const scaleH = ch / rh;
+      const scale = Math.max(scaleW, scaleH);
       f.style.width           = rw + 'px';
       f.style.height          = rh + 'px';
       f.style.transform       = `scale(${scale})`;
