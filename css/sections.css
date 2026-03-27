@@ -646,7 +646,9 @@
   background: rgba(59,147,247,0.06);
   border-radius: var(--radius-lg);
 }
-.xclsv__card h3 {
+.xclsv__card h3,
+.xclsv__card-title {
+  display: block;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -676,9 +678,11 @@
 .xci--bell svg {
   transform-origin: 20px 6px;
   animation: xciBellRing 3s ease-in-out infinite;
+  will-change: transform;
 }
 .xci--bell .xci-dot {
   animation: xciDotPop 3s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 @keyframes xciBellRing {
   0%, 70%, 100% { transform: rotate(0); }
@@ -698,6 +702,7 @@
 .xci--lock .xci-shackle {
   animation: xciLock 3s ease-in-out infinite;
   transform-origin: center;
+  will-change: transform;
 }
 @keyframes xciLock {
   0%, 40%, 100% { transform: translateY(0); }
@@ -727,6 +732,7 @@
 .xci--heart .xci-heart {
   transform-origin: 20px 22px;
   animation: xciHeart 2.5s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes xciHeart {
   0%, 40%, 100% { fill: none; transform: scale(1); }
@@ -737,6 +743,7 @@
 /* Download arrow bounces */
 .xci--download .xci-arrow {
   animation: xciDownload 2.8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 @keyframes xciDownload {
   0%, 60%, 100% { transform: translateY(0); opacity: 1; }
@@ -748,6 +755,7 @@
 /* Search pulses */
 .xci--search svg {
   animation: xciSearch 3s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes xciSearch {
   0%, 100% { transform: scale(1); }
@@ -757,6 +765,7 @@
 /* Pen writes */
 .xci--pen svg {
   animation: xciPen 3s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes xciPen {
   0%, 100% { transform: rotate(0); }
@@ -778,6 +787,7 @@
 .xci--phone svg {
   transform-origin: center;
   animation: xciPhone 4s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes xciPhone {
   0%, 100% { transform: rotate(0); }
@@ -3969,4 +3979,31 @@
   .footer-socials {
     gap: var(--space-2);
   }
+}
+
+/* ── Utility classes (replacing inline styles) ── */
+.hero__trust--center {
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+.form-submit-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.link--accent {
+  color: var(--color-accent);
+}
+.faq-header {
+  margin-bottom: var(--space-10);
+}
+.faq-headline {
+  font-size: var(--text-2xl);
+}
+.contact-info-item__icon svg {
+  width: 18px;
+  height: 18px;
+}
+.cal-placeholder svg {
+  width: 18px;
+  height: 18px;
 }

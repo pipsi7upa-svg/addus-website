@@ -487,7 +487,8 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.calc-step h3 {
+.calc-step h3,
+.calc-step__title {
   font-family: var(--font-body);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 700;
@@ -813,7 +814,8 @@
   .calc-opt { padding: 14px 16px; font-size: 0.88rem; }
   .calc-opt__letter { width: 28px; height: 28px; font-size: 0.72rem; }
   .calc-result__price { font-size: 2.4rem; }
-  .calc-step h3 { font-size: 1.25rem; }
+  .calc-step h3,
+  .calc-step__title { font-size: 1.25rem; }
 }
 
 
@@ -1414,18 +1416,21 @@
   bottom: -14px;
   left: -28px;
   animation: badgeFloat1 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 .float-badge--2 {
   top: 24px;
   right: -22px;
   animation: badgeFloat2 6.5s ease-in-out infinite 0.8s;
+  will-change: transform;
 }
 
 .float-badge--3 {
   bottom: 60px;
   right: -22px;
   animation: badgeFloat2 7s ease-in-out infinite 1.6s;
+  will-change: transform;
 }
 
 @keyframes badgeFloat1 {
