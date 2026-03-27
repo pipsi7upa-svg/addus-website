@@ -1412,12 +1412,10 @@
       if (!switching) switchTo(current + 1);
     });
 
-    // ── Hover-to-pause: slow down auto-advance while user inspects ──
+    // ── Hover-to-pause: slow down auto-advance while user inspects (desktop only) ──
     if (stage) {
       stage.addEventListener('mouseenter', function() { paused = true; });
       stage.addEventListener('mouseleave', function() { paused = false; });
-      stage.addEventListener('touchstart', function() { paused = true; }, { passive: true });
-      stage.addEventListener('touchend', function() { paused = false; }, { passive: true });
     }
 
     // ── Boot: wait for first iframe to load, then fire demo-start ──
