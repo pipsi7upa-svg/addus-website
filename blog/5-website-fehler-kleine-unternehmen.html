@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten | addus.</title>
+  <meta name="description" content="Diese 5 Website-Fehler kosten kleine Unternehmen jeden Tag Kunden. Erfahre welche Fehler es sind und wie du sie sofort beheben kannst.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://addus-web.de/blog/5-website-fehler-kleine-unternehmen.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten">
+  <meta property="og:description" content="Diese 5 Fehler sehen wir bei 9 von 10 Websites. So behebst du sie.">
+  <meta property="og:url" content="https://addus-web.de/blog/5-website-fehler-kleine-unternehmen.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="addus.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Adam Dia">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0D1117; --surface: #161B22; --border: #30363D; --text: #E6EDF3; --text-muted: #8B949E; --accent: #C8932A; --accent-hover: #D4A03A; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav__logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .nav__links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+    .article { max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .article__meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .article__tag { background: rgba(200,147,42,0.15); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+    .article__title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+    .article__subtitle { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc__title { font-family: 'Syne', sans-serif; font-size: 1rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .toc a { color: var(--text-muted); }
+    .toc a:hover { color: var(--accent); }
+    h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h3 { font-family: 'Syne', sans-serif; font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1.25rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; color: var(--text-muted); font-style: italic; }
+    .mistake-number { display: inline-flex; width: 36px; height: 36px; background: var(--accent); color: #000; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; border-radius: 50%; align-items: center; justify-content: center; margin-right: 0.5rem; flex-shrink: 0; }
+    .fix-box { background: rgba(46,160,67,0.08); border: 1px solid rgba(46,160,67,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0 2rem; }
+    .fix-box strong { color: #2EA043; }
+    .highlight-box { background: rgba(200,147,42,0.08); border: 1px solid rgba(200,147,42,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .highlight-box strong { color: var(--accent); }
+    .faq { margin-top: 3rem; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
+    .faq summary { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; }
+    .faq summary::before { content: '+ '; color: var(--accent); font-weight: 700; }
+    .faq details[open] summary::before { content: '− '; }
+    .faq .faq-answer { padding: 0 1.25rem 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    .cta-box { text-align: center; margin: 3rem 0; padding: 2.5rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .cta-box h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--accent-hover); color: #000; }
+    .author-box { display: flex; gap: 1rem; align-items: center; padding: 1.5rem; background: var(--surface); border-radius: 12px; margin: 2.5rem 0; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000; font-size: 1.1rem; flex-shrink: 0; }
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .footer__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .article { padding: 2rem 1rem 3rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten",
+    "description": "Diese 5 Website-Fehler kosten kleine Unternehmen jeden Tag Kunden.",
+    "author": { "@type": "Person", "name": "Adam Dia" },
+    "publisher": { "@type": "Organization", "name": "addus.", "url": "https://addus-web.de" },
+    "datePublished": "2026-03-27",
+    "dateModified": "2026-03-27",
+    "mainEntityOfPage": "https://addus-web.de/blog/5-website-fehler-kleine-unternehmen.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie erkenne ich, ob meine Website mobilfreundlich ist?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Öffne deine Website auf dem Handy. Wenn du zoomen oder seitwärts scrollen musst, ist sie nicht mobilfreundlich. Oder nutze Googles Mobile-Friendly Test unter search.google.com/test/mobile-friendly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie schnell sollte meine Website laden?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Unter 3 Sekunden. Alles darüber und du verlierst messbar Besucher. Google empfiehlt unter 2,5 Sekunden für den Largest Contentful Paint (LCP). Teste deine Seite kostenlos auf pagespeed.web.dev." }
+      },
+      {
+        "@type": "Question",
+        "name": "Brauche ich wirklich SSL/HTTPS?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ja, unbedingt. Ohne SSL zeigt Chrome deinen Besuchern 'Nicht sicher' in der Adressleiste. Google bevorzugt HTTPS-Seiten im Ranking. Und es ist meistens kostenlos (Let's Encrypt)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der wichtigste Fehler, den ich zuerst beheben sollte?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Mobile Optimierung. Über 70% deiner Besucher kommen mit dem Handy. Wenn deine Seite auf dem Smartphone nicht funktioniert, verlierst du die Mehrheit deiner potenziellen Kunden." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://addus-web.de" class="nav__logo">addus.</a>
+      <div class="nav__links">
+        <a href="https://addus-web.de/blog/">Blog</a>
+        <a href="https://addus-web.de/#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__meta">
+      <span class="article__tag">Website-Tipps</span>
+      <span>7 Min Lesezeit</span>
+      <span>März 2026</span>
+    </div>
+
+    <h1 class="article__title">5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten.</h1>
+    <p class="article__subtitle">Diese Fehler sehe ich bei 9 von 10 Websites die ich analysiere. Das Schlimmste: Die Inhaber wissen meistens nicht mal, dass sie Geld verlieren.</p>
+
+    <nav class="toc">
+      <div class="toc__title">Inhalt</div>
+      <ol>
+        <li><a href="#fehler1">Fehler 1: Keine mobile Optimierung</a></li>
+        <li><a href="#fehler2">Fehler 2: Kein SSL / HTTPS</a></li>
+        <li><a href="#fehler3">Fehler 3: Keine klare Handlungsaufforderung</a></li>
+        <li><a href="#fehler4">Fehler 4: Zu langsame Ladezeiten</a></li>
+        <li><a href="#fehler5">Fehler 5: Nicht bei Google auffindbar</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+      </ol>
+    </nav>
+
+    <p>Ich bin Adam, Webentwickler aus Lüneburg. Wenn jemand zu mir kommt und sagt „Meine Website bringt keine Kunden", dann schaue ich mir die Seite an — und finde fast immer die gleichen Probleme.</p>
+    <p>Es sind keine komplizierten technischen Fehler. Es sind grundlegende Dinge, die einfach zu beheben sind. Aber sie kosten dich jeden Tag echte Kunden und echtes Geld.</p>
+
+    <h2 id="fehler1"><span class="mistake-number">1</span> Keine mobile Optimierung</h2>
+    <p><strong>Das Problem:</strong> Deine Website sieht auf dem PC gut aus, aber auf dem Handy ist alles zu klein, verschoben, oder man muss seitwärts scrollen. Texte sind unleserlich, Buttons zu klein zum Tippen.</p>
+    <p><strong>Warum das Kunden kostet:</strong> Über 70% aller Website-Besucher kommen mit dem Smartphone. Wenn deine Seite auf dem Handy nicht funktioniert, verlierst du 7 von 10 potenziellen Kunden — bevor sie überhaupt gelesen haben was du anbietest.</p>
+    <p>Google straft nicht-mobile Seiten auch im Ranking ab. Seit dem „Mobile-First Index" bewertet Google primär die mobile Version deiner Website.</p>
+
+    <div class="fix-box">
+      <strong>So behebst du es:</strong> Teste deine Seite auf dem Handy. Wenn sie nicht perfekt funktioniert, brauchst du ein responsives Design. Das heißt: Die Website passt sich automatisch an jede Bildschirmgröße an. Jeder moderne Webentwickler baut das standardmäßig ein.
+    </div>
+
+    <h2 id="fehler2"><span class="mistake-number">2</span> Kein SSL / HTTPS</h2>
+    <p><strong>Das Problem:</strong> Deine Website läuft noch auf HTTP statt HTTPS. In der Adressleiste steht „Nicht sicher" — direkt neben deinem Firmennamen.</p>
+    <p><strong>Warum das Kunden kostet:</strong> Stell dir vor, du gehst in ein Geschäft und am Eingang hängt ein Schild: „Achtung: Dieses Geschäft ist nicht sicher." Würdest du reingehen? Genau das sagt Chrome deinen Besuchern.</p>
+    <p>Außerdem: Google bevorzugt HTTPS-Seiten im Ranking. Ohne SSL bist du doppelt benachteiligt.</p>
+
+    <div class="fix-box">
+      <strong>So behebst du es:</strong> Ein SSL-Zertifikat ist meistens kostenlos (Let's Encrypt). Dein Hosting-Anbieter kann das in 5 Minuten aktivieren. Es gibt keinen Grund, 2026 noch ohne HTTPS zu sein.
+    </div>
+
+    <h2 id="fehler3"><span class="mistake-number">3</span> Keine klare Handlungsaufforderung (CTA)</h2>
+    <p><strong>Das Problem:</strong> Der Besucher kommt auf deine Seite, liest ein bisschen — und dann? Keine Telefonnummer prominent sichtbar, kein „Jetzt anfragen"-Button, kein Kontaktformular above the fold.</p>
+    <p><strong>Warum das Kunden kostet:</strong> Leute entscheiden in Sekunden. Wenn sie nicht sofort sehen, was der nächste Schritt ist, sind sie weg. Dein Besucher denkt nicht: „Ich suche mal nach dem Kontaktformular." Er denkt: „Nächste Website."</p>
+
+    <div class="fix-box">
+      <strong>So behebst du es:</strong> Jede Seite braucht einen klaren Call-to-Action. Ein Button der sagt, was der Besucher tun soll: „Kostenlos beraten lassen", „Jetzt anrufen", „Angebot anfordern". Sichtbar, ohne zu scrollen. Telefonnummer in den Header. Kontaktformular kurz und einfach.
+    </div>
+
+    <h2 id="fehler4"><span class="mistake-number">4</span> Zu langsame Ladezeiten</h2>
+    <p><strong>Das Problem:</strong> Deine Website braucht 5, 8, manchmal 10 Sekunden zum Laden. Riesige Bilder die nicht komprimiert sind, zu viele Plugins, schlechtes Hosting.</p>
+    <p><strong>Warum das Kunden kostet:</strong> Die Zahlen sind brutal: 53% der mobilen Besucher verlassen eine Seite die länger als 3 Sekunden lädt. Bei 5 Sekunden sind es über 70%. Jede Sekunde Ladezeit kostet dich messbar Kunden.</p>
+    <p>Google nutzt Ladezeit auch als Ranking-Faktor. Langsame Seite = schlechteres Ranking = weniger Besucher.</p>
+
+    <div class="fix-box">
+      <strong>So behebst du es:</strong> Bilder komprimieren (WebP statt PNG/JPG), unnötige Plugins entfernen, gutes Hosting nutzen. Teste deine Seite auf <strong>pagespeed.web.dev</strong> — Google sagt dir genau was zu langsam ist und warum.
+    </div>
+
+    <h2 id="fehler5"><span class="mistake-number">5</span> Nicht bei Google auffindbar</h2>
+    <p><strong>Das Problem:</strong> Du hast eine schöne Website, aber wenn jemand „Elektriker Lüneburg" googelt, bist du auf Seite 5. Oder gar nicht zu finden.</p>
+    <p><strong>Warum das Kunden kostet:</strong> 75% der Nutzer klicken nie über Seite 1 der Google-Ergebnisse hinaus. Wenn du dort nicht auftauchst, existierst du für die meisten potenziellen Kunden einfach nicht.</p>
+    <p>Viele Websites haben kein einziges SEO-Grundelement: Keine Meta-Description, keine saubere Seitenstruktur, keine optimierten Überschriften, kein Google Business Profil.</p>
+
+    <div class="fix-box">
+      <strong>So behebst du es:</strong> SEO-Basics einrichten: Meta-Title und Description für jede Seite, H1/H2-Überschriften mit Keywords, Google Business Profil anlegen und pflegen, Seite in der Google Search Console anmelden, Sitemap einreichen. Das allein kann dein Ranking massiv verbessern.
+    </div>
+
+    <div class="highlight-box">
+      <strong>Kurz zusammengefasst:</strong> Mobile Optimierung, SSL, klare CTAs, schnelle Ladezeiten und grundlegendes SEO. Fünf Dinge. Kein Hexenwerk. Aber der Unterschied zwischen einer Website die Kunden bringt und einer die nur Geld kostet.
+    </div>
+
+    <div class="faq" id="faq">
+      <h2>Häufige Fragen</h2>
+
+      <details>
+        <summary>Wie erkenne ich, ob meine Website mobilfreundlich ist?</summary>
+        <div class="faq-answer">Öffne deine Website auf dem Handy. Wenn du zoomen oder seitwärts scrollen musst, ist sie nicht mobilfreundlich. Oder nutze Googles Mobile-Friendly Test unter search.google.com/test/mobile-friendly.</div>
+      </details>
+
+      <details>
+        <summary>Wie schnell sollte meine Website laden?</summary>
+        <div class="faq-answer">Unter 3 Sekunden. Alles darüber und du verlierst messbar Besucher. Google empfiehlt unter 2,5 Sekunden für den Largest Contentful Paint (LCP). Teste deine Seite kostenlos auf pagespeed.web.dev.</div>
+      </details>
+
+      <details>
+        <summary>Brauche ich wirklich SSL/HTTPS?</summary>
+        <div class="faq-answer">Ja, unbedingt. Ohne SSL zeigt Chrome deinen Besuchern „Nicht sicher" in der Adressleiste. Google bevorzugt HTTPS-Seiten im Ranking. Und es ist meistens kostenlos (Let's Encrypt).</div>
+      </details>
+
+      <details>
+        <summary>Was ist der wichtigste Fehler, den ich zuerst beheben sollte?</summary>
+        <div class="faq-answer">Mobile Optimierung. Über 70% deiner Besucher kommen mit dem Handy. Wenn deine Seite auf dem Smartphone nicht funktioniert, verlierst du die Mehrheit deiner potenziellen Kunden.</div>
+      </details>
+    </div>
+
+    <div class="cta-box">
+      <h3>Nicht sicher, ob Ihre Website diese Fehler hat?</h3>
+      <p>Ich analysiere Ihre Website kostenlos und zeige Ihnen genau, wo Sie Kunden verlieren.</p>
+      <a href="https://addus-web.de/#kontakt" class="cta-btn">Kostenlose Website-Analyse →</a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">AD</div>
+      <div>
+        <div class="author-name" style="font-weight:600">Adam Dia</div>
+        <div style="font-size:0.85rem;color:var(--text-muted)">Gründer von addus. — Webdesign & SEO aus Lüneburg</div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 addus. — <a href="https://addus-web.de">Startseite</a> · <a href="https://addus-web.de/impressum.html">Impressum</a> · <a href="https://addus-web.de/datenschutz.html">Datenschutz</a> · <a href="https://addus-web.de/agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
