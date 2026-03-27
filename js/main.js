@@ -121,6 +121,15 @@
         pdHint.classList.remove('is-hidden');
       }, { passive: true });
     }
+
+    // Toggle dream-text on tap for touch devices
+    document.querySelectorAll('.pd-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        if (window.matchMedia('(hover: none)').matches) {
+          row.classList.toggle('is-tapped');
+        }
+      });
+    });
   }
 
   /* ─── FAQ Accordion ──────────────────────────────── */

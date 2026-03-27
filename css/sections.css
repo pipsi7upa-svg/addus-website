@@ -60,8 +60,17 @@
   50% { opacity: 1; }
 }
 
-.pd-hint__cursor {
-  display: none;
+.pd-hint__cursor { display: none; }
+.pd-hint__cursor--desktop { display: block; }
+.pd-hint__cursor--mobile { display: none; }
+.pd-hint__text--desktop { display: inline; }
+.pd-hint__text--mobile { display: none; }
+
+@media (hover: none), (max-width: 768px) {
+  .pd-hint__cursor--desktop { display: none; }
+  .pd-hint__cursor--mobile { display: block; }
+  .pd-hint__text--desktop { display: none; }
+  .pd-hint__text--mobile { display: inline; }
 }
 
 /* Hide hint when rows are hovered */
@@ -227,6 +236,19 @@
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: #fff;
+}
+
+/* Touch tap toggle for mobile */
+.pd-row.is-tapped .pd-row__dream p {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--color-accent);
+}
+.pd-row.is-tapped .pd-row__pain p {
+  opacity: 0.4;
+}
+.pd-row.is-tapped .pd-row__num {
+  color: var(--color-accent);
 }
 
 /* ── Responsive ── */
