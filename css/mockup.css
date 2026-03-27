@@ -332,6 +332,11 @@
   .demo-now { margin-top: 12px; }
 }
 
+/* Touch blocker — hidden on desktop, covers stage on mobile */
+.showcase-touch-blocker {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .showcase-panel--back,
   .showcase-panel--mid { display: none; }
@@ -340,13 +345,22 @@
     aspect-ratio: 9 / 14;
   }
 
-  /* Invisible overlay blocks ALL touch interaction with iframes */
-  .showcase-panel--front::before {
-    content: '';
+  .showcase-touch-blocker {
+    display: block;
     position: absolute;
     inset: 0;
-    z-index: 999;
+    z-index: 10;
     background: transparent;
+    touch-action: pan-y;
+  }
+
+  .showcase-panel--front {
+    inset: 0;
+    border-radius: 10px;
+  }
+
+  .showcase-iframe.is-active {
+    object-fit: cover;
   }
 
   .showcase-pills {
