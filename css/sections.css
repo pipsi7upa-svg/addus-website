@@ -280,16 +280,30 @@
 
 /* Mobile scroll highlight — same glow effects as desktop hover */
 @media (hover: none) {
+  .pd-row {
+    border-left: 3px solid transparent;
+    transition: border-color 0.5s ease, background 0.5s ease;
+  }
+
   /* Dim all rows when any row is active */
   .pain-dream__rows.has-active .pd-row__num {
     color: rgba(200, 147, 42, 0.05);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
   }
   .pain-dream__rows.has-active .pd-row__pain p {
     color: rgba(255, 255, 255, 0.08);
     text-decoration-color: rgba(255, 255, 255, 0.03);
+    transition: color 0.5s ease, text-shadow 0.5s ease, text-decoration-color 0.5s ease;
   }
   .pain-dream__rows.has-active .pd-row__dream p {
     color: rgba(255, 255, 255, 0.08);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+  }
+
+  /* Active row: gold left border */
+  .pd-row.is-active-row {
+    border-left-color: var(--color-accent);
+    background: rgba(200,147,42,0.03);
   }
 
   /* Active row: neon glow number */
@@ -313,11 +327,6 @@
   .pd-row.is-active-row .pd-row__dream p {
     color: #34D399;
     text-shadow: 0 0 18px rgba(52,211,153,0.35), 0 0 45px rgba(52,211,153,0.1);
-  }
-
-  /* Active row: subtle background */
-  .pd-row.is-active-row {
-    background: rgba(255, 255, 255, 0.015);
   }
 }
 
