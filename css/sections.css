@@ -2393,9 +2393,15 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 
 .abt {
   padding: var(--space-24) 0;
-  background: var(--color-bg-deep);
+  background: var(--color-bg);
   position: relative;
-  overflow: hidden;
+}
+
+/* ── Header (lst-style) ── */
+.abt__head {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad) var(--space-16);
 }
 
 /* ── Split: Photo + Text ── */
@@ -2404,21 +2410,24 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   margin: 0 auto;
   padding: 0 var(--container-pad);
   display: grid;
-  grid-template-columns: 0.45fr 1fr;
-  gap: var(--space-16);
+  grid-template-columns: 0.4fr 1fr;
+  gap: var(--space-12);
   align-items: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: var(--space-10);
 }
 
-/* Photo */
 .abt__photo {
   position: relative;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .abt__photo img {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(15%) contrast(1.05);
+  filter: grayscale(20%) contrast(1.05);
   transition: filter 0.6s var(--ease-out);
 }
 
@@ -2426,45 +2435,9 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   filter: grayscale(0%) contrast(1);
 }
 
-.abt__photo::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(to top, var(--color-bg-deep), transparent);
-  pointer-events: none;
-}
-
 /* Content */
 .abt__content {
-  padding-top: var(--space-4);
-}
-
-.abt__tag {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: var(--space-6);
-}
-
-.abt__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin-bottom: var(--space-8);
-}
-
-.abt__body {
-  margin-bottom: var(--space-8);
+  padding-top: var(--space-2);
 }
 
 .abt__intro {
@@ -2475,15 +2448,15 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   margin-bottom: var(--space-5);
 }
 
-.abt__body p {
+.abt__content p {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.45);
   line-height: 1.85;
   margin-bottom: var(--space-4);
 }
 
-.abt__body p:last-child {
+.abt__content p:last-of-type {
   margin-bottom: 0;
 }
 
@@ -2492,9 +2465,9 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-bottom: var(--space-8);
+  margin-top: var(--space-8);
   padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .abt__sig-name {
@@ -2508,81 +2481,57 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 .abt__sig-role {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-/* CTA */
-.abt__cta {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-bg);
-  background: var(--color-accent);
-  padding: 12px 32px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.abt__cta:hover {
-  background: var(--color-accent-hover);
-}
-
-/* ── Drei Gründe ── */
+/* ── Drei Gründe (lst-style rows) ── */
 .abt__reasons {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-20) var(--container-pad) 0;
+  padding: var(--space-12) var(--container-pad) 0;
 }
 
-.abt__reasons-head {
-  margin-bottom: var(--space-10);
+.abt__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: padding-left 0.3s var(--ease-out);
+}
+.abt__row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+.abt__row:hover {
+  padding-left: var(--space-2);
 }
 
-.abt__reasons-head h3 {
+.abt__feat {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
   font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  min-width: 220px;
+  flex-shrink: 0;
+  transition: color 0.4s var(--ease-out);
+}
+.abt__row:hover .abt__feat {
   color: #fff;
-  letter-spacing: -0.03em;
 }
 
-.abt__reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.abt__reason {
-  background: var(--color-bg-deep);
-  padding: var(--space-8);
-}
-
-.abt__reason-num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--color-accent);
-  letter-spacing: 0.04em;
-  margin-bottom: var(--space-4);
-}
-
-.abt__reason strong {
-  display: block;
+.abt__desc {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, 0.4);
+  flex: 1;
 }
 
-.abt__reason p {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.75;
+/* ── Bottom CTA ── */
+.abt__bottom {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-10) var(--container-pad) 0;
+  text-align: center;
 }
 
 /* ── About Responsive ── */
@@ -2591,22 +2540,16 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
-  .abt__photo {
-    max-width: 400px;
-  }
-  .abt__reasons-grid {
-    grid-template-columns: 1fr;
-  }
+  .abt__photo { max-width: 350px; }
+  .abt__row { flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
+  .abt__feat { min-width: auto; }
+  .abt__desc { flex-basis: 100%; padding-left: 56px; }
 }
 
 @media (max-width: 640px) {
-  .abt__photo {
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  .abt__photo img {
-    border-radius: 16px;
-  }
+  .abt { padding: var(--space-16) 0; }
+  .abt__photo { max-width: 280px; margin: 0 auto; }
+  .abt__desc { padding-left: 0; }
 }
 
 
