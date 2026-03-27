@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  /* ─── GA4 Link Click Tracking (tel, whatsapp, mailto) ─── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link || typeof gtag !== 'function') return;
+    var href = link.getAttribute('href') || '';
+    if (href.startsWith('tel:')) {
+      gtag('event', 'click', { event_category: 'contact', event_label: 'phone_click', value: 1 });
+    } else if (href.includes('wa.me')) {
+      gtag('event', 'click', { event_category: 'contact', event_label: 'whatsapp_click', value: 1 });
+    } else if (href.startsWith('mailto:')) {
+      gtag('event', 'click', { event_category: 'contact', event_label: 'email_click', value: 1 });
+    }
+  });
 
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
@@ -320,6 +333,10 @@
 
         if (!res.ok) throw new Error('Senden fehlgeschlagen');
 
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'contact', event_label: 'contact_form', value: 1 });
+        }
+
         contactForm.style.opacity = '0';
         contactForm.style.transition = 'opacity 0.4s ease';
         setTimeout(() => {
@@ -610,6 +627,10 @@
           body: formData,
           headers: { 'Accept': 'application/json' }
         }).catch(function() {});
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'calculator', event_label: 'price_calculator', value: finalPrice });
+        }
 
         showResult();
       });
