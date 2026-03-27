@@ -1314,7 +1314,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 /* ─── TRUST SECTION — White ─── */
 .trust {
   padding: var(--space-24) 0;
-  background: var(--color-bg);
+  background: #fff;
   position: relative;
 }
 
@@ -1325,6 +1325,14 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   padding: 0 var(--container-pad) var(--space-16);
 }
 
+.trust .lst__tag {
+  color: var(--color-accent);
+}
+
+.trust .lst__title {
+  color: #1a1a2e;
+}
+
 /* ── Stats strip (Google badge + numbers) ── */
 .trust__stats {
   max-width: var(--container-max);
@@ -1333,8 +1341,8 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   display: grid;
   grid-template-columns: auto repeat(4, 1fr);
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .trust__google-badge {
@@ -1342,7 +1350,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-8) var(--space-8) var(--space-8) 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 1px solid #e5e7eb;
 }
 
 .trust__g-logo {
@@ -1366,7 +1374,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-family: var(--font-body);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: #1a1a2e;
   letter-spacing: -0.01em;
   line-height: 1;
 }
@@ -1374,7 +1382,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 .trust__g-count {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.45);
+  color: #6b7280;
 }
 
 .trust__num {
@@ -1390,7 +1398,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   top: 25%;
   height: 50%;
   width: 1px;
-  background: rgba(255, 255, 255, 0.07);
+  background: #e5e7eb;
 }
 
 .trust__num-value {
@@ -1398,7 +1406,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 800;
-  color: #fff;
+  color: #1a1a2e;
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: var(--space-2);
@@ -1407,7 +1415,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 .trust__num-label {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.45);
+  color: #6b7280;
   line-height: 1.4;
 }
 
@@ -1466,7 +1474,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-family: var(--font-body);
   font-size: var(--text-xl);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #1a1a2e;
   line-height: 1.8;
   max-width: 600px;
   font-style: italic;
@@ -1484,7 +1492,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 600;
-  color: #fff;
+  color: #1a1a2e;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1498,7 +1506,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 .trust__review-author span {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.45);
+  color: #6b7280;
 }
 
 /* Dots navigation */
@@ -1512,7 +1520,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   position: relative;
   width: 32px;
   height: 3px;
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-full);
   overflow: hidden;
   cursor: pointer;
@@ -1521,7 +1529,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 }
 
 .trust__dot:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .trust__dot-fill {
@@ -1552,7 +1560,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   margin-top: var(--space-4);
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: #9ca3af;
   letter-spacing: 0.05em;
 }
 
@@ -1574,14 +1582,14 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: #9ca3af;
 }
 
 .trust__badge-dot {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: #d1d5db;
   flex-shrink: 0;
 }
 
@@ -1593,7 +1601,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   .trust__google-badge {
     grid-column: 1 / -1;
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid #e5e7eb;
     justify-content: center;
     padding: var(--space-6);
   }
