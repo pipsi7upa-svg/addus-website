@@ -337,7 +337,7 @@
   display: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .showcase-panel--back,
   .showcase-panel--mid { display: none; }
 
@@ -361,5 +361,20 @@
 
   .showcase-pills {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-stage {
+    aspect-ratio: auto;
+    height: 65vh;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .showcase-stage {
+    height: 55vh;
   }
 }
