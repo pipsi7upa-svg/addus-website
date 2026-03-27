@@ -258,7 +258,9 @@ html.js-ready .animate-in {
 }
 
 .h1-light {
+  font-family: var(--font-body);
   font-weight: 300;
+  letter-spacing: 0.01em;
   color: var(--color-text-muted);
 }
 
@@ -282,6 +284,7 @@ html.js-ready .animate-in {
 .hero__actions {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0;
   margin-bottom: var(--space-8);
 }
@@ -289,18 +292,14 @@ html.js-ready .animate-in {
 .hero-link {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
   gap: 14px;
   padding: 14px 0;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.hero-link:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hero-link__line {
-  width: 32px;
+  width: 12px;
   height: 2px;
   background: var(--color-accent);
   border-radius: 1px;
