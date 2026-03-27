@@ -465,11 +465,15 @@
   letter-spacing: -0.04em;
   line-height: 0.9;
   font-variant-numeric: tabular-nums;
+  opacity: 1;
+  transform: scale(1);
+}
+html.js-ready .xclsv__now {
   opacity: 0;
   transform: scale(0.6);
   transition: opacity 0.6s var(--ease-premium) 0.2s, transform 0.8s cubic-bezier(0.16, 1.2, 0.3, 1) 0.2s;
 }
-.reveal.is-visible .xclsv__now {
+html.js-ready .reveal.is-visible .xclsv__now {
   opacity: 1;
   transform: scale(1);
 }
@@ -1243,8 +1247,18 @@
   text-align: center;
 }
 
-/* Scroll reveal */
+/* Scroll reveal — Progressive Enhancement:
+   Content is ALWAYS visible by default.
+   Animations only activate after JS adds .js-ready to <html>. */
+
+/* Default: fully visible, no animation */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Only hide+animate when JS is confirmed ready */
+html.js-ready .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition:
@@ -1252,26 +1266,18 @@
     transform 0.4s var(--ease-premium);
 }
 
-.reveal.is-visible {
+html.js-ready .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 50ms; }
-.reveal-delay-2 { transition-delay: 100ms; }
-.reveal-delay-3 { transition-delay: 240ms; }
-.reveal-delay-4 { transition-delay: 320ms; }
+html.js-ready .reveal-delay-1 { transition-delay: 50ms; }
+html.js-ready .reveal-delay-2 { transition-delay: 100ms; }
+html.js-ready .reveal-delay-3 { transition-delay: 240ms; }
+html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
 
-/* Fallback: show content immediately if JS hasn't loaded yet (slow mobile) */
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
-/* After 3s without JS, force all reveals visible */
-@keyframes reveal-fallback {
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal:not(.is-visible) {
-  animation: reveal-fallback 0s 3s forwards;
+  html.js-ready .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 

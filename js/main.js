@@ -23,6 +23,12 @@
     '(prefers-reduced-motion: reduce)'
   ).matches;
 
+  /* ─── Progressive Enhancement: signal that JS is ready ── */
+  /* Content is visible by default. Adding js-ready enables
+     reveal/animate-in animations. This prevents blank pages
+     if JS loads slowly or fails. */
+  document.documentElement.classList.add('js-ready');
+
   /* ─── Scroll reveal ──────────────────────────────── */
   const revealObserver = new IntersectionObserver(
     (entries) => {

@@ -225,8 +225,14 @@
   max-width: 560px;
 }
 
-/* Staggered entrance animation */
+/* Staggered entrance animation — Progressive Enhancement:
+   Content visible by default. Animation only when JS confirms ready. */
 .animate-in {
+  opacity: 1;
+  transform: none;
+}
+
+html.js-ready .animate-in {
   opacity: 0;
   transform: translateY(22px);
   animation: fadeUp var(--dur-enter) var(--ease-premium) forwards;
