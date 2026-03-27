@@ -411,49 +411,58 @@ html.js-ready .reveal.is-visible .xclsv__now {
   letter-spacing: 0.04em;
 }
 
-/* ── Feature rows (lst-style numbered list) ── */
+/* ── Feature scroll bar ── */
 .xclsv__features {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-pad);
-}
-
-.xclsv__row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  padding: var(--space-5) 0;
+  position: relative;
+  margin-top: var(--space-10);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  transition: padding-left 0.3s var(--ease-out);
 }
 
-.xclsv__row:hover {
-  padding-left: var(--space-2);
+.xclsv__scroll {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.xclsv__scroll::-webkit-scrollbar { display: none; }
 
-.xclsv__row .lst__num {
+.xclsv__card {
+  flex: 0 0 260px;
+  padding: var(--space-8) var(--space-6);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  scroll-snap-align: start;
+  transition: background 0.3s;
+}
+.xclsv__card:last-child { border-right: none; }
+.xclsv__card:hover { background: rgba(255, 255, 255, 0.03); }
+
+.xclsv__card-num {
+  display: block;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 800;
   color: var(--color-accent);
-  min-width: 32px;
   letter-spacing: 0.02em;
+  margin-bottom: var(--space-4);
 }
 
-.xclsv__feat {
+.xclsv__card-title {
+  display: block;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
   font-weight: 700;
   color: #fff;
-  min-width: 220px;
-  flex-shrink: 0;
+  margin-bottom: var(--space-3);
 }
 
-.xclsv__desc {
+.xclsv__card p {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: rgba(255, 255, 255, 0.4);
-  flex: 1;
+  line-height: 1.6;
 }
 
 /* ── Bottom ── */
@@ -626,14 +635,12 @@ html.js-ready .reveal.is-visible .xclsv__now {
     gap: var(--space-6);
   }
   .xclsv__price-left { flex-wrap: wrap; }
-  .xclsv__row { flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
-  .xclsv__feat { min-width: auto; }
-  .xclsv__desc { flex-basis: 100%; padding-left: 56px; }
+  .xclsv__card { flex: 0 0 220px; }
 }
 
 @media (max-width: 480px) {
   .xclsv__now { font-size: clamp(2.4rem, 12vw, 3.5rem); }
-  .xclsv__desc { padding-left: 0; }
+  .xclsv__card { flex: 0 0 200px; padding: var(--space-6) var(--space-5); }
 }
 @media (prefers-reduced-motion: reduce) {
   .xclsv__cta::after,
