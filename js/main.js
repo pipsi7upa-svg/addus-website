@@ -506,9 +506,13 @@
         // Rate limit: prevent double submission
         if (formSubmitted) return;
 
-        var nameVal = document.getElementById('calcName').value.trim();
-        var emailVal = document.getElementById('calcEmail').value.trim();
-        var honeyVal = document.getElementById('calcHoney').value;
+        var calcNameEl = document.getElementById('calcName');
+        var calcEmailEl = document.getElementById('calcEmail');
+        var calcHoneyEl = document.getElementById('calcHoney');
+        if (!calcNameEl || !calcEmailEl) return;
+        var nameVal = calcNameEl.value.trim();
+        var emailVal = calcEmailEl.value.trim();
+        var honeyVal = calcHoneyEl ? calcHoneyEl.value : '';
 
         // Honeypot check
         if (honeyVal) return;
@@ -518,27 +522,30 @@
 
         // Name validation
         if (!nameVal || nameVal.length < 2) {
-          document.getElementById('calcName').style.borderColor = '#ff4757';
-          document.getElementById('calcName').focus();
+          calcNameEl.style.borderColor = '#ff4757';
+          calcNameEl.focus();
           return;
         }
 
         // Basic email format check
         if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)) {
-          document.getElementById('calcEmail').style.borderColor = '#ff4757';
-          document.getElementById('calcEmail').focus();
+          calcEmailEl.style.borderColor = '#ff4757';
+          calcEmailEl.focus();
           return;
         }
 
         // Build phone with country code
-        var countryCode = document.getElementById('calcCountry').value;
-        var phoneRaw = document.getElementById('calcPhone').value.trim();
+        var calcCountryEl = document.getElementById('calcCountry');
+        var calcPhoneEl = document.getElementById('calcPhone');
+        var countryCode = calcCountryEl ? calcCountryEl.value : '+49';
+        var phoneRaw = calcPhoneEl ? calcPhoneEl.value.trim() : '';
         var fullPhone = phoneRaw ? countryCode + ' ' + phoneRaw : '';
 
         // Store contact info
         answers.name = nameVal;
         answers.email = emailVal;
-        answers.firma = document.getElementById('calcFirma').value.trim();
+        var calcFirmaEl = document.getElementById('calcFirma');
+        answers.firma = calcFirmaEl ? calcFirmaEl.value.trim() : '';
         answers.phone = fullPhone;
 
         // Calculate final price
