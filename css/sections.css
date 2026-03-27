@@ -13,7 +13,7 @@
 .pain-dream {
   padding: var(--space-24) 0;
   background: var(--color-bg-deep);
-  content-visibility: auto;
+  /* content-visibility removed for instant rendering */
   contain-intrinsic-size: auto 800px;
 }
 
@@ -1220,10 +1220,10 @@
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(16px);
   transition:
-    opacity 0.7s var(--ease-premium),
-    transform 0.7s var(--ease-premium);
+    opacity 0.4s var(--ease-premium),
+    transform 0.4s var(--ease-premium);
 }
 
 .reveal.is-visible {
@@ -1231,8 +1231,8 @@
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 80ms; }
-.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-1 { transition-delay: 50ms; }
+.reveal-delay-2 { transition-delay: 100ms; }
 .reveal-delay-3 { transition-delay: 240ms; }
 .reveal-delay-4 { transition-delay: 320ms; }
 
@@ -1245,7 +1245,7 @@
 .trust {
   background: #fff;
   color: #1a1a2e;
-  content-visibility: auto;
+  /* content-visibility removed for instant rendering */
   contain-intrinsic-size: auto 900px;
 }
 
@@ -2901,7 +2901,7 @@
 
 .contact-section {
   background: var(--color-bg-deep);
-  content-visibility: auto;
+  /* content-visibility removed for instant rendering */
   contain-intrinsic-size: auto 800px;
 }
 
@@ -3231,7 +3231,7 @@
 /* ── FAQ ── */
 .faq-section {
   margin-top: var(--space-24);
-  content-visibility: auto;
+  /* content-visibility removed for instant rendering */
   contain-intrinsic-size: auto 600px;
 }
 
@@ -3321,7 +3321,7 @@
   background: var(--color-bg-deep);
   border-top: 1px solid var(--color-glass-border);
   padding-top: var(--space-16);
-  content-visibility: auto;
+  /* content-visibility removed for instant rendering */
   contain-intrinsic-size: auto 500px;
 }
 
