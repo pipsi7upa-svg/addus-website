@@ -8,7 +8,7 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self' https://formspree.io https://consent.cookiebot.com; frame-src 'self'; base-uri 'self'; form-action 'self' https://formspree.io;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self' https://formspree.io https://consent.cookiebot.com; frame-src 'self' https://challenges.cloudflare.com; base-uri 'self'; form-action 'self' https://formspree.io;">
   <meta name="description" content="Professionelle Website erstellen lassen ab 699€ ✓ Webdesign für KMU & Handwerk ✓ 4.9★ Google-Bewertung ✓ In 14 Tagen online ✓ Festpreis ✓ DSGVO-konform — addus.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="cQ8rOQ5V58p1XPKz5e_lKgMK6F1Awe-Vj-fKXtbx6KE">
@@ -31,6 +31,7 @@
   <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
   <title>addus. — Websites, die Kunden gewinnen. Nicht nur gut aussehen.</title>
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Instrument+Serif:ital@0;1&display=swap">
@@ -851,6 +852,7 @@
                 <input type="checkbox" id="dsgvoCheck" required>
                 <span>Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *</span>
               </label>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACwrVASeLL00ledx" data-theme="dark" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired"></div>
               <div class="form-submit-area">
                 <button class="btn-submit" type="submit" id="submitBtn" disabled>
                   Nachricht senden →
@@ -1150,6 +1152,7 @@
               <input type="checkbox" id="calcConsent">
               <span>Ich bestätige, dass meine Angaben korrekt sind und bin damit einverstanden, dass addus. mich bezüglich meiner Anfrage kontaktiert. <a href="#datenschutz">Datenschutzerklärung</a></span>
             </label>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACwrVASeLL00ledx" data-theme="dark" data-callback="onCalcTurnstileSuccess" data-expired-callback="onCalcTurnstileExpired" id="calcTurnstile"></div>
             <button class="calc-next calc-next--submit" id="calcSubmit" type="button" disabled>Kostenschätzung anzeigen</button>
           </div>
         </div>

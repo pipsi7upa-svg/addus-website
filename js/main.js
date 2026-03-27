@@ -243,16 +243,28 @@
   const formSuccess = document.getElementById('formSuccess');
   const submitBtn = document.getElementById('submitBtn');
   const firstNameInput = document.getElementById('firstName');
+  let contactTurnstileVerified = false;
+
+  // Turnstile callbacks
+  window.onTurnstileSuccess = function () {
+    contactTurnstileVerified = true;
+    if (contactForm) checkFormValidity();
+  };
+  window.onTurnstileExpired = function () {
+    contactTurnstileVerified = false;
+    if (submitBtn) submitBtn.disabled = true;
+  };
+
+  let checkFormValidity;
 
   if (contactForm) {
-    // Real-time submit button state
     const requiredInputs = contactForm.querySelectorAll('[required]');
     const dsgvoCheck = document.getElementById('dsgvoCheck');
 
-    const checkFormValidity = () => {
+    checkFormValidity = () => {
       const allFilled = [...requiredInputs].every((input) => input.value.trim().length > 0);
       const dsgvoChecked = dsgvoCheck ? dsgvoCheck.checked : true;
-      submitBtn.disabled = !(allFilled && dsgvoChecked);
+      submitBtn.disabled = !(allFilled && dsgvoChecked && contactTurnstileVerified);
     };
 
     requiredInputs.forEach((input) => input.addEventListener('input', checkFormValidity));
@@ -262,7 +274,6 @@
       e.preventDefault();
       const name = firstNameInput?.value || 'Guten Tag';
 
-      // Loading state
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite">
@@ -270,20 +281,35 @@
         </svg>
         Wird gesendet…`;
 
-      // Simulate send (replace with real fetch to backend)
-      await new Promise((r) => setTimeout(r, 1400));
+      try {
+        const formData = new FormData(contactForm);
+        const res = await fetch('https://formspree.io/f/xdkodwkw', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
 
-      // Success
-      contactForm.style.opacity = '0';
-      contactForm.style.transition = 'opacity 0.4s ease';
-      setTimeout(() => {
-        contactForm.style.display = 'none';
-        if (formSuccess) {
-          formSuccess.classList.add('is-visible');
-          const nameSpan = formSuccess.querySelector('.success-name');
-          if (nameSpan) nameSpan.textContent = name;
-        }
-      }, 400);
+        if (!res.ok) throw new Error('Senden fehlgeschlagen');
+
+        contactForm.style.opacity = '0';
+        contactForm.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => {
+          contactForm.style.display = 'none';
+          if (formSuccess) {
+            formSuccess.classList.add('is-visible');
+            const nameSpan = formSuccess.querySelector('.success-name');
+            if (nameSpan) nameSpan.textContent = name;
+          }
+        }, 400);
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Fehler — nochmal versuchen →';
+        submitBtn.style.background = '#c0392b';
+        setTimeout(() => {
+          submitBtn.style.background = '';
+          submitBtn.textContent = 'Nachricht senden →';
+        }, 3000);
+      }
     });
   }
 
@@ -455,11 +481,22 @@
     // Submit contact form (step 9) → show result
     var calcSubmit = document.getElementById('calcSubmit');
     var calcConsent = document.getElementById('calcConsent');
+    var calcTurnstileVerified = false;
 
-    // Consent checkbox enables/disables submit
+    // Turnstile callbacks for calculator
+    window.onCalcTurnstileSuccess = function () {
+      calcTurnstileVerified = true;
+      if (calcConsent && calcConsent.checked && calcSubmit) calcSubmit.disabled = false;
+    };
+    window.onCalcTurnstileExpired = function () {
+      calcTurnstileVerified = false;
+      if (calcSubmit) calcSubmit.disabled = true;
+    };
+
+    // Consent checkbox enables/disables submit (+ Turnstile check)
     if (calcConsent && calcSubmit) {
       calcConsent.addEventListener('change', function() {
-        calcSubmit.disabled = !this.checked;
+        calcSubmit.disabled = !(this.checked && calcTurnstileVerified);
       });
     }
 
@@ -476,8 +513,8 @@
         // Honeypot check
         if (honeyVal) return;
 
-        // Consent check
-        if (!calcConsent.checked) return;
+        // Consent + Turnstile check
+        if (!calcConsent.checked || !calcTurnstileVerified) return;
 
         // Name validation
         if (!nameVal || nameVal.length < 2) {
