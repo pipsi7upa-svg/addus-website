@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /demos/
-Disallow: /assets/logo-export.html
-Disallow: /assets/logo-preview.html
+Disallow: /assets/*.html
 
 User-agent: GPTBot
 Allow: /

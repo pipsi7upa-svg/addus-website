@@ -47,17 +47,19 @@
     @media(max-width:768px){.hero__container{grid-template-columns:1fr;gap:var(--space-8);padding:var(--space-12) var(--container-pad) var(--space-8)}.navbar__nav,.navbar__cta{display:none}.navbar__burger{display:flex}}
   </style>
 
-  <!-- Full CSS: all layout CSS synchronous (prevents FOUC) -->
+  <!-- Full CSS: tokens+reset+hero sync (above fold), sections deferred -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <!-- Mockup CSS deferred (only needed for showcase demos, not layout) -->
+  <link rel="stylesheet" href="css/sections.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sections.css"></noscript>
   <link rel="stylesheet" href="css/mockup.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/mockup.css"></noscript>
 
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+  <!-- Google Fonts: preload + swap for non-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"></noscript>
 
   <!-- Cookiebot: async to not block first paint -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" async></script>
@@ -911,7 +913,7 @@
         </button>
         <div class="ktk__faq-panel">
           <div class="ktk__faq-panel-inner">
-        <div class="ktk__faq-list">
+        <div class="ktk__faq-list" role="list">
           <div class="faq-item" role="listitem">
             <button class="faq-question" aria-expanded="false">
               Was kostet eine neue Website?
@@ -1413,7 +1415,7 @@
 
   <!-- Showcase Panel Cycling (lazy-loaded iframes) -->
   <script>
-  (function() {
+  requestIdleCallback(function() { (function() {
     'use strict';
 
     const DEMOS = [
@@ -1563,7 +1565,7 @@
     }
     waitForLoad();
 
-  })();
+  })(); }, { timeout: 3000 });
   </script>
 
   <!-- WhatsApp Floating Button -->
