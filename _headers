@@ -1,11 +1,13 @@
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://*.clarity.ms https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://res.cloudinary.com https://images.pexels.com https://*.clarity.ms https://*.google-analytics.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://formspree.io; frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io
+  Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://*.clarity.ms https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://res.cloudinary.com https://images.pexels.com https://*.clarity.ms https://*.google-analytics.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://formspree.io; frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

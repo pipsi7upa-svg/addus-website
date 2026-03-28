@@ -175,6 +175,7 @@
   document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
+      if (!item) return;
       const answer = item.querySelector('.faq-answer');
       const isOpen = item.classList.contains('is-open');
 
@@ -203,7 +204,8 @@
       // Close all
       document.querySelectorAll('.lst__item.is-open').forEach(function (open) {
         open.classList.remove('is-open');
-        open.querySelector('.lst__trigger').setAttribute('aria-expanded', 'false');
+        var trigger = open.querySelector('.lst__trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
       });
 
       // Open clicked (if was closed)
@@ -314,7 +316,7 @@
     checkFormValidity = () => {
       const allFilled = [...requiredInputs].every((input) => input.value.trim().length > 0);
       const dsgvoChecked = dsgvoCheck ? dsgvoCheck.checked : true;
-      submitBtn.disabled = !(allFilled && dsgvoChecked && contactTurnstileVerified);
+      if (submitBtn) submitBtn.disabled = !(allFilled && dsgvoChecked && contactTurnstileVerified);
     };
 
     requiredInputs.forEach((input) => input.addEventListener('input', checkFormValidity));
@@ -634,7 +636,7 @@
           method: 'POST',
           body: formData,
           headers: { 'Accept': 'application/json' }
-        }).catch(function() {});
+        }).catch(function(err) { console.error('Form submit error:', err); });
 
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { event_category: 'calculator', event_label: 'price_calculator', value: finalPrice });
@@ -714,9 +716,11 @@
       revDots[revCur].classList.remove('is-done');
       revDots[revCur].classList.add('is-active', 'is-running');
       var fill = revDots[revCur].querySelector('.trust__dot-fill');
-      fill.style.animation = 'none';
-      fill.offsetHeight;
-      fill.style.animation = '';
+      if (fill) {
+        fill.style.animation = 'none';
+        fill.offsetHeight;
+        fill.style.animation = '';
+      }
 
       if (revCounter) revCounter.textContent = revCur + 1;
     }
@@ -730,16 +734,19 @@
       // Sync dot animation with timer
       revDots[revCur].classList.add('is-running');
       var fill = revDots[revCur].querySelector('.trust__dot-fill');
-      fill.style.animation = 'none';
-      fill.offsetHeight;
-      fill.style.animation = '';
+      if (fill) {
+        fill.style.animation = 'none';
+        fill.offsetHeight;
+        fill.style.animation = '';
+      }
       revTimer = setInterval(revNext, revInterval);
     }
 
     revDots.forEach(function (dot) {
       dot.addEventListener('click', function () {
         revDots.forEach(function (d) { d.classList.remove('is-done', 'is-active'); });
-        revGoTo(parseInt(dot.dataset.slide, 10));
+        var idx = parseInt(dot.dataset.slide, 10);
+        if (idx >= 0 && idx < revSlides.length) revGoTo(idx);
         revStart();
       });
     });
