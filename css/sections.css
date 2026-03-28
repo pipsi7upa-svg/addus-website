@@ -3810,6 +3810,58 @@ html.js-ready .reveal-delay-4 { transition-delay: 320ms; }
   }
 }
 
+/* ── Regionen ── */
+.footer__regions {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: var(--space-6) 0;
+}
+
+.footer-regions__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.footer-regions__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: var(--space-4);
+}
+
+.footer-regions__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.footer-regions__list a {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.footer-regions__list a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .footer-regions__list {
+    gap: var(--space-2) var(--space-3);
+  }
+  .footer-regions__list a {
+    font-size: 0.75rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 .footer__bottom {
   max-width: var(--container-max);
   margin: 0 auto;
