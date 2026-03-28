@@ -6,6 +6,10 @@
 
 addus. ist eine Webdesign-Agentur mit Sitz in Lüneburg (Niedersachsen, Deutschland), gegründet von Adam Dia. Wir erstellen professionelle Websites für KMU und Handwerksbetriebe — individuell, mobiloptimiert und SEO-ready. Unsere Kunden erhalten eine fertige Website in 14 Tagen, inklusive Domain, Hosting, SSL und CMS.
 
+## Einzugsgebiet
+
+Lüneburg, Hamburg, Harburg, Winsen (Luhe), Uelzen, Celle, Buchholz in der Nordheide, Stade, Lauenburg, Soltau, Bad Bevensen und ganz Norddeutschland.
+
 ## Leistungen
 
 - **Webdesign**: Individuelle Websites ab 699 € (netto), responsive Design, CMS zur Selbstbearbeitung
@@ -24,5 +28,11 @@ addus. ist eine Webdesign-Agentur mit Sitz in Lüneburg (Niedersachsen, Deutschl
 - Startseite: https://addus-web.de/
 - Angebot: https://addus-web.de/angebot.html
 - Blog: https://addus-web.de/blog/
+- SEO für Handwerksbetriebe: https://addus-web.de/blog/seo-fuer-handwerksbetriebe.html
+- Website für Restaurant: https://addus-web.de/blog/website-fuer-restaurant.html
+- Homepage Checkliste: https://addus-web.de/blog/homepage-erstellen-lassen-checkliste.html
+- Mobile Optimierung: https://addus-web.de/blog/mobile-website-optimierung.html
+- Lokales SEO: https://addus-web.de/blog/lokales-seo-2026.html
+- Website ROI Rechner: https://addus-web.de/blog/webdesign-roi-rechner.html
 - Impressum: https://addus-web.de/impressum.html
 - Datenschutz: https://addus-web.de/datenschutz.html
