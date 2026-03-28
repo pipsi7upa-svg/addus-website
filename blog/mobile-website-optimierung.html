@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Website Optimierung: 5 Tools + Checkliste | addus.</title>
+  <meta name="description" content="Mobile Optimierung Website: 5 kostenlose Tools, Core Web Vitals Checkliste und Praxis-Tipps für schnelle Ladezeiten auf Smartphone und Tablet.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://addus-web.de/blog/mobile-website-optimierung.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mobile Website Optimierung: 5 Tools + Checkliste für schnelle Ladezeiten">
+  <meta property="og:description" content="5 kostenlose Tools und eine komplette Checkliste für mobile Optimierung deiner Website.">
+  <meta property="og:url" content="https://addus-web.de/blog/mobile-website-optimierung.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="addus.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mobile Website Optimierung: 5 Tools + Checkliste für schnelle Ladezeiten">
+  <meta name="twitter:description" content="5 kostenlose Tools und eine komplette Checkliste für mobile Optimierung deiner Website.">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image" content="https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Smartphones mit optimierten Websites — Mobile Optimierung">
+  <link rel="alternate" hreflang="de" href="https://addus-web.de/blog/mobile-website-optimierung.html">
+  <link rel="alternate" hreflang="x-default" href="https://addus-web.de/blog/mobile-website-optimierung.html">
+  <meta name="author" content="Adam Dia">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script type="text/plain" data-cookieconsent="statistics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0D1117; --surface: #161B22; --border: #30363D; --text: #E6EDF3; --text-muted: #8B949E; --accent: #C8932A; --accent-hover: #D4A03A; }
+    body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav__logo { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .nav__links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+    .article { max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .article__meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .article__tag { background: rgba(200,147,42,0.15); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+    .article__title { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+    .article__subtitle { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc__title { font-family: 'Urbanist', sans-serif; font-size: 1rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .toc a { color: var(--text-muted); }
+    .toc a:hover { color: var(--accent); }
+    h2 { font-family: 'Urbanist', sans-serif; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h3 { font-family: 'Urbanist', sans-serif; font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1.25rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; color: var(--text-muted); font-style: italic; }
+    .fix-box { background: rgba(46,160,67,0.08); border: 1px solid rgba(46,160,67,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0 2rem; }
+    .fix-box strong { color: #2EA043; }
+    .highlight-box { background: rgba(200,147,42,0.08); border: 1px solid rgba(200,147,42,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .highlight-box strong { color: var(--accent); }
+    .faq { margin-top: 3rem; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
+    .faq summary { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; }
+    .faq summary::before { content: '+ '; color: var(--accent); font-weight: 700; }
+    .faq details[open] summary::before { content: '− '; }
+    .faq .faq-answer { padding: 0 1.25rem 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    .cta-box { text-align: center; margin: 3rem 0; padding: 2.5rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .cta-box h3 { font-family: 'Urbanist', sans-serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--accent-hover); color: #000; }
+    .author-box { display: flex; gap: 1rem; align-items: center; padding: 1.5rem; background: var(--surface); border-radius: 12px; margin: 2.5rem 0; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000; font-size: 1.1rem; flex-shrink: 0; }
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .footer__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    :focus:not(:focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+    .article img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; aspect-ratio: 800 / 420; object-fit: cover; }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .article { padding: 2rem 1rem 3rem; }
+      .article img { border-radius: 8px; margin-bottom: 1.5rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://addus-web.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://addus-web.de/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Mobile Website Optimierung" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mobile Website Optimierung: 5 Tools + Checkliste für schnelle Ladezeiten",
+    "description": "Mobile Optimierung Website: 5 kostenlose Tools, Core Web Vitals Checkliste und Praxis-Tipps für schnelle Ladezeiten.",
+    "author": { "@type": "Person", "name": "Adam Dia" },
+    "publisher": { "@type": "Organization", "name": "addus.", "url": "https://addus-web.de" },
+    "datePublished": "2026-03-28",
+    "dateModified": "2026-03-28",
+    "mainEntityOfPage": "https://addus-web.de/blog/mobile-website-optimierung.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie lange dauert eine mobile Optimierung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Für eine bestehende Website dauert eine grundlegende mobile Optimierung 1–3 Tage. Bilder komprimieren, CSS anpassen und Core Web Vitals verbessern geht relativ schnell. Ein komplettes Responsive Redesign kann 1–2 Wochen dauern." }
+      },
+      {
+        "@type": "Question",
+        "name": "Reicht ein responsives Design für Mobile Optimierung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Responsives Design ist die Basis, aber nicht alles. Du brauchst auch schnelle Ladezeiten, optimierte Bilder, Touch-freundliche Buttons (mindestens 48x48px) und gute Core Web Vitals. Ein responsives Layout, das 8 Sekunden lädt, ist trotzdem schlecht." }
+      },
+      {
+        "@type": "Question",
+        "name": "Welches Tool ist das beste für mobile Optimierung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google PageSpeed Insights ist der beste Startpunkt — kostenlos, direkt von Google und zeigt dir genau, was zu verbessern ist. Für tiefere Analysen nutze Lighthouse in Chrome DevTools. Am besten kombinierst du 2–3 Tools für ein vollständiges Bild." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://addus-web.de" class="nav__logo">addus.</a>
+      <div class="nav__links">
+        <a href="https://addus-web.de/blog/">Blog</a>
+        <a href="https://addus-web.de/#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__meta">
+      <span class="article__tag">Mobile Optimierung</span>
+      <span>8 Min Lesezeit</span>
+      <span>März 2026</span>
+    </div>
+
+    <h1 class="article__title">Mobile Website Optimierung: 5 Tools + Checkliste für schnelle Ladezeiten.</h1>
+    <p class="article__subtitle">Über 70% deiner Besucher kommen mit dem Smartphone. Wenn deine Seite mobil nicht performt, verlierst du jeden Tag Kunden. Hier sind die Tools und Schritte, die das ändern.</p>
+
+    <nav class="toc">
+      <div class="toc__title">Inhalt</div>
+      <ol>
+        <li><a href="#key-takeaways">Key Takeaways</a></li>
+        <li><a href="#warum-mobile-first">Warum Mobile First entscheidend ist</a></li>
+        <li><a href="#tools">5 kostenlose Tools für Mobile Optimierung</a></li>
+        <li><a href="#bilder">Bilder für Mobile optimieren</a></li>
+        <li><a href="#css-js">CSS und JavaScript minimieren</a></li>
+        <li><a href="#core-web-vitals">Core Web Vitals einfach erklärt</a></li>
+        <li><a href="#checkliste">Mobile Optimierung Checkliste</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+      </ol>
+    </nav>
+
+    <img src="https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800"
+         srcset="https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=210&w=400 400w,
+                 https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=315&w=600 600w,
+                 https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800 800w,
+                 https://images.pexels.com/photos/1581634/pexels-photo-1581634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200 1200w"
+         sizes="(max-width: 600px) 100vw, (max-width: 900px) 90vw, 800px"
+         alt="Smartphones mit optimierten Websites — Mobile Optimierung"
+         loading="eager" decoding="async" width="800" height="420">
+
+    <div class="highlight-box" id="key-takeaways">
+      <strong>Key Takeaways:</strong>
+      <ul style="margin-top:0.75rem;margin-bottom:0;">
+        <li>Mobile Optimierung ist seit Googles Mobile-First Index ein direkter Ranking-Faktor</li>
+        <li>5 kostenlose Tools reichen aus, um deine mobile Performance komplett zu analysieren</li>
+        <li>Bilder sind der häufigste Grund für langsame mobile Ladezeiten — WebP und Lazy Loading lösen 60% der Probleme</li>
+        <li>Core Web Vitals (LCP, INP, CLS) bestimmen, wie Google deine mobile Seite bewertet</li>
+        <li>Mit der Checkliste am Ende kannst du sofort loslegen</li>
+      </ul>
+    </div>
+
+    <h2 id="warum-mobile-first">Warum Mobile First entscheidend ist</h2>
+    <p>Google indexiert seit 2021 ausschließlich die mobile Version deiner Website. Das heißt: Wenn deine Desktop-Seite perfekt ist, aber mobil nicht funktioniert, bewertet Google die schlechte mobile Version. Dein Ranking leidet — egal wie gut dein Desktop-Auftritt ist.</p>
+    <p>Die Zahlen sprechen eine klare Sprache: In Deutschland kommen über 72% aller Website-Besuche von Mobilgeräten. Bei lokalen Suchanfragen wie „Friseur in meiner Nähe" liegt der Anteil sogar bei über 85%. Wenn deine <a href="5-website-fehler-kleine-unternehmen.html">Website grundlegende Fehler</a> hat, verlierst du diese Besucher sofort.</p>
+    <p>Mobile Optimierung ist kein Nice-to-have. Es ist die absolute Grundvoraussetzung für eine Website, die 2026 Kunden bringen soll. Und das Beste: Mit den richtigen Tools kannst du den Zustand deiner mobilen Seite in wenigen Minuten analysieren — komplett kostenlos.</p>
+
+    <h2 id="tools">5 kostenlose Tools für Mobile Optimierung</h2>
+
+    <h3>1. Google PageSpeed Insights</h3>
+    <p><strong>Was es macht:</strong> Analysiert deine URL und gibt dir einen Score von 0–100 für mobile und Desktop-Performance. Du bekommst konkrete Empfehlungen, was du verbessern sollst — sortiert nach Einsparpotenzial.</p>
+    <p><strong>Warum du es brauchst:</strong> PageSpeed Insights nutzt echte Nutzerdaten aus dem Chrome UX Report. Das sind keine Labor-Werte, sondern reale Messwerte deiner Besucher. Google nutzt genau diese Daten fürs Ranking.</p>
+    <p><strong>URL:</strong> <a href="https://pagespeed.web.dev" rel="noopener">pagespeed.web.dev</a></p>
+
+    <h3>2. Google Lighthouse</h3>
+    <p><strong>Was es macht:</strong> Umfassender Audit direkt in Chrome. Prüft Performance, Accessibility, Best Practices und SEO in einem Durchlauf. Gibt dir einen detaillierten Report mit konkreten Code-Beispielen.</p>
+    <p><strong>Warum du es brauchst:</strong> Lighthouse geht tiefer als PageSpeed Insights. Es zeigt dir exakt welche Ressourcen das Rendering blockieren, welche Bilder zu groß sind und wo JavaScript die Interaktion verzögert.</p>
+    <p><strong>Zugang:</strong> Chrome DevTools → Tab „Lighthouse" → Mobile auswählen → Analyse starten</p>
+
+    <h3>3. GTmetrix</h3>
+    <p><strong>Was es macht:</strong> Testet deine Seite von verschiedenen Standorten und Geräten. Zeigt einen Wasserfall-Chart, der genau darstellt welche Ressource wie lange braucht. Du siehst sofort, was den Ladevorgang blockiert.</p>
+    <p><strong>Warum du es brauchst:</strong> Der Wasserfall-Chart ist unschlagbar, um Engpässe zu finden. Du siehst auf einen Blick ob ein riesiges Bild, ein langsamer Server oder ein externes Script die Ursache ist.</p>
+    <p><strong>URL:</strong> <a href="https://gtmetrix.com" rel="noopener">gtmetrix.com</a></p>
+
+    <h3>4. WebPageTest</h3>
+    <p><strong>Was es macht:</strong> Der technisch detaillierteste Test. Du kannst echte Geräte, Netzwerkbedingungen (3G, 4G, LTE) und Standorte simulieren. Zeigt Filmstrip-Ansichten, die den Ladevorgang Frame für Frame darstellen.</p>
+    <p><strong>Warum du es brauchst:</strong> Wenn du verstehen willst, wie deine Seite auf einem Mittelklasse-Smartphone mit 4G-Verbindung lädt — WebPageTest zeigt es dir. Das ist die Realität der meisten deiner Besucher.</p>
+    <p><strong>URL:</strong> <a href="https://www.webpagetest.org" rel="noopener">webpagetest.org</a></p>
+
+    <h3>5. Chrome DevTools</h3>
+    <p><strong>Was es macht:</strong> Die Entwickler-Werkzeuge in Chrome. Device Mode simuliert jedes Smartphone, der Network-Tab zeigt alle geladenen Ressourcen, der Performance-Tab zeichnet den kompletten Ladevorgang auf.</p>
+    <p><strong>Warum du es brauchst:</strong> Chrome DevTools ist dein tägliches Werkzeug. Du kannst langsame Netzwerke simulieren (Network Throttling), die mobile Ansicht prüfen und JavaScript-Probleme debuggen. Alles in einem Tool, direkt im Browser.</p>
+    <p><strong>Zugang:</strong> F12 oder Rechtsklick → „Untersuchen" → Device Toggle aktivieren</p>
+
+    <h2 id="bilder">Bilder für Mobile optimieren</h2>
+    <p>Bilder sind fast immer der größte Performance-Killer auf mobilen Seiten. Ein einziges unkomprimiertes Foto kann 3–5 MB groß sein. Auf einem Smartphone mit mobilem Netz bedeutet das: Sekunden zusätzliche Ladezeit.</p>
+    <p><strong>Die Lösung ist einfach:</strong></p>
+    <ul>
+      <li><strong>WebP statt PNG/JPG:</strong> WebP-Bilder sind 25–35% kleiner bei gleicher Qualität. Jeder moderne Browser unterstützt WebP.</li>
+      <li><strong>Responsive Images mit srcset:</strong> Lade verschiedene Bildgrößen je nach Bildschirmbreite. Ein Smartphone braucht kein 1920px breites Bild.</li>
+      <li><strong>Lazy Loading:</strong> Bilder unterhalb des sichtbaren Bereichs erst laden, wenn der Nutzer dorthin scrollt. Ein einfaches <code>loading="lazy"</code> im img-Tag reicht.</li>
+      <li><strong>Richtige Dimensionen:</strong> Definiere immer <code>width</code> und <code>height</code> im HTML. Das verhindert Layout-Verschiebungen (CLS).</li>
+      <li><strong>Komprimierung:</strong> Tools wie Squoosh (squoosh.app) oder TinyPNG komprimieren Bilder ohne sichtbaren Qualitätsverlust.</li>
+    </ul>
+
+    <div class="fix-box">
+      <strong>Praxis-Tipp:</strong> Starte mit den Bildern auf deiner Startseite. Konvertiere sie zu WebP, setze srcset ein und füge Lazy Loading hinzu. Das allein kann deine mobile Ladezeit um 2–4 Sekunden verkürzen.
+    </div>
+
+    <h2 id="css-js">CSS und JavaScript minimieren</h2>
+    <p>Jede CSS- und JavaScript-Datei, die dein Browser laden muss, verzögert das Rendering deiner Seite. Auf Mobilgeräten mit langsamerer CPU ist das noch spürbarer als auf dem Desktop.</p>
+    <p><strong>Was du tun solltest:</strong></p>
+    <ul>
+      <li><strong>Minifizieren:</strong> Entferne Leerzeichen, Kommentare und unnötige Zeichen aus CSS/JS. Tools wie cssnano und Terser machen das automatisch.</li>
+      <li><strong>Kritisches CSS inline:</strong> Das CSS für den sichtbaren Bereich (Above the Fold) direkt im HTML einbetten. Der Rest wird nachgeladen.</li>
+      <li><strong>JavaScript defer/async:</strong> Scripts mit <code>defer</code> oder <code>async</code> laden, damit sie das Rendering nicht blockieren.</li>
+      <li><strong>Unused CSS entfernen:</strong> Die meisten Websites laden 60–80% CSS, das auf der jeweiligen Seite gar nicht gebraucht wird. PurgeCSS entfernt ungenutztes CSS automatisch.</li>
+      <li><strong>Externe Scripts begrenzen:</strong> Jedes Tracking-Script, jedes Widget, jeder Chat-Bot kostet Ladezeit. Frage dich bei jedem externen Script: Brauche ich das wirklich?</li>
+    </ul>
+
+    <h2 id="core-web-vitals">Core Web Vitals einfach erklärt</h2>
+    <p>Core Web Vitals sind die drei Metriken, mit denen Google die Nutzererfahrung deiner Website misst. Sie sind offizieller Ranking-Faktor. Hier ist, was sie bedeuten:</p>
+
+    <h3>LCP — Largest Contentful Paint</h3>
+    <p><strong>Was es misst:</strong> Wie lange dauert es, bis das größte sichtbare Element (meist ein Bild oder eine Überschrift) vollständig geladen ist?</p>
+    <p><strong>Zielwert:</strong> Unter 2,5 Sekunden. Alles über 4 Sekunden gilt als schlecht.</p>
+    <p><strong>Häufigste Ursache für schlechten LCP:</strong> Zu große Hero-Bilder, langsamer Server, render-blockierendes CSS.</p>
+
+    <h3>INP — Interaction to Next Paint</h3>
+    <p><strong>Was es misst:</strong> Wie schnell reagiert deine Seite auf Nutzer-Interaktionen? Wenn jemand auf einen Button tippt — wie lange dauert es, bis sich visuell etwas tut?</p>
+    <p><strong>Zielwert:</strong> Unter 200 Millisekunden. Über 500ms ist schlecht.</p>
+    <p><strong>Häufigste Ursache für schlechten INP:</strong> Schweres JavaScript, das den Main Thread blockiert.</p>
+
+    <h3>CLS — Cumulative Layout Shift</h3>
+    <p><strong>Was es misst:</strong> Wie stark verschiebt sich das Layout während des Ladens? Kennst du das: Du willst auf einen Button tippen, und plötzlich springt alles nach unten weil ein Bild geladen wurde? Das ist CLS.</p>
+    <p><strong>Zielwert:</strong> Unter 0,1. Über 0,25 ist schlecht.</p>
+    <p><strong>Häufigste Ursache für schlechten CLS:</strong> Bilder ohne definierte Abmessungen, nachgeladene Werbung, Webfonts die Layout-Sprünge verursachen.</p>
+
+    <div class="highlight-box">
+      <strong>Zusammenhang:</strong> Alle drei Metriken kannst du mit den oben genannten Tools messen. PageSpeed Insights zeigt dir sowohl Feld-Daten (echte Nutzer) als auch Lab-Daten (simuliert). Optimiere zuerst die Metrik mit dem schlechtesten Wert — das bringt den größten Ranking-Effekt.
+    </div>
+
+    <h2 id="checkliste">Mobile Optimierung Checkliste</h2>
+    <p>Hier ist deine komplette Checkliste. Arbeite sie von oben nach unten ab — die Reihenfolge ist nach Priorität sortiert:</p>
+
+    <ul>
+      <li><strong>Responsive Design prüfen:</strong> Website auf verschiedenen Geräten testen. Kein horizontales Scrollen, lesbare Texte ohne Zoomen.</li>
+      <li><strong>Viewport Meta-Tag setzen:</strong> <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> muss im Head stehen.</li>
+      <li><strong>PageSpeed Insights testen:</strong> Mobile Score über 90 anstreben. Unter 50 ist dringender Handlungsbedarf.</li>
+      <li><strong>Bilder auf WebP umstellen:</strong> Alle Bilder als WebP mit srcset und Lazy Loading ausliefern.</li>
+      <li><strong>Touch-Targets prüfen:</strong> Alle klickbaren Elemente mindestens 48x48px groß. Genug Abstand zwischen Buttons.</li>
+      <li><strong>CSS kritisch inline setzen:</strong> Above-the-fold CSS direkt ins HTML, Rest per <code>media="print" onload</code> nachladen.</li>
+      <li><strong>JavaScript optimieren:</strong> Alle Scripts mit defer laden. Unused JavaScript identifizieren und entfernen.</li>
+      <li><strong>Core Web Vitals messen:</strong> LCP unter 2,5s, INP unter 200ms, CLS unter 0,1.</li>
+      <li><strong>Schriftarten optimieren:</strong> <code>font-display: swap</code> nutzen, Preconnect zu Font-Servern setzen.</li>
+      <li><strong>Server-Antwortzeit prüfen:</strong> TTFB (Time to First Byte) unter 800ms. Sonst Hosting wechseln oder Caching aktivieren.</li>
+      <li><strong>HTTPS aktiv:</strong> SSL-Zertifikat installiert und alle Ressourcen über HTTPS laden.</li>
+      <li><strong>Redirects minimieren:</strong> Jeder Redirect kostet 100–300ms. Direkte URLs verwenden.</li>
+    </ul>
+
+    <div class="fix-box">
+      <strong>Mein Rat:</strong> Starte mit den ersten vier Punkten. Die bringen den größten Effekt und sind in einem Nachmittag erledigt. Den Rest machst du Schritt für Schritt danach.
+    </div>
+
+    <div class="faq" id="faq">
+      <h2>Häufige Fragen</h2>
+
+      <details>
+        <summary>Wie lange dauert eine mobile Optimierung?</summary>
+        <div class="faq-answer">Für eine bestehende Website dauert eine grundlegende mobile Optimierung 1–3 Tage. Bilder komprimieren, CSS anpassen und Core Web Vitals verbessern geht relativ schnell. Ein komplettes Responsive Redesign kann 1–2 Wochen dauern.</div>
+      </details>
+
+      <details>
+        <summary>Reicht ein responsives Design für Mobile Optimierung?</summary>
+        <div class="faq-answer">Responsives Design ist die Basis, aber nicht alles. Du brauchst auch schnelle Ladezeiten, optimierte Bilder, Touch-freundliche Buttons (mindestens 48x48px) und gute Core Web Vitals. Ein responsives Layout, das 8 Sekunden lädt, ist trotzdem schlecht.</div>
+      </details>
+
+      <details>
+        <summary>Welches Tool ist das beste für mobile Optimierung?</summary>
+        <div class="faq-answer">Google PageSpeed Insights ist der beste Startpunkt — kostenlos, direkt von Google und zeigt dir genau, was zu verbessern ist. Für tiefere Analysen nutze Lighthouse in Chrome DevTools. Am besten kombinierst du 2–3 Tools für ein vollständiges Bild.</div>
+      </details>
+    </div>
+
+    <h2 style="border-bottom:none;margin-bottom:1rem;">Weiterlesen</h2>
+    <div style="display:grid;gap:0.75rem;margin-bottom:2rem;">
+      <a href="was-kostet-eine-website-2026.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>Was kostet eine Website 2026? Der ehrliche Preisvergleich</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Baukasten, Freelancer oder Agentur? Konkrete Zahlen und Empfehlung.</span>
+      </a>
+      <a href="5-website-fehler-kleine-unternehmen.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>5 Website-Fehler, die kleine Unternehmen täglich Kunden kosten</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Diese Fehler sehe ich bei 9 von 10 Websites. So behebst du sie sofort.</span>
+      </a>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ist deine Website mobil optimiert?</h3>
+      <p>Ich prüfe deine Website kostenlos auf mobile Performance und zeige dir, was du verbessern kannst.</p>
+      <a href="https://addus-web.de/#kontakt" class="cta-btn">Kostenlose Mobile-Analyse →</a>
+      <p style="margin-top:1rem;font-size:0.9rem;opacity:0.7">Oder schauen Sie sich direkt unsere <a href="https://addus-web.de/angebot.html" style="color:var(--accent)">Webdesign-Pakete</a> an.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">AD</div>
+      <div>
+        <div class="author-name" style="font-weight:600">Adam Dia</div>
+        <div style="font-size:0.85rem;color:var(--text-muted)">Gründer von addus. — Webdesign & SEO aus Lüneburg</div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 addus. — <a href="https://addus-web.de">Startseite</a> · <a href="https://addus-web.de/impressum.html">Impressum</a> · <a href="https://addus-web.de/datenschutz.html">Datenschutz</a> · <a href="https://addus-web.de/agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

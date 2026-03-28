@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webdesign ROI: Was bringt eine Website wirklich? (Mit Rechner) | addus.</title>
+  <meta name="description" content="Website ROI berechnen: Was bringt eine professionelle Website wirklich? Mit konkreten Rechenbeispielen, ROI-Formel und interaktivem Rechner.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://addus-web.de/blog/webdesign-roi-rechner.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Webdesign ROI: Was bringt eine Website wirklich? (Mit Rechner)">
+  <meta property="og:description" content="Website ROI berechnen: Konkrete Rechenbeispiele, ROI-Formel und interaktiver Rechner für deine Website-Investition.">
+  <meta property="og:url" content="https://addus-web.de/blog/webdesign-roi-rechner.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="addus.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Webdesign ROI: Was bringt eine Website wirklich? (Mit Rechner)">
+  <meta name="twitter:description" content="Website ROI berechnen: Konkrete Rechenbeispiele, ROI-Formel und interaktiver Rechner.">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image" content="https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pflanze wächst aus Münzstapel — Website als Investment mit ROI">
+  <link rel="alternate" hreflang="de" href="https://addus-web.de/blog/webdesign-roi-rechner.html">
+  <link rel="alternate" hreflang="x-default" href="https://addus-web.de/blog/webdesign-roi-rechner.html">
+  <meta name="author" content="Adam Dia">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script type="text/plain" data-cookieconsent="statistics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0D1117; --surface: #161B22; --border: #30363D; --text: #E6EDF3; --text-muted: #8B949E; --accent: #C8932A; --accent-hover: #D4A03A; }
+    body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+    img { max-width: 100%; }
+
+    /* Navbar */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav__logo { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .nav__links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+
+    /* Article */
+    .article { max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .article__meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .article__tag { background: rgba(200,147,42,0.15); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+    .article__title { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+    .article__subtitle { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+
+    /* TOC */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc__title { font-family: 'Urbanist', sans-serif; font-size: 1rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .toc a { color: var(--text-muted); }
+    .toc a:hover { color: var(--accent); }
+
+    /* Content */
+    h2 { font-family: 'Urbanist', sans-serif; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h3 { font-family: 'Urbanist', sans-serif; font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1.25rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    strong { color: var(--text); }
+    blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; color: var(--text-muted); font-style: italic; }
+
+    /* Highlight box */
+    .highlight-box { background: rgba(200,147,42,0.08); border: 1px solid rgba(200,147,42,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .highlight-box strong { color: var(--accent); }
+
+    /* Key Takeaways */
+    .key-takeaways { background: var(--surface); border: 1px solid var(--accent); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; }
+    .key-takeaways h3 { color: var(--accent); margin-top: 0; font-size: 1rem; }
+    .key-takeaways ul { margin-bottom: 0; }
+    .key-takeaways li { font-size: 0.95rem; }
+
+    /* Calculator */
+    .calc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+    .calc label { display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .calc input { width: 100%; padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 1rem; margin-bottom: 1rem; font-family: inherit; }
+    .calc input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .calc button { background: var(--accent); color: #000; font-weight: 700; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+    .calc button:hover { background: var(--accent-hover); }
+    .calc__result { margin-top: 1.25rem; padding: 1rem 1.25rem; background: rgba(200,147,42,0.08); border: 1px solid rgba(200,147,42,0.25); border-radius: 10px; display: none; }
+    .calc__result strong { color: var(--accent); }
+
+    /* FAQ */
+    .faq { margin-top: 3rem; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
+    .faq summary { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; }
+    .faq summary::before { content: '+ '; color: var(--accent); font-weight: 700; }
+    .faq details[open] summary::before { content: '− '; }
+    .faq .faq-answer { padding: 0 1.25rem 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+    /* CTA */
+    .cta-box { text-align: center; margin: 3rem 0; padding: 2.5rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .cta-box h3 { font-family: 'Urbanist', sans-serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--accent-hover); color: #000; }
+
+    /* Author */
+    .author-box { display: flex; gap: 1rem; align-items: center; padding: 1.5rem; background: var(--surface); border-radius: 12px; margin: 2.5rem 0; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000; font-size: 1.1rem; flex-shrink: 0; }
+    .author-name { font-weight: 600; }
+    .author-role { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .footer__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    :focus:not(:focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+    .article img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; aspect-ratio: 800 / 420; object-fit: cover; }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .article { padding: 2rem 1rem 3rem; }
+      .article img { border-radius: 8px; margin-bottom: 1.5rem; }
+      .calc { padding: 1.25rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://addus-web.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://addus-web.de/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Webdesign ROI Rechner" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Webdesign ROI: Was bringt eine Website wirklich? (Mit Rechner)",
+    "description": "Website ROI berechnen: Was bringt eine professionelle Website wirklich? Mit konkreten Rechenbeispielen, ROI-Formel und interaktivem Rechner.",
+    "author": { "@type": "Person", "name": "Adam Dia" },
+    "publisher": { "@type": "Organization", "name": "addus.", "url": "https://addus-web.de" },
+    "datePublished": "2026-03-28",
+    "dateModified": "2026-03-28",
+    "mainEntityOfPage": "https://addus-web.de/blog/webdesign-roi-rechner.html",
+    "url": "https://addus-web.de/blog/webdesign-roi-rechner.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechnet man den ROI einer Website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Die ROI-Formel lautet: (Gewinn durch Website - Kosten der Website) / Kosten der Website × 100. Wenn eine Website 1.500€ kostet und im ersten Jahr 6.000€ zusätzlichen Umsatz bringt, liegt der ROI bei 300%." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ab wann rechnet sich eine professionelle Website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bei den meisten kleinen Unternehmen rechnet sich eine professionelle Website bereits nach 2-4 Monaten. Ein Handwerksbetrieb braucht oft nur 1-2 zusätzliche Aufträge, um die gesamten Website-Kosten wieder einzuspielen." }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet es, keine Website zu haben?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ohne Website verlieren Unternehmen durchschnittlich 70% aller potenziellen Neukunden, die online suchen. Für einen Handwerksbetrieb kann das 30.000-80.000€ entgangenen Jahresumsatz bedeuten — deutlich mehr als jede Website-Investition." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://addus-web.de" class="nav__logo">addus.</a>
+      <div class="nav__links">
+        <a href="https://addus-web.de/blog/">Blog</a>
+        <a href="https://addus-web.de/#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__meta">
+      <span class="article__tag">Webdesign</span>
+      <span>7 Min Lesezeit</span>
+      <span>März 2026</span>
+    </div>
+
+    <h1 class="article__title">Webdesign ROI: Was bringt eine Website wirklich?</h1>
+    <p class="article__subtitle">Eine Website kostet Geld — aber was bringt sie zurück? Ich rechne es dir vor. Mit konkreten Zahlen, zwei Beispielen aus der Praxis und einem Rechner, den du selbst nutzen kannst.</p>
+
+    <nav class="toc">
+      <div class="toc__title">Inhalt</div>
+      <ol>
+        <li><a href="#investment">Website als Investment, nicht als Kostenpunkt</a></li>
+        <li><a href="#formel">Die ROI-Formel erklärt</a></li>
+        <li><a href="#handwerk">Rechenbeispiel: Handwerksbetrieb</a></li>
+        <li><a href="#restaurant">Rechenbeispiel: Restaurant</a></li>
+        <li><a href="#versteckt">Versteckte Kosten ohne Website</a></li>
+        <li><a href="#wann">Wann rechnet sich eine Website?</a></li>
+        <li><a href="#rechner">Einfacher ROI-Rechner</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+      </ol>
+    </nav>
+
+    <img src="https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800"
+         srcset="https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=210&w=400 400w,
+                 https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=315&w=600 600w,
+                 https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800 800w,
+                 https://images.pexels.com/photos/11391951/pexels-photo-11391951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200 1200w"
+         sizes="(max-width: 600px) 100vw, (max-width: 900px) 90vw, 800px"
+         alt="Pflanze wächst aus Münzstapel — Website als Investment mit ROI"
+         loading="eager" decoding="async" width="800" height="420">
+
+    <div class="key-takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Eine professionelle Website ist kein Kostenpunkt, sondern ein Investment mit messbarem Return</li>
+        <li>Die meisten kleinen Unternehmen erreichen einen <strong>Website-ROI von 300–800%</strong> im ersten Jahr</li>
+        <li>Ohne Website verlierst du bis zu 70% aller potenziellen Neukunden, die online nach dir suchen</li>
+        <li>Ein Handwerksbetrieb braucht oft nur <strong>1–2 zusätzliche Aufträge</strong>, um die Website-Kosten zu decken</li>
+      </ul>
+    </div>
+
+    <p>Ich bin Adam, Gründer von <a href="https://addus-web.de">addus.</a> — und ich baue Websites für kleine Unternehmen. Die Frage, die ich am häufigsten höre, ist nicht „Was kostet eine Website?" — sondern: <strong>„Lohnt sich das überhaupt?"</strong></p>
+
+    <p>Gute Frage. Denn eine Website ist nur dann sinnvoll, wenn sie mehr einbringt als sie kostet. In diesem Artikel zeige ich dir, wie du den <strong>ROI deiner Website berechnen</strong> kannst — mit echten Zahlen, nicht mit Marketing-Versprechen.</p>
+
+    <h2 id="investment">Website als Investment, nicht als Kostenpunkt</h2>
+
+    <p>Viele Unternehmer sehen eine Website als Ausgabe. Etwas, das man halt braucht. Wie eine Visitenkarte oder ein Firmenschild. Aber das ist die falsche Perspektive.</p>
+
+    <p>Eine professionelle Website ist ein <strong>Vertriebsmitarbeiter, der 24 Stunden am Tag arbeitet</strong> — ohne Gehalt, ohne Urlaub, ohne Krankheitstage. Sie ist dein Schaufenster, dein Verkaufsgespräch und deine Referenzmappe in einem.</p>
+
+    <p>Laut einer Studie von BrightLocal suchen <strong>98% aller Verbraucher</strong> online nach lokalen Unternehmen. Wenn du dort nicht auftauchst, existierst du für diese Menschen nicht. Das ist kein Spruch — das ist die Realität in 2026.</p>
+
+    <p>Der entscheidende Unterschied: Ein Kostenpunkt bringt nichts zurück. Ein Investment schon. Und genau das ist eine Website — wenn sie richtig gemacht ist. Wie viel eine professionelle Website kostet, habe ich in meinem Artikel <a href="was-kostet-eine-website-2026.html">Was kostet eine Website 2026?</a> detailliert aufgeschlüsselt.</p>
+
+    <h2 id="formel">Die ROI-Formel erklärt</h2>
+
+    <p>ROI steht für „Return on Investment" — also die Rendite deiner Investition. Die Formel ist simpel:</p>
+
+    <div class="highlight-box">
+      <strong>ROI = (Gewinn durch Website − Kosten der Website) / Kosten der Website × 100</strong>
+    </div>
+
+    <p>Klingt abstrakt? Machen wir es konkret.</p>
+
+    <p><strong>Beispiel:</strong> Deine Website kostet 1.500€. Im ersten Jahr bringt sie dir 3 zusätzliche Kunden, die jeweils 2.000€ Umsatz generieren. Das sind 6.000€ Umsatz.</p>
+
+    <p>ROI = (6.000€ − 1.500€) / 1.500€ × 100 = <strong>300%</strong></p>
+
+    <p>Das heißt: Für jeden Euro, den du in die Website investiert hast, hast du 3 Euro zurückbekommen. Welcher andere Marketingkanal schafft das?</p>
+
+    <h3>Was zählt als „Gewinn durch Website"?</h3>
+    <ul>
+      <li>Neukunden, die über Google auf dich aufmerksam werden</li>
+      <li>Anfragen über das Kontaktformular</li>
+      <li>Telefonanrufe, die über die Website ausgelöst werden</li>
+      <li>Vertrauen, das zum Abschluss führt (Kunde hat dich vorher gegoogelt)</li>
+      <li>Zeitersparnis durch automatisierte Informationen (FAQ, Anfahrt, Öffnungszeiten)</li>
+    </ul>
+
+    <h2 id="handwerk">Rechenbeispiel: Handwerksbetrieb</h2>
+
+    <p>Nehmen wir einen Elektrikerbetrieb in einer mittelgroßen Stadt. Aktuell kommen alle Kunden über Mundpropaganda und das Telefonbuch.</p>
+
+    <h3>Die Investition</h3>
+    <ul>
+      <li>Professionelle Website: <strong>1.200€</strong> (einmalig)</li>
+      <li>Hosting + Domain: <strong>120€/Jahr</strong></li>
+      <li>Gesamt im ersten Jahr: <strong>1.320€</strong></li>
+    </ul>
+
+    <h3>Der Return</h3>
+    <p>Der Elektriker bekommt durch die Website durchschnittlich <strong>2 zusätzliche Aufträge pro Monat</strong>. Ein durchschnittlicher Auftrag bringt 800€ Umsatz (bei ca. 40% Marge = 320€ Gewinn).</p>
+
+    <ul>
+      <li>Zusätzlicher Gewinn pro Monat: 2 × 320€ = <strong>640€</strong></li>
+      <li>Zusätzlicher Gewinn pro Jahr: 640€ × 12 = <strong>7.680€</strong></li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>ROI Handwerksbetrieb:</strong> (7.680€ − 1.320€) / 1.320€ × 100 = <strong>482%</strong><br>
+      Die Website hat sich nach weniger als 2 Monaten bezahlt gemacht.
+    </div>
+
+    <p>Und das ist konservativ gerechnet. Viele Handwerker berichten, dass sie nach dem Launch ihrer Website <strong>3–5 zusätzliche Anfragen pro Woche</strong> bekommen — besonders wenn <a href="seo-fuer-handwerksbetriebe.html">SEO für Handwerksbetriebe</a> richtig umgesetzt wird.</p>
+
+    <h2 id="restaurant">Rechenbeispiel: Restaurant</h2>
+
+    <p>Ein italienisches Restaurant in einer Kleinstadt. Bisher nur bei Google Maps mit einem Basiseintrag. Keine eigene Website.</p>
+
+    <h3>Die Investition</h3>
+    <ul>
+      <li>Website mit Speisekarte, Reservierung, Anfahrt: <strong>1.500€</strong></li>
+      <li>Hosting + Domain: <strong>120€/Jahr</strong></li>
+      <li>Gesamt im ersten Jahr: <strong>1.620€</strong></li>
+    </ul>
+
+    <h3>Der Return</h3>
+    <p>Durch die Website und lokale Google-Sichtbarkeit kommen <strong>15 zusätzliche Gäste pro Woche</strong>. Der durchschnittliche Umsatz pro Gast liegt bei 25€ (Marge ca. 30% = 7,50€ Gewinn).</p>
+
+    <ul>
+      <li>Zusätzlicher Gewinn pro Woche: 15 × 7,50€ = <strong>112,50€</strong></li>
+      <li>Zusätzlicher Gewinn pro Jahr: 112,50€ × 52 = <strong>5.850€</strong></li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>ROI Restaurant:</strong> (5.850€ − 1.620€) / 1.620€ × 100 = <strong>261%</strong><br>
+      Die Website amortisiert sich nach ca. 3,5 Monaten.
+    </div>
+
+    <p>Hinzu kommt: Gäste, die online reservieren können, erscheinen tatsächlich häufiger. Und eine aktuelle Speisekarte auf der Website reduziert Telefonanrufe — das spart dem Team Zeit.</p>
+
+    <h2 id="versteckt">Versteckte Kosten ohne Website</h2>
+
+    <p>Die meisten Unternehmer rechnen nur die Kosten einer Website. Aber <strong>was kostet es, KEINE Website zu haben?</strong> Diese versteckten Kosten sind oft viel höher:</p>
+
+    <ul>
+      <li><strong>Verlorene Neukunden:</strong> 70% der Verbraucher recherchieren online, bevor sie einen Dienstleister kontaktieren. Ohne Website bist du unsichtbar</li>
+      <li><strong>Vertrauensverlust:</strong> 75% der Nutzer beurteilen die Glaubwürdigkeit eines Unternehmens anhand seiner Website. Keine Website = kein Vertrauen</li>
+      <li><strong>Wettbewerbsnachteil:</strong> Deine Konkurrenz hat eine Website. Wenn jemand „Elektriker Lüneburg" googelt und dich nicht findet, findet er deinen Mitbewerber</li>
+      <li><strong>Abhängigkeit von Mundpropaganda:</strong> Funktioniert — aber skaliert nicht. Du bist auf Zufall angewiesen statt auf ein System</li>
+      <li><strong>Teure Alternativen:</strong> Flyer drucken (500€+), Zeitungsanzeigen (200€+ pro Schaltung), Branchenbucheinträge (30–80€/Monat) — alles weniger effektiv als eine Website</li>
+    </ul>
+
+    <blockquote>Ein Handwerker ohne Website verliert konservativ geschätzt 30.000–80.000€ Jahresumsatz an Wettbewerber, die online sichtbar sind. Das sind die wahren Kosten.</blockquote>
+
+    <h2 id="wann">Wann rechnet sich eine Website?</h2>
+
+    <p>Die ehrliche Antwort: <strong>Fast immer — und schneller als du denkst.</strong></p>
+
+    <p>Hier die Faustregel für verschiedene Branchen:</p>
+
+    <ul>
+      <li><strong>Handwerker:</strong> 1–2 zusätzliche Aufträge = Website bezahlt (oft nach 4–8 Wochen)</li>
+      <li><strong>Ärzte/Therapeuten:</strong> 3–5 neue Patienten = Website bezahlt (nach 2–3 Monaten)</li>
+      <li><strong>Restaurants/Cafés:</strong> 10–20 zusätzliche Gäste pro Woche = Website bezahlt (nach 3–4 Monaten)</li>
+      <li><strong>Berater/Coaches:</strong> 1 neuer Kunde = Website bezahlt (manchmal nach einer Woche)</li>
+      <li><strong>Einzelhandel:</strong> 5–10% mehr Laufkundschaft durch lokale Suche = Website bezahlt (nach 2–4 Monaten)</li>
+    </ul>
+
+    <p>Die einzige Situation, in der sich eine Website nicht rechnet: Wenn sie schlecht gemacht ist. Eine langsame, veraltete, nicht-mobiloptimierte Website mit Stock-Fotos und 08/15-Texten schadet mehr als sie hilft. Deshalb ist die Qualität entscheidend — nicht nur der Preis. Was eine gute Website ausmacht, beschreibe ich in der <a href="homepage-erstellen-lassen-checkliste.html">Homepage-Checkliste</a>.</p>
+
+    <h2 id="rechner">Einfacher ROI-Rechner</h2>
+
+    <p>Berechne selbst, wie schnell sich eine Website für dein Unternehmen rechnet. Trag einfach deine Zahlen ein:</p>
+
+    <div class="calc">
+      <label for="calc-cost">Website-Kosten (einmalig, in €)</label>
+      <input type="number" id="calc-cost" placeholder="z.B. 1500" min="0">
+
+      <label for="calc-running">Laufende Kosten pro Jahr (Hosting etc., in €)</label>
+      <input type="number" id="calc-running" placeholder="z.B. 120" min="0">
+
+      <label for="calc-customers">Zusätzliche Kunden pro Monat durch Website</label>
+      <input type="number" id="calc-customers" placeholder="z.B. 3" min="0">
+
+      <label for="calc-revenue">Durchschnittlicher Umsatz pro Kunde (in €)</label>
+      <input type="number" id="calc-revenue" placeholder="z.B. 800" min="0">
+
+      <label for="calc-margin">Gewinnmarge (in %)</label>
+      <input type="number" id="calc-margin" placeholder="z.B. 40" min="0" max="100">
+
+      <button onclick="calcROI()">ROI berechnen</button>
+
+      <div class="calc__result" id="calc-result"></div>
+    </div>
+
+    <script>
+    function calcROI() {
+      var cost = parseFloat(document.getElementById('calc-cost').value) || 0;
+      var running = parseFloat(document.getElementById('calc-running').value) || 0;
+      var customers = parseFloat(document.getElementById('calc-customers').value) || 0;
+      var revenue = parseFloat(document.getElementById('calc-revenue').value) || 0;
+      var margin = parseFloat(document.getElementById('calc-margin').value) || 0;
+
+      var totalCost = cost + running;
+      var yearlyProfit = customers * 12 * revenue * (margin / 100);
+      var roi = totalCost > 0 ? ((yearlyProfit - totalCost) / totalCost * 100) : 0;
+      var monthsToBreakeven = yearlyProfit > 0 ? (totalCost / (yearlyProfit / 12)) : 0;
+
+      var el = document.getElementById('calc-result');
+      el.style.display = 'block';
+
+      if (totalCost === 0 || yearlyProfit === 0) {
+        el.innerHTML = 'Bitte alle Felder ausfüllen.';
+        return;
+      }
+
+      el.innerHTML = '<strong>Dein Website-ROI im ersten Jahr: ' + roi.toFixed(0) + '%</strong><br>' +
+        'Zusätzlicher Jahresgewinn: <strong>' + yearlyProfit.toLocaleString('de-DE') + ' €</strong><br>' +
+        'Gesamtkosten im ersten Jahr: <strong>' + totalCost.toLocaleString('de-DE') + ' €</strong><br>' +
+        'Break-even nach: <strong>' + monthsToBreakeven.toFixed(1) + ' Monaten</strong>';
+    }
+    </script>
+
+    <div class="faq" id="faq">
+      <h2>Häufige Fragen</h2>
+
+      <details>
+        <summary>Wie berechnet man den ROI einer Website?</summary>
+        <div class="faq-answer">Die ROI-Formel lautet: (Gewinn durch Website − Kosten der Website) / Kosten der Website × 100. Wenn eine Website 1.500€ kostet und im ersten Jahr 6.000€ zusätzlichen Umsatz bringt, liegt der ROI bei 300%.</div>
+      </details>
+
+      <details>
+        <summary>Ab wann rechnet sich eine professionelle Website?</summary>
+        <div class="faq-answer">Bei den meisten kleinen Unternehmen rechnet sich eine professionelle Website bereits nach 2–4 Monaten. Ein Handwerksbetrieb braucht oft nur 1–2 zusätzliche Aufträge, um die gesamten Website-Kosten wieder einzuspielen.</div>
+      </details>
+
+      <details>
+        <summary>Was kostet es, keine Website zu haben?</summary>
+        <div class="faq-answer">Ohne Website verlieren Unternehmen durchschnittlich 70% aller potenziellen Neukunden, die online suchen. Für einen Handwerksbetrieb kann das 30.000–80.000€ entgangenen Jahresumsatz bedeuten — deutlich mehr als jede Website-Investition.</div>
+      </details>
+    </div>
+
+    <h2 style="border-bottom:none;margin-bottom:1rem;">Weiterlesen</h2>
+    <div style="display:grid;gap:0.75rem;margin-bottom:2rem;">
+      <a href="homepage-erstellen-lassen-checkliste.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>Homepage erstellen lassen — Die ultimative Checkliste</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Was eine gute Website ausmacht und worauf du achten musst.</span>
+      </a>
+      <a href="seo-fuer-handwerksbetriebe.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>SEO für Handwerksbetriebe — So wirst du lokal gefunden</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Lokale Suchmaschinenoptimierung, die wirklich Kunden bringt.</span>
+      </a>
+    </div>
+
+    <div class="cta-box">
+      <h3>Website, die sich rechnet?</h3>
+      <p>Kostenlose Erstberatung — ich zeige dir, was eine Website für dein Unternehmen bringen kann.</p>
+      <a href="https://addus-web.de/#kontakt" class="cta-btn">Jetzt Projekt besprechen →</a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">AD</div>
+      <div>
+        <div class="author-name">Adam Dia</div>
+        <div class="author-role">Gründer von addus. — Webdesign & SEO aus Lüneburg</div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 addus. — <a href="https://addus-web.de">Startseite</a> · <a href="https://addus-web.de/impressum.html">Impressum</a> · <a href="https://addus-web.de/datenschutz.html">Datenschutz</a> · <a href="https://addus-web.de/agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

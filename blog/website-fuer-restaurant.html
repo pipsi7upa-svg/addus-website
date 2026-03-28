@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website für Restaurant: Speisekarte, Reservierung & Google Maps | addus.</title>
+  <meta name="description" content="Website für Restaurant erstellen: Digitale Speisekarte, Online-Reservierung & Google Maps einbinden. Alles, was dein Restaurant online braucht.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://addus-web.de/blog/website-fuer-restaurant.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Website für Restaurant: Speisekarte, Reservierung & Google Maps">
+  <meta property="og:description" content="Restaurant-Website erstellen: Digitale Speisekarte, Online-Reservierung, Google Maps & Mobile First. Komplett-Leitfaden.">
+  <meta property="og:url" content="https://addus-web.de/blog/website-fuer-restaurant.html">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="addus.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Website für Restaurant: Speisekarte, Reservierung & Google Maps">
+  <meta name="twitter:description" content="Restaurant-Website erstellen: Digitale Speisekarte, Online-Reservierung, Google Maps & Mobile First.">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image" content="https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Restaurant-Interieur — professionelle Website für Restaurants">
+  <link rel="alternate" hreflang="de" href="https://addus-web.de/blog/website-fuer-restaurant.html">
+  <link rel="alternate" hreflang="x-default" href="https://addus-web.de/blog/website-fuer-restaurant.html">
+  <meta name="author" content="Adam Dia">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="icon" href="/assets/logo-addus.svg" type="image/svg+xml">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" type="text/javascript"></script>
+  <script type="text/plain" data-cookieconsent="statistics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0D1117; --surface: #161B22; --border: #30363D; --text: #E6EDF3; --text-muted: #8B949E; --accent: #C8932A; --accent-hover: #D4A03A; }
+    body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+    img { max-width: 100%; }
+
+    /* Navbar */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav__logo { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .nav__links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+
+    /* Article */
+    .article { max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .article__meta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .article__tag { background: rgba(200,147,42,0.15); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+    .article__title { font-family: 'Urbanist', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+    .article__subtitle { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+
+    /* TOC */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc__title { font-family: 'Urbanist', sans-serif; font-size: 1rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .toc a { color: var(--text-muted); }
+    .toc a:hover { color: var(--accent); }
+
+    /* Content */
+    h2 { font-family: 'Urbanist', sans-serif; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h3 { font-family: 'Urbanist', sans-serif; font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1.25rem; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    strong { color: var(--text); }
+    blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--surface); border-radius: 0 8px 8px 0; color: var(--text-muted); font-style: italic; }
+
+    /* Highlight box */
+    .highlight-box { background: rgba(200,147,42,0.08); border: 1px solid rgba(200,147,42,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .highlight-box strong { color: var(--accent); }
+
+    /* Checklist */
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { padding-left: 1.75rem; position: relative; margin-bottom: 0.6rem; }
+    .checklist li::before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+    /* FAQ */
+    .faq { margin-top: 3rem; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
+    .faq summary { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; }
+    .faq summary::before { content: '+ '; color: var(--accent); font-weight: 700; }
+    .faq details[open] summary::before { content: '\2212 '; }
+    .faq .faq-answer { padding: 0 1.25rem 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+    /* CTA */
+    .cta-box { text-align: center; margin: 3rem 0; padding: 2.5rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .cta-box h3 { font-family: 'Urbanist', sans-serif; font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--accent-hover); color: #000; }
+
+    /* Author */
+    .author-box { display: flex; gap: 1rem; align-items: center; padding: 1.5rem; background: var(--surface); border-radius: 12px; margin: 2.5rem 0; }
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000; font-size: 1.1rem; flex-shrink: 0; }
+    .author-name { font-weight: 600; }
+    .author-role { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .footer__inner { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    :focus:not(:focus-visible) { outline: none; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+    .article img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; aspect-ratio: 800 / 420; object-fit: cover; }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .article { padding: 2rem 1rem 3rem; }
+      .article img { border-radius: 8px; margin-bottom: 1.5rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://addus-web.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://addus-web.de/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Website für Restaurant" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Website für Restaurant: Speisekarte, Reservierung & Google Maps",
+    "description": "Restaurant-Website erstellen: Digitale Speisekarte, Online-Reservierung & Google Maps einbinden. Alles, was dein Restaurant online braucht.",
+    "author": { "@type": "Person", "name": "Adam Dia" },
+    "publisher": { "@type": "Organization", "name": "addus.", "url": "https://addus-web.de" },
+    "datePublished": "2026-03-28",
+    "dateModified": "2026-03-28",
+    "mainEntityOfPage": "https://addus-web.de/blog/website-fuer-restaurant.html",
+    "url": "https://addus-web.de/blog/website-fuer-restaurant.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was muss eine Restaurant-Website unbedingt haben?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Eine Restaurant-Website braucht mindestens: eine aktuelle digitale Speisekarte mit Preisen, Öffnungszeiten, Adresse mit Google Maps Einbindung, Telefonnummer, und eine Möglichkeit zur Online-Reservierung. Dazu kommen Fotos der Gerichte und des Interieurs sowie ein responsives Design für Smartphones." }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie viel kostet eine professionelle Restaurant-Website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Eine professionelle Restaurant-Website kostet je nach Umfang zwischen 800 und 3.500 Euro. Eine einfache Seite mit Speisekarte und Kontakt liegt bei 800–1.500 Euro. Mit Online-Reservierung, Bildergalerie und SEO-Optimierung sind es 1.500–3.500 Euro. Dazu kommen laufende Kosten für Hosting und Domain von ca. 10–30 Euro pro Monat." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann ich die Speisekarte selbst aktualisieren?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ja, mit einem Content-Management-System (CMS) oder einem einfachen Admin-Bereich kannst du Gerichte, Preise und Tagesangebote selbst ändern — ohne Programmierkenntnisse. Das ist wichtig, weil sich Speisekarten regelmäßig ändern und du nicht jedes Mal einen Entwickler beauftragen willst." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://addus-web.de" class="nav__logo">addus.</a>
+      <div class="nav__links">
+        <a href="https://addus-web.de/blog/">Blog</a>
+        <a href="https://addus-web.de/#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__meta">
+      <span class="article__tag">Webdesign</span>
+      <span>Adam Dia</span>
+      <span>28. März 2026</span>
+      <span>8 Min Lesezeit</span>
+    </div>
+
+    <h1 class="article__title">Website für Restaurant: Speisekarte, Reservierung & Google Maps.</h1>
+    <p class="article__subtitle">Deine Gäste suchen online nach Speisekarten, Öffnungszeiten und Reservierungsmöglichkeiten. Ohne eigene Website verlierst du sie an die Konkurrenz. Hier erfährst du, was eine gute Restaurant-Website braucht — und was sie kostet.</p>
+
+    <nav class="toc">
+      <div class="toc__title">Inhalt</div>
+      <ol>
+        <li><a href="#warum">Warum Restaurants eine eigene Website brauchen</a></li>
+        <li><a href="#speisekarte">Speisekarte digital: So machst du es richtig</a></li>
+        <li><a href="#reservierung">Online-Reservierung einbinden</a></li>
+        <li><a href="#google-maps">Google Maps &amp; lokale Sichtbarkeit</a></li>
+        <li><a href="#mobile-first">Mobile First: Warum das Smartphone entscheidet</a></li>
+        <li><a href="#kosten">Was kostet eine Restaurant-Website?</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+      </ol>
+    </nav>
+
+    <img src="https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800"
+         srcset="https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=210&w=400 400w,
+                 https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=315&w=600 600w,
+                 https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=420&w=800 800w,
+                 https://images.pexels.com/photos/5865078/pexels-photo-5865078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200 1200w"
+         sizes="(max-width: 600px) 100vw, (max-width: 900px) 90vw, 800px"
+         alt="Restaurant-Interieur — professionelle Website für Restaurants"
+         loading="eager" decoding="async" width="800" height="420">
+
+    <div class="highlight-box">
+      <strong>Key Takeaways:</strong>
+      <ul style="margin-top:0.75rem;margin-bottom:0;">
+        <li><strong>77 % der Gäste</strong> schauen sich die Website eines Restaurants an, bevor sie hingehen</li>
+        <li>Eine digitale Speisekarte als <strong>HTML-Text</strong> (nicht PDF) bringt bessere Google-Rankings</li>
+        <li>Online-Reservierung reduziert Telefonanrufe um bis zu <strong>60 %</strong></li>
+        <li>Google Maps Einbindung + <a href="google-my-business-2026-leitfaden.html">Google My Business</a> = maximale lokale Sichtbarkeit</li>
+        <li>Über <strong>70 % der Restaurant-Suchen</strong> kommen vom Smartphone — Mobile First ist Pflicht</li>
+      </ul>
+    </div>
+
+    <h2 id="warum">Warum Restaurants eine eigene Website brauchen</h2>
+
+    <p>„Wir haben doch Instagram und sind bei Lieferando." Das höre ich oft. Aber Social Media und Plattformen gehören dir nicht. Instagram ändert den Algorithmus, Lieferando nimmt 30 % Provision, und Google zeigt bei der Suche nach „Restaurant in der Nähe" bevorzugt Websites mit strukturierten Daten an — nicht Instagram-Profile.</p>
+
+    <p>Die Zahlen sprechen eine klare Sprache:</p>
+    <ul>
+      <li><strong>77 % der Gäste</strong> besuchen die Website eines Restaurants, bevor sie reservieren oder hingehen</li>
+      <li><strong>70 % der Gäste</strong> bestellen lieber direkt beim Restaurant als über Drittanbieter</li>
+      <li><strong>88 % der lokalen Suchen</strong> auf dem Smartphone führen innerhalb von 24 Stunden zu einem Anruf oder Besuch</li>
+    </ul>
+
+    <p>Eine eigene <strong>Website für dein Restaurant</strong> ist kein Luxus — sie ist der zentrale Anlaufpunkt für alle, die dich online finden. Sie zeigt deine Speisekarte, nimmt Reservierungen entgegen, und bringt dich bei Google Maps nach oben. Und anders als bei Instagram bestimmst <strong>du</strong>, was deine Gäste sehen.</p>
+
+    <p>Warum Unternehmen generell eine Website brauchen, haben wir in unserem <a href="https://addus-web.de">Hauptseiten-Überblick</a> zusammengefasst.</p>
+
+    <h2 id="speisekarte">Speisekarte digital: So machst du es richtig</h2>
+
+    <p>Die Speisekarte ist der wichtigste Inhalt auf jeder Restaurant-Website. Hier entscheiden Gäste, ob sie kommen oder weitersuchen. Trotzdem machen die meisten Restaurants einen entscheidenden Fehler: <strong>Sie laden ein PDF hoch.</strong></p>
+
+    <h3>Warum PDFs keine gute Idee sind</h3>
+    <ul>
+      <li>Google kann PDF-Inhalte schlechter indexieren als HTML-Text</li>
+      <li>PDFs sind auf Smartphones oft <strong>winzig klein und nicht lesbar</strong> ohne Zoomen</li>
+      <li>Ladezeiten steigen — ein PDF mit Bildern kann mehrere Megabyte groß sein</li>
+      <li>Änderungen erfordern jedes Mal ein neues PDF-Upload</li>
+    </ul>
+
+    <h3>So sieht eine gute digitale Speisekarte aus</h3>
+    <p>Die Speisekarte gehört als <strong>normaler HTML-Text</strong> auf die Website. Das heißt: echte Überschriften für Kategorien (Vorspeisen, Hauptgerichte, Desserts), Gerichtsnamen als Listeneinträge, und Preise direkt daneben.</p>
+
+    <ul class="checklist">
+      <li>Kategorien als H3-Überschriften (Vorspeisen, Hauptgerichte, etc.)</li>
+      <li>Gerichtname, kurze Beschreibung und Preis als Text</li>
+      <li>Allergene und Zusatzstoffe kennzeichnen (gesetzliche Pflicht)</li>
+      <li>Vegetarische/vegane Optionen mit Icons markieren</li>
+      <li>Tagesgerichte oder saisonale Angebote hervorheben</li>
+      <li>Fotos der beliebtesten Gerichte einbinden</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>Tipp:</strong> Mach professionelle Fotos von deinen 5–8 beliebtesten Gerichten. Gerichte mit Fotos werden laut Studien <strong>30 % häufiger bestellt</strong>. Investiere einmal 200–400 Euro in einen Food-Fotografen — das zahlt sich dauerhaft aus.
+    </div>
+
+    <p>Wichtig: Deine Speisekarte muss <strong>einfach zu aktualisieren</strong> sein. Preise ändern sich, Gerichte kommen und gehen. Ein CMS (Content-Management-System) oder ein einfaches Admin-Panel macht das möglich — auch ohne Programmierkenntnisse.</p>
+
+    <h2 id="reservierung">Online-Reservierung einbinden</h2>
+
+    <p>Jeder Anruf, den dein Team während der Rush Hour annehmen muss, kostet Zeit und Nerven. Eine Online-Reservierung löst dieses Problem — und bringt dir gleichzeitig mehr Buchungen, weil Gäste auch um 23 Uhr reservieren können, wenn das Telefon nicht besetzt ist.</p>
+
+    <h3>Welche Optionen gibt es?</h3>
+    <ul>
+      <li><strong>Einfaches Kontaktformular:</strong> Kostenlos, aber nicht automatisiert. Du musst jede Anfrage manuell bestätigen.</li>
+      <li><strong>Google Reserve:</strong> Direkt über dein <a href="google-my-business-2026-leitfaden.html">Google Unternehmensprofil</a> buchbar. Kostenlos und für Gäste extrem bequem.</li>
+      <li><strong>Externe Tools (OpenTable, Quandoo, resmio):</strong> Professionelle Reservierungssysteme mit automatischer Bestätigung, Erinnerungs-SMS und Tischplanung. Kosten: 0–99 Euro/Monat.</li>
+      <li><strong>Eigenes Buchungssystem:</strong> Direkt in die Website integriert, keine Provision an Drittanbieter. Höhere Einmalkosten, dafür volle Kontrolle.</li>
+    </ul>
+
+    <p>Meine Empfehlung für die meisten Restaurants: <strong>Starte mit Google Reserve und einem einfachen Formular auf der Website.</strong> Das kostet nichts und deckt 80 % der Fälle ab. Wenn du regelmäßig über 50 Reservierungen pro Woche hast, lohnt sich ein professionelles System wie resmio.</p>
+
+    <div class="highlight-box">
+      <strong>Wichtig:</strong> Zeige die Reservierungsmöglichkeit <strong>prominent auf jeder Seite</strong> — nicht versteckt im Untermenü. Ein fester Button in der Navigation oder ein sticky Footer-Button auf dem Smartphone funktioniert am besten.
+    </div>
+
+    <h2 id="google-maps">Google Maps &amp; lokale Sichtbarkeit</h2>
+
+    <p>Wenn jemand „Restaurant in der Nähe", „Pizza Lüneburg" oder „bestes Thai-Restaurant" sucht, zeigt Google zuerst die <strong>Maps-Ergebnisse</strong> — drei Restaurants mit Bewertungen, Fotos und Öffnungszeiten. Wer dort steht, bekommt die Gäste.</p>
+
+    <h3>Google Maps auf deiner Website einbinden</h3>
+    <p>Eine eingebettete Google Map auf deiner Kontaktseite hilft doppelt: Gäste finden den Weg, und Google versteht besser, wo dein Restaurant liegt. So geht's:</p>
+    <ol>
+      <li>Öffne Google Maps und suche dein Restaurant</li>
+      <li>Klicke auf „Teilen" → „Karte einbetten"</li>
+      <li>Kopiere den iframe-Code und füge ihn in deine Website ein</li>
+      <li>Ergänze darüber deine vollständige Adresse als Text</li>
+    </ol>
+
+    <h3>Lokale SEO für Restaurants</h3>
+    <p>Google Maps allein reicht nicht. Für maximale Sichtbarkeit brauchst du:</p>
+    <ul class="checklist">
+      <li>Ein optimiertes <a href="google-my-business-2026-leitfaden.html">Google Unternehmensprofil</a> mit Fotos und aktuellen Öffnungszeiten</li>
+      <li>NAP-Konsistenz: Name, Adresse, Telefonnummer überall identisch</li>
+      <li>LocalBusiness Schema Markup auf deiner Website</li>
+      <li>Regelmäßige Google-Bewertungen (mindestens 4,0 Sterne)</li>
+      <li>Einträge in Branchenverzeichnissen (Yelp, TripAdvisor, Das Örtliche)</li>
+      <li>Lokale Keywords auf der Website: „Italienisches Restaurant Lüneburg" statt nur „Unser Restaurant"</li>
+    </ul>
+
+    <p>Mehr zum Thema lokale Auffindbarkeit findest du auch in unserem Artikel über <a href="seo-fuer-handwerksbetriebe.html">SEO für lokale Betriebe</a>.</p>
+
+    <h2 id="mobile-first">Mobile First: Warum das Smartphone entscheidet</h2>
+
+    <p>Über <strong>70 % aller Restaurant-Suchen</strong> passieren auf dem Smartphone. Dein potenzieller Gast steht auf der Straße, hat Hunger, und sucht „Restaurant in der Nähe". Wenn deine Website auf dem Handy nicht sofort funktioniert, ist der Gast in drei Sekunden bei der Konkurrenz.</p>
+
+    <h3>Was Mobile First für Restaurants bedeutet</h3>
+    <ul>
+      <li><strong>Ladezeit unter 3 Sekunden:</strong> Bilder komprimieren, kein unnötiges JavaScript, schnelles Hosting</li>
+      <li><strong>Klickbare Telefonnummer:</strong> Ein Tipp aufs Handy und der Anruf startet. Kein Kopieren-und-Einfügen.</li>
+      <li><strong>Speisekarte ohne Scrollen durch PDFs:</strong> HTML-Text, große Schrift, klare Kategorien</li>
+      <li><strong>Reservierungsbutton immer sichtbar:</strong> Sticky Button am unteren Bildschirmrand</li>
+      <li><strong>Google Maps mit „Route planen" Button:</strong> Ein Klick öffnet die Navigation</li>
+      <li><strong>Öffnungszeiten sofort sichtbar:</strong> Nicht unter drei Menüebenen versteckt</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>Test:</strong> Öffne deine aktuelle Website auf dem Smartphone. Kannst du in unter 5 Sekunden die Speisekarte finden, die Öffnungszeiten lesen und eine Reservierung starten? Wenn nicht, verlierst du Gäste.
+    </div>
+
+    <p>Google bewertet Websites seit 2021 nach dem <strong>Mobile-First-Index</strong>: Die mobile Version bestimmt dein Ranking — nicht die Desktop-Version. Eine Website, die auf dem Laptop gut aussieht, aber auf dem Handy nicht funktioniert, wird von Google abgestraft.</p>
+
+    <h2 id="kosten">Was kostet eine Restaurant-Website?</h2>
+
+    <p>Die Kosten hängen vom Umfang ab. Hier eine realistische Übersicht:</p>
+
+    <div class="highlight-box">
+      <strong>Einfache Restaurant-Website (800–1.500 €)</strong>
+      <ul style="margin-top:0.5rem;margin-bottom:0;">
+        <li>Startseite mit Öffnungszeiten und Adresse</li>
+        <li>Speisekarte als HTML-Seite</li>
+        <li>Kontaktformular</li>
+        <li>Google Maps Einbindung</li>
+        <li>Responsive Design</li>
+        <li>Grundlegende SEO-Optimierung</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Professionelle Restaurant-Website (1.500–3.500 €)</strong>
+      <ul style="margin-top:0.5rem;margin-bottom:0;">
+        <li>Alles aus dem einfachen Paket</li>
+        <li>Online-Reservierungssystem</li>
+        <li>Professionelle Bildergalerie</li>
+        <li>CMS zum Selbst-Bearbeiten der Speisekarte</li>
+        <li>Google My Business Optimierung</li>
+        <li>Schema Markup für Restaurants</li>
+        <li>Mehrsprachigkeit (z.B. Deutsch/Englisch)</li>
+      </ul>
+    </div>
+
+    <p>Dazu kommen <strong>laufende Kosten</strong> von ca. 10–30 Euro/Monat für Hosting und Domain. Optional: Wartung und Updates für 30–80 Euro/Monat.</p>
+
+    <p>Wie sich die Kosten genau zusammensetzen, haben wir im Detail erklärt: <a href="was-kostet-eine-website-2026.html">Was kostet eine Website 2026?</a></p>
+
+    <blockquote>Eine Restaurant-Website ist keine Ausgabe — sie ist eine Investition. Wenn sie dir pro Monat auch nur 10 zusätzliche Gäste bringt, hat sie sich in wenigen Monaten bezahlt gemacht.</blockquote>
+
+    <section class="faq" id="faq">
+      <h2>Häufige Fragen</h2>
+
+      <details>
+        <summary>Was muss eine Restaurant-Website unbedingt haben?</summary>
+        <div class="faq-answer">
+          <p>Das Minimum: eine aktuelle digitale Speisekarte mit Preisen, Öffnungszeiten, Adresse mit Google Maps, Telefonnummer und eine Möglichkeit zur Reservierung. Dazu kommen Fotos der Gerichte und des Interieurs sowie ein responsives Design für Smartphones. Allergene und Zusatzstoffe müssen gesetzlich gekennzeichnet sein.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie viel kostet eine professionelle Restaurant-Website?</summary>
+        <div class="faq-answer">
+          <p>Eine einfache Seite mit Speisekarte und Kontakt liegt bei 800–1.500 Euro. Mit Online-Reservierung, Bildergalerie und SEO-Optimierung sind es 1.500–3.500 Euro. Dazu kommen laufende Kosten für Hosting und Domain von ca. 10–30 Euro pro Monat. Mehr Details findest du in unserem Artikel <a href="was-kostet-eine-website-2026.html">Was kostet eine Website 2026?</a></p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Kann ich die Speisekarte selbst aktualisieren?</summary>
+        <div class="faq-answer">
+          <p>Ja, mit einem Content-Management-System (CMS) oder einem einfachen Admin-Bereich kannst du Gerichte, Preise und Tagesangebote selbst ändern — ohne Programmierkenntnisse. Das ist wichtig, weil sich Speisekarten regelmäßig ändern und du nicht jedes Mal einen Entwickler beauftragen willst.</p>
+        </div>
+      </details>
+    </section>
+
+    <h2>Weiterlesen</h2>
+    <div style="display:grid;gap:0.75rem;margin-bottom:2rem;">
+      <a href="google-my-business-2026-leitfaden.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>Google My Business 2026: Der komplette Leitfaden</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Profil einrichten, Bewertungen nutzen, lokal bei Google Maps ganz oben stehen.</span>
+      </a>
+      <a href="seo-fuer-handwerksbetriebe.html" style="display:block;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:border-color 0.2s;">
+        <strong>SEO für Handwerksbetriebe: Lokal gefunden werden</strong>
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem;">Lokale SEO-Strategien, die auch für Restaurants und Gastro-Betriebe funktionieren.</span>
+      </a>
+    </div>
+
+    <div class="cta-box">
+      <h3>Restaurant-Website gesucht?</h3>
+      <p>Wir erstellen deine Restaurant-Website mit digitaler Speisekarte, Reservierungssystem und Google Maps — alles aus einer Hand.</p>
+      <a href="https://addus-web.de/#kontakt" class="cta-btn">Jetzt kostenlos beraten lassen →</a>
+      <p style="margin-top:1rem;font-size:0.9rem;opacity:0.7">Alle Leistungen und Preise auf unserer <a href="https://addus-web.de/angebot.html" style="color:var(--accent)">Angebotsseite</a>.</p>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">AD</div>
+      <div>
+        <div class="author-name">Adam Dia</div>
+        <div class="author-role">Gründer von addus. — Webdesign & SEO aus Lüneburg</div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 addus. — <a href="https://addus-web.de">Startseite</a> · <a href="https://addus-web.de/impressum.html">Impressum</a> · <a href="https://addus-web.de/datenschutz.html">Datenschutz</a> · <a href="https://addus-web.de/agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
