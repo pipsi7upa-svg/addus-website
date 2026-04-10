@@ -153,25 +153,25 @@
                 class="showcase-iframe is-active"
                 title="Demo: Bella Vista Restaurant"
                 data-rw="1200" data-rh="900"
-                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <iframe id="sc-1" data-src="demos/steuerberater.html"
                 class="showcase-iframe"
                 title="Demo: Müller & Partner Steuerberatung"
                 data-rw="1300" data-rh="975"
-                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <iframe id="sc-2" data-src="demos/handwerk.html"
                 class="showcase-iframe"
                 title="Demo: Al-Hassan Elektro"
                 data-rw="1300" data-rh="975"
-                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <iframe id="sc-3" data-src="demos/ecommerce.html"
                 class="showcase-iframe"
                 title="Demo: SportGear Pro Shop"
                 data-rw="1380" data-rh="1035"
-                loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
+                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
 
               <!-- Thin activity scanner at bottom -->
               <div class="showcase-scanner" id="showcaseScanner"></div>
@@ -1417,30 +1417,29 @@
   <script src="js/main.min.js" defer></script>
 
   <!-- Showcase Panel Cycling (lazy-loaded iframes) -->
-  <script>
-  requestIdleCallback(function() { (function() {
+  <script data-cfasync="false">
+  (function() {
     'use strict';
 
-    const DEMOS = [
-      { name: 'Gastronomie'    },
-      { name: 'Steuerberatung' },
-      { name: 'Handwerk'       },
-      { name: 'E-Commerce'     },
-    ];
+    var ric = window.requestIdleCallback || function(cb) { setTimeout(cb, 80); };
+
+    ric(function() {
+
+    var DEMOS_LEN = 4;
 
     // ── DOM refs ──
-    const frames     = Array.from(document.querySelectorAll('.showcase-iframe'));
-    const labels     = Array.from(document.querySelectorAll('.demo-now__item'));
-    const frontPanel = document.getElementById('showcaseFront');
-    const stage      = document.getElementById('showcaseStage');
+    var frames     = Array.from(document.querySelectorAll('.showcase-iframe'));
+    var labels     = Array.from(document.querySelectorAll('.demo-now__item'));
+    var frontPanel = document.getElementById('showcaseFront');
+    var stage      = document.getElementById('showcaseStage');
 
     if (!frames.length || !frontPanel) return;
 
-    let current   = 0;
-    let switching = false;
-    let fallback  = null;
-    let paused    = false;
-    let iframesLoaded = false;
+    var current   = 0;
+    var switching = false;
+    var fallback  = null;
+    var paused    = false;
+    var iframesLoaded = false;
 
     // ── Lazy-load iframes when showcase enters viewport ──
     function loadIframes() {
@@ -1448,7 +1447,7 @@
       iframesLoaded = true;
       frames.forEach(function(f) {
         var src = f.getAttribute('data-src');
-        if (src && !f.src) f.src = src;
+        if (src && !f.getAttribute('src')) f.src = src;
       });
     }
 
@@ -1461,20 +1460,20 @@
         }
       }, { rootMargin: '200px' });
       iframeObs.observe(stage);
-    } else {
-      // Fallback: load after short delay
-      setTimeout(loadIframes, 1500);
     }
+
+    // Always set a fallback timeout to ensure iframes load
+    setTimeout(loadIframes, 2500);
 
     // ── Tell a demo to start its animation ──
     function startDemo(idx) {
       var f = frames[idx];
-      if (!f || !f.src) return;
+      if (!f || !f.getAttribute('src')) return;
       var sent = false;
       var send = function() {
         if (sent) return;
         sent = true;
-        try { f.contentWindow.postMessage('demo-start', location.origin); } catch(e) {}
+        try { f.contentWindow.postMessage('demo-start', '*'); } catch(e) {}
       };
       setTimeout(send, 400);
       f.addEventListener('load', function() { setTimeout(send, 200); }, { once: true });
@@ -1482,18 +1481,18 @@
 
     // ── Core switch: CSS class crossfade between stacked iframes ──
     function switchTo(next) {
-      next = ((next % DEMOS.length) + DEMOS.length) % DEMOS.length;
+      next = ((next % DEMOS_LEN) + DEMOS_LEN) % DEMOS_LEN;
       if (switching || next === current) return;
       // Ensure target iframe is loaded
       var entering = frames[next];
-      if (entering && !entering.src) {
+      if (entering && !entering.getAttribute('src')) {
         var src = entering.getAttribute('data-src');
         if (src) entering.src = src;
       }
       switching = true;
       clearTimeout(fallback);
 
-      const leaving = frames[current];
+      var leaving = frames[current];
 
       frontPanel.classList.add('is-switching');
 
@@ -1560,15 +1559,15 @@
     }
 
     var f0 = frames[0];
-    // Wait for iframe to actually have src before booting
     function waitForLoad() {
-      if (!f0.src) { setTimeout(waitForLoad, 200); return; }
+      if (!f0.getAttribute('src')) { setTimeout(waitForLoad, 200); return; }
       setTimeout(boot, 600);
       f0.addEventListener('load', function() { setTimeout(boot, 200); }, { once: true });
     }
     waitForLoad();
 
-  })(); }, { timeout: 3000 });
+    }, { timeout: 3000 });
+  })();
   </script>
 
   <!-- WhatsApp Floating Button -->
