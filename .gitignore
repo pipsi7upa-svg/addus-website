@@ -1,0 +1,33 @@
+# Sensitive business docs — never commit
+BUDGET-PAKETE-PLAN.txt
+MARKETING-PLAN-ADDUS.txt
+EBAY-KLEINANZEIGEN.txt
+CLAUDE.md.txt
+restpro.txt
+website-strategie-document.md
+skills-lock.json
+
+# Local Claude / agent configs
+.claude/settings.local.json
+.agents/
+.trae/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+.vscode/
+.idea/
+
+# Dependencies / build artifacts
+node_modules/
+dist/
+build/
+*.log
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
