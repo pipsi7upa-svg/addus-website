@@ -12,13 +12,13 @@
   <meta property="og:description" content="Professionelle Website erstellen lassen ab 699€. Webdesign für KMU & Handwerk. 4.9★ bei Google. In 14 Tagen online.">
   <meta property="og:locale"      content="de_DE">
   <meta property="og:url"         content="https://addus-web.de/">
-  <meta property="og:image"       content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_1200/addus/adam-portrait.jpg">
+  <meta property="og:image"       content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1200/addus/adam-portrait.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:title"      content="addus. — Websites, die Kunden gewinnen">
   <meta name="twitter:description" content="Professionelle Website erstellen lassen ab 699€. 4.9★ bei Google.">
-  <meta name="twitter:image"       content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_1200/addus/adam-portrait.jpg">
+  <meta name="twitter:image"       content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1200/addus/adam-portrait.jpg">
   <meta property="og:site_name"    content="addus.">
   <meta property="og:image:alt"    content="Adam Dia — Gründer von addus. Webdesign-Agentur">
   <meta name="theme-color" content="#0D1117">
@@ -59,16 +59,37 @@
   <link rel="stylesheet" href="css/mockup.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/mockup.css"></noscript>
 
-  <!-- Google Fonts: preload + swap for non-blocking -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"></noscript>
+  <!-- Google Fonts: single preload+swap -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap"></noscript>
 
   <!-- Cookiebot: async to not block first paint -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" async></script>
   <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
   <script type="text/plain" data-cookieconsent="statistics" src="js/analytics.js"></script>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <!-- Turnstile: lazy-loaded when contact form enters viewport -->
+  <script>
+  (function(){
+    var loaded=false;
+    function load(){
+      if(loaded)return;loaded=true;
+      var s=document.createElement('script');
+      s.src='https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async=true;s.defer=true;
+      document.head.appendChild(s);
+    }
+    if('IntersectionObserver' in window){
+      document.addEventListener('DOMContentLoaded',function(){
+        var t=document.getElementById('kontakt');
+        if(!t){load();return;}
+        var o=new IntersectionObserver(function(e){
+          if(e[0].isIntersecting){load();o.disconnect();}
+        },{rootMargin:'400px'});
+        o.observe(t);
+      });
+    }else{load();}
+  })();
+  </script>
 </head>
 <body>
 
@@ -675,10 +696,10 @@
       <div class="abt__split">
 
         <div class="abt__photo reveal">
-          <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_600/addus/adam-portrait.jpg"
-               srcset="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_400/addus/adam-portrait.jpg 400w,
-                       https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_600/addus/adam-portrait.jpg 600w,
-                       https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best,w_800/addus/adam-portrait.jpg 800w"
+          <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_600/addus/adam-portrait.jpg"
+               srcset="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_400/addus/adam-portrait.jpg 400w,
+                       https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_600/addus/adam-portrait.jpg 600w,
+                       https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_800/addus/adam-portrait.jpg 800w"
                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 35vw"
                alt="Adam Dia — Gründer von addus." width="600" height="750" loading="lazy" decoding="async" fetchpriority="low">
         </div>
@@ -1223,7 +1244,7 @@
         "name": "addus.",
         "url": "https://addus-web.de/",
         "logo": "https://addus-web.de/assets/logo-addus.svg",
-        "image": "https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:best/addus/adam-portrait.jpg",
+        "image": "https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto/addus/adam-portrait.jpg",
         "description": "Webdesign-Agentur in Lüneburg für KMU und Mittelstand. Professionelle Websites, Google-Sichtbarkeit und Online-Shops — schnell, persönlich und zu fairen Festpreisen.",
         "founder": {
           "@type": "Person",
@@ -1441,29 +1462,32 @@
     var paused    = false;
     var iframesLoaded = false;
 
-    // ── Lazy-load iframes when showcase enters viewport ──
-    function loadIframes() {
-      if (iframesLoaded) return;
-      iframesLoaded = true;
-      frames.forEach(function(f) {
-        var src = f.getAttribute('data-src');
-        if (src && !f.getAttribute('src')) f.src = src;
-      });
+    // ── Lazy-load single iframe on demand ──
+    function loadFrame(idx) {
+      var f = frames[idx];
+      if (!f) return;
+      var src = f.getAttribute('data-src');
+      if (src && !f.getAttribute('src')) f.src = src;
     }
 
-    // Use IntersectionObserver to defer iframe loading until visible
+    // Load only the first iframe when showcase enters viewport
+    function loadFirst() {
+      if (iframesLoaded) return;
+      iframesLoaded = true;
+      loadFrame(0);
+    }
+
     if ('IntersectionObserver' in window && stage) {
       var iframeObs = new IntersectionObserver(function(entries) {
         if (entries[0].isIntersecting) {
-          loadIframes();
+          loadFirst();
           iframeObs.disconnect();
         }
       }, { rootMargin: '200px' });
       iframeObs.observe(stage);
     }
 
-    // Always set a fallback timeout to ensure iframes load
-    setTimeout(loadIframes, 2500);
+    setTimeout(loadFirst, 2500);
 
     // ── Tell a demo to start its animation ──
     function startDemo(idx) {
@@ -1483,12 +1507,10 @@
     function switchTo(next) {
       next = ((next % DEMOS_LEN) + DEMOS_LEN) % DEMOS_LEN;
       if (switching || next === current) return;
-      // Ensure target iframe is loaded
       var entering = frames[next];
-      if (entering && !entering.getAttribute('src')) {
-        var src = entering.getAttribute('data-src');
-        if (src) entering.src = src;
-      }
+      loadFrame(next);
+      // Preload the iframe AFTER next to smooth the following switch
+      loadFrame((next + 1) % DEMOS_LEN);
       switching = true;
       clearTimeout(fallback);
 
