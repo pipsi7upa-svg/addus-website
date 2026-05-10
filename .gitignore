@@ -60,6 +60,9 @@ build/
 auth.json
 service-account*.json
 
+# Worker-Code (Referenz, gehört nicht auf den Webserver)
+cloudflare-worker-csp.js
+
 # Backup / temp files
 *.bak
 *.backup
