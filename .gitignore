@@ -63,6 +63,9 @@ service-account*.json
 # Worker-Code (Referenz, gehört nicht auf den Webserver)
 cloudflare-worker-csp.js
 
+# Projekt-Doku (enthält Account-IDs, gehört nicht öffentlich)
+PROJEKT-DOKU.txt
+
 # Backup / temp files
 *.bak
 *.backup
