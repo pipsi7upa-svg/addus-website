@@ -23,7 +23,7 @@
   <meta name="twitter:image"       content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1200/addus/adam-portrait.jpg">
   <meta property="og:site_name"    content="addus.">
   <meta property="og:image:alt"    content="Adam Dia — Gründer von addus. Webdesign-Agentur">
-  <meta name="theme-color" content="#0D1117">
+  <meta name="theme-color" content="#efe8d8">
   <meta name="author" content="Adam Dia, addus.">
   <meta name="geo.region" content="DE">
   <link rel="canonical" href="https://addus-web.de/">
@@ -39,16 +39,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
 
-  <!-- Critical CSS inline: tokens + reset + navbar + hero above-fold for instant FCP -->
+  <!-- Critical CSS inline: editorial tokens + reset + masthead + hero above-fold for instant FCP -->
   <style>
-    :root{--color-bg:#0D1117;--color-bg-deep:#080A0E;--color-bg-elevated:#141B26;--color-accent:#C8932A;--color-accent-hover:#E0A840;--color-accent-dim:rgba(200,147,42,.10);--color-accent-glow:rgba(200,147,42,.18);--color-secondary:#E07B3A;--color-warm:#F5A623;--color-warm-dim:rgba(245,166,35,.15);--color-success:#1DB954;--color-success-dim:rgba(29,185,84,.15);--color-danger:#FF4757;--color-neutral-100:#F8F9FC;--color-neutral-200:#E2E8F0;--color-neutral-600:#64748B;--color-text-primary:#F8F9FC;--color-text-muted:#94A3B8;--color-glass:rgba(255,255,255,.06);--color-glass-border:rgba(255,255,255,.10);--color-glass-hover:rgba(255,255,255,.10);--font-display:'Urbanist',sans-serif;--font-body:'Figtree',sans-serif;--font-mono:'Figtree',sans-serif;--font-accent:'Playfair Display',serif;--text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--text-6xl:3.75rem;--text-7xl:4.5rem;--text-hero:clamp(2.4rem,4.5vw + .5rem,4.5rem);--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--space-32:8rem;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-2xl:24px;--radius-full:9999px;--shadow-sm:0 1px 3px rgba(0,0,0,.30);--shadow-md:0 4px 12px rgba(0,0,0,.40);--shadow-lg:0 8px 32px rgba(0,0,0,.50);--shadow-glow:0 4px 24px rgba(0,0,0,.25);--ease-premium:cubic-bezier(.16,1,.30,1);--ease-out:cubic-bezier(.22,1,.36,1);--ease-spring:cubic-bezier(.25,1,.5,1);--dur-fast:150ms;--dur-normal:300ms;--dur-slow:600ms;--dur-enter:700ms;--z-below:-1;--z-base:0;--z-raised:10;--z-sticky:100;--z-overlay:200;--z-modal:300;--container-max:1280px;--container-pad:clamp(1.25rem,5vw,4rem);--navbar-h:72px}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;text-size-adjust:100%;-webkit-text-size-adjust:100%}body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;color:var(--color-text-primary);background-color:var(--color-bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}img,picture,video,canvas,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul,ol{list-style:none}button{cursor:pointer;border:none;background:none}
-    .navbar{position:fixed;top:0;left:0;right:0;z-index:var(--z-sticky);height:var(--navbar-h)}.navbar__inner{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);height:100%;display:flex;align-items:center;gap:var(--space-8)}.navbar__logo{font-family:var(--font-display);font-size:1.625rem;font-weight:800;letter-spacing:-.05em;color:#fff;flex-shrink:0;-webkit-text-fill-color:#fff}.navbar__cta{display:inline-flex;align-items:center;padding:7px var(--space-5);background:var(--color-accent-dim);border:1px solid rgba(0,194,255,.28);color:var(--color-accent);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;white-space:nowrap}.navbar__nav{margin-left:auto}.navbar__nav ul{display:flex;align-items:center;gap:var(--space-8)}.navbar__nav a{font-size:var(--text-sm);font-weight:500;color:var(--color-text-muted)}
-    .hero{position:relative;min-height:100svh;padding-top:var(--navbar-h);overflow:hidden;display:flex;flex-direction:column}.hero__bg{position:absolute;inset:0;overflow:hidden;z-index:var(--z-below)}.hero__container{max-width:var(--container-max);width:100%;margin:0 auto;padding:var(--space-20) var(--container-pad) var(--space-16);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-16);align-items:center;flex:1}.hero__content{display:flex;flex-direction:column;gap:0;max-width:560px}
-    .hero__headline{font-family:var(--font-display);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;color:var(--color-text-primary)}.hero__sub{font-size:var(--text-lg);line-height:1.7;color:var(--color-text-muted);margin-top:var(--space-5)}
+    :root{--color-paper:#efe8d8;--color-paper-deep:#e6dcc4;--color-ink:#1a1612;--color-ink-soft:#3d3530;--color-ink-mute:#6b5f54;--color-rust:#b8421f;--color-rust-deep:#8a2f15;--color-rust-glow:rgba(184,66,31,0.12);--color-line:rgba(26,22,18,0.85);--color-line-soft:rgba(26,22,18,0.18);--color-bg:var(--color-paper);--color-text-primary:var(--color-ink);--color-text-muted:var(--color-ink-mute);--color-accent:var(--color-rust);--color-accent-hover:var(--color-rust-deep);--font-display:'Fraunces',Georgia,serif;--font-body:'Instrument Sans',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--font-serif:'Fraunces',Georgia,serif;--space-2:.5rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--ease-premium:cubic-bezier(.2,.8,.2,1);--dur-enter:700ms;--z-sticky:100;--z-below:-1;--container-max:1320px;--container-pad:clamp(1.25rem,4vw,2.75rem);--navbar-h:72px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;text-size-adjust:100%;-webkit-text-size-adjust:100%}body{min-height:100dvh;font-family:var(--font-body);font-size:1rem;line-height:1.55;color:var(--color-ink);background-color:var(--color-paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.32;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}img,picture,video,canvas,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul,ol{list-style:none}button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}::selection{background:var(--color-rust);color:var(--color-paper)}
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:var(--z-sticky);background:var(--color-paper);border-bottom:1px solid var(--color-line)}
+    .hero{position:relative;padding-top:var(--navbar-h);background:var(--color-paper);border-bottom:1px solid var(--color-line)}
     .animate-in{opacity:1;transform:none}html.js-ready .animate-in{opacity:0;transform:translateY(22px);animation:fadeUp var(--dur-enter) var(--ease-premium) forwards;animation-delay:var(--delay,0ms)}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-    .navbar__burger{display:none;flex-direction:column;gap:5px;padding:var(--space-2);margin-left:auto}.navbar__burger span{display:block;width:22px;height:2px;background:var(--color-text-primary);border-radius:var(--radius-full)}
-    @media(max-width:768px){.hero__container{grid-template-columns:1fr;gap:var(--space-8);padding:var(--space-12) var(--container-pad) var(--space-8)}.navbar__nav,.navbar__cta{display:none}.navbar__burger{display:flex}}
   </style>
 
   <!-- Full CSS: tokens+reset+hero sync (above fold), sections deferred -->
@@ -59,10 +56,11 @@
   <noscript><link rel="stylesheet" href="css/sections.min.css"></noscript>
   <link rel="stylesheet" href="css/mockup.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/mockup.css"></noscript>
+  <link rel="stylesheet" href="css/editorial.css">
 
-  <!-- Google Fonts: single preload+swap -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap"></noscript>
+  <!-- Google Fonts: Editorial Stack (Fraunces variable + Instrument Sans + JetBrains Mono) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
   <!-- CookieConsent v3 (self-hosted, MIT) -->
   <link rel="stylesheet" href="css/cookieconsent.css">
@@ -97,18 +95,19 @@
 <body>
 
   <!-- ══ NAVBAR ══ -->
-  <header class="navbar" id="navbar" role="banner">
-    <div class="navbar__inner">
-      <a href="/" class="navbar__logo" aria-label="addus. — Zur Startseite">addus.</a>
+  <header class="navbar masthead" id="navbar" role="banner">
+    <div class="masthead__nav-inner">
+      <a href="/" class="navbar__logo masthead__brand" aria-label="addus. — Zur Startseite">addus<span class="masthead__brand-dot">.</span></a>
       <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
         <ul role="list">
           <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#vertrauen">Portfolio</a></li>
-          <li><a href="#ueber-uns">Über uns</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="#vertrauen">Arbeiten</a></li>
+          <li><a href="#ueber-uns">Über</a></li>
+          <li><a href="#blog">Journal</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
-      <a href="#kontakt" class="navbar__cta">Termin buchen</a>
+      <a href="#kontakt" class="navbar__cta masthead__cta">Projekt anfragen</a>
       <button class="navbar__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
@@ -117,45 +116,34 @@
 
   <main>
 
-    <!-- ══ 1. HERO ══ -->
-    <section id="hero" class="hero" aria-labelledby="hero-headline">
-      <div class="hero__bg" aria-hidden="true">
-        <canvas id="auroraCanvas" class="hero__aurora"></canvas>
-        <div class="hero__glow"></div>
-      </div>
-
+    <!-- ══ 1. HERO — Editorial ══ -->
+    <section id="hero" class="hero hero--editorial" aria-labelledby="hero-headline">
       <div class="hero__container">
 
         <!-- Left: Text Content -->
         <div class="hero__content">
-          <h1 class="hero__headline animate-in" id="hero-headline" style="--delay: 180ms">
-            <span class="h1-light">Nicht noch eine Website.</span><br>
-            <span class="h1-accent">Eine die</span>
-            <span class="h1-accent">Kunden bringt.</span>
+          <h1 class="hero__headline" id="hero-headline">
+            <span class="hero__word animate-in" style="--delay: 200ms">Nicht</span>
+            <span class="hero__word animate-in" style="--delay: 300ms">noch</span>
+            <span class="hero__word animate-in" style="--delay: 400ms">eine</span>
+            <span class="hero__word animate-in" style="--delay: 500ms">Website.</span><br>
+            <span class="hero__word animate-in" style="--delay: 650ms">Eine,</span>
+            <span class="hero__word animate-in" style="--delay: 750ms">die</span>
+            <span class="hero__word hero__word--accent animate-in" style="--delay: 850ms"><em>Kunden</em></span>
+            <span class="hero__word animate-in" style="--delay: 950ms">bringt.</span>
             <span class="sr-only"> — Website erstellen lassen in Lüneburg</span>
           </h1>
-          <p class="hero__sub animate-in" style="--delay: 320ms">
-            Webdesign für Restaurants, Handwerker und lokale Unternehmen — strategisch gedacht, schnell umgesetzt, messbar wirksam.
+          <p class="hero__lede animate-in" style="--delay: 1050ms">
+            Webdesign für Restaurants, Handwerker und lokale Unternehmen — strategisch gedacht, schnell umgesetzt, messbar wirksam. In vierzehn Tagen online, ohne Templates, ohne Phrasen.
           </p>
-          <div class="hero__actions animate-in" style="--delay: 440ms">
-            <a href="#kontakt" class="hero-link">
-              <span class="hero-link__line"></span>
-              <span class="hero-link__text">Projekt starten</span>
-              <svg class="hero-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="hero__actions animate-in" style="--delay: 1200ms">
+            <a href="#kontakt" class="btn-editorial btn-editorial--primary">
+              <span>Kostenfreies Erstgespräch</span>
             </a>
-            <button class="hero-link hero-link--calc" id="openCalcBtn" type="button">
-              <span class="hero-link__line"></span>
-              <span class="hero-link__text">Webseitenkosten berechnen</span>
-              <span class="hero-link__badge">45 Sek.</span>
+            <button class="btn-editorial btn-editorial--ghost hero-link--calc" id="openCalcBtn" type="button">
+              <span>Kosten berechnen</span>
+              <span class="btn-editorial__badge">45 Sek.</span>
             </button>
-          </div>
-
-          <div class="hero__proof animate-in" style="--delay: 580ms">
-            <span>147 Projekte</span>
-            <span class="proof-dot"></span>
-            <span>14 Tage Go-Live</span>
-            <span class="proof-dot"></span>
-            <span>4.9/5 Google</span>
           </div>
         </div>
 
