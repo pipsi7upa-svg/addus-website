@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://*.clarity.ms https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://res.cloudinary.com https://images.pexels.com https://*.clarity.ms https://*.google-analytics.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://formspree.io; frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://www.google.com/; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests">
+  <!-- CSP wird vom Cloudflare Worker gesetzt (mit Nonce + strict-dynamic) -->
   <meta name="description" content="Professionelle Website erstellen lassen ab 699€ ✓ Webdesign für KMU & Handwerk ✓ 4.9★ Google-Bewertung ✓ In 14 Tagen online — addus.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="cQ8rOQ5V58p1XPKz5e_lKgMK6F1Awe-Vj-fKXtbx6KE">
@@ -38,7 +38,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="preconnect" href="https://consent.cookiebot.com">
 
   <!-- Critical CSS inline: tokens + reset + navbar + hero above-fold for instant FCP -->
   <style>
@@ -65,10 +64,12 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap"></noscript>
 
-  <!-- Cookiebot: async to not block first paint -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cbbce091-2600-4174-b9b5-cf7abf848964" data-blockingmode="auto" async></script>
-  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
-  <script type="text/plain" data-cookieconsent="statistics" src="js/analytics.js"></script>
+  <!-- CookieConsent v3 (self-hosted, MIT) -->
+  <link rel="stylesheet" href="css/cookieconsent.css">
+  <script src="js/vendor/cookieconsent.umd.js" defer></script>
+  <script src="js/cookie-config.js" defer></script>
+  <script type="text/plain" data-category="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
+  <script type="text/plain" data-category="analytics" src="js/analytics.js"></script>
   <!-- Turnstile: lazy-loaded when contact form enters viewport -->
   <script>
   (function(){
@@ -1063,7 +1064,7 @@
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
         <a href="agb.html">AGB</a>
-        <a href="#" onclick="Cookiebot.renew();return false;">Cookie-Einstellungen</a>
+        <a href="#" onclick="CookieConsent.showPreferences();return false;">Cookie-Einstellungen</a>
       </div>
       <div class="footer-credit">Webdesign aus Lüneburg — auch für Hamburg, Harburg, Winsen, Uelzen, Celle, Buchholz, Stade und ganz Norddeutschland.</div>
     </div>
