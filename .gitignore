@@ -1,4 +1,8 @@
-# Sensitive business docs — never commit
+# ============================================================
+# NEVER DEPLOY — alles hier landet NIE im öffentlichen Repo
+# ============================================================
+
+# Sensitive business docs
 BUDGET-PAKETE-PLAN.txt
 MARKETING-PLAN-ADDUS.txt
 EBAY-KLEINANZEIGEN.txt
@@ -6,11 +10,26 @@ CLAUDE.md.txt
 restpro.txt
 website-strategie-document.md
 skills-lock.json
+ler.txt
 
-# Local Claude / agent configs
-.claude/settings.local.json
-.agents/
+# AI / Agent / Editor tooling (Claude, Trae, Cursor, Copilot)
+.claude/
 .trae/
+.agents/
+.cursor/
+.aider*
+.copilot/
+AGENTS.md
+CLAUDE.md
+
+# Bots / Scraper / Automatisierungs-Tools (mit Login-Daten!)
+kleinanzeigen-bot/
+cloudinary-upload/
+powershell
+*-bot/
+chrome-profile/
+**/Login Data*
+**/Cookies*
 
 # OS / editor junk
 .DS_Store
@@ -26,8 +45,23 @@ dist/
 build/
 *.log
 
-# Secrets
+# Secrets / API tokens / Credentials
 .env
 .env.*
 *.key
 *.pem
+*.pfx
+*.p12
+*token*
+*secret*
+*credentials*
+*.crt
+*.cer
+auth.json
+service-account*.json
+
+# Backup / temp files
+*.bak
+*.backup
+*.old
+*~
