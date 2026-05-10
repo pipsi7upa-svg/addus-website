@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>addus. — Editorial Preview / Konzept</title>
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ─────────────────────────────────────────────
+     addus. — WARM EDITORIAL · Konzept-Preview
+     ───────────────────────────────────────────── */
+  :root {
+    --paper:        #efe8d8;
+    --paper-deep:   #e6dcc4;
+    --paper-shadow: #d8ccae;
+    --ink:          #1a1612;
+    --ink-soft:     #3d3530;
+    --ink-mute:     #6b5f54;
+    --rust:         #b8421f;
+    --rust-deep:    #8a2f15;
+    --rust-glow:    rgba(184, 66, 31, 0.12);
+    --line:         rgba(26, 22, 18, 0.85);
+    --line-soft:    rgba(26, 22, 18, 0.18);
+
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans:  'Instrument Sans', system-ui, sans-serif;
+    --mono:  'JetBrains Mono', ui-monospace, monospace;
+
+    --max:   1320px;
+    --pad:   clamp(20px, 4vw, 44px);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Paper grain — fixed overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Vignette — barely there warm corners */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 199;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(138, 47, 21, 0.06) 100%);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul, ol { list-style: none; }
+  button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+
+  ::selection { background: var(--rust); color: var(--paper); }
+
+  /* ──────────── PREVIEW BANNER ──────────── */
+  .preview-banner {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 8px var(--pad);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .preview-banner span { color: var(--rust); margin: 0 8px; }
+
+  /* ──────────── MASTHEAD ──────────── */
+  .masthead {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .masthead__top {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px var(--pad);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .masthead__edition { display: flex; gap: 18px; }
+  .masthead__edition span { display: flex; align-items: center; gap: 8px; }
+  .masthead__edition .marker {
+    width: 6px; height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .masthead__brand {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+    line-height: 1;
+    text-transform: lowercase;
+  }
+  .masthead__brand .dot { color: var(--rust); }
+
+  .masthead__meta { font-feature-settings: "tnum"; }
+
+  .masthead__nav {
+    border-top: 1px solid var(--line-soft);
+  }
+  .masthead__nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+  }
+  .masthead__nav ul {
+    display: flex;
+    gap: 36px;
+  }
+  .masthead__nav a {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    position: relative;
+    padding: 4px 0;
+    transition: color 200ms ease;
+  }
+  .masthead__nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--rust);
+    transition: width 320ms cubic-bezier(.2,.8,.2,1);
+  }
+  .masthead__nav a:hover { color: var(--rust); }
+  .masthead__nav a:hover::after { width: 100%; }
+
+  .masthead__cta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 9px 16px;
+    transition: all 240ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .masthead__cta:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .masthead__cta::after {
+    content: '↗';
+    font-family: var(--sans);
+    transition: transform 240ms ease;
+  }
+  .masthead__cta:hover::after { transform: translate(2px, -2px); }
+
+  /* ──────────── HERO ──────────── */
+  .hero {
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .hero__container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(48px, 8vw, 96px) var(--pad) clamp(40px, 6vw, 72px);
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    position: relative;
+  }
+
+  /* Folio — rotated label */
+  .hero__folio {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: left top;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    white-space: nowrap;
+  }
+
+  /* Crosshair markers in corners — print register */
+  .hero__container::before,
+  .hero__container::after {
+    content: '+';
+    position: absolute;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink-mute);
+    opacity: 0.6;
+  }
+  .hero__container::before { top: 14px; left: 14px; }
+  .hero__container::after  { bottom: 14px; right: 14px; }
+
+  .hero__col-text {
+    padding-left: 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: rise 900ms 100ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 38px;
+    height: 1px;
+    background: var(--ink);
+  }
+  .eyebrow .sep { color: var(--ink-mute); }
+  .eyebrow .num { color: var(--rust); font-weight: 500; }
+
+  .headline {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7.5vw, 124px);
+    font-weight: 300;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+    margin-bottom: 44px;
+  }
+  .headline em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+    position: relative;
+  }
+  .headline em::before {
+    content: '';
+    position: absolute;
+    left: -0.05em;
+    right: -0.05em;
+    bottom: 0.08em;
+    height: 0.42em;
+    background: var(--rust-glow);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: swipe 1100ms 1400ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+
+  .headline .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(38px);
+    animation: rise 1000ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .headline .word:nth-child(1) { animation-delay: 200ms; }
+  .headline .word:nth-child(2) { animation-delay: 320ms; }
+  .headline .word:nth-child(3) { animation-delay: 480ms; }
+  .headline .word:nth-child(4) { animation-delay: 600ms; }
+
+  .lede {
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-weight: 400;
+    max-width: 48ch;
+    margin-bottom: 40px;
+    font-variation-settings: "opsz" 18;
+    opacity: 0;
+    animation: rise 1000ms 900ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .lede::first-letter {
+    font-family: var(--serif);
+    font-size: 76px;
+    font-weight: 900;
+    color: var(--rust);
+    float: left;
+    line-height: 0.82;
+    padding: 8px 12px 0 0;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: rise 900ms 1100ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 280ms cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rust);
+    transform: translateY(101%);
+    transition: transform 380ms cubic-bezier(.2,.8,.2,1);
+  }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-primary:hover::before { transform: translateY(0); }
+
+  .btn-ghost {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--ink);
+    transition: color 240ms, border-color 240ms;
+  }
+  .btn-ghost:hover { color: var(--rust); border-color: var(--rust); }
+
+  /* Hero — Tafel (right column, "Studio-Karte") */
+  .hero__col-figure {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation: rise 1200ms 400ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+
+  .tafel {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background:
+      radial-gradient(ellipse at 25% 18%, #e8a87c 0%, transparent 52%),
+      radial-gradient(ellipse at 75% 78%, var(--rust-deep) 0%, transparent 58%),
+      radial-gradient(ellipse at 60% 50%, #6b3a25 0%, transparent 70%),
+      linear-gradient(140deg, #2a1a14 0%, #0f0a08 100%);
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.4) inset,
+      0 24px 60px -20px rgba(26, 22, 18, 0.4),
+      0 8px 18px -8px rgba(138, 47, 21, 0.25);
+  }
+
+  .tafel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nn)' opacity='0.55'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .tafel::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(239, 232, 216, 0.15);
+    pointer-events: none;
+  }
+
+  .tafel__head {
+    position: absolute;
+    top: 32px;
+    left: 36px;
+    right: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(239, 232, 216, 0.7);
+  }
+
+  .tafel__num {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(120px, 18vw, 220px);
+    color: var(--paper);
+    line-height: 0.78;
+    font-variation-settings: "opsz" 144, "WONK" 1, "SOFT" 60;
+    letter-spacing: -0.04em;
+  }
+
+  .tafel__cap {
+    position: absolute;
+    bottom: 36px;
+    right: 36px;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(239, 232, 216, 0.78);
+    line-height: 1.8;
+  }
+  .tafel__cap b {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--paper);
+    margin-bottom: 6px;
+    font-variation-settings: "opsz" 18, "WONK" 1;
+  }
+
+  /* Studio-Karte caption beneath the tafel */
+  .tafel-caption {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .tafel-caption .arrow { color: var(--rust); }
+
+  /* Hero — bottom rule data row */
+  .hero__data {
+    border-top: 1px solid var(--line-soft);
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px var(--pad);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .hero__data b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 30, "SOFT" 30;
+  }
+  .hero__data b em {
+    font-style: italic;
+    color: var(--rust);
+    font-variation-settings: "opsz" 30, "SOFT" 60, "WONK" 1;
+  }
+
+  /* ──────────── TICKER ──────────── */
+  .ticker-strip {
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ticker-strip::before,
+  .ticker-strip::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ticker-strip::before {
+    left: 0;
+    background: linear-gradient(to right, var(--ink), transparent);
+  }
+  .ticker-strip::after {
+    right: 0;
+    background: linear-gradient(to left, var(--ink), transparent);
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 48px;
+    padding: 18px 0;
+    white-space: nowrap;
+    animation: scroll 42s linear infinite;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .ticker-track > span {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .ticker-track .star {
+    color: var(--rust);
+    font-size: 14px;
+  }
+  .ticker-track .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--rust);
+    letter-spacing: -0.02em;
+    text-transform: none;
+    font-variation-settings: "opsz" 18, "WONK" 1;
+    margin-right: 8px;
+  }
+
+  /* ──────────── LEISTUNGEN ──────────── */
+  .leistungen {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: relative;
+  }
+
+  .leistungen__hd {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(64px, 8vw, 112px) var(--pad) clamp(40px, 5vw, 72px);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    align-items: end;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .leistungen__kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .leistungen__kicker::before {
+    content: '§';
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--rust);
+    font-variation-settings: "opsz" 22, "WONK" 1;
+  }
+
+  .leistungen__title {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 80, "SOFT" 30;
+    text-align: right;
+  }
+  .leistungen__title em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--rust);
+    font-variation-settings: "opsz" 80, "SOFT" 80, "WONK" 1;
+  }
+
+  .leistungen__grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad) clamp(64px, 8vw, 112px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .leistung {
+    padding: 48px 36px 56px 0;
+    border-right: 1px solid var(--line-soft);
+    position: relative;
+    transition: padding 320ms cubic-bezier(.2,.8,.2,1);
+  }
+  .leistung:nth-child(2) { padding-left: 36px; }
+  .leistung:nth-child(3) {
+    padding-left: 36px;
+    border-right: none;
+  }
+
+  .leistung__numeral {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(80px, 10vw, 156px);
+    line-height: 0.85;
+    color: var(--ink);
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144, "WONK" 1, "SOFT" 50;
+    transition: color 360ms cubic-bezier(.2,.8,.2,1);
+    display: inline-block;
+  }
+
+  .leistung:hover .leistung__numeral { color: var(--rust); }
+
+  .leistung__num-cap {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .leistung__title {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 36, "SOFT" 30;
+  }
+
+  .leistung__rule {
+    width: 32px;
+    height: 1px;
+    background: var(--rust);
+    margin-bottom: 18px;
+    transition: width 420ms cubic-bezier(.2,.8,.2,1);
+  }
+  .leistung:hover .leistung__rule { width: 72px; }
+
+  .leistung__body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 14;
+    margin-bottom: 24px;
+  }
+
+  .leistung__meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line-soft);
+  }
+  .leistung__meta b {
+    color: var(--rust);
+    font-weight: 500;
+  }
+
+  /* ──────────── ANIMATIONS ──────────── */
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.7); }
+  }
+
+  @keyframes swipe {
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 24px)); }
+  }
+
+  /* ──────────── RESPONSIVE ──────────── */
+  @media (max-width: 980px) {
+    .hero__container {
+      grid-template-columns: 1fr;
+      gap: 56px;
+      padding: 56px var(--pad) 56px;
+    }
+    .hero__col-text { padding-left: 0; }
+    .hero__folio { display: none; }
+    .hero__container::before,
+    .hero__container::after { display: none; }
+    .hero__data { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+    .leistungen__hd { grid-template-columns: 1fr; gap: 24px; }
+    .leistungen__title { text-align: left; }
+    .leistungen__grid { grid-template-columns: 1fr; }
+    .leistung,
+    .leistung:nth-child(2),
+    .leistung:nth-child(3) {
+      padding: 40px 0;
+      border-right: none;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .leistung:last-child { border-bottom: none; }
+
+    .masthead__top { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .masthead__nav-inner { gap: 16px; }
+    .masthead__nav ul { gap: 18px; flex-wrap: wrap; }
+    .masthead__cta { display: none; }
+    .headline { font-size: clamp(40px, 11vw, 80px); }
+  }
+
+  @media (max-width: 560px) {
+    .masthead__nav ul { font-size: 13px; }
+    .lede { font-size: 18px; }
+    .lede::first-letter { font-size: 60px; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .ticker-track { animation: none; }
+    .headline .word, .lede, .eyebrow, .hero__actions, .hero__col-figure {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ══ PREVIEW BANNER ══ -->
+  <div class="preview-banner">
+    Konzept-Preview <span>·</span> Editorial Direction <span>·</span> Nicht öffentlich
+  </div>
+
+  <!-- ══ MASTHEAD ══ -->
+  <header class="masthead">
+    <div class="masthead__top">
+      <div class="masthead__edition">
+        <span><i class="marker"></i> Frühjahr · MMXXVI</span>
+        <span>Lüneburg</span>
+      </div>
+      <div class="masthead__brand">addus<span class="dot">.</span></div>
+      <div class="masthead__meta">Ausgabe Nº 07 · S. 01</div>
+    </div>
+    <div class="masthead__nav">
+      <div class="masthead__nav-inner">
+        <nav>
+          <ul>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#arbeiten">Arbeiten</a></li>
+            <li><a href="#ueber">Über</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a href="#kontakt" class="masthead__cta">Projekt anfragen</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <div class="hero__container">
+      <span class="hero__folio">— Studio für digitale Markenführung —</span>
+
+      <div class="hero__col-text">
+        <div class="eyebrow">
+          <span>Studio Nº <span class="num">07</span></span>
+          <span class="sep">/</span>
+          <span>Seit 2024</span>
+          <span class="sep">/</span>
+          <span>Handwerk &amp; KMU</span>
+        </div>
+
+        <h1 class="headline" id="hero-headline">
+          <span class="word">Websites,</span>
+          <span class="word">die</span><br>
+          <span class="word"><em>Kunden</em></span>
+          <span class="word">gewinnen.</span>
+        </h1>
+
+        <p class="lede">
+          Wir bauen Websites für Handwerksbetriebe und kleine Unternehmen, die nicht aussehen wollen wie alle anderen — sondern wie sie selbst. In vierzehn Tagen online, ab 699 €, ohne Templates, ohne Phrasen.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#kontakt" class="btn-primary">
+            <span>Kostenfreies Erstgespräch</span>
+          </a>
+          <a href="#arbeiten" class="btn-ghost">Arbeiten ansehen</a>
+        </div>
+      </div>
+
+      <div class="hero__col-figure">
+        <figure class="tafel" aria-hidden="true">
+          <div class="tafel__head">
+            <span>Tafel I</span>
+            <span>04 : 42</span>
+          </div>
+          <span class="tafel__num">07</span>
+          <div class="tafel__cap">
+            <b>Atelier addus.</b>
+            Lüneburger<br>
+            Altstadt
+          </div>
+        </figure>
+        <div class="tafel-caption">
+          <span>Tafel I — Adam Dia, Gründer</span>
+          <span class="arrow">↗ Über uns, S. 24</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom data row -->
+    <div class="hero__data">
+      <div>
+        <b><em>4,9</em>★</b>
+        Google-Bewertung
+      </div>
+      <div>
+        <b><em>14</em> Tage</b>
+        Bis online
+      </div>
+      <div>
+        <b>ab <em>699</em>€</b>
+        Festpreis-Pakete
+      </div>
+      <div>
+        <b><em>0</em> Templates</b>
+        Jede Seite, ein Original
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TICKER STRIP ══ -->
+  <div class="ticker-strip" aria-hidden="true">
+    <div class="ticker-track">
+      <span>
+        <i class="star">✦</i> 4,9★ Google-Bewertung
+        <i class="star">✦</i> <i class="num">14</i> Tage bis online
+        <i class="star">✦</i> ab <i class="num">699</i> €
+        <i class="star">✦</i> Lüneburg &amp; Umland
+        <i class="star">✦</i> Handwerk · KMU · Manufaktur
+        <i class="star">✦</i> Keine Templates
+        <i class="star">✦</i> DSGVO-konform
+      </span>
+      <span>
+        <i class="star">✦</i> 4,9★ Google-Bewertung
+        <i class="star">✦</i> <i class="num">14</i> Tage bis online
+        <i class="star">✦</i> ab <i class="num">699</i> €
+        <i class="star">✦</i> Lüneburg &amp; Umland
+        <i class="star">✦</i> Handwerk · KMU · Manufaktur
+        <i class="star">✦</i> Keine Templates
+        <i class="star">✦</i> DSGVO-konform
+      </span>
+    </div>
+  </div>
+
+  <!-- ══ LEISTUNGEN ══ -->
+  <section class="leistungen" id="leistungen" aria-labelledby="leistungen-title">
+    <div class="leistungen__hd">
+      <span class="leistungen__kicker">Kapitel I — Was wir tun</span>
+      <h2 class="leistungen__title" id="leistungen-title">
+        Drei Disziplinen, <em>ein</em> Anspruch.
+      </h2>
+    </div>
+
+    <div class="leistungen__grid">
+
+      <article class="leistung">
+        <span class="leistung__num-cap">Disziplin</span>
+        <span class="leistung__numeral">I</span>
+        <h3 class="leistung__title">Webdesign &amp; Entwicklung</h3>
+        <div class="leistung__rule"></div>
+        <p class="leistung__body">
+          Wir entwerfen Ihre Website von Hand — Zeile für Zeile, Pixel für Pixel. Keine Baukästen, keine fertigen Themes. Stattdessen ein Auftritt, der genau zu Ihrem Betrieb passt und sich auch in fünf Jahren noch nicht verbraucht anfühlt.
+        </p>
+        <div class="leistung__meta">
+          <span>ab 699 €</span>
+          <b>14 Tage online ↗</b>
+        </div>
+      </article>
+
+      <article class="leistung">
+        <span class="leistung__num-cap">Disziplin</span>
+        <span class="leistung__numeral">II</span>
+        <h3 class="leistung__title">SEO &amp; Sichtbarkeit</h3>
+        <div class="leistung__rule"></div>
+        <p class="leistung__body">
+          Eine schöne Website allein bringt keine Kunden. Wir kümmern uns um Google, schreiben Texte, die gelesen werden, und sorgen dafür, dass die Menschen aus Ihrer Stadt Sie finden — bevor sie zur Konkurrenz gehen.
+        </p>
+        <div class="leistung__meta">
+          <span>Lokal &amp; überregional</span>
+          <b>Monatlich messbar ↗</b>
+        </div>
+      </article>
+
+      <article class="leistung">
+        <span class="leistung__num-cap">Disziplin</span>
+        <span class="leistung__numeral">III</span>
+        <h3 class="leistung__title">Pflege &amp; Hosting</h3>
+        <div class="leistung__rule"></div>
+        <p class="leistung__body">
+          Wir lassen Sie nach dem Launch nicht allein. Updates, Backups, Sicherheit, kleine Änderungen — wir kümmern uns. Sie haben einen Ansprechpartner, der zurückruft. Kein Ticket-System, keine Warteschleife.
+        </p>
+        <div class="leistung__meta">
+          <span>ab 19 € / Monat</span>
+          <b>Persönlicher Kontakt ↗</b>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</body>
+</html>

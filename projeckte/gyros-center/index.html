@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyros Center L&uuml;neburg | Imbiss Plaka - Griechisch Essen</title>
+<meta name="description" content="Gyros Center Imbiss Plaka L&uuml;neburg - T&auml;glich frisches Gyros vom Drehspie&szlig;, Souvlaki, griechische Spezialit&auml;ten. Seit &uuml;ber 40 Jahren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Inter:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css"></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--blue:#0077cc;--blue-light:#00a3e0;--blue-dark:#004f8a;--blue-deep:#003566;
+--sky:#e0f0ff;--sky2:#c4e1f7;
+--dark:#0b1a2b;--dark2:#0f2236;--dark3:#152d44;
+--white:#ffffff;--off:#f4f8fc;--cream:#fdf8f0;
+--text:#1a2a3a;--text2:#4a6070;--text3:#8a9aaa;
+--gold:#d4a84b;--gold-bg:rgba(212,168,75,0.08);
+--red:#d44a4a;--green:#3a9a5a;
+--radius:10px;--radius-lg:16px;
+--shadow:0 4px 24px rgba(0,20,50,0.08);--shadow-lg:0 12px 48px rgba(0,20,50,0.12)
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv-anim{transition:none;opacity:1;transform:none}.mi-img img,.gal .g img,.greece-row .gc img{transition:none}}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--off);color:var(--text);line-height:1.6;overflow-x:hidden}
+.gk{font-family:'Caesar Dressing',cursive}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent}
+input,select,textarea{touch-action:manipulation}
+
+/* ===== BACK BAR ===== */
+.topbar{background:var(--blue-deep);padding:9px 0;position:fixed;top:0;left:0;width:100%;z-index:1001;transition:transform .3s}
+.topbar .w{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.topbar a.bk{color:rgba(255,255,255,.55);font-size:.8rem;display:flex;align-items:center;gap:5px;transition:color .2s}
+.topbar a.bk:hover{color:#fff}
+.topbar .br{font-weight:700;font-size:.8rem;color:rgba(255,255,255,.35)}
+.topbar .ct{background:var(--blue-light);color:#fff;padding:7px 18px;font-size:.75rem;font-weight:700;border:none;border-radius:6px;transition:background .2s}
+.topbar .ct:hover{background:var(--blue)}
+
+/* ===== NAV ===== */
+header{position:fixed;top:36px;left:0;width:100%;background:var(--white);z-index:1000;box-shadow:0 1px 0 rgba(0,0,0,.06);transition:transform .3s}
+header .w{max-width:1140px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{height:48px;width:auto}
+.logo-name{font-family:'Caesar Dressing',cursive;font-size:1.55rem;color:var(--blue-deep);line-height:1}
+.logo-name small{display:block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:600;color:var(--text3);letter-spacing:.14em;text-transform:uppercase;margin-top:1px}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{font-size:.84rem;font-weight:600;color:var(--text2);transition:color .2s}
+nav a:hover{color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff !important;padding:10px 24px;border-radius:8px;font-weight:700;transition:all .2s;box-shadow:0 2px 12px rgba(0,119,204,.25)}
+.nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px}
+.burger span{width:22px;height:2px;background:var(--text);transition:all .3s;border-radius:1px}
+/* mobile nav - see responsive section below */
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 20px 80px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('bilder/unnamed.webp') center/cover no-repeat;filter:blur(3px);transform:scale(1.05)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,30,60,.82) 0%,rgba(0,53,102,.55) 45%,rgba(11,26,43,.92) 100%)}
+.hero .w{max-width:1140px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr 400px;gap:50px;align-items:center}
+.hero-left{min-width:0}
+.hero-logo{width:200px;height:auto;margin-bottom:20px}
+.hero h1{font-family:'Caesar Dressing',cursive;font-size:clamp(2.4rem,5.5vw,3.8rem);color:#fff;line-height:1;margin-bottom:8px;letter-spacing:.03em}
+.hero h1 span{color:var(--blue-light)}
+.hero .sub{font-family:'Caesar Dressing',cursive;font-size:clamp(.95rem,2vw,1.2rem);color:var(--blue-light);margin-bottom:18px;letter-spacing:.06em}
+.hero-desc{color:rgba(255,255,255,.55);font-size:1rem;max-width:440px;margin-bottom:32px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hb{padding:15px 34px;font-size:.9rem;font-weight:700;border:none;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.hb-primary{background:var(--blue-light);color:#fff;box-shadow:0 4px 24px rgba(0,163,224,.4)}
+.hb-primary:hover{background:var(--blue);transform:translateY(-2px)}
+.hb-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.hb-wa:hover{background:#1da851;transform:translateY(-2px)}
+.hero-chips{display:flex;gap:24px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:7px;font-size:.84rem;color:rgba(255,255,255,.5);font-weight:500}
+.chip svg{width:16px;height:16px;fill:var(--blue-light)}
+.hero-right{position:relative}
+.hero-food{width:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);border:3px solid rgba(255,255,255,.1)}
+.hero-food img{width:100%;height:auto;display:block}
+.hero-food-label{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border-radius:10px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.hero-food-label h3{font-size:.9rem;font-weight:700;color:#fff}
+.hero-food-label .pr{font-family:'Caesar Dressing',cursive;font-size:1.3rem;color:var(--blue-light)}
+.hero-tag{position:absolute;top:16px;right:16px;background:var(--blue-light);color:#fff;padding:6px 14px;border-radius:6px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+/* hero responsive - see responsive section below */
+
+/* ===== SECTION ===== */
+.sec{padding:90px 20px}
+.sec .w{max-width:1140px;margin:0 auto}
+.sec-tag{font-family:'Caesar Dressing',cursive;color:var(--blue);font-size:.95rem;margin-bottom:6px;display:block}
+.sec-h{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text);margin-bottom:12px;line-height:1.15}
+.sec-h span{color:var(--blue)}
+.sec-p{color:var(--text2);font-size:.98rem;max-width:460px;margin-bottom:44px;line-height:1.7}
+
+/* ===== USP STRIP ===== */
+.usp-strip{background:var(--white);padding:60px 20px}
+.usp-strip .w{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.usp{text-align:center;padding:24px 16px;border-radius:var(--radius-lg);background:var(--off);border:1px solid rgba(0,0,0,.04);transition:all .3s;position:relative;overflow:hidden}
+.usp:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.usp .usp-img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:3px solid var(--blue-light);box-shadow:0 4px 16px rgba(0,119,204,.15)}
+.usp h3{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.usp p{font-size:.82rem;color:var(--text3);line-height:1.5}
+/* usp responsive - see responsive section below */
+
+/* ===== ABOUT ===== */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-imgs .im{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.about-imgs .im:first-child{grid-row:1/3}
+.about-imgs .im img{width:100%;height:100%;object-fit:cover}
+.about-right p{color:var(--text2);margin-bottom:16px;line-height:1.8;font-size:.95rem}
+.about-nums{display:flex;gap:32px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(0,0,0,.06)}
+.anum .v{font-family:'Caesar Dressing',cursive;font-size:2.2rem;color:var(--blue)}
+.anum .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);font-weight:600}
+/* about responsive - see responsive section below */
+
+/* ===== MENU ===== */
+.menu-bg{background:var(--white)}
+.pills{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+.pill-btn{background:var(--off);border:1.5px solid transparent;color:var(--text2);padding:9px 22px;font-size:.84rem;font-weight:700;border-radius:8px;cursor:pointer;transition:all .15s}
+.pill-btn:hover{border-color:var(--blue);color:var(--blue)}
+.pill-btn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mlist{display:none}
+.mlist.on{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+/* Karten mit Bild */
+.mi{display:flex;background:var(--off);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:all .25s}
+.mi:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:rgba(0,119,204,.15)}
+.mi-img{width:200px;height:170px;flex-shrink:0;overflow:hidden}
+.mi-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .4s}
+.mi:hover .mi-img img{transform:scale(1.06)}
+.mi-body{padding:18px 20px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.mi-top{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.mi-body h3{font-size:.98rem;font-weight:700;color:var(--text)}
+.mi-tag{font-size:.6rem;padding:2px 7px;border-radius:4px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.mi-tag.best{background:var(--blue);color:#fff}
+.mi-tag.veg{background:var(--green);color:#fff}
+.mi-tag.neu{background:var(--gold);color:var(--dark)}
+.mi-body p{color:var(--text3);font-size:.82rem;margin-bottom:8px;line-height:1.4}
+.mi-pr{font-family:'Caesar Dressing',cursive;font-size:1.25rem;color:var(--blue)}
+/* Karten ohne Bild - Listen-Style */
+.mi.flat{padding:0;border:none;background:transparent;border-bottom:1px solid rgba(0,0,0,.06);border-radius:0}
+.mi.flat:last-child{border-bottom:none}
+.mi.flat:hover{transform:none;box-shadow:none;background:var(--off);border-radius:var(--radius)}
+.mi.flat .mi-body{padding:14px 16px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+.mi.flat .mi-top{margin-bottom:0}
+.mi.flat .mi-body p{margin-bottom:0;flex:1}
+.mi.flat .mi-pr{white-space:nowrap}
+/* menu responsive - see responsive section below */
+
+/* ===== GREECE SECTION ===== */
+.greece{padding:0;position:relative}
+.greece-row{display:grid;grid-template-columns:repeat(4,1fr)}
+.greece-row .gc{position:relative;height:320px;overflow:hidden;background:var(--dark)}
+.greece-row .gc img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.greece-row .gc:hover img{transform:scale(1.08)}
+.greece-row .gc .gc-ov{position:absolute;inset:0;background:rgba(0,53,102,.35);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;opacity:0;transition:opacity .3s}
+.greece-row .gc:hover .gc-ov{opacity:1}
+.greece-row .gc .gc-ov h3{font-family:'Caesar Dressing',cursive;font-size:1.2rem;color:#fff}
+.greece-row .gc .gc-ov p{font-size:.78rem;color:rgba(255,255,255,.8)}
+.greece-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;text-align:center;pointer-events:none;background:rgba(0,30,60,.65);backdrop-filter:blur(6px);padding:28px 44px;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.1);max-width:90%}
+.greece-text h2{font-family:'Caesar Dressing',cursive;font-size:clamp(1.3rem,3.5vw,2.4rem);color:#fff;margin-bottom:4px;white-space:nowrap}
+.greece-text p{color:rgba(255,255,255,.8);font-size:.88rem}
+/* greece responsive - see responsive section below */
+
+/* ===== CTA ===== */
+.cta-sec{background:var(--blue);padding:56px 20px;text-align:center;position:relative}
+.cta-sec h2{font-family:'Caesar Dressing',cursive;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:10px}
+.cta-sec p{color:rgba(255,255,255,.7);margin-bottom:24px;font-size:.95rem}
+.cta-sec .cbtn{background:var(--white);color:var(--blue-deep);border:none;padding:14px 36px;font-size:.9rem;font-weight:800;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.cta-sec .cbtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+
+/* ===== GALLERY ===== */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:220px 220px;gap:10px}
+.gal .g{overflow:hidden;border-radius:var(--radius);position:relative;transition:all .3s}
+.gal .g:first-child{grid-row:1/3}
+.gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal .g:hover img{transform:scale(1.06)}
+.gal .g:hover{box-shadow:var(--shadow-lg)}
+/* gallery responsive - see responsive section below */
+
+/* ===== REVIEWS ===== */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rv{background:var(--white);border-radius:var(--radius);padding:28px 24px;border:1px solid rgba(0,0,0,.04);transition:all .3s}
+.rv:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.rv .st{color:var(--gold);font-size:.9rem;margin-bottom:10px;letter-spacing:2px}
+.rv p{color:var(--text2);font-size:.88rem;line-height:1.7;margin-bottom:14px}
+.rv .au{display:flex;align-items:center;justify-content:space-between}
+.rv .au strong{font-size:.85rem;color:var(--text)}
+.rv .au .fr{font-size:.65rem;color:var(--text3);background:var(--off);padding:3px 8px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.rv .au .fr svg{width:10px;height:10px;fill:var(--blue)}
+/* reviews responsive - see responsive section below */
+
+/* ===== CONTACT ===== */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.c-left h2{margin-bottom:24px}
+.c-row{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
+.c-row .ci{width:40px;height:40px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-row .ci svg{width:18px;height:18px;fill:var(--blue)}
+.c-row strong{display:block;font-size:.82rem;color:var(--text);margin-bottom:1px}
+.c-row .dt{color:var(--text2);font-size:.9rem;line-height:1.5}
+.soc{display:flex;gap:10px;margin-top:24px}
+.soc a{width:40px;height:40px;background:var(--off);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.soc a:hover{background:var(--blue);transform:translateY(-2px)}
+.soc a svg{width:18px;height:18px;fill:var(--text2);transition:fill .2s}
+.soc a:hover svg{fill:#fff}
+.c-form{background:var(--white);border-radius:var(--radius-lg);border:1px solid rgba(0,0,0,.05);padding:36px;box-shadow:var(--shadow)}
+.c-form h3{font-family:'Caesar Dressing',cursive;font-size:1.2rem;color:var(--blue);margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--off);border:1.5px solid rgba(0,0,0,.06);color:var(--text);padding:12px 14px;font-size:.92rem;font-family:'Inter',sans-serif;border-radius:8px;transition:border-color .2s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+.fg textarea{resize:vertical;min-height:90px}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238a9aaa' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.fbtn{background:var(--blue);color:#fff;border:none;padding:14px;font-size:.9rem;font-weight:700;border-radius:8px;width:100%;transition:all .2s;box-shadow:0 4px 16px rgba(0,119,204,.25)}
+.fbtn:hover{background:var(--blue-dark)}
+.fbtn:disabled{opacity:.5;cursor:not-allowed}
+.iti{width:100%}
+.iti__tel-input{width:100% !important}
+.phone-err{color:var(--red);font-size:.75rem;font-weight:600;margin-top:4px;display:none}
+.phone-err.show{display:block}
+.fg input.invalid{border-color:var(--red)}
+.fg input.valid{border-color:var(--green)}
+.fok{display:none;background:var(--sky);border:1px solid var(--blue-light);border-radius:8px;padding:18px;text-align:center;margin-top:14px;color:var(--blue);font-weight:700;font-size:.9rem}
+/* contact responsive - see responsive section below */
+
+/* ===== FOOTER ===== */
+footer{background:var(--dark);padding:44px 20px 28px;color:rgba(255,255,255,.5);text-align:center}
+footer .w{max-width:1140px;margin:0 auto}
+footer .fn{font-family:'Caesar Dressing',cursive;font-size:1.5rem;color:var(--blue-light);margin-bottom:6px}
+footer .fi{font-size:.84rem;margin-bottom:4px}
+footer .fl{display:flex;justify-content:center;gap:20px;margin:14px 0}
+footer .fl a{font-size:.8rem;font-weight:600;transition:color .2s}
+footer .fl a:hover{color:var(--blue-light)}
+footer .fc{font-size:.72rem;margin-top:14px;color:rgba(255,255,255,.3)}
+footer .fc a{color:var(--blue-light)}
+
+/* ===== REVEAL ===== */
+.rv-anim{opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.22,1,.36,1)}
+.rv-anim.vis{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE - ALLE GERÄTE ===== */
+
+/* LARGE DESKTOP 1440+ */
+@media(min-width:1440px){
+.hero .w,.sec .w,.usp-strip .w,header .w,footer .w{max-width:1280px}
+.hero h1{font-size:4.2rem}
+.greece-row .gc{height:380px}
+.gal{grid-template-rows:260px 260px}
+}
+
+/* TABLET LANDSCAPE 1024-1199 */
+@media(max-width:1199px){
+.hero .w{gap:40px;grid-template-columns:1fr 360px}
+.mlist.on{grid-template-columns:1fr 1fr;gap:12px}
+.mi-img{width:170px;height:150px}
+}
+
+/* TABLET PORTRAIT 768-1023 */
+@media(max-width:1023px){
+.hero .w{grid-template-columns:1fr 320px;gap:32px}
+.hero h1{font-size:2.4rem}
+.hero-desc{font-size:.92rem}
+.hero-logo{width:160px}
+.about-wrap{gap:36px}
+.revs{grid-template-columns:1fr 1fr;gap:14px}
+.contact-wrap{gap:30px}
+.greece-row .gc{height:260px}
+nav ul{gap:18px}
+nav a{font-size:.78rem}
+}
+
+/* TABLET SMALL / LARGE PHONE 768 */
+@media(max-width:768px){
+/* Nav */
+nav ul{position:fixed;top:104px;left:0;width:100%;background:var(--white);flex-direction:column;align-items:center;padding:28px 0;gap:18px;transform:translateY(-120%);transition:transform .3s;box-shadow:var(--shadow)}
+nav ul.open{transform:translateY(0)}
+.nav-cta{display:none !important}
+.burger{display:flex}
+.burger.on span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Hero */
+.hero{padding:130px 20px 60px;min-height:auto}
+.hero .w{grid-template-columns:1fr;text-align:center}
+.hero-logo{margin:0 auto 20px;width:160px}
+.hero-desc{margin:0 auto 28px}
+.hero-btns{justify-content:center}
+.hero-chips{justify-content:center}
+.hero-right{max-width:340px;margin:20px auto 0}
+
+/* USP */
+.usp-strip .w{grid-template-columns:1fr 1fr;gap:14px}
+.usp{padding:18px 12px}
+
+/* About */
+.about-wrap{grid-template-columns:1fr;gap:32px}
+.about-imgs{grid-template-columns:1fr 1fr}
+.about-imgs .im:first-child{grid-row:auto}
+
+/* Menu */
+.mlist.on{grid-template-columns:1fr}
+.mi{flex-direction:column}
+.mi-img{width:100%;height:auto;max-height:280px}
+.mi-img img{object-fit:cover;object-position:center}
+.mi.flat .mi-body{flex-direction:column;align-items:flex-start;gap:6px}
+
+/* Greece */
+.greece-row{grid-template-columns:1fr 1fr}
+.greece-row .gc{height:200px}
+
+/* Gallery */
+.gal{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+.gal .g:first-child{grid-row:auto;grid-column:1/3}
+.gal .g{min-height:180px}
+
+/* Reviews */
+.revs{grid-template-columns:1fr}
+
+/* Contact */
+.contact-wrap{grid-template-columns:1fr}
+.c-form{padding:24px}
+
+/* Footer */
+footer .fl{gap:14px;flex-wrap:wrap}
+}
+
+/* PHONE LARGE 576-767 */
+@media(max-width:576px){
+.sec{padding:60px 16px}
+.hero{padding:120px 16px 50px}
+.hero h1{font-size:2rem}
+.hero-right{max-width:300px}
+.hero-food-label{padding:10px 14px}
+.hero-food-label h3{font-size:.82rem}
+.hero-food-label .pr{font-size:1.1rem}
+.hero-tag{padding:5px 10px;font-size:.65rem}
+.hb{padding:13px 26px;font-size:.84rem}
+.sec-h{font-size:1.6rem}
+.about-nums{gap:20px}
+.anum .v{font-size:1.8rem}
+.pills{gap:6px}
+.pill-btn{padding:8px 16px;font-size:.78rem}
+.mi-body h3{font-size:.9rem}
+.mi-pr{font-size:1.1rem}
+.greece-row .gc{height:170px}
+.greece-text{padding:20px 28px}
+.greece-text h2{font-size:1.2rem;white-space:normal}
+.gal .g{min-height:150px}
+.rv{padding:22px 18px}
+.rv p{font-size:.84rem}
+.c-row{gap:10px}
+.usp-strip .w{gap:10px}
+.usp h3{font-size:.84rem}
+.usp p{font-size:.75rem}
+.usp .usp-img{width:60px;height:60px}
+.contact-wrap{gap:28px}
+}
+
+/* PHONE SMALL 375-575 */
+@media(max-width:480px){
+.hero{padding:115px 14px 40px}
+.hero-logo{width:140px;margin-bottom:14px}
+.hero h1{font-size:1.8rem}
+.hero .sub{font-size:.85rem}
+.hero-desc{font-size:.88rem;margin-bottom:24px}
+.hero-btns{flex-direction:column;gap:10px}
+.hb{justify-content:center;width:100%;padding:14px 20px}
+.hero-chips{flex-direction:column;align-items:center;gap:8px;padding-top:20px}
+.hero-right{max-width:260px}
+.topbar .ct{padding:6px 12px;font-size:.7rem}
+.topbar a.bk{font-size:.72rem}
+header .w{height:58px}
+.logo-img{height:40px}
+.sec{padding:50px 14px}
+.sec-h{font-size:1.4rem}
+.sec-p{font-size:.88rem;margin-bottom:32px}
+.usp-strip{padding:36px 14px}
+.usp-strip .w{grid-template-columns:1fr;gap:10px}
+.usp{padding:16px 12px;display:flex;align-items:center;gap:14px;text-align:left}
+.usp .usp-img{width:50px;height:50px;margin:0;flex-shrink:0}
+.usp h3{font-size:.85rem;margin-bottom:2px}
+.about-imgs{grid-template-columns:1fr;gap:10px}
+.about-right p{font-size:.88rem}
+.about-nums{flex-direction:row;gap:24px;justify-content:center;text-align:center}
+.anum .v{font-size:1.6rem}
+.pills{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.pill-btn{white-space:nowrap;flex-shrink:0}
+.mi{border-radius:8px}
+.mi.flat .mi-body{gap:4px}
+.greece-row{grid-template-columns:1fr}
+.greece-row .gc{height:180px}
+.greece-text{padding:16px 22px;border-radius:10px}
+.greece-text h2{font-size:1rem;white-space:normal}
+.greece-text p{font-size:.74rem}
+.gal{grid-template-columns:1fr;grid-template-rows:auto}
+.gal .g:first-child{grid-column:auto}
+.gal .g{min-height:200px}
+.cta-sec{padding:44px 14px}
+.cta-sec h2{font-size:1.4rem}
+.c-form{padding:20px}
+.c-form h3{font-size:1rem}
+.fg input,.fg select,.fg textarea{padding:11px 12px;font-size:.88rem}
+.fbtn{padding:13px;font-size:.85rem}
+footer{padding:32px 14px 20px}
+footer .fl{gap:10px}
+footer .fl a{font-size:.72rem}
+}
+
+/* PHONE TINY 320-374 */
+@media(max-width:374px){
+.hero-logo{width:120px}
+.hero h1{font-size:1.5rem}
+.hero .sub{font-size:.78rem}
+.hero-desc{font-size:.82rem}
+.hero-right{max-width:220px}
+.sec-h{font-size:1.2rem}
+.anum .v{font-size:1.4rem}
+.about-nums{gap:16px}
+.rv{padding:18px 14px}
+.c-row .ci{width:34px;height:34px}
+.greece-text{padding:14px 18px;border-radius:8px}
+.greece-text h2{font-size:.9rem}
+.greece-text p{font-size:.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+<div class="w">
+<a href="../index.html" class="bk"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><path d="M11 1L4 8l7 7" stroke="currentColor" stroke-width="2"/></svg> Zur&uuml;ck</a>
+<span class="br">addus</span>
+<a href="https://addus-web.de" class="ct">Website anfragen</a>
+</div>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="w">
+<a href="#" class="logo">
+<img src="bilder/logo.png" alt="Gyros Center L&uuml;neburg Logo" class="logo-img" width="48" height="48" decoding="async">
+</a>
+<nav>
+<ul id="navLinks">
+<li><a href="#about">&Uuml;ber uns</a></li>
+<li><a href="#menu">Karte</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+<li><a href="#kontakt" class="nav-cta">Bestellen</a></li>
+</ul>
+</nav>
+<button class="burger" id="burger" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="w">
+<div class="hero-left rv-anim">
+<img src="bilder/logo.png" alt="Gyros Center L&uuml;neburg" class="hero-logo" width="200" height="200" fetchpriority="high" decoding="async">
+<h1>Gyros Center <span>L&uuml;neburg</span></h1>
+<p class="sub gk">Greek Street Food &middot; Seit &uuml;ber 40 Jahren</p>
+<p class="hero-desc">T&auml;glich frisches Gyros vom Drehspie&szlig;, hausgemachtes Tzatziki und echte griechische Rezepte &mdash; mitten in L&uuml;neburg.</p>
+<div class="hero-btns">
+<a href="#menu" class="hb hb-primary">
+<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
+Speisekarte
+</a>
+<a href="https://wa.me/4915164707586?text=Hallo%2C%20ich%20m%C3%B6chte%20gerne%20bestellen!" target="_blank" class="hb hb-wa">
+<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Per WhatsApp bestellen
+</a>
+</div>
+<div class="hero-chips">
+<div class="chip"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> Mo-Sa 11-22 Uhr</div>
+<div class="chip"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> L&uuml;neburg</div>
+<div class="chip"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> 4.7 &#9733; (520+)</div>
+</div>
+</div>
+<div class="hero-right rv-anim">
+<div class="hero-food">
+<span class="hero-tag">Beliebt</span>
+<img src="bilder/unnamed (4).webp" alt="Gyros &amp; Moussaka Teller" width="400" height="300" fetchpriority="high" decoding="async">
+<div class="hero-food-label">
+<h3>Moussaka &amp; Gyros</h3>
+<span class="pr">&euro;11,00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- USP -->
+<div class="usp-strip rv-anim">
+<div class="w">
+<div class="usp">
+<img src="bilder/unnamed (5).webp" alt="Drehspie&szlig;" class="usp-img" width="72" height="72" loading="lazy" decoding="async">
+<h3>T&auml;glich frisch</h3>
+<p>Alles frisch vom Spie&szlig;</p>
+</div>
+<div class="usp">
+<img src="bilder/unnamed (1).webp" alt="Gyros Center" class="usp-img" width="72" height="72" loading="lazy" decoding="async">
+<h3>Original griechisch</h3>
+<p>Rezepte aus der Heimat</p>
+</div>
+<div class="usp">
+<img src="bilder/unnamed (3).webp" alt="Gyros Teller" class="usp-img" width="72" height="72" loading="lazy" decoding="async">
+<h3>Schnell fertig</h3>
+<p>Fertig in unter 10 Min</p>
+</div>
+<div class="usp">
+<img src="bilder/boncho_1.jpg" alt="Der Chef" class="usp-img" width="72" height="72" loading="lazy" decoding="async">
+<h3>Top bewertet</h3>
+<p>4.7 &#9733; bei 520+ Reviews</p>
+</div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+<div class="w">
+<div class="about-wrap">
+<div class="about-imgs rv-anim">
+<div class="im"><img src="bilder/boncho_1.jpg" alt="Der Chef am Drehspie&szlig;" width="400" height="500" loading="lazy" decoding="async"></div>
+<div class="im"><img src="bilder/unnamed.webp" alt="Gyros Center Au&szlig;enansicht" width="400" height="250" loading="lazy" decoding="async"></div>
+<div class="im"><img src="bilder/unnamed (1).webp" alt="Gyros Center Abends" width="400" height="250" loading="lazy" decoding="async"></div>
+</div>
+<div class="about-right rv-anim">
+<span class="sec-tag gk">&Uuml;ber uns</span>
+<h2 class="sec-h">Seit &uuml;ber 40 Jahren <span>euer Gyros</span> in L&uuml;neburg</h2>
+<p>Was als kleiner Imbiss angefangen hat, ist heute eine feste Adresse f&uuml;r griechisches Street Food in L&uuml;neburg. Im Gyros Center bekommt ihr jeden Tag frisches Gyros direkt vom Drehspie&szlig;.</p>
+<p>Unsere Rezepte kommen aus der Heimat, unser Fleisch ist immer frisch und unsere Saucen machen wir selbst. Kein Fertigzeug &mdash; alles echt.</p>
+<div class="about-nums">
+<div class="anum"><div class="v">40+</div><div class="l">Jahre</div></div>
+<div class="anum"><div class="v">100%</div><div class="l">Frisch</div></div>
+<div class="anum"><div class="v">540+</div><div class="l">Reviews</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu-bg" id="menu">
+<div class="w">
+<span class="sec-tag gk rv-anim">Speisekarte</span>
+<h2 class="sec-h rv-anim">Unsere <span>Karte</span></h2>
+<p class="sec-p rv-anim">Alles frisch, alles handgemacht. W&auml;hl deine Kategorie.</p>
+
+<div class="pills rv-anim">
+<button class="pill-btn on" data-cat="gyros">Gyros Gerichte</button>
+<button class="pill-btn" data-cat="grill">Grill Gerichte</button>
+<button class="pill-btn" data-cat="extras">Salate &amp; Extras</button>
+<button class="pill-btn" data-cat="drinks">Getr&auml;nke &amp; Bier</button>
+</div>
+
+<!-- GRILL GERICHTE -->
+<div class="mlist" data-cat="grill">
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Grill Teller</h3><span class="mi-tag best">Bestseller</span></div>
+<p>1 Souvlaki, 1 Steak, 1 Frikadelle, Gyros, Reis, Krautsalat</p>
+<div class="mi-pr">&euro;14,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Bauernteller</h3></div>
+<p>Gyros mit Krautsalat, Pommes oder Reis</p>
+<div class="mi-pr">&euro;10,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>2 Souvlakispie&szlig;e</h3></div>
+<p>Mit Krautsalat, Pommes oder Reis</p>
+<div class="mi-pr">&euro;10,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>2 Souvlakispie&szlig;e &amp; Gyros</h3></div>
+<p>Mit Krautsalat, Pommes oder Reis</p>
+<div class="mi-pr">&euro;12,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Schweinekotelett &amp; Gyros</h3></div>
+<p>Mit Krautsalat, Pommes oder Reis</p>
+<div class="mi-pr">&euro;12,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Platte f&uuml;r 2 Personen</h3></div>
+<p>Gro&szlig;e Auswahl vom Grill mit Beilagen &amp; Krautsalat</p>
+<div class="mi-pr">&euro;25,00</div>
+</div></div>
+</div>
+
+<!-- GYROS GERICHTE -->
+<div class="mlist on" data-cat="gyros">
+<div class="mi rv-anim">
+<div class="mi-img"><img src="bilder/unnamed (2).webp" alt="Gyros pur" width="200" height="170" loading="lazy" decoding="async"></div>
+<div class="mi-body">
+<div class="mi-top"><h3>Gyros pur</h3></div>
+<p>Frisches Gyros vom Drehspie&szlig;</p>
+<div class="mi-pr">&euro;7,00</div>
+</div>
+</div>
+<div class="mi rv-anim">
+<div class="mi-img"><img src="bilder/unnamed (3).webp" alt="Gyros mit Reis" width="200" height="170" loading="lazy" decoding="async"></div>
+<div class="mi-body">
+<div class="mi-top"><h3>Gyros mit Pommes oder Reis</h3><span class="mi-tag best">Bestseller</span></div>
+<p>Gyros mit Krautsalat, Pommes oder Reis</p>
+<div class="mi-pr">&euro;9,00</div>
+</div>
+</div>
+<div class="mi rv-anim">
+<div class="mi-img"><img src="bilder/unnamed (4).webp" alt="Gyros in Metaxasauce" width="200" height="170" loading="lazy" decoding="async"></div>
+<div class="mi-body">
+<div class="mi-top"><h3>Gyros in Metaxasauce</h3></div>
+<p>Mit K&auml;se &uuml;berbacken, Pommes oder Reis &amp; Krautsalat</p>
+<div class="mi-pr">&euro;11,00</div>
+</div>
+</div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Gyros Pita</h3><span class="mi-tag best">Klassiker</span></div>
+<p>Fladenbrot mit Gyros, Tzatziki und Zwiebeln</p>
+<div class="mi-pr">&euro;6,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Gyros Box</h3></div>
+<p>Gyros mit Krautsalat zum Mitnehmen</p>
+<div class="mi-pr">&euro;7,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Gyros &uuml;berbacken</h3></div>
+<p>Mit K&auml;se &uuml;berbacken &amp; Krautsalat</p>
+<div class="mi-pr">&euro;10,00</div>
+</div></div>
+</div>
+
+<!-- SALATE & EXTRAS -->
+<div class="mlist" data-cat="extras">
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Bauernsalat</h3><span class="mi-tag best">Klassiker</span></div>
+<p>Griechischer Salat: Tomaten, Gurken, Schafsk&auml;se, Oliven, Paprika &amp; Zwiebeln</p>
+<div class="mi-pr">&euro;8,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Feta-K&auml;se</h3><span class="mi-tag veg">Veggie</span></div>
+<p>Original griechisch, mit Tomaten, Gurken, Oliven, Peperoni &amp; Zwiebeln</p>
+<div class="mi-pr">&euro;7,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Vegetarisches Baguette</h3><span class="mi-tag veg">Veggie</span></div>
+<p>Frisches Baguette mit Gem&uuml;se &amp; K&auml;se</p>
+<div class="mi-pr">&euro;5,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Extra Beilagen</h3></div>
+<p>Pommes, Reis, Krautsalat, Tzatziki, Fladenbrot</p>
+<div class="mi-pr">ab &euro;2,00</div>
+</div></div>
+</div>
+
+<!-- GETR&Auml;NKE & BIER -->
+<div class="mlist" data-cat="drinks">
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Coca Cola</h3></div><p>0,33l</p><div class="mi-pr">&euro;2,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Fanta / Sprite</h3></div><p>0,33l</p><div class="mi-pr">&euro;2,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Wasser</h3></div><p>0,5l / 1,5l</p><div class="mi-pr">ab &euro;1,00</div>
+</div></div>
+<div class="mi flat rv-anim"><div class="mi-body">
+<div class="mi-top"><h3>Bier</h3></div><p>0,5l</p><div class="mi-pr">&euro;3,00</div>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- GREECE SECTION -->
+<section class="greece rv-anim">
+<div class="greece-text">
+<h2>Der Geschmack Griechenlands</h2>
+<p>Echte Rezepte &middot; Seit &uuml;ber 40 Jahren</p>
+</div>
+<div class="greece-row">
+<div class="gc"><img src="https://images.pexels.com/photos/15532995/pexels-photo-15532995.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Santorini" width="400" height="320" loading="lazy" decoding="async"></div>
+<div class="gc"><img src="https://images.pexels.com/photos/12612567/pexels-photo-12612567.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Griechische Architektur" width="400" height="320" loading="lazy" decoding="async"></div>
+<div class="gc"><img src="https://images.pexels.com/photos/32737290/pexels-photo-32737290.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Griechische K&uuml;ste" width="400" height="320" loading="lazy" decoding="async"></div>
+<div class="gc"><img src="https://images.pexels.com/photos/16563684/pexels-photo-16563684.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Griechenland" width="400" height="320" loading="lazy" decoding="async"></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+<div class="rv-anim">
+<h2 class="gk">Hunger? Bestell per WhatsApp!</h2>
+<p>W&auml;hle dein Gericht, wir bereiten es frisch f&uuml;r dich vor.</p>
+<a href="https://wa.me/4915164707586?text=Hallo%2C%20ich%20m%C3%B6chte%20gerne%20bestellen!" target="_blank" class="cbtn" style="background:#25D366;color:#fff">
+<svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+WhatsApp &ouml;ffnen
+</a>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="galerie">
+<div class="w">
+<span class="sec-tag gk rv-anim">Galerie</span>
+<h2 class="sec-h rv-anim">Unser Laden &amp; <span>Griechenland</span></h2>
+<p class="sec-p rv-anim">Von der griechischen Heimat direkt auf euren Teller.</p>
+<div class="gal rv-anim">
+<div class="g"><img src="bilder/boncho_1.jpg" alt="Chef am Drehspie&szlig;" width="400" height="440" loading="lazy" decoding="async"></div>
+<div class="g"><img src="https://images.pexels.com/photos/15532995/pexels-photo-15532995.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Santorini, Griechenland" width="400" height="220" loading="lazy" decoding="async"></div>
+<div class="g"><img src="bilder/unnamed (2).webp" alt="Gyros Teller" width="400" height="220" loading="lazy" decoding="async"></div>
+<div class="g"><img src="bilder/unnamed.webp" alt="Gyros Center L&uuml;neburg" width="400" height="220" loading="lazy" decoding="async"></div>
+<div class="g"><img src="https://images.pexels.com/photos/32737290/pexels-photo-32737290.jpeg?auto=compress&cs=tinysrgb&w=400&dpr=1" alt="Griechische K&uuml;ste" width="400" height="220" loading="lazy" decoding="async"></div>
+<div class="g"><img src="bilder/unnamed (5).webp" alt="Drehspie&szlig;" width="400" height="220" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews" style="background:var(--white)">
+<div class="w">
+<span class="sec-tag gk rv-anim">Bewertungen</span>
+<h2 class="sec-h rv-anim">Was unsere <span>G&auml;ste</span> sagen</h2>
+<p class="sec-p rv-anim">Echte Google-Bewertungen.</p>
+<div class="revs rv-anim">
+<div class="rv">
+<div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Bestes Gyros in L&uuml;neburg! Riesige Portion, mega frisch. Die Pita ist warm und Tzatziki schmeckt selbstgemacht. Komme jede Woche!&ldquo;</p>
+<div class="au"><strong>Maria K.</strong><span class="fr">Google <svg viewBox="0 0 20 20" width="14" height="14" style="vertical-align:-2px"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></span></div>
+</div>
+<div class="rv">
+<div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Schnell, freundlich, lecker. In 5 Min war mein Gyros Teller fertig. Preis-Leistung ist Hammer. Absolute Empfehlung!&ldquo;</p>
+<div class="au"><strong>Thomas B.</strong><span class="fr">Google <svg viewBox="0 0 20 20" width="14" height="14" style="vertical-align:-2px"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></span></div>
+</div>
+<div class="rv">
+<div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Die Moussaka ist der Wahnsinn! Endlich mal ein Imbiss der auch richtige griechische Gerichte macht. Top!&ldquo;</p>
+<div class="au"><strong>Sophie M.</strong><span class="fr">Google <svg viewBox="0 0 20 20" width="14" height="14" style="vertical-align:-2px"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="kontakt">
+<div class="w">
+<div class="contact-wrap rv-anim">
+<div class="c-left">
+<span class="sec-tag gk">Kontakt</span>
+<h2 class="sec-h">Bestell &amp; <span>Kontakt</span></h2>
+<div class="c-row">
+<div class="ci"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+<div><strong>&Ouml;ffnungszeiten</strong><div class="dt">Mo &ndash; Sa: 11:00 &ndash; 22:00<br>So: 12:00 &ndash; 21:00</div></div>
+</div>
+<div class="c-row">
+<div class="ci"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+<div><strong>Telefon</strong><div class="dt">04131 / 123 456 7</div></div>
+</div>
+<div class="c-row">
+<div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+<div><strong>Adresse</strong><div class="dt">L&uuml;neburg<br>(Genaue Adresse vom Kunden)</div></div>
+</div>
+<div class="soc">
+<a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+<a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+</div>
+</div>
+<div class="c-form">
+<h3>Per WhatsApp bestellen</h3>
+<form id="orderForm">
+<div class="fg"><label for="name">Name</label><input type="text" id="name" required placeholder="Dein Name"></div>
+<div class="fg"><label for="phone">Telefonnummer *</label><input type="tel" id="phone" required placeholder="176 12345678"><div class="phone-err" id="phoneErr"></div></div>
+<div class="fg"><label for="gericht">Gericht w&auml;hlen</label>
+<select id="gericht" required>
+<option value="">Bitte Gericht w&auml;hlen</option>
+<optgroup label="Grill Gerichte">
+<option value="Grill Teller (14&euro;)">Grill Teller - 14&euro;</option>
+<option value="Bauernteller (10&euro;)">Bauernteller - 10&euro;</option>
+<option value="2 Souvlakispie&szlig;e (10&euro;)">2 Souvlakispie&szlig;e - 10&euro;</option>
+<option value="2 Souvlakispie&szlig;e &amp; Gyros (12&euro;)">2 Souvlakispie&szlig;e &amp; Gyros - 12&euro;</option>
+<option value="Schweinekotelett &amp; Gyros (12&euro;)">Schweinekotelett &amp; Gyros - 12&euro;</option>
+<option value="Platte f&uuml;r 2 Personen (25&euro;)">Platte f&uuml;r 2 Personen - 25&euro;</option>
+</optgroup>
+<optgroup label="Gyros Gerichte">
+<option value="Gyros pur (7&euro;)">Gyros pur - 7&euro;</option>
+<option value="Gyros mit Pommes/Reis (9&euro;)">Gyros mit Pommes/Reis - 9&euro;</option>
+<option value="Gyros in Metaxasauce (11&euro;)">Gyros in Metaxasauce - 11&euro;</option>
+<option value="Gyros Pita (6&euro;)">Gyros Pita - 6&euro;</option>
+<option value="Gyros Box (7&euro;)">Gyros Box - 7&euro;</option>
+<option value="Gyros &uuml;berbacken (10&euro;)">Gyros &uuml;berbacken - 10&euro;</option>
+</optgroup>
+<optgroup label="Salate &amp; Extras">
+<option value="Bauernsalat (8&euro;)">Bauernsalat - 8&euro;</option>
+<option value="Feta-K&auml;se (7&euro;)">Feta-K&auml;se - 7&euro;</option>
+<option value="Vegetarisches Baguette (5&euro;)">Vegetarisches Baguette - 5&euro;</option>
+</optgroup>
+</select></div>
+<div class="fg"><label for="pickup">Abholzeit</label>
+<select id="pickup" required><option value="">Bitte w&auml;hlen</option><option>In 15 Min</option><option>In 30 Min</option><option>In 45 Min</option><option>In 60 Min</option></select></div>
+<div class="fg"><label for="extra">Anmerkungen (optional)</label><textarea id="extra" placeholder="z.B. extra Tzatziki, ohne Zwiebeln..."></textarea></div>
+<button type="submit" class="fbtn" style="background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.25);display:flex;align-items:center;justify-content:center;gap:10px">
+<svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Per WhatsApp bestellen
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="w">
+<img src="bilder/logo.png" alt="Gyros Center" width="60" height="60" loading="lazy" decoding="async" style="height:60px;width:auto;margin:0 auto 8px;filter:invert(1)">
+<div class="fi">Imbiss Plaka &middot; L&uuml;neburg</div>
+<div class="fi">Mo-Sa 11-22 | So 12-21 | 04131 / 123 456 7</div>
+<div class="fl">
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+</div>
+<div class="fc">Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a></div>
+</div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+const burger=document.getElementById('burger'),nl=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{burger.classList.toggle('on');nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('on');nl.classList.remove('open')}));
+
+document.querySelectorAll('.pill-btn').forEach(b=>{
+b.addEventListener('click',()=>{
+document.querySelectorAll('.pill-btn').forEach(x=>x.classList.remove('on'));
+b.classList.add('on');
+const c=b.dataset.cat;
+document.querySelectorAll('.mlist').forEach(m=>{m.classList.remove('on');if(m.dataset.cat===c)m.classList.add('on')});
+document.querySelectorAll('.mlist.on .rv-anim').forEach(el=>el.classList.add('vis'));
+})});
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv-anim').forEach(el=>obs.observe(el));
+
+// intl-tel-input Setup
+const phoneInput=document.getElementById('phone');
+const phoneErr=document.getElementById('phoneErr');
+let utilsReady=false;
+const iti=window.intlTelInput(phoneInput,{
+initialCountry:'de',
+preferredCountries:['de','at','ch','gr','tr'],
+utilsScript:'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js',
+separateDialCode:true,
+nationalMode:true
+});
+phoneInput.addEventListener('countrychange',function(){checkPhone()});
+iti.promise.then(function(){utilsReady=true});
+const errMap={0:'Ung\u00fcltige Nummer',1:'Ung\u00fcltige Landesvorwahl',2:'Nummer zu kurz',3:'Nummer zu lang',4:'Ung\u00fcltige Nummer'};
+function checkPhone(){
+if(!utilsReady||!phoneInput.value.trim())return null;
+// Fix: 0 am Anfang entfernen wenn Landesvorwahl schon gesetzt ist
+let val=phoneInput.value.trim().replace(/\s/g,'');
+if(/^0/.test(val)){phoneInput.value=val.substring(1)}
+if(iti.isValidNumber()){
+phoneErr.classList.remove('show');phoneInput.classList.remove('invalid');phoneInput.classList.add('valid');return true;
+}else{
+const ec=iti.getValidationError();phoneErr.textContent=errMap[ec]||'Bitte g\u00fcltige Nummer eingeben';
+phoneErr.classList.add('show');phoneInput.classList.add('invalid');phoneInput.classList.remove('valid');return false;
+}
+}
+phoneInput.addEventListener('blur',function(){if(this.value.trim())checkPhone();else{phoneErr.classList.remove('show');this.classList.remove('invalid','valid')}});
+phoneInput.addEventListener('input',function(){if(this.classList.contains('invalid'))checkPhone()});
+
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+const name=document.getElementById('name').value;
+const phone=iti.getNumber();
+if(!utilsReady){phoneErr.textContent='Validierung l\u00e4dt, bitte nochmal klicken';phoneErr.classList.add('show');return}
+if(!iti.isValidNumber()){checkPhone();phoneInput.focus();return}
+const gericht=document.getElementById('gericht').value;
+const zeit=document.getElementById('pickup').value;
+const extra=document.getElementById('extra').value;
+let msg='*NEUE BESTELLUNG*\n';
+msg+='--------------------\n\n';
+msg+='*Name:* '+name+'\n';
+msg+='*Telefon:* '+phone+'\n';
+msg+='*Gericht:* '+gericht+'\n';
+msg+='*Abholzeit:* '+zeit+'\n';
+if(extra)msg+='*Anmerkungen:* '+extra+'\n';
+msg+='\n--------------------\n';
+msg+='Gesendet ueber gyros-center-luneburg.netlify.app';
+window.open('https://wa.me/4915164707586?text='+encodeURIComponent(msg),'_blank');
+});
+
+let ls=0,ticking=false;const hd=document.querySelector('header'),tb=document.querySelector('.topbar');
+window.addEventListener('scroll',()=>{if(!ticking){window.requestAnimationFrame(()=>{const c=window.pageYOffset;if(c>ls&&c>150){hd.style.transform='translateY(-100%)';tb.style.transform='translateY(-100%)'}else{hd.style.transform='translateY(0)';tb.style.transform='translateY(0)'}ls=c;ticking=false});ticking=true}});
+});
+</script>
+</body>
+</html>

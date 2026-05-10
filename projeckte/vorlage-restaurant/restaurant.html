@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdesign-Vorlagen | addus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ========== DEMO SWITCHER BAR ========== -->
+    <div class="demo-bar" id="demoBar">
+        <div class="demo-bar__inner">
+            <div class="demo-bar__brand">
+                <span class="demo-bar__logo">addus</span>
+                <span class="demo-bar__sep">|</span>
+                <span class="demo-bar__label">Live-Vorschau</span>
+            </div>
+            <div class="demo-bar__options">
+                <button class="demo-bar__btn active" data-theme="restaurant">
+                    <span class="demo-bar__icon">&#127860;</span>
+                    Restaurant
+                </button>
+                <button class="demo-bar__btn" data-theme="imbiss">
+                    <span class="demo-bar__icon">&#127828;</span>
+                    Imbiss
+                </button>
+                <button class="demo-bar__btn" data-theme="baklava">
+                    <span class="demo-bar__icon">&#127856;</span>
+                    Süßwaren
+                </button>
+                <button class="demo-bar__btn" data-theme="cafe">
+                    <span class="demo-bar__icon">&#9749;</span>
+                    Café
+                </button>
+            </div>
+            <a href="https://addus-web.de" class="demo-bar__cta" target="_blank" rel="noopener">Website anfragen</a>
+        </div>
+    </div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-icon" id="logoIcon">LT</span>
+                <span class="nav__logo-text" id="logoText">La Tavola</span>
+            </a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#home" class="active">Start</a></li>
+                <li><a href="#philosophy">Über uns</a></li>
+                <li><a href="#menu">Angebot</a></li>
+                <li><a href="#gallery">Eindrücke</a></li>
+                <li><a href="#testimonials">Bewertungen</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="nav__right">
+                <a href="tel:+4941311234567" class="nav__phone" aria-label="Anrufen">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </a>
+                <a href="#contact" class="nav__cta" id="navCta">Reservieren</a>
+            </div>
+            <button class="nav__burger" id="burger" aria-label="Menü">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu__links">
+            <li><a href="#home">Start</a></li>
+            <li><a href="#philosophy">Über uns</a></li>
+            <li><a href="#menu">Angebot</a></li>
+            <li><a href="#gallery">Eindrücke</a></li>
+            <li><a href="#testimonials">Bewertungen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <a href="#contact" class="nav__cta nav__cta--mobile" id="navCtaMobile">Reservieren</a>
+    </div>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+        <div class="hero__bg">
+            <img id="heroImg" src="https://images.pexels.com/photos/29109683/pexels-photo-29109683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" loading="eager">
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <p class="hero__sub" id="heroSub">Ristorante & Bar</p>
+            <h1 class="hero__title" id="heroTitle">La Tavola</h1>
+            <div class="hero__divider">
+                <span></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z"/></svg>
+                <span></span>
+            </div>
+            <p class="hero__desc" id="heroDesc">Wo Tradition auf Leidenschaft trifft.<br>Seit 1998 im Herzen der Stadt.</p>
+            <div class="hero__btns">
+                <a href="#menu" class="btn btn--filled" id="heroCta1">Speisekarte</a>
+                <a href="#contact" class="btn btn--outline" id="heroCta2">Reservieren</a>
+            </div>
+        </div>
+        <div class="hero__info">
+            <div class="hero__info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="heroAddress">Musterstraße 12, Lüneburg</span>
+            </div>
+            <div class="hero__info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span id="heroHours">Di – So, 11:30 – 23:00</span>
+            </div>
+            <div class="hero__info-item hero__info-item--stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9 Google
+            </div>
+        </div>
+        <a href="#philosophy" class="hero__scroll" aria-label="Nach unten scrollen">
+            <span class="hero__scroll-line"></span>
+        </a>
+    </section>
+
+    <!-- ========== PHILOSOPHY / ABOUT ========== -->
+    <section class="section philosophy" id="philosophy">
+        <div class="container">
+            <div class="philosophy__grid">
+                <div class="philosophy__images">
+                    <div class="philosophy__img philosophy__img--main">
+                        <img id="aboutImg1" src="https://images.pexels.com/photos/8629081/pexels-photo-8629081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Über uns" loading="lazy">
+                    </div>
+                    <div class="philosophy__img philosophy__img--accent">
+                        <img id="aboutImg2" src="https://images.pexels.com/photos/13499008/pexels-photo-13499008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Detail" loading="lazy">
+                    </div>
+                    <div class="philosophy__badge">
+                        <span class="philosophy__badge-num" id="badgeNum">25+</span>
+                        <span class="philosophy__badge-text" id="badgeText">Jahre Erfahrung</span>
+                    </div>
+                </div>
+                <div class="philosophy__content">
+                    <span class="label" id="aboutLabel">Unsere Philosophie</span>
+                    <h2 class="section-title" id="aboutTitle">Kochen mit Herz<br>& besten Zutaten</h2>
+                    <div class="divider"></div>
+                    <p id="aboutP1">Jedes Gericht erzählt eine Geschichte. Wir verwenden ausschließlich frische, saisonale Zutaten von regionalen Erzeugern — und verbinden sie mit Rezepten, die seit Generationen in unserer Familie weitergegeben werden.</p>
+                    <p id="aboutP2">Unsere Küche ist ehrlich, ohne Schnickschnack, aber mit viel Liebe zum Detail. Vom handgemachten Nudelteig bis zur langsam geschmorten Sauce — bei uns schmeckt man den Unterschied.</p>
+                    <div class="philosophy__stats">
+                        <div class="philosophy__stat">
+                            <span class="philosophy__stat-num" id="stat1Num">100%</span>
+                            <span class="philosophy__stat-label" id="stat1Label">Frische Zutaten</span>
+                        </div>
+                        <div class="philosophy__stat">
+                            <span class="philosophy__stat-num" id="stat2Num">50+</span>
+                            <span class="philosophy__stat-label" id="stat2Label">Gerichte</span>
+                        </div>
+                        <div class="philosophy__stat">
+                            <span class="philosophy__stat-num" id="stat3Num">12k+</span>
+                            <span class="philosophy__stat-label" id="stat3Label">Zufriedene Gäste</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="section features">
+        <div class="container">
+            <div class="features__grid" id="featuresGrid">
+                <!-- Filled by JS per theme -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MENU ========== -->
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="label" id="menuLabel">Unsere Küche</span>
+                <h2 class="section-title" id="menuTitle">Ausgewählte Gerichte</h2>
+                <div class="divider divider--center"></div>
+            </div>
+            <div class="menu__tabs" id="menuTabs">
+                <!-- Filled by JS per theme -->
+            </div>
+            <div class="menu__panels" id="menuPanels">
+                <!-- Filled by JS per theme -->
+            </div>
+            <div class="menu__cta">
+                <a href="#" class="btn btn--filled" id="menuCtaBtn">Komplette Karte (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PARALLAX QUOTE ========== -->
+    <section class="parallax-divider">
+        <div class="parallax-divider__bg">
+            <img id="parallaxImg" src="https://images.pexels.com/photos/10135116/pexels-photo-10135116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" loading="lazy">
+        </div>
+        <div class="parallax-divider__overlay"></div>
+        <div class="parallax-divider__content">
+            <blockquote>
+                <p id="quoteText">&bdquo;Das Geheimnis guter Küche liegt nicht in komplizierten Rezepten — sondern in der Liebe, mit der man kocht.&ldquo;</p>
+                <cite id="quoteCite">— Marco, Küchenchef & Inhaber</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY ========== -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Eindrücke</span>
+                <h2 class="section-title" id="galleryTitle">Momente bei uns</h2>
+                <div class="divider divider--center"></div>
+            </div>
+            <div class="gallery__grid" id="galleryGrid">
+                <!-- Filled by JS per theme -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Bewertungen</span>
+                <h2 class="section-title">Was unsere Gäste sagen</h2>
+                <div class="divider divider--center"></div>
+            </div>
+            <div class="testimonials__slider" id="testimonialSlider">
+                <div class="testimonials__track" id="testimonialTrack">
+                    <!-- Filled by JS per theme -->
+                </div>
+                <div class="testimonials__nav">
+                    <button class="testimonials__btn testimonials__btn--prev" id="testPrev" aria-label="Vorherige">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="testimonials__dots" id="testimonialDots"></div>
+                    <button class="testimonials__btn testimonials__btn--next" id="testNext" aria-label="Nächste">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <span class="label">Kontakt</span>
+                    <h2 class="section-title">Besuchen Sie uns</h2>
+                    <div class="divider"></div>
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div>
+                                <strong>Adresse</strong>
+                                <p>Musterstraße 12<br>21335 Lüneburg</p>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <div>
+                                <strong>Öffnungszeiten</strong>
+                                <p id="contactHours">Di – Do: 11:30 – 22:00<br>Fr – Sa: 11:30 – 23:00<br>So: 12:00 – 21:00<br>Mo: Ruhetag</p>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            <div>
+                                <strong>Telefon</strong>
+                                <p><a href="tel:+4941311234567">+49 4131 123 45 67</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact__socials">
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                        <a href="#" aria-label="Google"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 010 20"/><path d="M2 12h20"/></svg></a>
+                    </div>
+                </div>
+                <div class="contact__form-wrap">
+                    <h3 id="formTitle">Tisch reservieren</h3>
+                    <form class="contact__form" id="reservationForm">
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="email">E-Mail</label>
+                                <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="date">Datum</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="guests">Personen</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="">Anzahl</option>
+                                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+                        </div>
+                        <div class="form__group" style="margin-top:16px">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Besondere Wünsche..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--filled btn--full" id="formSubmitBtn">Reservierung anfragen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="nav__logo-icon" id="footerLogoIcon">LT</span>
+                    <span class="nav__logo-text" id="footerLogoText">La Tavola</span>
+                    <p class="footer__tagline" id="footerTagline">Ristorante & Bar — seit 1998</p>
+                </div>
+                <div class="footer__hours">
+                    <h4>Öffnungszeiten</h4>
+                    <p id="footerHours">Di – Do: 11:30 – 22:00<br>Fr – Sa: 11:30 – 23:00<br>So: 12:00 – 21:00</p>
+                </div>
+                <div class="footer__contact">
+                    <h4>Kontakt</h4>
+                    <p>Musterstraße 12, 21335 Lüneburg</p>
+                    <p><a href="tel:+4941311234567">+49 4131 123 45 67</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 <span id="footerName">La Tavola</span>. Alle Rechte vorbehalten.</p>
+                <p class="footer__credit">Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/themes.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

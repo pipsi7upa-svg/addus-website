@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdesign-Vorlagen | addus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --card-bg: #141414;
+            --border: rgba(255,255,255,0.06);
+            --text: rgba(255,255,255,0.85);
+            --text-dim: rgba(255,255,255,0.4);
+            --white: #fff;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- TOP BAR --- */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar__logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .topbar__cta {
+            padding: 8px 24px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--white);
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .topbar__cta:hover {
+            background: rgba(255,255,255,0.85);
+            transform: translateY(-1px);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero__badge {
+            display: inline-block;
+            padding: 6px 16px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* --- GRID --- */
+        .grid-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* --- CARD --- */
+        .card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            border-color: rgba(255,255,255,0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .card__img {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .card__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 8s cubic-bezier(0.25, 0, 0.25, 1);
+            filter: brightness(0.7) saturate(0.9);
+        }
+
+        .card:hover .card__img img {
+            transform: scale(1.1);
+            filter: brightness(0.8) saturate(1);
+        }
+
+        .card__img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
+        }
+
+        .card__category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 5px 14px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-radius: 100px;
+            z-index: 2;
+        }
+
+        .card--restaurant .card__category { background: #B8704A; color: #fff; }
+        .card--imbiss .card__category { background: #D4451A; color: #fff; }
+        .card--baklava .card__category { background: #C9A96E; color: #1A1608; }
+        .card--cafe .card__category { background: #5C7A5C; color: #fff; }
+
+        .card__body {
+            padding: 28px;
+        }
+
+        .card__name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .card__sub {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .card__tag {
+            padding: 4px 10px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+        }
+
+        .card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .card--restaurant .card__link { color: #B8704A; }
+        .card--imbiss .card__link { color: #D4451A; }
+        .card--baklava .card__link { color: #C9A96E; }
+        .card--cafe .card__link { color: #5C7A5C; }
+
+        .card:hover .card__link {
+            gap: 14px;
+        }
+
+        .card__link svg {
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card__link svg {
+            transform: translateX(4px);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card__img {
+                height: 240px;
+            }
+
+            .hero {
+                padding: 50px 24px 24px;
+            }
+
+            .topbar {
+                padding: 16px 20px;
+            }
+        }
+
+        /* --- ANIMATION --- */
+        .card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardIn 0.7s forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes cardIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero__badge, .hero h1, .hero p {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeIn 0.6s forwards;
+        }
+
+        .hero h1 { animation-delay: 0.1s; }
+        .hero p { animation-delay: 0.2s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <a href="https://addus-web.de" class="topbar__logo" target="_blank" rel="noopener">addus</a>
+        <a href="https://addus-web.de" class="topbar__cta" target="_blank" rel="noopener">Website anfragen</a>
+    </div>
+
+    <div class="hero">
+        <span class="hero__badge">Live-Vorschau</span>
+        <h1>Ihr Geschäft, perfekt<br>im Web präsentiert</h1>
+        <p>Wählen Sie eine Branche und sehen Sie, wie Ihre zukünftige Website aussehen könnte — individuell designed, nicht von der Stange.</p>
+    </div>
+
+    <div class="grid-section">
+        <div class="grid">
+
+            <a href="restaurant.html" class="card card--restaurant">
+                <div class="card__img">
+                    <img src="https://images.pexels.com/photos/29109683/pexels-photo-29109683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Restaurant" loading="lazy">
+                    <div class="card__img-overlay"></div>
+                    <span class="card__category">Restaurant</span>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__name">La Tavola</h2>
+                    <p class="card__sub">Elegantes Design mit warmen Erdtönen und feiner Typografie</p>
+                    <div class="card__tags">
+                        <span class="card__tag">Edel & Warm</span>
+                        <span class="card__tag">Serif-Typografie</span>
+                        <span class="card__tag">Speisekarte</span>
+                        <span class="card__tag">Reservierung</span>
+                    </div>
+                    <span class="card__link">
+                        Vorschau ansehen
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="imbiss.html" class="card card--imbiss">
+                <div class="card__img">
+                    <img src="https://images.pexels.com/photos/28760169/pexels-photo-28760169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Imbiss" loading="lazy">
+                    <div class="card__img-overlay"></div>
+                    <span class="card__category">Imbiss</span>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__name">Street Bites</h2>
+                    <p class="card__sub">Bold & urban — dunkles Design mit starken Kontrasten</p>
+                    <div class="card__tags">
+                        <span class="card__tag">Dark Mode</span>
+                        <span class="card__tag">Bold Fonts</span>
+                        <span class="card__tag">Online-Bestellung</span>
+                        <span class="card__tag">Street Food</span>
+                    </div>
+                    <span class="card__link">
+                        Vorschau ansehen
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="baklava.html" class="card card--baklava">
+                <div class="card__img">
+                    <img src="https://images.pexels.com/photos/33317234/pexels-photo-33317234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Süßwaren" loading="lazy">
+                    <div class="card__img-overlay"></div>
+                    <span class="card__category">Süßwaren</span>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__name">Zum Goldenen</h2>
+                    <p class="card__sub">Orientalisch-luxuriös mit goldenen Akzenten und Ornamenten</p>
+                    <div class="card__tags">
+                        <span class="card__tag">Gold & Ornamente</span>
+                        <span class="card__tag">Elegant</span>
+                        <span class="card__tag">Geschenkboxen</span>
+                        <span class="card__tag">Patisserie</span>
+                    </div>
+                    <span class="card__link">
+                        Vorschau ansehen
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <a href="cafe.html" class="card card--cafe">
+                <div class="card__img">
+                    <img src="https://images.pexels.com/photos/2251756/pexels-photo-2251756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café" loading="lazy">
+                    <div class="card__img-overlay"></div>
+                    <span class="card__category">Café</span>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__name">Kaffeeblüte</h2>
+                    <p class="card__sub">Minimalistisch & hell — skandinavisch-inspiriertes Clean Design</p>
+                    <div class="card__tags">
+                        <span class="card__tag">Minimalistisch</span>
+                        <span class="card__tag">Hell & Clean</span>
+                        <span class="card__tag">Magazine-Style</span>
+                        <span class="card__tag">Coworking</span>
+                    </div>
+                    <span class="card__link">
+                        Vorschau ansehen
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Individuelles Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a> — Lüneburg</p>
+    </div>
+
+</body>
+</html>

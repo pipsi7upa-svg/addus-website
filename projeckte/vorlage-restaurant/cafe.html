@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaffeeblüte — Specialty Coffee & Kuchen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #FAFAF7;
+            color: #3A3A3A;
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+
+        /* ===== UTILITY ===== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== BACK BAR ===== */
+        .back-bar {
+            background: #F0EDE8;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #E8E5DF;
+        }
+        .back-bar__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-bar__left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .back-bar__link {
+            font-size: 14px;
+            color: #6B6B6B;
+            transition: color .3s;
+        }
+        .back-bar__link:hover { color: #5C7A5C; }
+        .back-bar__brand {
+            font-weight: 700;
+            font-size: 15px;
+            color: #3A3A3A;
+            letter-spacing: -.5px;
+        }
+        .back-bar__sep {
+            color: #C9C5BE;
+            font-weight: 300;
+        }
+        .back-bar__label {
+            font-size: 13px;
+            color: #9B9890;
+        }
+        .back-bar__cta {
+            background: #5C7A5C;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background .3s;
+        }
+        .back-bar__cta:hover { background: #4A6A4A; }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 28px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #3A3A3A;
+            border-radius: 2px;
+            transition: .3s;
+            position: absolute;
+            left: 0;
+        }
+        .mobile-toggle span:nth-child(1) { top: 0; }
+        .mobile-toggle span:nth-child(2) { top: 9px; }
+        .mobile-toggle span:nth-child(3) { top: 18px; }
+        .mobile-toggle.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+        /* ===== NAV ===== */
+        .nav {
+            padding: 18px 0;
+            background: #FAFAF7;
+            position: sticky;
+            top: 45px;
+            z-index: 999;
+            transition: box-shadow .3s, padding .3s;
+        }
+        .nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,.04);
+            padding: 12px 0;
+        }
+        .nav__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav__logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #3A3A3A;
+            letter-spacing: -1px;
+        }
+        .nav__logo span { color: #5C7A5C; }
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav__links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6B6B6B;
+            transition: color .3s;
+            position: relative;
+        }
+        .nav__links a:hover { color: #5C7A5C; }
+        .nav__links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #5C7A5C;
+            border-radius: 2px;
+            transition: width .3s;
+        }
+        .nav__links a:hover::after { width: 100%; }
+        .nav__cta {
+            background: #5C7A5C;
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background .3s, transform .2s;
+        }
+        .nav__cta:hover { background: #4A6A4A; transform: translateY(-1px); }
+        .nav__cta::after { display: none !important; }
+
+        /* Mobile nav overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(250,250,247,.97);
+            z-index: 998;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: #3A3A3A;
+            transition: color .3s;
+        }
+        .mobile-menu a:hover { color: #5C7A5C; }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 60px 0 80px;
+        }
+        .hero__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero__img {
+            flex: 0 0 55%;
+            max-width: 55%;
+        }
+        .hero__img img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .hero__text {
+            flex: 1;
+        }
+        .hero__badge {
+            display: inline-block;
+            background: rgba(92,122,92,.1);
+            color: #5C7A5C;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: .5px;
+        }
+        .hero__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.1;
+            color: #2A2A2A;
+            margin-bottom: 8px;
+            letter-spacing: -1.5px;
+        }
+        .hero__subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            font-style: italic;
+            color: #A8886E;
+            margin-bottom: 20px;
+        }
+        .hero__desc {
+            font-size: 15px;
+            color: #6B6B6B;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 380px;
+        }
+        .hero__btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .btn-fill {
+            background: #5C7A5C;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background .3s, transform .2s;
+        }
+        .btn-fill:hover { background: #4A6A4A; transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            color: #5C7A5C;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid #5C7A5C;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .btn-outline:hover { background: #5C7A5C; color: #fff; }
+
+        /* ===== ABOUT ===== */
+        .about { padding: 80px 0 100px; }
+        .about__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        .about__text { flex: 1; padding-top: 20px; }
+        .about__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5C7A5C;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .about__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 600;
+            line-height: 1.15;
+            color: #2A2A2A;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        .about__desc {
+            font-size: 15px;
+            color: #6B6B6B;
+            line-height: 1.85;
+            margin-bottom: 32px;
+        }
+        .about__stats {
+            font-size: 14px;
+            color: #A8886E;
+            font-weight: 500;
+            padding-top: 24px;
+            border-top: 1px solid #E8E5DF;
+            letter-spacing: .3px;
+        }
+        .about__images {
+            flex: 0 0 45%;
+            max-width: 45%;
+            position: relative;
+            min-height: 500px;
+        }
+        .about__img1 {
+            width: 75%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .about__img2 {
+            width: 65%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 3;
+            transform: rotate(2deg);
+            box-shadow: 0 8px 40px rgba(0,0,0,.08);
+        }
+        .about__blob {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(92,122,92,.06);
+            border-radius: 50%;
+            top: -30px;
+            right: 40px;
+            z-index: 1;
+        }
+
+        /* ===== MENU ===== */
+        .menu {
+            padding: 100px 0;
+        }
+        .menu__header {
+            margin-bottom: 40px;
+        }
+        .menu__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5C7A5C;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .menu__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 600;
+            color: #2A2A2A;
+            letter-spacing: -1px;
+        }
+        .menu__tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .menu__tab {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1.5px solid #D9D5CE;
+            background: transparent;
+            color: #6B6B6B;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .menu__tab:hover { border-color: #5C7A5C; color: #5C7A5C; }
+        .menu__tab.active {
+            background: #5C7A5C;
+            color: #fff;
+            border-color: #5C7A5C;
+        }
+        .menu__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .menu__panel { display: none; }
+        .menu__panel.active { display: block; }
+        .menu__card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,.04);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .menu__card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+        }
+        .menu__card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu__card-body {
+            padding: 20px 24px 24px;
+        }
+        .menu__card-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 6px;
+        }
+        .menu__card-desc {
+            font-size: 13px;
+            color: #9B9890;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .menu__card-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #5C7A5C;
+        }
+        /* Text-only menu card */
+        .menu__card--text .menu__card-body {
+            padding: 28px 24px;
+        }
+        .menu__card--text .menu__card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            padding: 80px 0;
+            background: #F5F3EE;
+        }
+        .features__grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .feature {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .feature__icon {
+            width: 72px;
+            height: 72px;
+            border: 2px solid #5C7A5C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+        .feature__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 8px;
+        }
+        .feature__desc {
+            font-size: 13px;
+            color: #9B9890;
+            line-height: 1.6;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            padding: 100px 0;
+        }
+        .gallery__header {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+        }
+        .gallery__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5C7A5C;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .gallery__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 600;
+            color: #2A2A2A;
+            letter-spacing: -1px;
+        }
+        .gallery__masonry {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            columns: 3;
+            column-gap: 20px;
+        }
+        .gallery__item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery__item img {
+            width: 100%;
+            display: block;
+            transition: transform .5s ease;
+        }
+        .gallery__item:hover img { transform: scale(1.04); }
+        .gallery__item-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(255,255,255,.9);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #3A3A3A;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity .3s, transform .3s;
+        }
+        .gallery__item:hover .gallery__item-label { opacity: 1; transform: translateY(0); }
+
+        /* ===== REVIEWS ===== */
+        .reviews {
+            padding: 100px 0;
+            background: #F5F3EE;
+        }
+        .reviews__header {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .reviews__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5C7A5C;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .reviews__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 600;
+            color: #2A2A2A;
+            letter-spacing: -1px;
+        }
+        .reviews__slider {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .reviews__track {
+            display: flex;
+            transition: transform .5s ease;
+        }
+        .reviews__card {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+        .reviews__card-inner {
+            background: #fff;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,.03);
+        }
+        .reviews__quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            color: #5C7A5C;
+            line-height: 1;
+            margin-bottom: 12px;
+            opacity: .4;
+        }
+        .reviews__text {
+            font-size: 17px;
+            color: #4A4A4A;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .reviews__author {
+            font-weight: 600;
+            color: #2A2A2A;
+            font-size: 15px;
+        }
+        .reviews__source {
+            font-size: 13px;
+            color: #9B9890;
+            margin-top: 4px;
+        }
+        .reviews__dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 32px;
+        }
+        .reviews__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D9D5CE;
+            border: none;
+            cursor: pointer;
+            transition: background .3s;
+        }
+        .reviews__dot.active { background: #5C7A5C; }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 0;
+        }
+        .contact__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        .contact__info { flex: 1; }
+        .contact__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5C7A5C;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .contact__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 44px;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 32px;
+            letter-spacing: -1px;
+        }
+        .contact__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .contact__icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(92,122,92,.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact__icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #5C7A5C;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .contact__item-label {
+            font-size: 12px;
+            color: #9B9890;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .contact__item-value {
+            font-size: 15px;
+            color: #3A3A3A;
+            line-height: 1.6;
+        }
+        .contact__form-wrap {
+            flex: 1;
+            background: #F5F3EE;
+            border-radius: 24px;
+            padding: 48px;
+        }
+        .contact__form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 28px;
+        }
+        .form__group {
+            margin-bottom: 20px;
+        }
+        .form__label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6B6B6B;
+            margin-bottom: 8px;
+        }
+        .form__input,
+        .form__textarea,
+        .form__select {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1.5px solid #E0DDD7;
+            border-radius: 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: #3A3A3A;
+            background: #fff;
+            transition: border-color .3s;
+            outline: none;
+        }
+        .form__input:focus,
+        .form__textarea:focus,
+        .form__select:focus { border-color: #5C7A5C; }
+        .form__textarea { resize: vertical; min-height: 100px; }
+        .form__row { display: flex; gap: 16px; }
+        .form__row .form__group { flex: 1; }
+        .form__submit {
+            background: #5C7A5C;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: background .3s, transform .2s;
+            width: 100%;
+            margin-top: 8px;
+        }
+        .form__submit:hover { background: #4A6A4A; transform: translateY(-2px); }
+        .form__success {
+            display: none;
+            background: rgba(92,122,92,.08);
+            border: 1px solid rgba(92,122,92,.2);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            color: #5C7A5C;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #F0EDE8;
+            padding: 60px 0 32px;
+        }
+        .footer__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .footer__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer__brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 12px;
+        }
+        .footer__brand span { color: #5C7A5C; }
+        .footer__tagline {
+            font-size: 14px;
+            color: #9B9890;
+            max-width: 280px;
+        }
+        .footer__links-group h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #3A3A3A;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+        .footer__links-group a {
+            display: block;
+            font-size: 14px;
+            color: #9B9890;
+            margin-bottom: 10px;
+            transition: color .3s;
+        }
+        .footer__links-group a:hover { color: #5C7A5C; }
+        .footer__bottom {
+            border-top: 1px solid #E0DDD7;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer__copy {
+            font-size: 13px;
+            color: #9B9890;
+        }
+        .footer__credit {
+            font-size: 13px;
+            color: #9B9890;
+        }
+        .footer__credit a {
+            color: #5C7A5C;
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero__inner { flex-direction: column; gap: 40px; }
+            .hero__img { flex: none; max-width: 100%; }
+            .hero__img img { height: 400px; }
+            .hero__title { font-size: 44px; }
+            .about__inner { flex-direction: column; gap: 48px; }
+            .about__images { flex: none; max-width: 100%; min-height: 400px; }
+            .menu__grid { grid-template-columns: repeat(2, 1fr); }
+            .features__grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery__masonry { columns: 2; }
+            .contact__inner { flex-direction: column; gap: 48px; }
+            .footer__top { flex-direction: column; }
+        }
+        @media (max-width: 768px) {
+            .nav__links { display: none; }
+            .mobile-toggle { display: block; }
+            .back-bar__label { display: none; }
+            .hero__title { font-size: 36px; }
+            .hero__img img { height: 300px; }
+            .about__title, .menu__title, .gallery__title, .reviews__title, .contact__title { font-size: 34px; }
+            .menu__grid { grid-template-columns: 1fr; }
+            .features__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .feature { padding: 24px 16px; }
+            .gallery__masonry { columns: 2; }
+            .reviews__card-inner { padding: 32px 24px; }
+            .contact__form-wrap { padding: 32px 24px; }
+            .form__row { flex-direction: column; gap: 0; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .hero__title { font-size: 30px; }
+            .hero__btns { flex-direction: column; }
+            .btn-fill, .btn-outline { text-align: center; }
+            .menu__tabs { gap: 6px; }
+            .menu__tab { padding: 8px 16px; font-size: 13px; }
+            .features__grid { grid-template-columns: 1fr; }
+            .gallery__masonry { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== BACK BAR ========== -->
+    <div class="back-bar">
+        <div class="back-bar__inner">
+            <div class="back-bar__left">
+                <a href="index.html" class="back-bar__link">&larr; Zurück zur Übersicht</a>
+                <span class="back-bar__sep">|</span>
+                <span class="back-bar__brand">addus</span>
+                <span class="back-bar__label">Live-Vorschau</span>
+            </div>
+            <a href="https://addus-web.de" class="back-bar__cta" target="_blank" rel="noopener">Website anfragen</a>
+        </div>
+    </div>
+
+    <!-- ========== NAV ========== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">Kaffee<span>blüte</span></a>
+            <div class="nav__links" id="navLinks">
+                <a href="#about">Über uns</a>
+                <a href="#menu">Karte</a>
+                <a href="#gallery">Galerie</a>
+                <a href="#reviews">Bewertungen</a>
+                <a href="#contact" class="nav__cta">Reservieren</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menü öffnen">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-link">Über uns</a>
+        <a href="#menu" class="mobile-link">Karte</a>
+        <a href="#gallery" class="mobile-link">Galerie</a>
+        <a href="#reviews" class="mobile-link">Bewertungen</a>
+        <a href="#contact" class="mobile-link">Reservieren</a>
+    </div>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__img reveal">
+                <img src="https://images.pexels.com/photos/2251756/pexels-photo-2251756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kaffeeblüte Café Innenansicht" loading="eager">
+            </div>
+            <div class="hero__text reveal">
+                <span class="hero__badge">Seit 2019 in Lüneburg</span>
+                <h1 class="hero__title">Kaffeeblüte</h1>
+                <p class="hero__subtitle">Specialty Coffee &amp; Kuchen</p>
+                <p class="hero__desc">Handgerösteter Kaffee, saisonale Kuchen und ein Ort zum Durchatmen — mitten in der Stadt.</p>
+                <div class="hero__btns">
+                    <a href="#menu" class="btn-fill">Unsere Karte</a>
+                    <a href="#contact" class="btn-outline">Platz reservieren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about section" id="about">
+        <div class="about__inner">
+            <div class="about__text reveal">
+                <p class="about__label">Unsere Geschichte</p>
+                <h2 class="about__title">Kaffee ist<br>unsere Kunst</h2>
+                <p class="about__desc">Was als kleine Idee zwischen zwei Freunden begann, ist heute ein Ort, an dem Kaffee mit Leidenschaft geröstet und Kuchen nach Großmutters Art gebacken wird. Jede Woche rösten wir frische Bohnen aus nachhaltigem Anbau in unserer eigenen Micro-Rösterei — in kleinen Chargen, für maximalen Geschmack.</p>
+                <p class="about__desc">Unsere Kuchen und Gebäcke wechseln mit den Jahreszeiten. Vom Rhabarber-Streusel im Frühling bis zur Zimtschnecke im Winter — bei uns schmeckt man, was gerade wächst.</p>
+                <p class="about__stats">12+ Kaffeesorten &middot; Eigene Röstung &middot; 4.9&#9733; Google</p>
+            </div>
+            <div class="about__images reveal">
+                <div class="about__blob"></div>
+                <img class="about__img1" src="https://images.pexels.com/photos/171346/pexels-photo-171346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kaffee zubereiten" loading="lazy">
+                <img class="about__img2" src="https://images.pexels.com/photos/162886/coffee-glass-beverage-coffee-mug-162886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kaffeeglas" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MENU ========== -->
+    <section class="menu section" id="menu">
+        <div class="container">
+            <div class="menu__header reveal">
+                <p class="menu__label">Unsere Karte</p>
+                <h2 class="menu__title">Was darf es sein?</h2>
+            </div>
+            <div class="menu__tabs reveal">
+                <button class="menu__tab active" data-tab="kaffee">Kaffee</button>
+                <button class="menu__tab" data-tab="kuchen">Kuchen &amp; Gebäck</button>
+                <button class="menu__tab" data-tab="fruehstueck">Frühstück</button>
+                <button class="menu__tab" data-tab="kalt">Kalt &amp; Erfrischend</button>
+            </div>
+
+            <!-- Kaffee -->
+            <div class="menu__panel active" id="tab-kaffee">
+                <div class="menu__grid">
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/171346/pexels-photo-171346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Flat White" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Flat White</h3>
+                            <p class="menu__card-desc">Doppelter Espresso mit samtig aufgeschäumter Milch</p>
+                            <span class="menu__card-price">&euro;4,20</span>
+                        </div>
+                    </div>
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/31386559/pexels-photo-31386559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Pour Over" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Pour Over</h3>
+                            <p class="menu__card-desc">Handgefilterter Single-Origin, wechselnde Sorten</p>
+                            <span class="menu__card-price">&euro;4,90</span>
+                        </div>
+                    </div>
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/162886/coffee-glass-beverage-coffee-mug-162886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Cappuccino" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Cappuccino</h3>
+                            <p class="menu__card-desc">Klassisch italienisch mit perfektem Milchschaum</p>
+                            <span class="menu__card-price">&euro;3,80</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kuchen -->
+            <div class="menu__panel" id="tab-kuchen">
+                <div class="menu__grid">
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/29696186/pexels-photo-29696186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Cheesecake" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Cheesecake</h3>
+                            <p class="menu__card-desc">Cremig-mild, mit Vanille und Keksboden</p>
+                            <span class="menu__card-price">&euro;5,20</span>
+                        </div>
+                    </div>
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/32459865/pexels-photo-32459865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Zimtschnecke" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Zimtschnecke</h3>
+                            <p class="menu__card-desc">Frisch gebacken, buttrig und mit Zuckerguss</p>
+                            <span class="menu__card-price">&euro;3,90</span>
+                        </div>
+                    </div>
+                    <div class="menu__card reveal">
+                        <img class="menu__card-img" src="https://images.pexels.com/photos/14363849/pexels-photo-14363849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tarte Citron" loading="lazy">
+                        <div class="menu__card-body">
+                            <h3 class="menu__card-name">Tarte Citron</h3>
+                            <p class="menu__card-desc">Französische Zitronentarte mit Baiser-Haube</p>
+                            <span class="menu__card-price">&euro;5,50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frühstück -->
+            <div class="menu__panel" id="tab-fruehstueck">
+                <div class="menu__grid">
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">Avocado Toast</h3>
+                                <span class="menu__card-price">&euro;9,90</span>
+                            </div>
+                            <p class="menu__card-desc">Sauerteigbrot, Avocado, pochiertes Ei, Chiliflocken, Microgreens</p>
+                        </div>
+                    </div>
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">Granola Bowl</h3>
+                                <span class="menu__card-price">&euro;8,50</span>
+                            </div>
+                            <p class="menu__card-desc">Hausgemachtes Granola, griechischer Joghurt, saisonale Früchte, Honig</p>
+                        </div>
+                    </div>
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">French Toast</h3>
+                                <span class="menu__card-price">&euro;10,90</span>
+                            </div>
+                            <p class="menu__card-desc">Brioche, Ahornsirup, Beeren, Mascarpone, Pistazien</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kalt -->
+            <div class="menu__panel" id="tab-kalt">
+                <div class="menu__grid">
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">Cold Brew</h3>
+                                <span class="menu__card-price">&euro;4,50</span>
+                            </div>
+                            <p class="menu__card-desc">24 Stunden kalt extrahiert, mild und erfrischend</p>
+                        </div>
+                    </div>
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">Matcha Latte</h3>
+                                <span class="menu__card-price">&euro;4,90</span>
+                            </div>
+                            <p class="menu__card-desc">Zeremonie-Matcha aus Japan, Hafermilch, leicht gesüßt</p>
+                        </div>
+                    </div>
+                    <div class="menu__card menu__card--text reveal">
+                        <div class="menu__card-body">
+                            <div class="menu__card-top">
+                                <h3 class="menu__card-name">Hauslimo</h3>
+                                <span class="menu__card-price">&euro;3,90</span>
+                            </div>
+                            <p class="menu__card-desc">Wechselnde Sorten: Ingwer-Zitrone, Rhabarber, Holunderblüte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features" id="features">
+        <div class="features__grid">
+            <div class="feature reveal">
+                <div class="feature__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5C7A5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                </div>
+                <h3 class="feature__title">Eigene Rösterei</h3>
+                <p class="feature__desc">Frisch geröstete Bohnen aus unserer Micro-Rösterei, jede Woche neu</p>
+            </div>
+            <div class="feature reveal">
+                <div class="feature__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5C7A5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </div>
+                <h3 class="feature__title">Hausgemachte Kuchen</h3>
+                <p class="feature__desc">Saisonale Rezepte, täglich frisch gebacken mit regionalen Zutaten</p>
+            </div>
+            <div class="feature reveal">
+                <div class="feature__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5C7A5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3 class="feature__title">Gemütliches Ambiente</h3>
+                <p class="feature__desc">Helles, warmes Interieur — dein zweites Wohnzimmer in der Stadt</p>
+            </div>
+            <div class="feature reveal">
+                <div class="feature__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5C7A5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3 class="feature__title">Coworking-freundlich</h3>
+                <p class="feature__desc">Kostenloses WLAN, Steckdosen überall und ruhige Arbeitsplätze</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY ========== -->
+    <section class="gallery section" id="gallery">
+        <div class="gallery__header reveal">
+            <p class="gallery__label">Einblicke</p>
+            <h2 class="gallery__title">Momente bei uns</h2>
+        </div>
+        <div class="gallery__masonry reveal">
+            <div class="gallery__item">
+                <img src="https://images.pexels.com/photos/2251756/pexels-photo-2251756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café Atmosphäre" loading="lazy" style="height:320px;object-fit:cover;">
+                <span class="gallery__item-label">Unser Café</span>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.pexels.com/photos/29696186/pexels-photo-29696186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kuchen" loading="lazy" style="height:240px;object-fit:cover;">
+                <span class="gallery__item-label">Hausgemacht</span>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.pexels.com/photos/171346/pexels-photo-171346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kaffee zubereiten" loading="lazy" style="height:380px;object-fit:cover;">
+                <span class="gallery__item-label">Specialty Coffee</span>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.pexels.com/photos/31386559/pexels-photo-31386559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Latte Art" loading="lazy" style="height:260px;object-fit:cover;">
+                <span class="gallery__item-label">Latte Art</span>
+            </div>
+            <div class="gallery__item">
+                <img src="https://images.pexels.com/photos/162886/coffee-glass-beverage-coffee-mug-162886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kaffeeglas" loading="lazy" style="height:300px;object-fit:cover;">
+                <span class="gallery__item-label">Handgemacht</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="reviews" id="reviews">
+        <div class="reviews__header reveal">
+            <p class="reviews__label">Bewertungen</p>
+            <h2 class="reviews__title">Was unsere Gäste sagen</h2>
+        </div>
+        <div class="reviews__slider reveal">
+            <div class="reviews__track" id="reviewTrack">
+                <div class="reviews__card">
+                    <div class="reviews__card-inner">
+                        <div class="reviews__quote">&ldquo;</div>
+                        <p class="reviews__text">Der beste Kaffee in der ganzen Stadt. Man schmeckt sofort, dass hier mit Liebe und Wissen geröstet wird. Dazu die Atmosphäre — einfach perfekt.</p>
+                        <p class="reviews__author">Julia M.</p>
+                        <p class="reviews__source">Google Review</p>
+                    </div>
+                </div>
+                <div class="reviews__card">
+                    <div class="reviews__card-inner">
+                        <div class="reviews__quote">&ldquo;</div>
+                        <p class="reviews__text">Kaffeeblüte ist mein zweites Wohnzimmer geworden. Die Zimtschnecken sind unglaublich und das Team ist unglaublich herzlich. Jeden Tag aufs Neue.</p>
+                        <p class="reviews__author">Thomas K.</p>
+                        <p class="reviews__source">Tripadvisor</p>
+                    </div>
+                </div>
+                <div class="reviews__card">
+                    <div class="reviews__card-inner">
+                        <div class="reviews__quote">&ldquo;</div>
+                        <p class="reviews__text">Wir haben unsere Hochzeitstorte hier bestellt und waren überwältigt. So viel Liebe zum Detail und ein Geschmack, der alle Gäste begeistert hat!</p>
+                        <p class="reviews__author">Sarah &amp; Markus</p>
+                        <p class="reviews__source">Google Review</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews__dots" id="reviewDots">
+                <button class="reviews__dot active" data-slide="0" aria-label="Bewertung 1"></button>
+                <button class="reviews__dot" data-slide="1" aria-label="Bewertung 2"></button>
+                <button class="reviews__dot" data-slide="2" aria-label="Bewertung 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="contact section" id="contact">
+        <div class="contact__inner">
+            <div class="contact__info reveal">
+                <p class="contact__label">Kontakt</p>
+                <h2 class="contact__title">Besuche uns</h2>
+                <div class="contact__item">
+                    <div class="contact__icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact__item-label">Adresse</p>
+                        <p class="contact__item-value">Schröderstraße 12<br>21335 Lüneburg</p>
+                    </div>
+                </div>
+                <div class="contact__item">
+                    <div class="contact__icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact__item-label">Telefon</p>
+                        <p class="contact__item-value">04131 / 789 456 0</p>
+                    </div>
+                </div>
+                <div class="contact__item">
+                    <div class="contact__icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact__item-label">Öffnungszeiten</p>
+                        <p class="contact__item-value">Mo — Fr: 8:00 — 18:00<br>Sa — So: 9:00 — 17:00</p>
+                    </div>
+                </div>
+                <div class="contact__item">
+                    <div class="contact__icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <p class="contact__item-label">E-Mail</p>
+                        <p class="contact__item-value">hallo@kaffeebluete.de</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact__form-wrap reveal">
+                <h3 class="contact__form-title">Reservierung senden</h3>
+                <form id="contactForm">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label class="form__label" for="name">Name</label>
+                            <input class="form__input" type="text" id="name" placeholder="Dein Name" required>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label" for="email">E-Mail</label>
+                            <input class="form__input" type="email" id="email" placeholder="deine@email.de" required>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label class="form__label" for="date">Datum</label>
+                            <input class="form__input" type="date" id="date" required>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label" for="time">Uhrzeit</label>
+                            <input class="form__input" type="time" id="time" required>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="guests">Anzahl Gäste</label>
+                        <select class="form__select" id="guests">
+                            <option>1 Person</option>
+                            <option>2 Personen</option>
+                            <option selected>3-4 Personen</option>
+                            <option>5-6 Personen</option>
+                            <option>7+ Personen</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="message">Nachricht (optional)</label>
+                        <textarea class="form__textarea" id="message" placeholder="Besondere Wünsche, Allergien..."></textarea>
+                    </div>
+                    <button type="submit" class="form__submit">Reservierung senden</button>
+                </form>
+                <div class="form__success" id="formSuccess">Vielen Dank! Wir melden uns in Kürze bei dir.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__top">
+                <div>
+                    <div class="footer__brand">Kaffee<span>blüte</span></div>
+                    <p class="footer__tagline">Handgerösteter Specialty Coffee und saisonale Backkunst — dein Ruhepol in Lüneburg.</p>
+                </div>
+                <div class="footer__links-group">
+                    <h4>Navigation</h4>
+                    <a href="#about">Über uns</a>
+                    <a href="#menu">Karte</a>
+                    <a href="#gallery">Galerie</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+                <div class="footer__links-group">
+                    <h4>Rechtliches</h4>
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                    <a href="#">AGB</a>
+                </div>
+                <div class="footer__links-group">
+                    <h4>Social</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; 2026 Kaffeeblüte. Alle Rechte vorbehalten.</p>
+                <p class="footer__credit">Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+    (function() {
+        // --- Mobile menu ---
+        const toggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // --- Nav scroll ---
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // --- Menu tabs ---
+        const tabs = document.querySelectorAll('.menu__tab');
+        const panels = document.querySelectorAll('.menu__panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+                // Re-reveal cards in new panel
+                document.querySelectorAll('.menu__panel.active .reveal:not(.visible)').forEach(el => {
+                    el.classList.add('visible');
+                });
+            });
+        });
+
+        // --- Reviews slider ---
+        const track = document.getElementById('reviewTrack');
+        const dots = document.querySelectorAll('.reviews__dot');
+        let current = 0;
+        const total = dots.length;
+        function goToSlide(i) {
+            current = i;
+            track.style.transform = 'translateX(-' + (i * 100) + '%)';
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        }
+        dots.forEach(d => {
+            d.addEventListener('click', () => goToSlide(parseInt(d.dataset.slide)));
+        });
+        // Auto-advance
+        setInterval(() => {
+            goToSlide((current + 1) % total);
+        }, 5000);
+
+        // --- Scroll reveal ---
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // --- Form simulation ---
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('formSuccess');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.display = 'none';
+            success.style.display = 'block';
+            setTimeout(() => {
+                form.style.display = '';
+                success.style.display = 'none';
+                form.reset();
+            }, 4000);
+        });
+    })();
+    </script>
+</body>
+</html>

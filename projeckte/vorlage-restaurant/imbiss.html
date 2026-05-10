@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Street Bites | Street Food & Grill</title>
+<meta name="description" content="Street Bites - Frisch. Schnell. Unfassbar lecker. Burger, Doener, Wraps und mehr in bester Qualitaet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0D0D0D;--bg2:#161616;--bg3:#1a1a1a;--text:#f0f0f0;--text2:#a0a0a0;--orange:#FF5A1F;--red:#D4451A;--border:#2a2a2a}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-0.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:'Space Grotesk',sans-serif}
+
+/* BACK BAR */
+.back-bar{background:#000;padding:10px 0;position:fixed;top:0;left:0;width:100%;z-index:1000;border-bottom:1px solid #1a1a1a}
+.back-bar .wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.back-bar a.back{color:var(--text2);font-size:0.85rem;display:flex;align-items:center;gap:6px;transition:color .2s}
+.back-bar a.back:hover{color:var(--orange)}
+.back-bar .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text2)}
+.back-bar .cta-bar{background:var(--orange);color:#fff;padding:8px 18px;font-size:0.8rem;font-weight:600;border:none;text-transform:uppercase;letter-spacing:0.05em;transition:background .2s}
+.back-bar .cta-bar:hover{background:var(--red)}
+
+/* NAV */
+.nav{position:fixed;top:41px;left:0;width:100%;background:rgba(13,13,13,0.95);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid var(--border);transition:transform .3s}
+.nav .wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:0.85rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+.nav .order-btn{background:var(--orange);color:#fff;border:none;padding:10px 22px;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;transition:background .2s;box-shadow:0 0 20px rgba(255,90,31,0.3)}
+.nav .order-btn:hover{background:var(--red)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+.nav-links{position:fixed;top:101px;left:0;width:100%;background:rgba(13,13,13,0.98);flex-direction:column;align-items:center;padding:30px 0;gap:20px;transform:translateY(-120%);transition:transform .3s;border-bottom:1px solid var(--border)}
+.nav-links.open{transform:translateY(0)}
+.nav .order-btn{display:none}
+.hamburger{display:flex}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.pexels.com/photos/28760169/pexels-photo-28760169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.88)}
+.hero-grain{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero h1{font-size:clamp(4rem,12vw,10rem);line-height:0.9;margin-bottom:12px;letter-spacing:-0.04em}
+.hero h1 span{color:var(--orange)}
+.hero .subtitle{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--text2);margin-bottom:16px}
+.hero .tagline{font-size:1.3rem;color:var(--text);margin-bottom:40px;font-weight:500}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.btn-fill{background:var(--orange);color:#fff;border:none;padding:16px 36px;font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;transition:all .2s;box-shadow:0 0 30px rgba(255,90,31,0.4)}
+.btn-fill:hover{background:var(--red);box-shadow:0 0 40px rgba(255,90,31,0.6)}
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--text);padding:14px 36px;font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;transition:all .2s}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.hero-strip{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding:20px 0;border-top:1px solid var(--border)}
+.hero-strip .item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text2)}
+.hero-strip .item svg{width:16px;height:16px;fill:var(--orange)}
+
+/* SECTION SHARED */
+.section{padding:100px 20px}
+.section .wrap{max-width:1200px;margin:0 auto}
+.section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:16px;letter-spacing:-0.03em}
+.section-sub{color:var(--text2);font-size:1rem;max-width:500px;margin-bottom:50px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:500px}
+.about-img{overflow:hidden}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-text{background:var(--bg2);border:1px solid var(--border);padding:60px 50px;display:flex;flex-direction:column;justify-content:center}
+.about-text h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:20px;line-height:1.1}
+.about-text h2 span{color:var(--orange)}
+.about-text p{color:var(--text2);margin-bottom:30px;line-height:1.8}
+.stats{display:flex;gap:30px}
+.stat{text-align:center}
+.stat .val{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:var(--orange)}
+.stat .label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2);margin-top:4px}
+@media(max-width:768px){
+.about-grid{grid-template-columns:1fr}
+.about-text{padding:40px 24px}
+}
+
+/* MENU */
+.menu-section{background:var(--bg)}
+.cat-pills{display:flex;gap:10px;margin-bottom:40px;flex-wrap:wrap}
+.cat-pill{background:transparent;border:1px solid var(--border);color:var(--text2);padding:10px 24px;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif}
+.cat-pill:hover,.cat-pill.active{background:var(--orange);border-color:var(--orange);color:#fff}
+.menu-grid{display:flex;flex-direction:column;gap:16px}
+.menu-card{display:flex;background:var(--bg2);border:1px solid var(--border);overflow:hidden;transition:border-color .3s}
+.menu-card:hover{border-color:var(--orange)}
+.menu-card-img{width:220px;min-height:160px;flex-shrink:0;overflow:hidden}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.menu-card:hover .menu-card-img img{transform:scale(1.05)}
+.menu-card-body{padding:24px 28px;display:flex;flex-direction:column;justify-content:center;flex:1}
+.menu-card-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.menu-card-body h3{font-size:1.15rem;letter-spacing:0}
+.badge{background:var(--orange);color:#fff;font-size:0.65rem;padding:3px 8px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em}
+.badge.hot{background:var(--red)}
+.menu-card-body p{color:var(--text2);font-size:0.85rem;margin-bottom:12px;line-height:1.5}
+.menu-card-price{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;color:var(--orange)}
+.menu-cat{display:none}
+.menu-cat.active{display:flex;flex-direction:column;gap:16px}
+.menu-card.text-only{padding:24px 28px}
+.menu-card.text-only .menu-card-body{padding:0}
+@media(max-width:768px){
+.menu-card{flex-direction:column}
+.menu-card-img{width:100%;min-height:180px}
+}
+
+/* QUOTE */
+.quote-section{background:linear-gradient(135deg,var(--red),var(--orange));padding:80px 20px;text-align:center}
+.quote-section blockquote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;max-width:700px;margin:0 auto 16px;line-height:1.3;color:#fff}
+.quote-section cite{font-style:normal;font-size:1rem;color:rgba(255,255,255,0.8)}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:12px}
+.gallery-grid .gi{overflow:hidden;border:2px solid transparent;transition:all .3s}
+.gallery-grid .gi:hover{border-color:var(--orange);box-shadow:0 0 20px rgba(255,90,31,0.3)}
+.gallery-grid .gi img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-grid .gi:hover img{transform:scale(1.06)}
+.gallery-grid .gi:nth-child(1){grid-column:1/3;grid-row:1/3}
+.gallery-grid .gi:nth-child(2){grid-column:3/4;grid-row:1/2}
+.gallery-grid .gi:nth-child(3){grid-column:4/5;grid-row:1/2}
+.gallery-grid .gi:nth-child(4){grid-column:3/4;grid-row:2/3}
+.gallery-grid .gi:nth-child(5){grid-column:4/5;grid-row:2/3}
+@media(max-width:768px){
+.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+.gallery-grid .gi:nth-child(1){grid-column:1/3}
+.gallery-grid .gi{min-height:200px}
+}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--orange);padding:30px 28px}
+.review-stars{color:var(--orange);font-size:1rem;margin-bottom:12px;letter-spacing:2px}
+.review-card p{color:var(--text2);font-size:0.9rem;line-height:1.7;margin-bottom:16px}
+.review-card .author{display:flex;align-items:center;justify-content:space-between}
+.review-card .author strong{font-size:0.9rem}
+.review-card .author .src{font-size:0.7rem;color:var(--text2);background:var(--bg3);padding:4px 10px;text-transform:uppercase;letter-spacing:0.08em}
+@media(max-width:768px){.reviews-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info h2{margin-bottom:24px}
+.contact-info .info-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;color:var(--text2);font-size:0.95rem}
+.contact-info .info-row svg{width:20px;height:20px;fill:var(--orange);flex-shrink:0;margin-top:2px}
+.contact-info .info-row strong{color:var(--text);display:block;margin-bottom:2px}
+.contact-socials{display:flex;gap:14px;margin-top:30px}
+.contact-socials a{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.contact-socials a:hover{border-color:var(--orange);background:var(--orange)}
+.contact-socials a svg{width:18px;height:18px;fill:var(--text)}
+.contact-form{background:var(--bg2);border:1px solid var(--border);padding:40px}
+.contact-form h3{margin-bottom:24px;font-size:1.2rem}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text2);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:12px 14px;font-size:0.95rem;font-family:'Inter',sans-serif;transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23a0a0a0' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-submit{background:var(--orange);color:#fff;border:none;padding:14px 36px;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;width:100%;transition:all .2s;box-shadow:0 0 20px rgba(255,90,31,0.3)}
+.form-submit:hover{background:var(--red)}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed}
+.form-success{display:none;background:rgba(255,90,31,0.1);border:1px solid var(--orange);padding:20px;text-align:center;margin-top:16px;color:var(--orange);font-weight:600}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.contact-form{padding:24px}}
+
+/* FOOTER */
+footer{background:#000;border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+footer .wrap{max-width:1200px;margin:0 auto}
+footer .f-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;color:var(--orange);margin-bottom:8px}
+footer .f-info{color:var(--text2);font-size:0.85rem;margin-bottom:6px}
+footer .f-credit{color:var(--text2);font-size:0.75rem;margin-top:20px}
+footer .f-credit a{color:var(--orange);text-decoration:underline}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* SCANLINE OVERLAY */
+.scanlines::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px)}
+
+@media(max-width:480px){
+.hero h1{font-size:3.2rem}
+.hero-strip{flex-direction:column;align-items:center;gap:12px}
+.stats{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body class="scanlines">
+
+<!-- BACK BAR -->
+<div class="back-bar">
+<div class="wrap">
+<a href="index.html" class="back"><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1L4 8l7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg> Zur&uuml;ck zur &Uuml;bersicht</a>
+<span class="brand">addus</span>
+<a href="https://addus-web.de" class="cta-bar">Website anfragen</a>
+</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="wrap">
+<a href="#" class="logo">STREET BITES</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Karte</a></li>
+<li><a href="#gallery">Galerie</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+<a href="#contact" class="order-btn">Bestellen</a>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-grain"></div>
+<div class="hero-content reveal">
+<p class="subtitle">Street Food &amp; Grill</p>
+<h1>STREET<br><span>BITES</span></h1>
+<p class="tagline">Frisch. Schnell. Unfassbar lecker.</p>
+<div class="hero-ctas">
+<a href="#menu" class="btn-fill">Karte checken</a>
+<a href="#contact" class="btn-outline">Jetzt bestellen</a>
+</div>
+<div class="hero-strip">
+<div class="item"><svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.5a6.5 6.5 0 110-13 6.5 6.5 0 010 13zM8.5 4h-1v4.3l3.6 2.1.5-.8L8.5 7.8V4z"/></svg> Mo-Sa 11:00 - 22:00</div>
+<div class="item"><svg viewBox="0 0 16 16"><path d="M8 0C5 0 2.4 2.6 2.4 5.7 2.4 10 8 16 8 16s5.6-6 5.6-10.3C13.6 2.6 11 0 8 0zm0 7.7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg> Hauptstr. 42, 21335 L&uuml;neburg</div>
+<div class="item"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg> 4.8 / 5 (320+ Bewertungen)</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="about-grid reveal">
+<div class="about-img">
+<img src="https://images.pexels.com/photos/28760171/pexels-photo-28760171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Street Bites Kueche" loading="lazy" width="600" height="500">
+</div>
+<div class="about-text">
+<h2>Kein Fastfood.<br><span>Real Food. Fast.</span></h2>
+<p>Wir machen alles frisch &mdash; jeden Tag. Unsere Burger werden von Hand geformt, unser D&ouml;nerfleisch t&auml;glich aufgeschnitten, unsere Saucen selbst gemacht. Keine Tiefk&uuml;hlware, keine Kompromisse. Nur ehrliches Essen, das schnell auf den Teller kommt.</p>
+<div class="stats">
+<div class="stat"><div class="val">100%</div><div class="label">Frisch</div></div>
+<div class="stat"><div class="val">15+</div><div class="label">Burger</div></div>
+<div class="stat"><div class="val">8k+</div><div class="label">Reviews</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MENU -->
+<section class="section menu-section" id="menu">
+<div class="wrap">
+<h2 class="section-title reveal">UNSERE KARTE</h2>
+<p class="section-sub reveal">Alles frisch, alles handgemacht. W&auml;hl deine Kategorie.</p>
+
+<div class="cat-pills reveal">
+<button class="cat-pill active" data-cat="burger">Burger</button>
+<button class="cat-pill" data-cat="doener">D&ouml;ner &amp; Wraps</button>
+<button class="cat-pill" data-cat="sides">Sides</button>
+<button class="cat-pill" data-cat="drinks">Drinks</button>
+</div>
+
+<!-- BURGER -->
+<div class="menu-cat active" data-cat="burger">
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/28760169/pexels-photo-28760169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Classic Smash Burger" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Classic Smash</h3><span class="badge">Bestseller</span></div>
+<p>Double Smash Patty, Cheddar, Pickles, Sauce, Brioche Bun</p>
+<div class="menu-card-price">&euro;7,90</div>
+</div>
+</div>
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/28760172/pexels-photo-28760172.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="BBQ Bacon Burger" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>BBQ Bacon</h3><span class="badge hot">Scharf</span></div>
+<p>Smoky BBQ Sauce, knuspriger Bacon, Jalape&ntilde;os, Onion Rings</p>
+<div class="menu-card-price">&euro;9,90</div>
+</div>
+</div>
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/28760164/pexels-photo-28760164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Veggie Crunch Burger" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Veggie Crunch</h3></div>
+<p>Knuspriges Gem&uuml;se-Patty, Avocado, Sriracha Mayo, Salat</p>
+<div class="menu-card-price">&euro;8,50</div>
+</div>
+</div>
+</div>
+
+<!-- DOENER -->
+<div class="menu-cat" data-cat="doener">
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/32801356/pexels-photo-32801356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Doener Classic" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>D&ouml;ner Classic</h3><span class="badge">Bestseller</span></div>
+<p>Frisches D&ouml;nerfleisch, Salat, Tomaten, Zwiebeln, Hausdressing</p>
+<div class="menu-card-price">&euro;6,90</div>
+</div>
+</div>
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/32801357/pexels-photo-32801357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Chicken Wrap" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Chicken Wrap</h3></div>
+<p>Gegrilltes H&auml;hnchen, Hummus, gegrilltes Gem&uuml;se, Minz-Joghurt</p>
+<div class="menu-card-price">&euro;7,50</div>
+</div>
+</div>
+<div class="menu-card reveal">
+<div class="menu-card-img"><img src="https://images.pexels.com/photos/27668672/pexels-photo-27668672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Falafel Teller" loading="lazy" width="220" height="160"></div>
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Falafel Teller</h3></div>
+<p>Hausgemachte Falafel, Tabouleh, Hummus, Fladenbrot, Tahini</p>
+<div class="menu-card-price">&euro;8,90</div>
+</div>
+</div>
+</div>
+
+<!-- SIDES -->
+<div class="menu-cat" data-cat="sides">
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Handcut Pommes</h3></div>
+<p>Frische Kartoffeln, knusprig frittiert, mit Meersalz</p>
+<div class="menu-card-price">&euro;3,90</div>
+</div>
+</div>
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Loaded Fries</h3><span class="badge">Bestseller</span></div>
+<p>Pommes mit Cheddar, Jalape&ntilde;os, Bacon Bits, Sour Cream</p>
+<div class="menu-card-price">&euro;6,50</div>
+</div>
+</div>
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Chicken Wings</h3><span class="badge hot">Scharf</span></div>
+<p>6 St&uuml;ck, Buffalo oder BBQ, mit Ranch Dip</p>
+<div class="menu-card-price">&euro;7,90</div>
+</div>
+</div>
+</div>
+
+<!-- DRINKS -->
+<div class="menu-cat" data-cat="drinks">
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Hausgemachte Limo</h3></div>
+<p>Zitrone-Minze oder Mango-Maracuja, frisch zubereitet</p>
+<div class="menu-card-price">&euro;3,50</div>
+</div>
+</div>
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Craft Beer</h3></div>
+<p>Wechselnde Auswahl lokaler Brauereien, 0.33l</p>
+<div class="menu-card-price">&euro;4,50</div>
+</div>
+</div>
+<div class="menu-card text-only reveal">
+<div class="menu-card-body">
+<div class="menu-card-top"><h3>Ayran</h3></div>
+<p>Traditionell, haus&shy;gemacht, sch&ouml;n kalt</p>
+<div class="menu-card-price">&euro;2,50</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+<div class="reveal">
+<blockquote>&bdquo;Gutes Essen muss nicht teuer sein &mdash; aber mit Liebe gemacht.&ldquo;</blockquote>
+<cite>&mdash; Ali, Gr&uuml;nder</cite>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+<div class="wrap">
+<h2 class="section-title reveal">GALERIE</h2>
+<p class="section-sub reveal">Eindr&uuml;cke aus unserer K&uuml;che und dem Laden.</p>
+<div class="gallery-grid reveal">
+<div class="gi"><img src="https://images.pexels.com/photos/28760169/pexels-photo-28760169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Street Bites Burger" loading="lazy"></div>
+<div class="gi"><img src="https://images.pexels.com/photos/32801356/pexels-photo-32801356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Doener" loading="lazy"></div>
+<div class="gi"><img src="https://images.pexels.com/photos/28760172/pexels-photo-28760172.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="BBQ Burger" loading="lazy"></div>
+<div class="gi"><img src="https://images.pexels.com/photos/27668672/pexels-photo-27668672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Falafel" loading="lazy"></div>
+<div class="gi"><img src="https://images.pexels.com/photos/28760164/pexels-photo-28760164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Veggie Burger" loading="lazy"></div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="background:var(--bg2)">
+<div class="wrap">
+<h2 class="section-title reveal">WAS UNSERE KUNDEN SAGEN</h2>
+<p class="section-sub reveal">Echte Bewertungen, echte Leute.</p>
+<div class="reviews-grid reveal">
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Bester Smash Burger in L&uuml;neburg, absolut kein Vergleich. Brioche Bun perfekt, Fleisch saftig. Komme jede Woche!&ldquo;</p>
+<div class="author"><strong>Markus T.</strong><span class="src">Google</span></div>
+</div>
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Super schnell, super freundlich. In 5 Minuten war mein D&ouml;ner fertig und er war einfach der Hammer. Preis-Leistung top!&ldquo;</p>
+<div class="author"><strong>Lena S.</strong><span class="src">Google</span></div>
+</div>
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p>&bdquo;Die Loaded Fries sind eine Sucht. Cheddar, Jalape&ntilde;os, Bacon &mdash; das perfekte Comfort Food. Bitte nie &auml;ndern!&ldquo;</p>
+<div class="author"><strong>Tom K.</strong><span class="src">Google</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+<div class="wrap">
+<div class="contact-grid reveal">
+<div class="contact-info">
+<h2 class="section-title">BESTELL &amp; KONTAKT</h2>
+<div class="info-row">
+<svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.5a6.5 6.5 0 110-13 6.5 6.5 0 010 13zM8.5 4h-1v4.3l3.6 2.1.5-.8L8.5 7.8V4z"/></svg>
+<div><strong>&Ouml;ffnungszeiten</strong>Mo &ndash; Sa: 11:00 &ndash; 22:00 Uhr<br>So: 12:00 &ndash; 21:00 Uhr</div>
+</div>
+<div class="info-row">
+<svg viewBox="0 0 16 16"><path d="M13.6 10.3l-2.5-1.1a.8.8 0 00-.9.2l-1.1 1.4a12.3 12.3 0 01-4-4l1.4-1.1a.8.8 0 00.2-.9L5.7 2.4a.8.8 0 00-.8-.5l-2.5.5A.8.8 0 002 3.2 13.8 13.8 0 0012.8 14a.8.8 0 00.8-.4l.5-2.5a.8.8 0 00-.5-.8z"/></svg>
+<div><strong>Telefon</strong>04131 / 123 456 7</div>
+</div>
+<div class="info-row">
+<svg viewBox="0 0 16 16"><path d="M8 0C5 0 2.4 2.6 2.4 5.7 2.4 10 8 16 8 16s5.6-6 5.6-10.3C13.6 2.6 11 0 8 0zm0 7.7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+<div><strong>Adresse</strong>Hauptstr. 42<br>21335 L&uuml;neburg</div>
+</div>
+<div class="contact-socials">
+<a href="#" aria-label="Instagram"><svg viewBox="0 0 16 16"><path d="M8 1.4c2.2 0 2.4 0 3.3.1.8 0 1.2.2 1.5.3.4.1.6.3.9.6s.4.5.6.9c.1.3.2.7.3 1.5 0 .9.1 1.1.1 3.3s0 2.4-.1 3.3c0 .8-.2 1.2-.3 1.5-.1.4-.3.6-.6.9s-.5.4-.9.6c-.3.1-.7.2-1.5.3-.9 0-1.1.1-3.3.1s-2.4 0-3.3-.1c-.8 0-1.2-.2-1.5-.3-.4-.1-.6-.3-.9-.6s-.4-.5-.6-.9c-.1-.3-.2-.7-.3-1.5 0-.9-.1-1.1-.1-3.3s0-2.4.1-3.3c0-.8.2-1.2.3-1.5.1-.4.3-.6.6-.9s.5-.4.9-.6c.3-.1.7-.2 1.5-.3.9 0 1.1-.1 3.3-.1M8 0C5.7 0 5.5 0 4.6.1 3.7.1 3.1.3 2.6.5c-.5.2-1 .5-1.4.9S.7 2.1.5 2.6c-.2.5-.4 1.1-.4 2C0 5.5 0 5.7 0 8s0 2.5.1 3.4c0 .9.2 1.5.4 2 .2.5.5 1 .9 1.4s.9.7 1.4.9c.5.2 1.1.4 2 .4.9 0 1.1.1 3.4.1s2.5 0 3.4-.1c.9 0 1.5-.2 2-.4.5-.2 1-.5 1.4-.9s.7-.9.9-1.4c.2-.5.4-1.1.4-2 0-.9.1-1.1.1-3.4s0-2.5-.1-3.4c0-.9-.2-1.5-.4-2-.2-.5-.5-1-.9-1.4S13.9.7 13.4.5c-.5-.2-1.1-.4-2-.4C10.5 0 10.3 0 8 0zm0 3.9a4.1 4.1 0 100 8.2 4.1 4.1 0 000-8.2zM8 10.7a2.7 2.7 0 110-5.4 2.7 2.7 0 010 5.4zm4.3-7a1 1 0 100 2 1 1 0 000-2z"/></svg></a>
+<a href="#" aria-label="TikTok"><svg viewBox="0 0 16 16"><path d="M11.8 0h-2.4v10.9c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3 1-2.3 2.3-2.3c.2 0 .5 0 .7.1V6.2c-.2 0-.5-.1-.7-.1C4.3 6.1 2 8.4 2 11.2S4.3 16 7.1 16s5.1-2.3 5.1-5.1V5c1 .7 2.2 1.1 3.5 1.1V3.6c-2.6-.1-3.9-1.5-3.9-3.6z"/></svg></a>
+<a href="#" aria-label="Facebook"><svg viewBox="0 0 16 16"><path d="M9.5 5.5V4c0-.6.4-1 1-1H11V0H9.5C7.6 0 6 1.6 6 3.5V5.5H4V9h2v7h3.5V9H11l.5-3.5H9.5z"/></svg></a>
+</div>
+</div>
+<div class="contact-form">
+<h3>JETZT VORBESTELLEN</h3>
+<form id="orderForm">
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" required placeholder="Dein Name">
+</div>
+<div class="form-group">
+<label for="phone">Telefon</label>
+<input type="tel" id="phone" required placeholder="0151 / ...">
+</div>
+<div class="form-group">
+<label for="pickup">Abholzeit</label>
+<select id="pickup" required>
+<option value="">Bitte w&auml;hlen</option>
+<option>In 15 Minuten</option>
+<option>In 30 Minuten</option>
+<option>In 45 Minuten</option>
+<option>In 60 Minuten</option>
+</select>
+</div>
+<div class="form-group">
+<label for="order">Bestellung</label>
+<textarea id="order" required placeholder="z.B. 2x Classic Smash, 1x Loaded Fries..."></textarea>
+</div>
+<button type="submit" class="form-submit">Bestellung aufgeben</button>
+</form>
+<div class="form-success" id="formSuccess">Bestellung eingegangen! Wir melden uns bei dir.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="wrap">
+<div class="f-name">STREET BITES</div>
+<div class="f-info">Mo &ndash; Sa: 11:00 &ndash; 22:00 | So: 12:00 &ndash; 21:00</div>
+<div class="f-info">04131 / 123 456 7</div>
+<div class="f-credit">Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a></div>
+</div>
+</footer>
+
+<script>
+// Hamburger toggle
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
+
+// Menu tabs
+document.querySelectorAll('.cat-pill').forEach(pill=>{
+pill.addEventListener('click',()=>{
+document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+pill.classList.add('active');
+const cat=pill.dataset.cat;
+document.querySelectorAll('.menu-cat').forEach(c=>{c.classList.remove('active');if(c.dataset.cat===cat)c.classList.add('active')});
+// re-trigger reveal for newly visible cards
+document.querySelectorAll('.menu-cat.active .reveal').forEach(el=>{el.classList.add('visible')});
+})});
+
+// Scroll reveal
+const revealEls=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+
+// Form submit
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+const btn=this.querySelector('.form-submit');
+btn.disabled=true;btn.textContent='Wird gesendet...';
+setTimeout(()=>{this.style.display='none';document.getElementById('formSuccess').style.display='block'},1500);
+});
+</script>
+</body>
+</html>

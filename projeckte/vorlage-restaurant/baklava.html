@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zum Goldenen — Feinste orientalische Süßwaren | addus Vorlage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FDF6E9;
+            color: #2A1F0F;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        /* ===== REPEATING PATTERN BG ===== */
+        .pattern-bg {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(201,169,110,0.06) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(201,169,110,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .pattern-bg-dense {
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(201,169,110,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 0% 0%, rgba(201,169,110,0.04) 1px, transparent 1px);
+            background-size: 24px 24px, 12px 12px;
+        }
+
+        /* ===== ORNAMENTAL DIVIDERS ===== */
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 28px auto;
+            width: fit-content;
+        }
+        .ornament::before, .ornament::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+        }
+        .ornament__diamond {
+            width: 10px;
+            height: 10px;
+            background: #C9A96E;
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+        .ornament--wide::before, .ornament--wide::after { width: 100px; }
+        .ornament--small { gap: 10px; margin: 18px auto; }
+        .ornament--small::before, .ornament--small::after { width: 36px; }
+        .ornament--small .ornament__diamond { width: 7px; height: 7px; }
+
+        .ornament-line {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+            margin: 20px auto;
+        }
+
+        .ornament-frame {
+            position: relative;
+            padding: 16px 32px;
+            display: inline-block;
+        }
+        .ornament-frame::before, .ornament-frame::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-color: #C9A96E;
+            border-style: solid;
+        }
+        .ornament-frame::before {
+            top: 0; left: 0;
+            border-width: 2px 0 0 2px;
+        }
+        .ornament-frame::after {
+            bottom: 0; right: 0;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: #2A1F0F;
+            letter-spacing: 2px;
+        }
+        .section-title p {
+            color: #6B5D4A;
+            font-size: 1.05rem;
+            margin-top: 10px;
+        }
+
+        /* ===== BACK BAR ===== */
+        .back-bar {
+            background: #1A1608;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .back-bar__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-bar__left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .back-bar__link {
+            color: #C9A96E;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .back-bar__link:hover { color: #D4A843; }
+        .back-bar__brand {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        .back-bar__sep {
+            color: #4A3F2E;
+            margin: 0 4px;
+        }
+        .back-bar__label {
+            color: #8A7D6B;
+            font-size: 0.8rem;
+        }
+        .back-bar__cta {
+            background: #C9A96E;
+            color: #1A1608;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .back-bar__cta:hover { background: #D4A843; }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 24px 80px;
+            background: url('https://images.pexels.com/photos/33317234/pexels-photo-33317234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center/cover no-repeat;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 20, 5, 0.65);
+        }
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        /* Ornamental corner frame */
+        .hero__frame {
+            position: relative;
+            padding: 60px 40px;
+        }
+        .hero__frame::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid rgba(201,169,110,0.35);
+            pointer-events: none;
+        }
+        .hero__corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+        }
+        .hero__corner::before, .hero__corner::after {
+            content: '';
+            position: absolute;
+            background: #C9A96E;
+        }
+        .hero__corner--tl { top: -4px; left: -4px; }
+        .hero__corner--tl::before { top: 0; left: 0; width: 40px; height: 2px; }
+        .hero__corner--tl::after { top: 0; left: 0; width: 2px; height: 40px; }
+        .hero__corner--tr { top: -4px; right: -4px; }
+        .hero__corner--tr::before { top: 0; right: 0; width: 40px; height: 2px; }
+        .hero__corner--tr::after { top: 0; right: 0; width: 2px; height: 40px; }
+        .hero__corner--bl { bottom: -4px; left: -4px; }
+        .hero__corner--bl::before { bottom: 0; left: 0; width: 40px; height: 2px; }
+        .hero__corner--bl::after { bottom: 0; left: 0; width: 2px; height: 40px; }
+        .hero__corner--br { bottom: -4px; right: -4px; }
+        .hero__corner--br::before { bottom: 0; right: 0; width: 40px; height: 2px; }
+        .hero__corner--br::after { bottom: 0; right: 0; width: 2px; height: 40px; }
+
+        .hero__badge {
+            font-size: 0.85rem;
+            color: #C9A96E;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        .hero h1 {
+            font-size: clamp(2.6rem, 7vw, 4.5rem);
+            color: #fff;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero__subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #C9A96E;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+        .hero__tagline {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            margin-bottom: 36px;
+        }
+        .hero__ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            background: #C9A96E;
+            color: #1A1608;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid #C9A96E;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-gold:hover { background: #D4A843; border-color: #D4A843; }
+        .btn-gold-outline {
+            background: transparent;
+            color: #C9A96E;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid #C9A96E;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-gold-outline:hover { background: rgba(201,169,110,0.15); }
+
+        .hero__bottom-ornament {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .about__images {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            height: 400px;
+        }
+        .about__img {
+            position: absolute;
+            border: 8px solid #C9A96E;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(42,31,15,0.2);
+        }
+        .about__img--left {
+            width: 55%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .about__img--right {
+            width: 50%;
+            top: 80px;
+            right: 0;
+            z-index: 1;
+        }
+        .about__img img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .about__text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .about__text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 8px;
+        }
+        .about__text p {
+            color: #5A4E3A;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+        .about__stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .about__stat {
+            text-align: center;
+        }
+        .about__stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #C9A96E;
+            font-weight: 700;
+        }
+        .about__stat-label {
+            font-size: 0.88rem;
+            color: #6B5D4A;
+            margin-top: 4px;
+        }
+        .about__stat-sep {
+            width: 4px;
+            height: 4px;
+            background: #C9A96E;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ===== SPECIALTIES ===== */
+        .specialties {
+            padding: 100px 24px;
+        }
+        .specialties__tabs {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        .specialties__tab {
+            background: none;
+            border: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #6B5D4A;
+            cursor: pointer;
+            padding: 8px 4px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .specialties__tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C9A96E;
+            transition: width 0.3s;
+        }
+        .specialties__tab.active { color: #C9A96E; }
+        .specialties__tab.active::after { width: 100%; }
+        .specialties__tab:hover { color: #C9A96E; }
+
+        .specialties__grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .specialties__grid.active { display: grid; }
+
+        .product-card {
+            background: #FFFCF5;
+            border-radius: 14px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 28px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(42,31,15,0.06);
+        }
+        .product-card:hover {
+            border-color: #C9A96E;
+            box-shadow: 0 8px 30px rgba(201,169,110,0.15);
+            transform: translateY(-4px);
+        }
+        .product-card__img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .product-card__body { padding: 24px 20px 0; }
+        .product-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            color: #2A1F0F;
+        }
+        .product-card__desc {
+            font-size: 0.88rem;
+            color: #6B5D4A;
+            margin-bottom: 12px;
+        }
+        .product-card__price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #C9A96E;
+            font-weight: 700;
+        }
+
+        /* Text-only card */
+        .product-card--text {
+            padding: 36px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+        }
+        .product-card--text .ornament-line { margin: 14px auto; }
+
+        /* ===== QUOTE ===== */
+        .quote-section {
+            background: #2A1F0F;
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+        }
+        .quote-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+        }
+        .quote-section__inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .quote-section__mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            color: rgba(201,169,110,0.2);
+            position: absolute;
+            line-height: 1;
+        }
+        .quote-section__mark--open { top: -40px; left: -20px; }
+        .quote-section__mark--close { bottom: -80px; right: -20px; }
+        .quote-section blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: #F5ECD9;
+            font-style: italic;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        .quote-section cite {
+            display: block;
+            margin-top: 24px;
+            color: #C9A96E;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-style: normal;
+            letter-spacing: 2px;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            padding: 100px 24px;
+        }
+        .gallery__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery__item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 3px solid #C9A96E;
+            box-shadow: 0 4px 16px rgba(42,31,15,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .gallery__item:hover {
+            box-shadow: 0 4px 30px rgba(201,169,110,0.35);
+            transform: scale(1.02);
+        }
+        .gallery__item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery__item:hover img { transform: scale(1.08); }
+        .gallery__caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(transparent, rgba(26,22,8,0.85));
+            color: #F5ECD9;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .gallery__item:hover .gallery__caption { transform: translateY(0); }
+
+        /* ===== REVIEWS ===== */
+        .reviews {
+            padding: 100px 24px;
+            text-align: center;
+        }
+        .reviews__slider {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 260px;
+        }
+        .review {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .review.active { display: flex; }
+        .review__quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: #C9A96E;
+            line-height: 1;
+            margin-bottom: -10px;
+        }
+        .review__text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #3A2F1E;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .review__stars {
+            color: #C9A96E;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
+        }
+        .review__name {
+            font-weight: 600;
+            color: #2A1F0F;
+            font-size: 0.95rem;
+        }
+        .reviews__dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 32px;
+        }
+        .reviews__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D9CEB8;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .reviews__dot.active { background: #C9A96E; }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 24px;
+        }
+        .contact__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact__info {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .contact__item {
+            text-align: center;
+        }
+        .contact__icon {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            display: block;
+            color: #C9A96E;
+        }
+        .contact__label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #2A1F0F;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .contact__value {
+            font-size: 0.9rem;
+            color: #6B5D4A;
+            line-height: 1.6;
+        }
+        .contact__form {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .contact__form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        .contact__form-group label {
+            display: block;
+            font-size: 0.88rem;
+            color: #6B5D4A;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .contact__form-group input,
+        .contact__form-group textarea,
+        .contact__form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #D9CEB8;
+            border-radius: 10px;
+            background: #FFFCF5;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #2A1F0F;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        .contact__form-group input:focus,
+        .contact__form-group textarea:focus,
+        .contact__form-group select:focus {
+            border-color: #C9A96E;
+        }
+        .contact__form-group textarea { resize: vertical; min-height: 100px; }
+        .contact__form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .contact__submit {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1A1608;
+            padding: 60px 24px 30px;
+            text-align: center;
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+        }
+        .footer__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #C9A96E;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .footer__info {
+            color: #8A7D6B;
+            font-size: 0.88rem;
+            line-height: 2;
+            margin-bottom: 24px;
+        }
+        .footer__credit {
+            color: #5A4E3A;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(201,169,110,0.15);
+            padding-top: 20px;
+        }
+        .footer__credit a {
+            color: #C9A96E;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .footer__credit a:hover { color: #D4A843; }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+        }
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #C9A96E;
+            transition: all 0.3s;
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 42px;
+            left: 0;
+            right: 0;
+            background: #1A1608;
+            padding: 24px;
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid rgba(201,169,110,0.2);
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            color: #F5ECD9;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .mobile-nav a:hover { color: #C9A96E; }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== FORM SUCCESS ===== */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .form-success__icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .form-success h3 {
+            font-size: 1.4rem;
+            color: #2A1F0F;
+            margin-bottom: 8px;
+        }
+        .form-success p {
+            color: #6B5D4A;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .back-bar__label { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero__frame { padding: 40px 20px; }
+            .hero h1 { letter-spacing: 6px; }
+            .about__images { height: 320px; }
+            .about__img--left { width: 60%; }
+            .about__img--right { width: 55%; top: 60px; }
+            .about__img img { height: 220px; }
+            .about__stats { gap: 20px; }
+            .specialties__tabs { gap: 16px; }
+            .specialties__tab { font-size: 0.95rem; }
+            .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+            .contact__form-row { grid-template-columns: 1fr; }
+            .contact__info { gap: 28px; }
+            .quote-section__mark { font-size: 5rem; }
+        }
+        @media (max-width: 480px) {
+            .back-bar__cta { padding: 5px 12px; font-size: 0.75rem; }
+            .about__images { height: 280px; }
+            .about__img img { height: 180px; }
+            .gallery__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .gallery__item img { height: 180px; }
+            .hero__ctas { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== BACK BAR ========== -->
+    <div class="back-bar">
+        <div class="back-bar__inner">
+            <div class="back-bar__left">
+                <a href="index.html" class="back-bar__link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+                <span class="back-bar__sep">|</span>
+                <span class="back-bar__brand">addus</span>
+                <span class="back-bar__label">Live-Vorschau</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="https://addus-web.de" class="back-bar__cta" target="_blank" rel="noopener">Website anfragen</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#about">Über uns</a>
+        <a href="#specialties">Spezialitäten</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#reviews">Bewertungen</a>
+        <a href="#contact">Bestellen</a>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            <div class="hero__frame">
+                <span class="hero__corner hero__corner--tl"></span>
+                <span class="hero__corner hero__corner--tr"></span>
+                <span class="hero__corner hero__corner--bl"></span>
+                <span class="hero__corner hero__corner--br"></span>
+                <p class="hero__badge">Orientalische Patisserie</p>
+                <h1>Zum Goldenen</h1>
+                <p class="hero__subtitle">Feinste orientalische S&uuml;&szlig;waren</p>
+                <p class="hero__tagline">Handgemachte Baklava &amp; Patisserie &mdash; seit 3 Generationen</p>
+                <div class="hero__ctas">
+                    <a href="#specialties" class="btn-gold">Unsere S&uuml;&szlig;waren</a>
+                    <a href="#contact" class="btn-gold-outline">Geschenkbox bestellen</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero__bottom-ornament">
+            <div class="ornament">
+                <span class="ornament__diamond"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about pattern-bg" id="about">
+        <div class="about__images reveal">
+            <div class="about__img about__img--left">
+                <img src="https://images.pexels.com/photos/8635161/pexels-photo-8635161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Handgemachte orientalische Süßwaren" loading="lazy">
+            </div>
+            <div class="about__img about__img--right">
+                <img src="https://images.pexels.com/photos/10038707/pexels-photo-10038707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Traditionelle Baklava Herstellung" loading="lazy">
+            </div>
+        </div>
+        <div class="about__text reveal">
+            <h2>S&uuml;&szlig;e Kunst seit Generationen</h2>
+            <div class="ornament ornament--small">
+                <span class="ornament__diamond"></span>
+            </div>
+            <p>Unsere Familie bringt seit drei Generationen die Kunst der orientalischen Patisserie nach Deutschland. Jedes St&uuml;ck wird von Hand gefertigt &mdash; mit echten iranischen Pistazien, feinstem Butterschmalz und hauchdünnem Yufka-Teig. Keine k&uuml;nstlichen Aromen, keine Konservierungsstoffe. Nur Geduld, Liebe und Familienrezepte, die seit &uuml;ber 80 Jahren weitergegeben werden.</p>
+        </div>
+        <div class="about__stats reveal">
+            <div class="about__stat">
+                <div class="about__stat-value">100%</div>
+                <div class="about__stat-label">Handgemacht</div>
+            </div>
+            <span class="about__stat-sep"></span>
+            <div class="about__stat">
+                <div class="about__stat-value">30+</div>
+                <div class="about__stat-label">Sorten</div>
+            </div>
+            <span class="about__stat-sep"></span>
+            <div class="about__stat">
+                <div class="about__stat-value">5.000+</div>
+                <div class="about__stat-label">Geschenkboxen</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SPECIALTIES ========== -->
+    <section class="specialties pattern-bg-dense" id="specialties">
+        <div class="section-title reveal">
+            <div class="ornament-frame">
+                <h2>Unsere Spezialit&auml;ten</h2>
+            </div>
+            <div class="ornament ornament--small">
+                <span class="ornament__diamond"></span>
+            </div>
+        </div>
+
+        <div class="specialties__tabs reveal">
+            <button class="specialties__tab active" data-tab="baklava">Baklava</button>
+            <button class="specialties__tab" data-tab="kunefe">K&uuml;nefe &amp; Warm</button>
+            <button class="specialties__tab" data-tab="gebaeck">Geb&auml;ck</button>
+            <button class="specialties__tab" data-tab="getraenke">Getr&auml;nke</button>
+        </div>
+
+        <!-- Baklava -->
+        <div class="specialties__grid active" data-panel="baklava">
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/33317234/pexels-photo-33317234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Baklava mit Pistazie" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Pistazie</h3>
+                    <p class="product-card__desc">Klassisches Baklava mit iranischen Pistazien</p>
+                    <span class="product-card__price">&euro;3,50</span>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/8635161/pexels-photo-8635161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Baklava mit Walnuss" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Walnuss</h3>
+                    <p class="product-card__desc">Buttrig-nussig mit frischen Waln&uuml;ssen</p>
+                    <span class="product-card__price">&euro;2,90</span>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/18543473/pexels-photo-18543473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Burma Kadayıf" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Burma Kaday&#305;f</h3>
+                    <p class="product-card__desc">Knusprig gerollter Engelshaar-Teig</p>
+                    <span class="product-card__price">&euro;3,20</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Künefe & Warm -->
+        <div class="specialties__grid" data-panel="kunefe">
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/16557595/pexels-photo-16557595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Künefe" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">K&uuml;nefe</h3>
+                    <p class="product-card__desc">Warmer Fadenk&auml;se im Kadayıf-Mantel</p>
+                    <span class="product-card__price">&euro;8,90</span>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/16557600/pexels-photo-16557600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Sütlaç" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">S&uuml;tla&ccedil;</h3>
+                    <p class="product-card__desc">Cremiger Milchreis, im Ofen karamellisiert</p>
+                    <span class="product-card__price">&euro;5,50</span>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <img class="product-card__img" src="https://images.pexels.com/photos/31472830/pexels-photo-31472830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tulumba" loading="lazy">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Tulumba</h3>
+                    <p class="product-card__desc">Frittiertes Geb&auml;ck in Zuckersirup</p>
+                    <span class="product-card__price">&euro;4,90</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gebäck -->
+        <div class="specialties__grid" data-panel="gebaeck">
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">Maamoul</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Gef&uuml;llt mit Datteln &amp; Waln&uuml;ssen</p>
+                <span class="product-card__price">&euro;2,50</span>
+            </div>
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">Lokum</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Turkish Delight — Rosen, Pistazie, Granatapfel</p>
+                <span class="product-card__price">&euro;12,90 / Box</span>
+            </div>
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">&Scedil;&ouml;biyet</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Mit Sahne &amp; Pistazien gef&uuml;lltes Baklava</p>
+                <span class="product-card__price">&euro;3,90</span>
+            </div>
+        </div>
+
+        <!-- Getränke -->
+        <div class="specialties__grid" data-panel="getraenke">
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">T&uuml;rkischer Mokka</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Im Kupferkännchen zubereitet</p>
+                <span class="product-card__price">&euro;3,50</span>
+            </div>
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">&Ccedil;ay</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Schwarztee aus dem Samowar</p>
+                <span class="product-card__price">&euro;2,50</span>
+            </div>
+            <div class="product-card product-card--text reveal">
+                <h3 class="product-card__name">Ayran</h3>
+                <div class="ornament-line"></div>
+                <p class="product-card__desc">Erfrischender Joghurtdrink</p>
+                <span class="product-card__price">&euro;2,90</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== QUOTE ========== -->
+    <section class="quote-section">
+        <div class="quote-section__inner reveal">
+            <span class="quote-section__mark quote-section__mark--open">&ldquo;</span>
+            <span class="quote-section__mark quote-section__mark--close">&rdquo;</span>
+            <blockquote>Jede Schicht erz&auml;hlt von Geduld, jeder Bissen von Tradition.</blockquote>
+            <cite>&mdash; Familienrezept, dritte Generation</cite>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY ========== -->
+    <section class="gallery pattern-bg" id="gallery">
+        <div class="section-title reveal">
+            <div class="ornament-frame">
+                <h2>Unsere Galerie</h2>
+            </div>
+            <div class="ornament ornament--small">
+                <span class="ornament__diamond"></span>
+            </div>
+        </div>
+        <div class="gallery__grid">
+            <div class="gallery__item reveal">
+                <img src="https://images.pexels.com/photos/33317234/pexels-photo-33317234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Baklava Auswahl" loading="lazy">
+                <div class="gallery__caption">Baklava-Klassiker</div>
+            </div>
+            <div class="gallery__item reveal">
+                <img src="https://images.pexels.com/photos/16557595/pexels-photo-16557595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Künefe" loading="lazy">
+                <div class="gallery__caption">Warme K&uuml;nefe</div>
+            </div>
+            <div class="gallery__item reveal">
+                <img src="https://images.pexels.com/photos/29696186/pexels-photo-29696186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Vitrine" loading="lazy">
+                <div class="gallery__caption">Unsere Vitrine</div>
+            </div>
+            <div class="gallery__item reveal">
+                <img src="https://images.pexels.com/photos/18543473/pexels-photo-18543473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Burma Kadayıf" loading="lazy">
+                <div class="gallery__caption">Burma Kaday&#305;f</div>
+            </div>
+            <div class="gallery__item reveal">
+                <img src="https://images.pexels.com/photos/8635161/pexels-photo-8635161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Orientalische Patisserie" loading="lazy">
+                <div class="gallery__caption">Handwerkskunst</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="reviews" id="reviews">
+        <div class="section-title reveal">
+            <div class="ornament-frame">
+                <h2>Was unsere G&auml;ste sagen</h2>
+            </div>
+            <div class="ornament ornament--small">
+                <span class="ornament__diamond"></span>
+            </div>
+        </div>
+        <div class="reviews__slider reveal">
+            <div class="review active">
+                <div class="review__quote-mark">&ldquo;</div>
+                <p class="review__text">Das beste Baklava au&szlig;erhalb von Istanbul. Der Pistaziengeschmack ist unglaublich intensiv &mdash; man schmeckt, dass hier echte Zutaten verwendet werden.</p>
+                <div class="review__stars">&starf;&starf;&starf;&starf;&starf;</div>
+                <p class="review__name">Elif K.</p>
+            </div>
+            <div class="review">
+                <div class="review__quote-mark">&ldquo;</div>
+                <p class="review__text">Wir bestellen hier regelm&auml;&szlig;ig Geschenkboxen f&uuml;r unsere Firmenkunden. Die Pr&auml;sentation ist wundersch&ouml;n und die Qualit&auml;t einfach erstklassig.</p>
+                <div class="review__stars">&starf;&starf;&starf;&starf;&starf;</div>
+                <p class="review__name">Thomas M.</p>
+            </div>
+            <div class="review">
+                <div class="review__quote-mark">&ldquo;</div>
+                <p class="review__text">Seit ich die K&uuml;nefe hier probiert habe, komme ich jede Woche. Der warme Fadenk&auml;se mit Sirup &mdash; daf&uuml;r lohnt sich jeder Weg. Absolute Suchtgefahr!</p>
+                <div class="review__stars">&starf;&starf;&starf;&starf;&starf;</div>
+                <p class="review__name">Sarah L.</p>
+            </div>
+        </div>
+        <div class="reviews__dots">
+            <button class="reviews__dot active" data-slide="0" aria-label="Bewertung 1"></button>
+            <button class="reviews__dot" data-slide="1" aria-label="Bewertung 2"></button>
+            <button class="reviews__dot" data-slide="2" aria-label="Bewertung 3"></button>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="contact pattern-bg-dense" id="contact">
+        <div class="contact__inner">
+            <div class="section-title reveal">
+                <div class="ornament-frame">
+                    <h2>Bestellen &amp; Besuchen</h2>
+                </div>
+                <div class="ornament ornament--small">
+                    <span class="ornament__diamond"></span>
+                </div>
+            </div>
+
+            <div class="contact__info reveal">
+                <div class="contact__item">
+                    <span class="contact__icon">&#128205;</span>
+                    <div class="contact__label">Adresse</div>
+                    <div class="contact__value">Musterstra&szlig;e 12<br>21335 L&uuml;neburg</div>
+                </div>
+                <div class="contact__item">
+                    <span class="contact__icon">&#128222;</span>
+                    <div class="contact__label">Telefon</div>
+                    <div class="contact__value">04131 / 123 456</div>
+                </div>
+                <div class="contact__item">
+                    <span class="contact__icon">&#128336;</span>
+                    <div class="contact__label">&Ouml;ffnungszeiten</div>
+                    <div class="contact__value">Di &ndash; So: 10:00 &ndash; 20:00<br>Montag: Ruhetag</div>
+                </div>
+            </div>
+
+            <div class="ornament reveal">
+                <span class="ornament__diamond"></span>
+            </div>
+
+            <div class="contact__form reveal" id="contactForm">
+                <form id="orderForm">
+                    <div class="contact__form-row">
+                        <div class="contact__form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Ihr Name" required>
+                        </div>
+                        <div class="contact__form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" placeholder="Ihre Telefonnummer">
+                        </div>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" placeholder="Ihre E-Mail-Adresse" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="orderType">Bestellart</label>
+                        <select id="orderType">
+                            <option value="">Bitte w&auml;hlen...</option>
+                            <option value="geschenkbox">Geschenkbox</option>
+                            <option value="catering">Catering / Events</option>
+                            <option value="abholung">Abholung</option>
+                            <option value="frage">Allgemeine Anfrage</option>
+                        </select>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="message">Nachricht</label>
+                        <textarea id="message" placeholder="Was d&uuml;rfen wir f&uuml;r Sie vorbereiten?" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold contact__submit">Bestellung senden</button>
+                </form>
+            </div>
+            <div class="form-success" id="formSuccess">
+                <div class="form-success__icon">&#10024;</div>
+                <h3>Vielen Dank!</h3>
+                <p>Ihre Anfrage wurde gesendet. Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="ornament-frame" style="margin-bottom: 24px;">
+            <div class="footer__name">Zum Goldenen</div>
+        </div>
+        <div class="footer__info">
+            Di &ndash; So: 10:00 &ndash; 20:00 Uhr<br>
+            04131 / 123 456<br>
+            Musterstra&szlig;e 12, 21335 L&uuml;neburg
+        </div>
+        <div class="footer__credit">
+            Webdesign von <a href="https://addus-web.de" target="_blank" rel="noopener">addus</a>
+        </div>
+    </footer>
+
+    <script>
+        /* ===== MOBILE MENU ===== */
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        mobileBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+        mobileNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileNav.classList.remove('open'));
+        });
+
+        /* ===== TABS ===== */
+        const tabs = document.querySelectorAll('.specialties__tab');
+        const panels = document.querySelectorAll('.specialties__grid');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+            });
+        });
+
+        /* ===== REVIEWS SLIDER ===== */
+        const reviews = document.querySelectorAll('.review');
+        const dots = document.querySelectorAll('.reviews__dot');
+        let currentSlide = 0;
+        let autoSlide;
+
+        function showSlide(n) {
+            reviews.forEach(r => r.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            currentSlide = n;
+            reviews[n].classList.add('active');
+            dots[n].classList.add('active');
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.slide));
+                resetAutoSlide();
+            });
+        });
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % reviews.length);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(nextSlide, 5000);
+        }
+        resetAutoSlide();
+
+        /* ===== SCROLL REVEAL ===== */
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        /* ===== FORM ===== */
+        document.getElementById('orderForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('orderForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

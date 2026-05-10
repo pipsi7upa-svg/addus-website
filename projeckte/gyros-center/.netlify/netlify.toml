@@ -1,0 +1,26 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\PC\\Desktop\\AddusWebseite\\web2\\projeckte\\gyros-center"
+publishOrigin = "default"
+base = "C:\\Users\\PC\\Desktop\\AddusWebseite\\web2\\projeckte\\gyros-center"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
