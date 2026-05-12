@@ -2895,6 +2895,17 @@ html.js-ready .hero__underline path{
   text-transform:uppercase;
 }
 .plak__cap{ color:#c9b48a; font-weight:600; }
+.plak__concept{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:11px;
+  letter-spacing:0;
+  text-transform:none;
+  color:#a89376;
+  margin-left:4px;
+  font-variation-settings:"opsz" 14,"WONK" 1,"SOFT" 60;
+}
 .plak__id{ color:#d4a574; font-weight:600; }
 .plak__body{
   position:relative;
