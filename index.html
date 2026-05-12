@@ -52,8 +52,8 @@
   <link rel="stylesheet" href="css/editorial.css">
 
   <!-- Google Fonts: Editorial Stack -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap"></noscript>
 
   <!-- CookieConsent v3 (self-hosted, MIT) -->
   <link rel="stylesheet" href="css/cookieconsent.css">
@@ -1430,14 +1430,34 @@
   <!-- Editorial JS: nav burger, FAQ, reviews carousel, reveal-on-scroll, form -->
   <script src="js/editorial.js" defer></script>
 
-  <!-- Sonderangebot Receipt — Motion library (ESM module) -->
-  <script type="module" src="js/receipt.js"></script>
-
-  <!-- Hero Werkschau-Notiz — Motion library -->
-  <script type="module" src="js/werkschau.js"></script>
-
-  <!-- Customer Story — choreographed Motion entry -->
-  <script type="module" src="js/cs.js"></script>
+  <!-- Below-the-fold animation modules — lazy-imported when their section
+       approaches the viewport. Saves ~250 KB of JS (opentype.js + motion)
+       on initial page load → carbon impact down by ~half. -->
+  <script defer>
+  (function () {
+    var mods = [
+      { sel: '#receipt',       src: './js/receipt.js' },
+      { sel: '#werkschauPlak', src: './js/werkschau.js' },
+      { sel: '.cs',            src: './js/cs.js' }
+    ];
+    function load(src) { import(src).catch(function(){}); }
+    if (!('IntersectionObserver' in window)) {
+      mods.forEach(function (m) { load(m.src); });
+      return;
+    }
+    mods.forEach(function (m) {
+      var el = document.querySelector(m.sel);
+      if (!el) return;
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          load(m.src);
+          obs.disconnect();
+        }
+      }, { rootMargin: '500px' });
+      obs.observe(el);
+    });
+  })();
+  </script>
 
 
   <!-- Showcase Panel Cycling (lazy-loaded iframes) -->
