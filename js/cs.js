@@ -11,7 +11,7 @@
 // section sits between two animation-heavy sections (Werkschau + Sonderangebot)
 // and works best as a calm reading moment.
 
-import { animate, inView } from 'https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm';
+import { animate, inView } from './vendor/motion.js';
 
 (function () {
   const reduce = window.matchMedia &&

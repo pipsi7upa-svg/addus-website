@@ -4,8 +4,8 @@
 // • Continuous lerp loop smooths pen motion (independent of stroke clock)
 // • Arc-lift between glyphs simulates pen-up transitions
 // • Velocity-based micro-tilt + hand tremor sells the realism
-import { animate } from 'https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm';
-import * as opentype from 'https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.module.js';
+import { animate } from './vendor/motion.js';
+import * as opentype from './vendor/opentype.module.js';
 
 (function () {
   const plak    = document.getElementById('werkschauPlak');

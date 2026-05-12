@@ -1,6 +1,6 @@
 // Sonderangebot — Quittungs-Animation (Motion One)
 // Receipt items typewriter-stagger + price counter + stamp drop on view
-import { animate, inView, stagger } from 'https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm';
+import { animate, inView, stagger } from './vendor/motion.js';
 
 (function () {
   const reduce = window.matchMedia &&
