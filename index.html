@@ -34,33 +34,26 @@
   <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/assets/favicon-192.png">
   <title>Website erstellen lassen Lüneburg | Webdesign — addus.</title>
-  <!-- Preconnect to critical origins (before any requests) -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
 
-  <!-- Critical CSS inline: editorial tokens + reset + masthead + hero above-fold for instant FCP -->
+  <!-- Critical CSS inline: editorial tokens + reset + above-fold -->
   <style>
-    :root{--color-paper:#efe8d8;--color-paper-deep:#e6dcc4;--color-ink:#1a1612;--color-ink-soft:#3d3530;--color-ink-mute:#6b5f54;--color-rust:#b8421f;--color-rust-deep:#8a2f15;--color-rust-glow:rgba(184,66,31,0.12);--color-line:rgba(26,22,18,0.85);--color-line-soft:rgba(26,22,18,0.18);--color-bg:var(--color-paper);--color-text-primary:var(--color-ink);--color-text-muted:var(--color-ink-mute);--color-accent:var(--color-rust);--color-accent-hover:var(--color-rust-deep);--font-display:'Fraunces',Georgia,serif;--font-body:'Instrument Sans',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--font-serif:'Fraunces',Georgia,serif;--space-2:.5rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--ease-premium:cubic-bezier(.2,.8,.2,1);--dur-enter:700ms;--z-sticky:100;--z-below:-1;--container-max:1320px;--container-pad:clamp(1.25rem,4vw,2.75rem);--navbar-h:72px}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;text-size-adjust:100%;-webkit-text-size-adjust:100%}body{min-height:100dvh;font-family:var(--font-body);font-size:1rem;line-height:1.55;color:var(--color-ink);background-color:var(--color-paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.32;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}img,picture,video,canvas,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul,ol{list-style:none}button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}::selection{background:var(--color-rust);color:var(--color-paper)}
-    .navbar{position:fixed;top:0;left:0;right:0;z-index:var(--z-sticky);background:var(--color-paper);border-bottom:1px solid var(--color-line)}
-    .hero{position:relative;padding-top:var(--navbar-h);background:var(--color-paper);border-bottom:1px solid var(--color-line)}
-    .animate-in{opacity:1;transform:none}html.js-ready .animate-in{opacity:0;transform:translateY(22px);animation:fadeUp var(--dur-enter) var(--ease-premium) forwards;animation-delay:var(--delay,0ms)}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    :root{--paper:#efe8d8;--paper-deep:#e6dcc4;--ink:#1a1612;--ink-soft:#3d3530;--ink-mute:#6b5f54;--rust:#b8421f;--rust-deep:#8a2f15;--rust-glow:rgba(184,66,31,.12);--line:rgba(26,22,18,.85);--line-soft:rgba(26,22,18,.18);--line-faint:rgba(26,22,18,.08);--serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--container:1320px;--pad:clamp(1.25rem,4vw,2.75rem);--nav-h:72px;--ease:cubic-bezier(.2,.8,.2,1);--dur:700ms}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{min-height:100dvh;font-family:var(--sans);font-size:1rem;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.32;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .06 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}img,picture,video,canvas,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul,ol{list-style:none}button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}::selection{background:var(--rust);color:var(--paper)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line-soft);height:var(--nav-h)}
+    .hero{padding-top:var(--nav-h);background:var(--paper);border-bottom:1px solid var(--line-soft)}
+    .reveal{opacity:0;transform:translateY(22px)}html.js-ready .reveal.in-view,.reveal.in-view{opacity:1;transform:none;transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
   </style>
 
-  <!-- Full CSS: tokens+reset+hero sync (above fold), sections deferred -->
-  <link rel="stylesheet" href="css/tokens.min.css">
-  <link rel="stylesheet" href="css/reset.min.css">
-  <link rel="stylesheet" href="css/hero.min.css">
-  <link rel="stylesheet" href="css/sections.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/sections.min.css"></noscript>
-  <link rel="stylesheet" href="css/mockup.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/mockup.css"></noscript>
+  <!-- Full editorial CSS -->
   <link rel="stylesheet" href="css/editorial.css">
 
-  <!-- Google Fonts: Editorial Stack (Fraunces variable + Instrument Sans + JetBrains Mono) -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <!-- Google Fonts: Editorial Stack -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap"></noscript>
 
   <!-- CookieConsent v3 (self-hosted, MIT) -->
   <link rel="stylesheet" href="css/cookieconsent.css">
@@ -68,6 +61,7 @@
   <script src="js/cookie-config.js" defer></script>
   <script type="text/plain" data-category="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
   <script type="text/plain" data-category="analytics" src="js/analytics.js"></script>
+
   <!-- Turnstile: lazy-loaded when contact form enters viewport -->
   <script>
   (function(){
@@ -94,11 +88,79 @@
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══ -->
-  <header class="navbar masthead" id="navbar" role="banner">
-    <div class="masthead__nav-inner">
-      <a href="/" class="navbar__logo masthead__brand" aria-label="addus. — Zur Startseite">addus<span class="masthead__brand-dot">.</span></a>
-      <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
+  <!-- ══ READING-QUILL — refined fountain-pen nib reading progress ══ -->
+  <aside class="quill" id="readingQuill" aria-hidden="true">
+    <div class="quill__track">
+      <span class="quill__ink" id="quillInk"></span>
+      <svg class="quill__pen" viewBox="0 0 24 64" id="quillPen" aria-hidden="true">
+        <defs>
+          <linearGradient id="quillBarrelG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0"   stop-color="#1a0e05"/>
+            <stop offset=".4"  stop-color="#5a3a1c"/>
+            <stop offset=".55" stop-color="#9a6d3b"/>
+            <stop offset=".7"  stop-color="#5a3a1c"/>
+            <stop offset="1"   stop-color="#0e0703"/>
+          </linearGradient>
+          <linearGradient id="quillNibG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0"   stop-color="#f6d68e"/>
+            <stop offset=".3"  stop-color="#d4b07a"/>
+            <stop offset=".7"  stop-color="#a07a3e"/>
+            <stop offset="1"   stop-color="#3a2410"/>
+          </linearGradient>
+        </defs>
+        <!-- Barrel (slim, vertical) -->
+        <path d="M 9.5 2 L 14.5 2 L 14 32 L 10 32 Z" fill="url(#quillBarrelG)"/>
+        <!-- Barrel sheen -->
+        <rect x="11" y="3" width="1.4" height="28" fill="rgba(255,235,200,.35)"/>
+        <!-- Gold cap ring -->
+        <rect x="9.4" y="30" width="5.2" height="2.6" fill="#c9a96e"/>
+        <rect x="9.4" y="30" width="5.2" height=".35" fill="#f4d490"/>
+        <rect x="9.4" y="32.6" width="5.2" height=".35" fill="#1a0e05"/>
+        <!-- Nib shoulder -->
+        <path d="M 9.6 33 L 14.4 33 L 14 36 L 10 36 Z" fill="url(#quillNibG)"/>
+        <!-- Main nib -->
+        <path d="M 10 36 L 14 36 L 13.6 46 L 12 52 L 10.4 46 Z" fill="url(#quillNibG)" stroke="#2a1a0a" stroke-width=".25"/>
+        <!-- Breather hole -->
+        <circle cx="12" cy="41.5" r=".85" fill="#1a0e05"/>
+        <!-- Slit -->
+        <line x1="12" y1="42.6" x2="12" y2="51.5" stroke="#1a0e05" stroke-width=".5" stroke-linecap="round"/>
+        <!-- Iridium tip -->
+        <circle cx="12" cy="52" r=".55" fill="#e8d9b8" stroke="#1a0e05" stroke-width=".15"/>
+      </svg>
+    </div>
+  </aside>
+
+  <!-- ══ TOC — schwebende Inhaltsverzeichnis-Marginalie ══ -->
+  <nav class="toc" id="toc" aria-label="Inhaltsverzeichnis">
+    <div class="toc__head">
+      <span class="toc__edition">N° 06 · MMXXVI</span>
+      <span class="toc__label">Inhalt</span>
+    </div>
+    <ol class="toc__list" role="list">
+      <li class="toc__item" data-section="vertrauen"><a href="#vertrauen"><span class="toc__num">I</span><span class="toc__title">Vertrauen</span></a></li>
+      <li class="toc__item" data-section="vorher-nachher"><a href="#vorher-nachher"><span class="toc__num">II</span><span class="toc__title">Was wir verändern</span></a></li>
+      <li class="toc__item" data-section="leistungen"><a href="#leistungen"><span class="toc__num">III</span><span class="toc__title">Was wir tun</span></a></li>
+      <li class="toc__item" data-section="praxis"><a href="#praxis"><span class="toc__num">IV</span><span class="toc__title">Aus der Praxis</span></a></li>
+      <li class="toc__item" data-section="angebot"><a href="#angebot"><span class="toc__num">V</span><span class="toc__title">Sonderangebot</span></a></li>
+      <li class="toc__item" data-section="ueber-uns"><a href="#ueber-uns"><span class="toc__num">VI</span><span class="toc__title">Über uns</span></a></li>
+      <li class="toc__item" data-section="blog"><a href="#blog"><span class="toc__num">VII</span><span class="toc__title">Journal</span></a></li>
+      <li class="toc__item" data-section="kontakt"><a href="#kontakt"><span class="toc__num">VIII</span><span class="toc__title">Nächster Schritt</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ══ Live-Seitenzahl unten-links — magazine-style page indicator ══ -->
+  <aside class="pageno" id="pageNo" aria-hidden="true">
+    <span class="pageno__label">Seite</span>
+    <span class="pageno__num" id="pageNoNum">01</span>
+    <span class="pageno__sep">/</span>
+    <span class="pageno__total">08</span>
+  </aside>
+
+  <!-- ══ NAV ══ -->
+  <header class="nav" id="navbar" role="banner">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="addus. — Zur Startseite">addus<span class="nav__brand-dot">.</span></a>
+      <nav class="nav__menu" id="main-nav" aria-label="Hauptnavigation">
         <ul role="list">
           <li><a href="#leistungen">Leistungen</a></li>
           <li><a href="#vertrauen">Arbeiten</a></li>
@@ -107,8 +169,8 @@
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
-      <a href="#kontakt" class="navbar__cta masthead__cta">Projekt anfragen</a>
-      <button class="navbar__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+      <a href="#kontakt" class="nav__cta">Projekt anfragen</a>
+      <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -116,1486 +178,1373 @@
 
   <main>
 
-    <!-- ══ 1. HERO — Editorial ══ -->
-    <section id="hero" class="hero hero--editorial" aria-labelledby="hero-headline">
+    <!-- ══ 1. HERO ══ -->
+    <section id="hero" class="hero" aria-labelledby="hero-headline">
+
+      <!-- Page-curl Easter-Egg (top-right corner) -->
+      <button class="curl" id="pageCurl" type="button" aria-label="Kolophon zeigen">
+        <span class="curl__page" aria-hidden="true"></span>
+        <span class="curl__shadow" aria-hidden="true"></span>
+        <div class="curl__under" aria-hidden="true">
+          <span class="curl__under-cap">Kolophon</span>
+          <p class="curl__under-body">
+            Gesetzt in <em>Fraunces</em> &amp; <em>Instrument Sans</em>.<br>
+            Hand-codiert · 0 Trackingcookies vor Einwilligung.<br>
+            <span class="mono">v.2026.05 · Lüneburg</span>
+          </p>
+        </div>
+      </button>
+
       <div class="hero__container">
 
-        <!-- Left: Text Content -->
         <div class="hero__content">
+          <!-- Vertical running side-text on far left edge -->
+          <span class="hero__side" aria-hidden="true">Studio für digitale Markenführung · Lüneburg seit 2024</span>
+
+          <!-- Folio top — like a book opening -->
+          <span class="hero__folio" aria-hidden="true">Nº 01 · Frühjahr 2026 · S. 1</span>
+
+          <!-- Watermark "01" — chapter opener -->
+          <span class="hero__watermark" aria-hidden="true">01</span>
+
+          <!-- Eyebrow — magazine date strip -->
+          <div class="hero__eyebrow">
+            <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+            <span>Frühjahr 2026 · Ausgabe Nº 07 — Lüneburg</span>
+          </div>
+
           <h1 class="hero__headline" id="hero-headline">
-            <span class="hero__word animate-in" style="--delay: 200ms">Nicht</span>
-            <span class="hero__word animate-in" style="--delay: 300ms">noch</span>
-            <span class="hero__word animate-in" style="--delay: 400ms">eine</span>
-            <span class="hero__word animate-in" style="--delay: 500ms">Website.</span><br>
-            <span class="hero__word animate-in" style="--delay: 650ms">Eine,</span>
-            <span class="hero__word animate-in" style="--delay: 750ms">die</span>
-            <span class="hero__word hero__word--accent animate-in" style="--delay: 850ms"><em>Kunden</em></span>
-            <span class="hero__word animate-in" style="--delay: 950ms">bringt.</span>
+            <span class="word">Nicht</span>
+            <span class="word">noch</span>
+            <span class="word">eine</span>
+            <span class="word">Website.</span><br>
+            <span class="word">Eine,</span>
+            <span class="word">die</span>
+            <span class="word word--accent">
+              <em class="hero__cycle" id="heroCycle">Kunden</em>
+              <svg class="hero__underline" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 4 8 Q 50 2 100 7 T 196 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+              </svg>
+            </span>
+            <span class="word">bringt.</span>
             <span class="sr-only"> — Website erstellen lassen in Lüneburg</span>
           </h1>
-          <p class="hero__lede animate-in" style="--delay: 1050ms">
-            Webdesign für Restaurants, Handwerker und lokale Unternehmen — strategisch gedacht, schnell umgesetzt, messbar wirksam. In vierzehn Tagen online, ohne Templates, ohne Phrasen.
+
+          <!-- Pull-quote between headline and lede -->
+          <p class="hero__pullquote" aria-hidden="true">
+            <span class="hero__pullquote-mark">—</span>
+            <em>Vier Wochen Idee → Live.</em>
           </p>
-          <div class="hero__actions animate-in" style="--delay: 1200ms">
-            <a href="#kontakt" class="btn-editorial btn-editorial--primary">
-              <span>Kostenfreies Erstgespräch</span>
-            </a>
-            <button class="btn-editorial btn-editorial--ghost hero-link--calc" id="openCalcBtn" type="button">
-              <span>Kosten berechnen</span>
-              <span class="btn-editorial__badge">45 Sek.</span>
-            </button>
+
+          <!-- Lede with editorial drop-cap -->
+          <p class="hero__lede">
+            <span class="hero__dropcap" aria-hidden="true">W</span><span>ebdesign für Restaurants, Handwerker und lokale Unternehmen — strategisch gedacht, schnell umgesetzt, messbar wirksam. In vierzehn Tagen online, ohne Templates, ohne Phrasen.</span>
+          </p>
+
+          <div class="hero__actions">
+            <a href="#kontakt" class="btn btn--primary"><span>Kostenfreies Erstgespräch</span></a>
+            <a href="#vertrauen" class="btn btn--ghost">Arbeiten ansehen</a>
+          </div>
+
+          <!-- USP bullet list under CTAs -->
+          <ul class="hero__usps" aria-label="Kernversprechen">
+            <li>
+              <b>14 Tage</b><span>bis online</span>
+              <span class="marg marg--left" data-marg aria-hidden="true">↗ realistisch, nicht geschönt</span>
+            </li>
+            <li class="hero__usps-sep" aria-hidden="true"></li>
+            <li>
+              <b class="mark">ab 699€</b><span>Festpreis</span>
+              <span class="marg marg--top" data-marg aria-hidden="true">← fair, kein Abo-Trick</span>
+            </li>
+            <li class="hero__usps-sep" aria-hidden="true"></li>
+            <li>
+              <b>4,9★</b><span>Google · 98 Reviews</span>
+              <span class="marg marg--right" data-marg aria-hidden="true">echte Bewertungen ↘</span>
+            </li>
+          </ul>
+
+          <!-- Caveat marginal note -->
+          <span class="hero__margin-note" aria-hidden="true">↗ live Beispiele</span>
+
+          <!-- Rubber-stamp / Atelier seal -->
+          <svg class="hero__stamp" viewBox="0 0 140 140" aria-hidden="true">
+            <defs>
+              <path id="stampCircle" d="M 70,70 m -52,0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0"/>
+            </defs>
+            <circle cx="70" cy="70" r="58" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="70" cy="70" r="52" fill="none" stroke="currentColor" stroke-width=".8"/>
+            <text font-family="Fraunces, serif" font-size="11" font-weight="600" letter-spacing="3" fill="currentColor" font-variation-settings='"opsz" 12'>
+              <textPath href="#stampCircle" startOffset="0%">· ATELIER ADDUS · EST. MMXXIV · LÜNEBURG ·</textPath>
+            </text>
+            <text x="70" y="64" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="22" fill="currentColor" font-variation-settings='"opsz" 24,"WONK" 1,"SOFT" 80'>Nº VII</text>
+            <text x="70" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" letter-spacing="2" fill="currentColor">FRÜHJAHR · 26</text>
+            <line x1="40" y1="72" x2="100" y2="72" stroke="currentColor" stroke-width=".4"/>
+          </svg>
+
+          <!-- Postage / atelier address detail -->
+          <div class="hero__postage" aria-hidden="true">
+            <span class="hero__postage-edge"></span>
+            <span class="hero__postage-num"><em>04</em></span>
+            <span class="hero__postage-cap">Tafel</span>
           </div>
         </div>
 
-        <!-- Right: Live Website Showcase -->
-        <div class="hero__showcase animate-in" style="--delay: 80ms">
+        <!-- ══ Showcase — Atelier-Wand ══ -->
+        <div class="hero__showcase atelier" id="heroShowcase">
 
-          <div class="showcase-stage" id="showcaseStage">
-            <!-- Touch blocker for mobile -->
-            <div class="showcase-touch-blocker"></div>
-
-            <!-- Decorative depth panels (no iframes — pure visual depth) -->
-            <div class="showcase-panel showcase-panel--back"  id="showcaseBack"></div>
-            <div class="showcase-panel showcase-panel--mid"   id="showcaseMid"></div>
-
-            <!-- Front viewport: all 4 demos preloaded, only 1 visible -->
-            <div class="showcase-panel showcase-panel--front" id="showcaseFront">
-
-              <iframe id="sc-0" data-src="demos/restaurant.html"
-                class="showcase-iframe is-active"
-                title="Demo: Bella Vista Restaurant"
-                data-rw="1200" data-rh="900"
-                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-
-              <iframe id="sc-1" data-src="demos/steuerberater.html"
-                class="showcase-iframe"
-                title="Demo: Müller & Partner Steuerberatung"
-                data-rw="1300" data-rh="975"
-                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-
-              <iframe id="sc-2" data-src="demos/handwerk.html"
-                class="showcase-iframe"
-                title="Demo: Al-Hassan Elektro"
-                data-rw="1300" data-rh="975"
-                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-
-              <iframe id="sc-3" data-src="demos/ecommerce.html"
-                class="showcase-iframe"
-                title="Demo: SportGear Pro Shop"
-                data-rw="1380" data-rh="1035"
-                scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-
-              <!-- Thin activity scanner at bottom -->
-              <div class="showcase-scanner" id="showcaseScanner"></div>
-
-
-            </div><!-- /front panel -->
-
-          </div><!-- /showcase-stage -->
-
-          <!-- Demo indicator below stage -->
-          <div class="demo-now" id="demoNow">
-            <div class="demo-now__line"></div>
-            <div class="demo-now__items">
-              <div class="demo-now__item is-active" data-idx="0">
-                <span class="demo-now__type">Gastronomie</span>
-                <span class="demo-now__name">Bella Vista Ristorante</span>
-              </div>
-              <div class="demo-now__item" data-idx="1">
-                <span class="demo-now__type">Steuerberatung</span>
-                <span class="demo-now__name">Müller &amp; Partner</span>
-              </div>
-              <div class="demo-now__item" data-idx="2">
-                <span class="demo-now__type">Handwerk</span>
-                <span class="demo-now__name">Al-Hassan Elektro</span>
-              </div>
-              <div class="demo-now__item" data-idx="3">
-                <span class="demo-now__type">E-Commerce</span>
-                <span class="demo-now__name">SportGear Pro</span>
-              </div>
-            </div>
+          <!-- Atelier header strip -->
+          <div class="atelier__head" aria-hidden="true">
+            <span class="atelier__head-cap">Im Atelier · Frühjahr 2026</span>
+            <span class="atelier__head-num"><em>N°</em> IV — Vier Arbeiten</span>
           </div>
 
-        </div><!-- /hero__showcase -->
+          <!-- The wall: lamp + main framed piece + label -->
+          <div class="atelier__wall">
 
-      </div><!-- /hero__container -->
-    </section>
+            <!-- Subtle picture-light glow above active frame -->
+            <span class="atelier__spot" aria-hidden="true"></span>
 
-<!-- ══ TRUST ══ -->
-    <section id="vertrauen" class="trust" aria-labelledby="trust-headline">
+            <!-- Main framed piece (the active iframe) -->
+            <div class="atelier__main">
+              <div class="atelier__frame">
+                <div class="atelier__mat">
+                  <div class="showcase-stage" id="showcaseStage">
+                    <div class="showcase-touch-blocker"></div>
+                    <div class="showcase-panel showcase-panel--front" id="showcaseFront">
+                      <iframe id="sc-0" data-src="demos/restaurant.html" class="showcase-iframe is-active" title="Demo: Bella Vista Restaurant" data-rw="1200" data-rh="900" scrolling="no" sandbox="allow-scripts"></iframe>
+                      <iframe id="sc-1" data-src="demos/steuerberater.html" class="showcase-iframe" title="Demo: Müller & Partner Steuerberatung" data-rw="1300" data-rh="975" scrolling="no" sandbox="allow-scripts"></iframe>
+                      <iframe id="sc-2" data-src="demos/handwerk.html" class="showcase-iframe" title="Demo: Al-Hassan Elektro" data-rw="1300" data-rh="975" scrolling="no" sandbox="allow-scripts"></iframe>
+                      <iframe id="sc-3" data-src="demos/ecommerce.html" class="showcase-iframe" title="Demo: SportGear Pro Shop" data-rw="1380" data-rh="1035" scrolling="no" sandbox="allow-scripts"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-      <!-- Header (lst-style) -->
-      <div class="trust__head reveal">
-        <span class="lst__tag">Vertrauen</span>
-        <h2 class="lst__title" id="trust-headline">98 Google-Bewertungen.<br>4,9 Sterne. Null Zufall.</h2>
+              <!-- Museum-style wall label -->
+              <div class="atelier__label">
+                <span class="atelier__label-num"><em>Tafel</em> <b id="labelRoman">I</b></span>
+                <span class="atelier__label-name" id="labelName">Bella Vista Ristorante</span>
+                <span class="atelier__label-meta" id="labelMeta">Cucina Toscana · Lucca · 2026</span>
+              </div>
+            </div>
+
+            <!-- Floor shadow line -->
+            <span class="atelier__floor" aria-hidden="true"></span>
+          </div>
+
+          <!-- Index row: 4 small framed thumbnails of all works -->
+          <div class="atelier__index" id="atelierIndex" role="tablist" aria-label="Arbeiten wählen">
+            <button class="exhibit is-active" data-idx="0" type="button" role="tab" aria-selected="true">
+              <span class="exhibit__frame exhibit__frame--rest">
+                <svg class="exhibit__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 4 Q11 13 16 14 Q21 13 21 4"/>
+                  <path d="M11 4 L21 4"/>
+                  <line x1="16" y1="14" x2="16" y2="26"/>
+                  <line x1="11" y1="28" x2="21" y2="28"/>
+                  <path d="M22 8 Q26 10 25 14" stroke-width="1.1"/>
+                  <ellipse cx="24.5" cy="9" rx="1.5" ry="2.4" transform="rotate(28 24.5 9)" fill="currentColor" opacity=".55"/>
+                </svg>
+              </span>
+              <span class="exhibit__meta">
+                <em>Tafel I</em>
+                <b>Bella Vista</b>
+                <span>Gastronomie</span>
+              </span>
+            </button>
+            <button class="exhibit" data-idx="1" type="button" role="tab" aria-selected="false">
+              <span class="exhibit__frame exhibit__frame--steuer">
+                <svg class="exhibit__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 4 L28 10 L13 25 L7 25 L7 19 Z"/>
+                  <line x1="20" y1="6" x2="26" y2="12"/>
+                  <line x1="7" y1="29" x2="17" y2="29"/>
+                  <circle cx="10" cy="22" r=".9" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="exhibit__meta">
+                <em>Tafel II</em>
+                <b>Müller &amp; Partner</b>
+                <span>Steuerberatung</span>
+              </span>
+            </button>
+            <button class="exhibit" data-idx="2" type="button" role="tab" aria-selected="false">
+              <span class="exhibit__frame exhibit__frame--hw">
+                <svg class="exhibit__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 28 L13 20"/>
+                  <path d="M11 22 L17 28"/>
+                  <path d="M14 19 L19 14 Q21 12 23 14 L26 17 Q28 19 26 21 L21 26 Z"/>
+                  <line x1="19" y1="14" x2="26" y2="21"/>
+                  <circle cx="6" cy="29" r=".8" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="exhibit__meta">
+                <em>Tafel III</em>
+                <b>Al-Hassan Elektro</b>
+                <span>Handwerk</span>
+              </span>
+            </button>
+            <button class="exhibit" data-idx="3" type="button" role="tab" aria-selected="false">
+              <span class="exhibit__frame exhibit__frame--ecom">
+                <svg class="exhibit__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 11 L25 11 L23 28 L9 28 Z"/>
+                  <path d="M11 11 Q11 5 16 5 Q21 5 21 11"/>
+                  <line x1="11" y1="16" x2="11" y2="18"/>
+                  <line x1="21" y1="16" x2="21" y2="18"/>
+                </svg>
+              </span>
+              <span class="exhibit__meta">
+                <em>Tafel IV</em>
+                <b>SportGear Pro</b>
+                <span>E-Commerce</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Werkschau-Notiz: Bronze-Plakette mit Tech-Daten zur aktiven Tafel -->
+          <aside class="plak" id="werkschauPlak" aria-live="polite" aria-label="Werkschau-Notiz">
+            <header class="plak__head">
+              <span class="plak__cap">Werkschau-Notiz</span>
+              <span class="plak__id" id="plakId">N° I — 2026 / 04</span>
+            </header>
+            <div class="plak__body">
+              <p class="plak__desc" id="plakDesc">
+                Reservierungs-System für eine toskanische Trattoria. Tisch-Map mit
+                Live-Belegung, mehrsprachig DE/EN/IT.
+              </p>
+              <dl class="plak__stats">
+                <div><dt>Build</dt><dd id="plakBuild">4 Wo.</dd></div>
+                <div><dt>Größe</dt><dd id="plakSize">12 KB</dd></div>
+                <div><dt>Lighthouse</dt><dd><span class="plak__score" id="plakScore" data-target="98">0</span><i>/100</i></dd></div>
+                <div><dt>CO₂</dt><dd id="plakCo2">0,28&nbsp;g</dd></div>
+              </dl>
+            </div>
+            <footer class="plak__foot" aria-hidden="true">
+              <span class="plak__rivet" style="top:8px;left:8px"></span>
+              <span class="plak__rivet" style="top:8px;right:8px"></span>
+              <span class="plak__rivet" style="bottom:8px;left:8px"></span>
+              <span class="plak__rivet" style="bottom:8px;right:8px"></span>
+            </footer>
+          </aside>
+        </div>
+
       </div>
 
-      <!-- Google Badge + Numbers in one strip -->
-      <div class="trust__stats">
+      <!-- Hero footer ribbon -->
+      <div class="hero__ribbon">
+        <span><b class="mark">4,9★</b> Google · 98 Bewertungen</span>
+        <span><b class="mark">147</b> Projekte abgeschlossen</span>
+        <span><b class="mark">14 Tage</b> bis online</span>
+        <span>ab <b class="mark">699€</b> Festpreis</span>
+      </div>
 
-        <div class="trust__google-badge reveal">
-          <svg class="trust__g-logo" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      <!-- Sicherheits-Zertifikat — Editorial Premium Verified -->
+      <div class="hero__verified" aria-label="Sicherheits-Zertifikat">
+        <!-- Header: certificate title -->
+        <div class="cert__head">
+          <span class="cert__head-cap">Auszug aus dem Atelier-Register</span>
+          <h3 class="cert__head-title">
+            <span class="cert__head-orn cert__head-orn--l" aria-hidden="true"></span>
+            <em>Sicherheits-</em>Zertifikat
+            <span class="cert__head-orn cert__head-orn--r" aria-hidden="true"></span>
+          </h3>
+          <span class="cert__head-sub">
+            <span class="cert__live"><i class="cert__live-dot" aria-hidden="true"></i>Im Register geführt</span>
+            <span class="cert__sep" aria-hidden="true"></span>
+            <span>Beglaubigt durch 4 unabhängige Stellen</span>
+            <span class="cert__sep" aria-hidden="true"></span>
+            <span>Stand: Frühjahr 2026</span>
+          </span>
+        </div>
+
+        <!-- 4 Atelier-Vermerke (editorial reframe of the tech badges) -->
+        <ol class="cert__grades" role="list">
+          <li class="cert__grade">
+            <span class="cert__roman">I</span>
+            <span class="cert__title">Versiegelt</span>
+            <span class="cert__desc">Jede Verbindung verschlüsselt nach modernstem Standard.</span>
+            <a href="https://securityheaders.com/?q=addus-web.de&followRedirects=on" target="_blank" rel="noopener" class="cert__source" title="Security Headers Score">
+              <span class="cert__source-mark">A+</span> securityheaders.com ↗
+            </a>
+          </li>
+
+          <li class="cert__grade">
+            <span class="cert__roman">II</span>
+            <span class="cert__title">Wasserdicht</span>
+            <span class="cert__desc">SSL/TLS-Verschlüsselung in höchster Reinheit.</span>
+            <a href="https://www.ssllabs.com/ssltest/analyze.html?d=addus-web.de" target="_blank" rel="noopener" class="cert__source" title="SSL Labs Test">
+              <span class="cert__source-mark">A+</span> ssllabs.com ↗
+            </a>
+          </li>
+
+          <li class="cert__grade">
+            <span class="cert__roman">III</span>
+            <span class="cert__title">Beglaubigt</span>
+            <span class="cert__desc">Mozillas strenge Sicherheits-Richtlinien bestanden.</span>
+            <a href="https://observatory.mozilla.org/analyze/addus-web.de" target="_blank" rel="noopener" class="cert__source" title="Mozilla Observatory">
+              <span class="cert__source-mark">A+</span> observatory.mozilla.org ↗
+            </a>
+          </li>
+
+          <li class="cert__grade cert__grade--pending">
+            <span class="cert__roman">IV</span>
+            <span class="cert__title">Eingereicht</span>
+            <span class="cert__desc">Beim Browser-Verzeichnis zur Aufnahme beantragt.</span>
+            <a href="https://hstspreload.org/?domain=addus-web.de" target="_blank" rel="noopener" class="cert__source" title="HSTS Preload Status">
+              <span class="cert__source-mark">…</span> hstspreload.org ↗
+            </a>
+          </li>
+        </ol>
+
+        <!-- Hand-signed footer + serial / issuer info -->
+        <div class="cert__foot">
+          <div class="cert__signed-block">
+            <div class="cert__signature" aria-hidden="true">
+              <svg viewBox="0 0 220 60" preserveAspectRatio="xMinYMid meet">
+                <path d="M 6 38 C 16 18, 28 16, 36 32 C 40 40, 38 46, 32 44 C 28 42, 30 36, 38 36 C 50 36, 58 26, 68 32 C 74 36, 70 44, 62 42 C 56 40, 60 32, 70 30 C 84 28, 92 38, 102 34 C 110 30, 114 22, 122 30 C 128 36, 126 44, 132 40 C 142 32, 148 22, 158 30 C 168 38, 174 28, 184 32 C 192 36, 200 30, 208 36"
+                      fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+                      opacity=".88"/>
+                <circle cx="208" cy="36" r="1.6" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="cert__foot-meta">
+              <span class="cert__signed-name">Adam Dia</span>
+              <span class="cert__signed-role">Atelier-Direktor · Lüneburg</span>
+            </div>
+          </div>
+          <div class="cert__serial">
+            <span class="cert__serial-label">Aktenzeichen</span>
+            <span class="cert__serial-no">N° A-2026 · 06 / LG</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ 2. TRUST ══ -->
+    <section id="vertrauen" class="trust" aria-labelledby="trust-headline">
+      <div class="section__head reveal">
+        <span class="kicker">Kapitel I — Vertrauen</span>
+        <h2 class="section__title" id="trust-headline">98 Google-Bewertungen.<br><em>4,9 Sterne.</em> Null Zufall.</h2>
+      </div>
+
+      <div class="trust__grid">
+        <div class="trust__google reveal">
+          <svg class="trust__g-logo" viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
           </svg>
-          <div class="trust__g-info">
-            <div class="trust__g-stars">
-              <span class="trust__g-score">4.9</span>
+          <div>
+            <div class="trust__g-row">
+              <span class="trust__g-score">4,9</span>
               <svg viewBox="0 0 120 20" width="100" height="17" aria-label="4.9 von 5 Sternen">
-                <defs><polygon id="tstar" points="10,1 12.6,7.2 19.5,7.6 14.2,12 15.8,18.8 10,15.4 4.2,18.8 5.8,12 0.5,7.6 7.4,7.2"/></defs>
-                <use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/>
+                <defs><polygon id="tstar" points="10,1 12.6,7.2 19.5,7.6 14.2,12 15.8,18.8 10,15.4 4.2,18.8 5.8,12 .5,7.6 7.4,7.2"/></defs>
+                <use href="#tstar" x="0" fill="#b8421f"/><use href="#tstar" x="20" fill="#b8421f"/><use href="#tstar" x="40" fill="#b8421f"/><use href="#tstar" x="60" fill="#b8421f"/><use href="#tstar" x="80" fill="#b8421f"/>
               </svg>
             </div>
-            <span class="trust__g-count">98 Bewertungen auf Google</span>
+            <div class="trust__g-cap">98 Bewertungen auf Google</div>
           </div>
         </div>
 
-        <div class="trust__num reveal">
-          <span class="trust__num-value" data-counter data-target="147">147</span>
-          <span class="trust__num-label">abgeschlossene Projekte</span>
-        </div>
-        <div class="trust__num reveal">
-          <span class="trust__num-value">3x</span>
-          <span class="trust__num-label">mehr Anfragen nach Relaunch</span>
-        </div>
-        <div class="trust__num reveal">
-          <span class="trust__num-value">14</span>
-          <span class="trust__num-label">Tage bis Ihre Website steht</span>
-        </div>
-        <div class="trust__num reveal">
-          <span class="trust__num-value">100%</span>
-          <span class="trust__num-label">Festpreis ohne Überraschungen</span>
+        <div class="trust__nums">
+          <div class="trust__num reveal"><span class="trust__num-val"><em>147</em></span><span class="trust__num-cap">Projekte abgeschlossen</span></div>
+          <div class="trust__num reveal"><span class="trust__num-val"><em>3×</em></span><span class="trust__num-cap">mehr Anfragen nach Relaunch</span></div>
+          <div class="trust__num reveal"><span class="trust__num-val"><em>14</em></span><span class="trust__num-cap">Tage bis Ihre Website steht</span></div>
+          <div class="trust__num reveal"><span class="trust__num-val"><em>100%</em></span><span class="trust__num-cap">Festpreis ohne Überraschungen</span></div>
         </div>
       </div>
 
-      <!-- Bewertungen Carousel -->
+      <!-- Reviews — editorial pull-quote -->
       <div class="trust__reviews reveal" aria-label="Kundenbewertungen">
-        <div class="trust__reviews-inner">
+        <span class="trust__reviews-cap">Stimmen aus dem Atelier — Auswahl</span>
 
-          <!-- Large quote icon -->
-          <svg class="trust__quote-icon" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M14 28c-3.3 0-6-2.7-6-6 0-6.6 5.4-12 12-12v4c-4.4 0-8 3.6-8 8h2c3.3 0 6 2.7 6 6s-2.7 6-6 6zm20 0c-3.3 0-6-2.7-6-6 0-6.6 5.4-12 12-12v4c-4.4 0-8 3.6-8 8h2c3.3 0 6 2.7 6 6s-2.7 6-6 6z" fill="currentColor"/></svg>
+        <div class="trust__carousel" id="reviewCarousel">
+          <blockquote class="trust__slide is-active">
+            <span class="trust__quote-open">„</span>
+            <p class="trust__review-text">Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!</p>
+            <footer class="trust__review-author"><span class="trust__review-stars">★★★★★</span><strong>Thomas K.</strong><span>Haustechnik · Lüneburg</span></footer>
+          </blockquote>
+          <blockquote class="trust__slide">
+            <span class="trust__quote-open">„</span>
+            <p class="trust__review-text">Ich war skeptisch, weil Adam noch so jung ist. Aber ehrlich? Genau das war der Vorteil. Schnell, digital fit und null Agentur-Gelaber. Die Website war in 10 Tagen fertig.</p>
+            <footer class="trust__review-author"><span class="trust__review-stars">★★★★★</span><strong>Markus H.</strong><span>Sanitärbetrieb · Hamburg</span></footer>
+          </blockquote>
+          <blockquote class="trust__slide">
+            <span class="trust__quote-open">„</span>
+            <p class="trust__review-text">Top. Einfach nur top.</p>
+            <footer class="trust__review-author"><span class="trust__review-stars">★★★★★</span><strong>Sandra M.</strong><span>Kosmetikstudio · Köln</span></footer>
+          </blockquote>
+          <blockquote class="trust__slide">
+            <span class="trust__quote-open">„</span>
+            <p class="trust__review-text">Zwei Agenturen vorher haben zusammen 8.000 Euro gekostet und nichts geliefert. Adam hat in drei Wochen eine Website gebaut, die besser ist als alles davor.</p>
+            <footer class="trust__review-author"><span class="trust__review-stars">★★★★★</span><strong>Peter W.</strong><span>Steuerberater · Düsseldorf</span></footer>
+          </blockquote>
+          <blockquote class="trust__slide">
+            <span class="trust__quote-open">„</span>
+            <p class="trust__review-text">Endlich jemand, der liefert was er verspricht. Keine Ausreden, keine Verzögerungen. Wir sind Stammkunde.</p>
+            <footer class="trust__review-author"><span class="trust__review-stars">★★★★★</span><strong>Dr. Julia F.</strong><span>Zahnarztpraxis · München</span></footer>
+          </blockquote>
+        </div>
 
-          <!-- Carousel viewport -->
-          <div class="trust__carousel" id="reviewCarousel">
-
-            <div class="trust__slide is-active">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!"</blockquote>
-              <div class="trust__review-author">
-                <strong>Thomas K. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Haustechnik, Lüneburg</span>
-              </div>
-            </div>
-
-            <div class="trust__slide">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Ich war skeptisch, weil Adam noch so jung ist. Aber ehrlich? Genau das war der Vorteil. Schnell, digital fit und null Agentur-Gelaber. Die Website war in 10 Tagen fertig. Besser als alles, was ich vorher hatte."</blockquote>
-              <div class="trust__review-author">
-                <strong>Markus H. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Sanitärbetrieb, Hamburg</span>
-              </div>
-            </div>
-
-            <div class="trust__slide">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Top. Einfach nur top."</blockquote>
-              <div class="trust__review-author">
-                <strong>Sandra M. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Kosmetikstudio, Köln</span>
-              </div>
-            </div>
-
-            <div class="trust__slide">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Zwei Agenturen vorher haben zusammen 8.000&nbsp;Euro gekostet und nichts geliefert. Adam hat in drei Wochen eine Website gebaut, die besser ist als alles davor. Und das für einen Bruchteil. Hätte ich das mal früher gewusst."</blockquote>
-              <div class="trust__review-author">
-                <strong>Peter W. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Steuerberater, Düsseldorf</span>
-              </div>
-            </div>
-
-            <div class="trust__slide">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Meine Frau hat den Kontakt hergestellt. Ich dachte erst: Der Junge ist 20, was soll der können? Nach dem ersten Gespräch war klar — der weiß genau was er tut. Unsere Anfragen haben sich verdreifacht seit die neue Seite online ist."</blockquote>
-              <div class="trust__review-author">
-                <strong>Hasan A. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Elektrotechnik, Dortmund</span>
-              </div>
-            </div>
-
-            <div class="trust__slide">
-              <div class="trust__review-stars" aria-hidden="true">
-                <svg viewBox="0 0 120 20" width="100" height="17"><use href="#tstar" x="0" fill="#FBBC05"/><use href="#tstar" x="20" fill="#FBBC05"/><use href="#tstar" x="40" fill="#FBBC05"/><use href="#tstar" x="60" fill="#FBBC05"/><use href="#tstar" x="80" fill="#FBBC05"/></svg>
-              </div>
-              <blockquote class="trust__review-text">"Endlich jemand, der liefert was er verspricht. Keine Ausreden, keine Verzögerungen. Wir sind Stammkunde."</blockquote>
-              <div class="trust__review-author">
-                <strong>Dr. Julia F. <svg class="trust__verified" viewBox="0 0 20 20" width="16" height="16" aria-label="Verifizierte Bewertung"><path d="M10 0l2.4 1.2 2.7-.3 1.2 2.4 2.4 1.2-.3 2.7 1.2 2.4-1.2 2.4.3 2.7-2.4 1.2-1.2 2.4-2.7-.3L10 20l-2.4-1.2-2.7.3-1.2-2.4-2.4-1.2.3-2.7L0 10l1.2-2.4-.3-2.7 2.4-1.2L4.5 1.3l2.7.3z" fill="#4285F4"/><path d="M8.6 13.5L5.5 10.4l1.4-1.4 1.7 1.7 4-4 1.4 1.4z" fill="#fff"/></svg></strong>
-                <span>Zahnarztpraxis, München</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Navigation dots with progress -->
+        <div class="trust__nav">
           <div class="trust__dots" id="reviewDots">
-            <button class="trust__dot is-active" aria-label="Bewertung 1" data-slide="0"><span class="trust__dot-fill"></span></button>
-            <button class="trust__dot" aria-label="Bewertung 2" data-slide="1"><span class="trust__dot-fill"></span></button>
-            <button class="trust__dot" aria-label="Bewertung 3" data-slide="2"><span class="trust__dot-fill"></span></button>
-            <button class="trust__dot" aria-label="Bewertung 4" data-slide="3"><span class="trust__dot-fill"></span></button>
-            <button class="trust__dot" aria-label="Bewertung 5" data-slide="4"><span class="trust__dot-fill"></span></button>
-            <button class="trust__dot" aria-label="Bewertung 6" data-slide="5"><span class="trust__dot-fill"></span></button>
+            <button class="trust__dot is-active" aria-label="Bewertung 1" data-slide="0"></button>
+            <button class="trust__dot" aria-label="Bewertung 2" data-slide="1"></button>
+            <button class="trust__dot" aria-label="Bewertung 3" data-slide="2"></button>
+            <button class="trust__dot" aria-label="Bewertung 4" data-slide="3"></button>
+            <button class="trust__dot" aria-label="Bewertung 5" data-slide="4"></button>
           </div>
-
-          <!-- Counter -->
-          <div class="trust__review-counter">
-            <span id="reviewCurrent">1</span> / <span>6</span> Bewertungen
-          </div>
-
+          <span class="trust__counter"><em id="trustCounter">01</em><i>/</i>05 · 98 Bewertungen</span>
         </div>
       </div>
 
-      <!-- Trust Badges -->
       <div class="trust__badges reveal">
-        <span class="trust__badge">DSGVO-konform</span>
-        <span class="trust__badge-dot" aria-hidden="true"></span>
-        <span class="trust__badge">Festpreisgarantie</span>
-        <span class="trust__badge-dot" aria-hidden="true"></span>
-        <span class="trust__badge">Persönlicher Ansprechpartner</span>
-        <span class="trust__badge-dot" aria-hidden="true"></span>
-        <span class="trust__badge">SSL-verschlüsselt</span>
-      </div>
-
-    </section>
-
-<!-- ══ PAIN / DREAM SECTION ══ -->
-    <section class="pain-dream" aria-label="Vorher und Nachher">
-      <div class="pain-dream__inner">
-        <div class="pain-dream__header reveal">
-          <span class="section-label">WAS WIR VERÄNDERN</span>
-          <h2 class="pain-dream__title">Fünf Probleme. Fünf Lösungen.</h2>
-        </div>
-        <div class="pain-dream__hint reveal" aria-hidden="true">
-          <div class="pd-hint__cursor pd-hint__cursor--desktop">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l7.07 17 2.51-7.39L21 11.07z"/></svg>
-          </div>
-          <div class="pd-hint__cursor pd-hint__cursor--mobile">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8a6 6 0 00-12 0c0 7 6 13 6 13s6-6 6-13z"/><circle cx="12" cy="8" r="2"/></svg>
-          </div>
-          <span class="pd-hint__text--desktop">Fahre mit der Maus über die Zeilen und entdecke den Unterschied</span>
-          <span class="pd-hint__text--mobile">Scrolle weiter und entdecke den Unterschied</span>
-        </div>
-        <div class="pain-dream__rows">
-          <div class="pd-row reveal">
-            <div class="pd-row__pain">
-              <span class="pd-row__icon" aria-hidden="true">&times;</span>
-              <p>Veraltetes Design, das nicht überzeugt</p>
-            </div>
-            <div class="pd-row__dream">
-              <p>Modernes Design, das Vertrauen schafft und begeistert</p>
-            </div>
-          </div>
-          <div class="pd-row reveal reveal-delay-1">
-            <div class="pd-row__pain">
-              <span class="pd-row__icon" aria-hidden="true">&times;</span>
-              <p>Hohe Absprungrate und wenige Anfragen</p>
-            </div>
-            <div class="pd-row__dream">
-              <p>Besucher, die bleiben und aktiv Kontakt aufnehmen</p>
-            </div>
-          </div>
-          <div class="pd-row reveal reveal-delay-2">
-            <div class="pd-row__pain">
-              <span class="pd-row__icon" aria-hidden="true">&times;</span>
-              <p>Keine Handyoptimierung, lange Ladezeiten</p>
-            </div>
-            <div class="pd-row__dream">
-              <p>Technisch einwandfrei, mobiloptimiert und blitzschnell</p>
-            </div>
-          </div>
-          <div class="pd-row reveal reveal-delay-3">
-            <div class="pd-row__pain">
-              <span class="pd-row__icon" aria-hidden="true">&times;</span>
-              <p>Zeit- und Kostenfresser ohne greifbare Ergebnisse</p>
-            </div>
-            <div class="pd-row__dream">
-              <p>Effiziente Investition mit klar messbaren Erfolgen</p>
-            </div>
-          </div>
-          <div class="pd-row reveal reveal-delay-4">
-            <div class="pd-row__pain">
-              <span class="pd-row__icon" aria-hidden="true">&times;</span>
-              <p>Viel investiert — ohne spürbaren Erfolg</p>
-            </div>
-            <div class="pd-row__dream">
-              <p>Nachhaltiger Mehrwert durch gezielte Strategie</p>
-            </div>
-          </div>
-        </div>
-        <div class="pain-dream__cta reveal">
-          <button class="pd-cta-btn" id="openCalcBtn2" type="button">
-            <span>Jetzt Kosten berechnen</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </div>
+        <span>DSGVO-konform</span><span class="dot">·</span>
+        <span>Festpreisgarantie</span><span class="dot">·</span>
+        <span>Persönlicher Ansprechpartner</span><span class="dot">·</span>
+        <span>SSL-verschlüsselt</span>
       </div>
     </section>
 
-<!-- ══ 3. SERVICES ══ -->
-    <section id="leistungen" class="lst" aria-labelledby="services-headline">
-
-      <!-- Header -->
-      <div class="lst__head reveal">
-        <span class="lst__tag">Was wir tun</span>
-        <h2 class="lst__title" id="services-headline">Drei Disziplinen.<br>Ein Ziel: Ihr Wachstum.</h2>
+    <!-- ══ 3. PAIN / DREAM — Manuskript-Korrektur ══ -->
+    <section class="pd" id="vorher-nachher" aria-label="Vorher und Nachher">
+      <div class="section__head reveal">
+        <span class="kicker">Kapitel II — Was wir verändern</span>
+        <h2 class="section__title">Fünf Probleme.<br><em>Fünf</em> Lösungen.</h2>
       </div>
 
-      <!-- Service Accordion -->
-      <div class="lst__accordion">
+      <ol class="pd__list">
+        <li class="pd__entry reveal">
+          <span class="pd__num"><i>I</i></span>
+          <p class="pd__line">
+            <span class="pd__cut-wrap"><s class="pd__cut">Veraltetes</s><svg class="pd__cut-strike" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 12 Q 60 4 100 10 T 196 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></span>
+            <span class="pd__slash">/</span><em class="pd__fix">modernes</em><span class="pd__slash">/</span>
+            Design, das Vertrauen schafft.
+          </p>
+        </li>
 
-        <article class="lst__item reveal" data-srv="1">
-          <button class="lst__trigger" aria-expanded="false">
-            <span class="lst__num">01</span>
-            <span class="lst__name">Webdesign</span>
-            <span class="lst__arrow" aria-hidden="true"></span>
-          </button>
-          <div class="lst__panel">
-            <div class="lst__panel-inner">
-              <div class="lst__col-left">
-                <h3 class="lst__headline">Eine Website, die Vertrauen schafft &mdash; ab dem ersten Klick.</h3>
-                <p class="lst__text">Kein Template. Kein Baukasten. Wir bauen Ihre Website von Grund auf, zugeschnitten auf Ihre Branche, Ihre Kunden und Ihr Ziel: mehr Anfragen.</p>
-                <a href="#kontakt" class="lst__cta">Projekt besprechen</a>
-              </div>
-              <ul class="lst__col-right">
-                <li><strong>Individuell</strong> &mdash; Design für Ihre Branche, nicht von der Stange</li>
-                <li><strong>Mobiloptimiert</strong> &mdash; Perfekt auf jedem Gerät</li>
-                <li><strong>Schnell</strong> &mdash; Ladezeiten unter 2 Sekunden</li>
-                <li><strong>Selbst editierbar</strong> &mdash; Texte und Bilder ohne Vorkenntnisse ändern</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <li class="pd__entry reveal">
+          <span class="pd__num"><i>II</i></span>
+          <p class="pd__line">
+            <span class="pd__cut-wrap"><s class="pd__cut">Hohe Absprungrate</s><svg class="pd__cut-strike" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 8 Q 60 14 100 6 T 196 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></span>
+            <span class="pd__slash">/</span><em class="pd__fix">Besucher, die bleiben</em><span class="pd__slash">/</span>
+            — endlich neue Anfragen.
+          </p>
+        </li>
 
-        <article class="lst__item is-open reveal" data-srv="2">
-          <button class="lst__trigger" aria-expanded="true">
-            <span class="lst__num">02</span>
-            <span class="lst__name">Google-Sichtbarkeit</span>
-            <span class="lst__arrow" aria-hidden="true"></span>
-          </button>
-          <div class="lst__panel">
-            <div class="lst__panel-inner">
-              <div class="lst__col-left">
-                <h3 class="lst__headline">Gefunden werden, wenn Kunden nach Ihnen suchen.</h3>
-                <p class="lst__text">Ihre Website kann noch so gut sein &mdash; wenn sie niemand findet, bringt sie nichts. Wir sorgen dafür, dass Google Sie kennt.</p>
-                <a href="#kontakt" class="lst__cta">Sichtbarkeit prüfen</a>
-              </div>
-              <ul class="lst__col-right">
-                <li><strong>Google Business</strong> &mdash; Eintrag einrichten und optimieren</li>
-                <li><strong>SEO-Grundlagen</strong> &mdash; Für die richtigen Suchbegriffe sichtbar</li>
-                <li><strong>Lokal stark</strong> &mdash; In Ihrer Region auf Seite 1</li>
-                <li><strong>Transparenz</strong> &mdash; Monatlicher Bericht über Ihre Ergebnisse</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <li class="pd__entry reveal">
+          <span class="pd__num"><i>III</i></span>
+          <p class="pd__line">
+            <span class="pd__cut-wrap"><s class="pd__cut">Langsam &amp; nicht mobil</s><svg class="pd__cut-strike" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 10 Q 60 4 100 12 T 196 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></span>
+            <span class="pd__slash">/</span><em class="pd__fix">blitzschnell &amp; mobil</em><span class="pd__slash">/</span>
+            — technisch einwandfrei.
+          </p>
+        </li>
 
-        <article class="lst__item reveal" data-srv="3">
-          <button class="lst__trigger" aria-expanded="false">
-            <span class="lst__num">03</span>
-            <span class="lst__name">Online-Shop</span>
-            <span class="lst__arrow" aria-hidden="true"></span>
-          </button>
-          <div class="lst__panel">
-            <div class="lst__panel-inner">
-              <div class="lst__col-left">
-                <h3 class="lst__headline">Ein Shop, der verkauft. Nicht nur gut aussieht.</h3>
-                <p class="lst__text">Produkte online verkaufen muss nicht kompliziert sein. Wir bauen Shops, die Ihre Kunden verstehen und zum Kauf führen.</p>
-                <a href="#kontakt" class="lst__cta">Shop planen</a>
-              </div>
-              <ul class="lst__col-right">
-                <li><strong>Shopify / WooCommerce</strong> &mdash; Die richtige Plattform für Sie</li>
-                <li><strong>Einfach verwalten</strong> &mdash; Produkte selbst pflegen</li>
-                <li><strong>Sicher bezahlen</strong> &mdash; Alle gängigen Zahlungsmethoden</li>
-                <li><strong>Beratung</strong> &mdash; Von Produktfotos bis Versandlogik</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <li class="pd__entry reveal">
+          <span class="pd__num"><i>IV</i></span>
+          <p class="pd__line">
+            <span class="pd__cut-wrap"><s class="pd__cut">Kostenfresser</s><svg class="pd__cut-strike" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 12 Q 60 6 100 14 T 196 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></span>
+            <span class="pd__slash">/</span><em class="pd__fix">effiziente Investition</em><span class="pd__slash">/</span>
+            mit messbaren Erfolgen.
+          </p>
+        </li>
 
+        <li class="pd__entry reveal">
+          <span class="pd__num"><i>V</i></span>
+          <p class="pd__line">
+            <span class="pd__cut-wrap"><s class="pd__cut">Investiert ohne Wirkung</s><svg class="pd__cut-strike" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 6 Q 60 12 100 4 T 196 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></span>
+            <span class="pd__slash">/</span><em class="pd__fix">gezielte Strategie</em><span class="pd__slash">/</span>
+            — nachhaltiger Mehrwert.
+          </p>
+        </li>
+      </ol>
+
+      <div class="pd__cta reveal">
+        <a href="#kontakt" class="btn btn--ghost">Projekt besprechen ↗</a>
+      </div>
+    </section>
+
+    <!-- ══ 4. LEISTUNGEN ══ -->
+    <section id="leistungen" class="lst" aria-labelledby="leistungen-headline">
+      <div class="section__head section__head--split reveal">
+        <span class="kicker">Kapitel III — Was wir tun</span>
+        <h2 class="section__title" id="leistungen-headline">Drei Disziplinen,<br><em>ein</em> Anspruch.</h2>
       </div>
 
-      <!-- Branchen -->
+      <div class="lst__grid">
+        <article class="lst__item reveal">
+          <span class="lst__numeral" aria-hidden="true">I</span>
+          <span class="lst__num-cap">Disziplin · Webdesign</span>
+          <h3 class="lst__title">Webdesign<br>&amp; Entwicklung.</h3>
+          <p class="lst__tag"><em>Handgemacht · kein Template.</em></p>
+          <p class="lst__body">Kein Baukasten. Wir bauen Ihre Website von Grund auf, zugeschnitten auf Ihre Branche, Ihre Kunden und Ihr Ziel: mehr Anfragen.</p>
+          <p class="lst__facts"><span>Individuell</span><i>·</i><span>mobil</span><i>·</i><span>&lt; 2 s</span><i>·</i><span>selbst editierbar</span></p>
+          <div class="lst__spec">
+            <span class="lst__spec-meta">ab</span>
+            <span class="lst__spec-val"><em>699</em>€</span>
+            <span class="lst__spec-note">14 Tage Lieferung</span>
+          </div>
+          <a href="#kontakt" class="lst__link">Projekt besprechen <i>↗</i></a>
+        </article>
+
+        <article class="lst__item reveal">
+          <span class="lst__numeral" aria-hidden="true">II</span>
+          <span class="lst__num-cap">Disziplin · Sichtbarkeit</span>
+          <h3 class="lst__title">Google &amp;<br>SEO.</h3>
+          <p class="lst__tag"><em>Lokal stark, messbar.</em></p>
+          <p class="lst__body">Ihre Website kann noch so gut sein — wenn sie niemand findet, bringt sie nichts. Wir sorgen dafür, dass Google Sie kennt.</p>
+          <p class="lst__facts"><span>Google Business</span><i>·</i><span>Local SEO</span><i>·</i><span>Reporting</span></p>
+          <div class="lst__spec">
+            <span class="lst__spec-meta">monatlich</span>
+            <span class="lst__spec-val"><em>149</em>€</span>
+            <span class="lst__spec-note">transparent · kündbar</span>
+          </div>
+          <a href="#kontakt" class="lst__link">Sichtbarkeit prüfen <i>↗</i></a>
+        </article>
+
+        <article class="lst__item reveal">
+          <span class="lst__numeral" aria-hidden="true">III</span>
+          <span class="lst__num-cap">Disziplin · E-Commerce</span>
+          <h3 class="lst__title">Online-<br>Shop.</h3>
+          <p class="lst__tag"><em>Shopify oder WooCommerce.</em></p>
+          <p class="lst__body">Produkte online verkaufen muss nicht kompliziert sein. Wir bauen Shops, die Ihre Kunden verstehen und zum Kauf führen.</p>
+          <p class="lst__facts"><span>Shopify</span><i>·</i><span>WooCommerce</span><i>·</i><span>SEPA · Klarna · PayPal</span></p>
+          <div class="lst__spec">
+            <span class="lst__spec-meta">ab</span>
+            <span class="lst__spec-val"><em>1 990</em>€</span>
+            <span class="lst__spec-note">Beratung inklusive</span>
+          </div>
+          <a href="#kontakt" class="lst__link">Shop planen <i>↗</i></a>
+        </article>
+      </div>
+
       <div class="lst__branchen reveal">
-        <p class="lst__branchen-label">Branchen, die wir kennen:</p>
-        <div class="lst__branchen-list">
-          <span>Gastronomie</span>
-          <span>Handwerk</span>
-          <span>Arztpraxis</span>
-          <span>E-Commerce</span>
-          <span>Immobilien</span>
-          <span>Beratung</span>
-        </div>
+        <span class="lst__branchen-label">Branchen, die wir kennen:</span>
+        <span>Gastronomie</span><span>Handwerk</span><span>Arztpraxis</span><span>E-Commerce</span><span>Immobilien</span><span>Beratung</span>
       </div>
-
-      <!-- Bottom CTA -->
-      <div class="lst__bottom reveal">
-        <p class="lst__bottom-q">Nicht sicher, was Sie brauchen?</p>
-        <a href="#kontakt" class="lst__bottom-btn">Lassen Sie uns reden</a>
-      </div>
-
     </section>
 
-<!-- ══ CUSTOMER STORY ══ -->
-    <section class="cs" aria-labelledby="cs-headline">
-      <div class="cs__inner">
+    <!-- ══ 5. CUSTOMER STORY ══ -->
+    <section class="cs" id="praxis" aria-labelledby="cs-headline">
+      <div class="section__head reveal">
+        <span class="kicker">Kapitel IV — Aus der Praxis</span>
+        <h2 class="section__title" id="cs-headline">8.000 Euro weg, null Ergebnis —<br>so fing seine <em>Geschichte</em> an.</h2>
+      </div>
 
-        <!-- Header -->
-        <div class="cs__head reveal">
-          <span class="section-label">Aus der Praxis</span>
-          <h2 class="cs__title" id="cs-headline">8.000 Euro weg, null Ergebnis —<br>so fing seine Geschichte an.</h2>
-        </div>
+      <!-- Editorial byline running across -->
+      <div class="cs__byline reveal">
+        <span class="cs__byline-pre">Eine Fallstudie</span>
+        <span class="cs__byline-mid">— im Gespräch mit <em>Michael B.</em>, Geschäftsführer</span>
+        <span class="cs__byline-folio">Nº 14 · S. 24</span>
+      </div>
 
-        <div class="cs__split reveal">
-          <!-- Portrait -->
-          <div class="cs__portrait">
-            <img src="https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop&crop=faces"
-                 srcset="https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop&crop=faces 400w,
-                         https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop&crop=faces 600w,
-                         https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop&crop=faces 800w"
-                 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 35vw"
-                 alt="Michael B., Geschäftsführer" width="600" height="750" loading="lazy" decoding="async" fetchpriority="low">
-            <div class="cs__portrait-overlay">
-              <span class="cs__portrait-name">Michael B.</span>
-              <span class="cs__portrait-role">Geschäftsführer, Handwerksbetrieb</span>
+      <div class="cs__spread reveal">
+        <figure class="cs__portrait">
+          <span class="cs__portrait-tag">Foto · Tafel I</span>
+          <img src="https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop&crop=faces"
+               srcset="https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop&crop=faces 400w,
+                       https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop&crop=faces 600w,
+                       https://images.pexels.com/photos/7582899/pexels-photo-7582899.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop&crop=faces 800w"
+               sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 35vw"
+               alt="Michael B., Geschäftsführer" width="600" height="750" loading="lazy" decoding="async">
+          <figcaption>
+            <strong>Michael B.</strong>
+            <span>Geschäftsführer · Handwerksbetrieb · Lüneburg</span>
+            <span class="cs__photo-credit">Foto: addus.atelier · Frühjahr 2026</span>
+          </figcaption>
+        </figure>
+
+        <div class="cs__content">
+          <p class="cs__lede"><span class="cs__dropcap" aria-hidden="true">Z</span>wei Agenturen. Über 8.000 Euro investiert. Und das Ergebnis? Eine halbfertige Website, die nie online ging.</p>
+          <p class="cs__body">Genau deshalb arbeiten wir anders: feste Meilensteine, ehrliche Kommunikation und ein klarer Zeitplan. Vier Wochen später war seine neue Website live — und die ersten Anfragen kamen noch in derselben Woche.</p>
+
+          <blockquote class="cs__quote">
+            <span class="cs__quote-mark" aria-hidden="true">„</span>
+            <p>Ich hätte nicht gedacht, dass es auch <em>so</em> gehen kann. Endlich jemand, der liefert, was er verspricht.</p>
+            <footer>— Michael B., nach dem Launch</footer>
+          </blockquote>
+
+          <div class="cs__data">
+            <span class="cs__data-cap">Eckdaten · vom Briefing zum Launch</span>
+            <div class="cs__data-grid">
+              <div class="cs__stat">
+                <span class="cs__stat-num"><em>4</em></span>
+                <span class="cs__stat-cap">Wochen bis Launch</span>
+              </div>
+              <div class="cs__stat">
+                <span class="cs__stat-num"><em>3</em>×</span>
+                <span class="cs__stat-cap">mehr Anfragen</span>
+              </div>
+              <div class="cs__stat">
+                <span class="cs__stat-num"><em>1,8</em>s</span>
+                <span class="cs__stat-cap">Ladezeit · mobil</span>
+              </div>
+              <div class="cs__stat">
+                <span class="cs__stat-num"><em class="mark cs__stat-zero">0</em></span>
+                <span class="cs__stat-cap">Nachverhandlungen</span>
+              </div>
             </div>
           </div>
 
-          <!-- Content -->
-          <div class="cs__content">
-
-            <div class="cs__body">
-              <p>Zwei Agenturen. Über 8.000 Euro investiert. Und das Ergebnis? Eine halbfertige Website, die nie online ging.</p>
-              <p>Genau deshalb arbeiten wir anders: feste Meilensteine, ehrliche Kommunikation und ein klarer Zeitplan. Vier Wochen später war seine neue Website live — und die ersten Anfragen kamen noch in derselben Woche.</p>
-            </div>
-
-            <blockquote class="cs__blockquote">
-              „Ich hätte nicht gedacht, dass es auch so gehen kann. Endlich jemand, der liefert, was er verspricht."
-            </blockquote>
-
-            <div class="cs__stats">
-              <div class="cs__stat">
-                <span class="cs__stat-num">4</span>
-                <span class="cs__stat-label">Wochen bis zum Launch</span>
-              </div>
-              <div class="cs__stat">
-                <span class="cs__stat-num">3x</span>
-                <span class="cs__stat-label">mehr Anfragen</span>
-              </div>
-              <div class="cs__stat">
-                <span class="cs__stat-num">1,8s</span>
-                <span class="cs__stat-label">Ladezeit</span>
-              </div>
-            </div>
-
-            <div class="cs__cta">
-              <button class="pd-cta-btn" id="openCalcBtn3" type="button">
-                <span>Jetzt Kosten berechnen</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-            </div>
-          </div>
+          <a href="#kontakt" class="cs__cta">
+            <span>Projekt besprechen</span>
+            <i>↗</i>
+          </a>
         </div>
       </div>
     </section>
 
-<!-- ══ SONDERANGEBOT ══ -->
-    <section class="xclsv" id="angebot">
+    <!-- ══ 6. SONDERANGEBOT — Quittungs-Aesthetic ══ -->
+    <section class="off off--receipt" id="angebot">
 
-      <div class="xclsv__head reveal">
-        <span class="lst__tag">Sonderangebot</span>
-        <h2 class="lst__title">Alles drin. Ein Preis.<br>Keine Überraschungen.</h2>
-      </div>
+      <header class="section__head reveal" style="text-align:center;max-width:760px;margin:0 auto 56px">
+        <span class="kicker">Kapitel V — Sonderangebot</span>
+        <h2 class="section__title">Alles drin. Ein Preis.<br><em>Keine</em> Überraschungen.</h2>
+      </header>
 
-      <!-- Price strip -->
-      <div class="xclsv__price-strip reveal">
-        <div class="xclsv__price-left">
-          <div class="xclsv__was">Statt 1.999 €</div>
-          <div class="xclsv__now" data-price-target="699">699 €</div>
-          <div class="xclsv__netto">netto · einmalig</div>
+      <div class="receipt" id="receipt">
+
+        <span class="receipt__perf receipt__perf--top" aria-hidden="true"></span>
+
+        <header class="receipt__head">
+          <div class="receipt__head-row">
+            <span class="receipt__brand">ATELIER ADDUS · LÜNEBURG</span>
+            <span class="receipt__no">Nº 06 / 99</span>
+          </div>
+          <div class="receipt__head-row">
+            <span>Quittung · Sonderangebot Frühjahr</span>
+            <span class="receipt__date" id="receiptDate">— · — · MMXXVI</span>
+          </div>
+          <h3 class="receipt__doc-title">
+            Auftrag <em>„Webpräsenz komplett"</em>
+          </h3>
+        </header>
+
+        <div class="receipt__col-head" aria-hidden="true">
+          <span>Pos.</span>
+          <span>Position</span>
+          <span>Status</span>
         </div>
-        <a href="#kontakt" class="lst__bottom-btn">Kostenlose Beratung buchen</a>
-      </div>
 
-      <!-- Features as auto-scrolling marquee -->
-      <div class="xclsv__features">
-        <div class="xclsv__scroll">
-          <div class="xclsv__track">
-            <div class="xclsv__card"><strong class="xclsv__card-title">Premium Design</strong><p>Modernstes Webdesign mit klarer Struktur und professionellem Look.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">Bis zu 8 Seiten</strong><p>Startseite, Über uns, Leistungen, Kontakt — alles was Sie brauchen.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">Mobiloptimiert</strong><p>Perfekt auf Smartphone, Tablet und Desktop.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">SEO & Google</strong><p>Von Anfang an sichtbar und indexiert.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">CMS — Selbst bearbeiten</strong><p>Texte und Bilder jederzeit selbst ändern.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">Domain & Hosting</strong><p>12 Monate geschenkt mit eigener Domain.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">SSL-Zertifikat</strong><p>Sicherheit und Vertrauen für Ihre Besucher.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">DSGVO-konform</strong><p>Datenschutz, Impressum und Cookie-Banner.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">Stock-Fotos</strong><p>Hochwertige Bilder — lizenziert und inklusive.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">E-Mail-Adressen</strong><p>Unbegrenzt mit Ihrer eigenen Domain.</p></div>
-            <div class="xclsv__card"><strong class="xclsv__card-title">Technische Wartung</strong><p>Updates, Sicherheit, Backups — alles inklusive.</p></div>
-            <!-- Duplicate for seamless loop -->
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Premium Design</strong><p>Modernstes Webdesign mit klarer Struktur und professionellem Look.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Bis zu 8 Seiten</strong><p>Startseite, Über uns, Leistungen, Kontakt — alles was Sie brauchen.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Mobiloptimiert</strong><p>Perfekt auf Smartphone, Tablet und Desktop.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">SEO & Google</strong><p>Von Anfang an sichtbar und indexiert.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">CMS — Selbst bearbeiten</strong><p>Texte und Bilder jederzeit selbst ändern.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Domain & Hosting</strong><p>12 Monate geschenkt mit eigener Domain.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">SSL-Zertifikat</strong><p>Sicherheit und Vertrauen für Ihre Besucher.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">DSGVO-konform</strong><p>Datenschutz, Impressum und Cookie-Banner.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Stock-Fotos</strong><p>Hochwertige Bilder — lizenziert und inklusive.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">E-Mail-Adressen</strong><p>Unbegrenzt mit Ihrer eigenen Domain.</p></div>
-            <div class="xclsv__card" aria-hidden="true"><strong class="xclsv__card-title">Technische Wartung</strong><p>Updates, Sicherheit, Backups — alles inklusive.</p></div>
+        <ol class="receipt__items" id="receiptItems">
+          <li data-line><span class="r-pos">01</span><span class="r-desc">Premium Webdesign — nicht von der Stange</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">02</span><span class="r-desc">Bis zu 8 Seiten (Start · Über · Leistungen · Kontakt …)</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">03</span><span class="r-desc">Mobil-optimiert auf Smartphone · Tablet · Desktop</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">04</span><span class="r-desc">Ladezeiten unter 2 Sekunden</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">05</span><span class="r-desc">SEO &amp; Google-Indexierung von Anfang an</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">06</span><span class="r-desc">CMS — Texte und Bilder selbst bearbeiten</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">07</span><span class="r-desc">Stock-Fotos lizenziert &amp; inklusive</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">08</span><span class="r-desc">Texte in Ihrer Tonalität — auf Wunsch geschrieben</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">09</span><span class="r-desc">Domain &amp; Hosting — 12 Monate geschenkt</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">10</span><span class="r-desc">SSL-Zertifikat &amp; HTTPS-Verschlüsselung</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">11</span><span class="r-desc">DSGVO-konform mit Cookie-Banner</span><span class="r-inkl">inkl.</span></li>
+          <li data-line><span class="r-pos">12</span><span class="r-desc">Wartung · Updates · Backups</span><span class="r-inkl">inkl.</span></li>
+        </ol>
+
+        <div class="receipt__sub">
+          <div class="receipt__sub-row"><span>Zwischensumme</span><span class="r-amt">1.999,00&nbsp;€</span></div>
+          <div class="receipt__sub-row receipt__sub-row--neg"><span>Frühjahrs-Rabatt</span><span class="r-amt">−&nbsp;1.300,00&nbsp;€</span></div>
+        </div>
+
+        <div class="receipt__total" id="receiptTotalRow">
+          <div class="receipt__total-l">
+            <span class="receipt__total-label">Gesamt — zu zahlen</span>
+            <span class="receipt__total-cap">netto · einmalig · keine Folgekosten</span>
+          </div>
+          <div class="receipt__total-r">
+            <span class="receipt__was" aria-label="Vorheriger Preis"><s>1.999&nbsp;€</s></span>
+            <span class="receipt__now">
+              <span class="r-counter" id="priceCounter" data-from="1999" data-to="699">1999</span><i>&nbsp;€</i>
+            </span>
+          </div>
+
+          <!-- The stamp that drops in -->
+          <div class="receipt__stamp" id="receiptStamp" aria-hidden="true">
+            <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path id="stampArcTop" d="M 80,80 m -58,0 a 58,58 0 1,1 116,0"/>
+                <path id="stampArcBot" d="M 80,80 m 58,0 a 58,58 0 1,1 -116,0"/>
+              </defs>
+              <circle cx="80" cy="80" r="70" fill="none" stroke="currentColor" stroke-width="2.6" opacity=".95"/>
+              <circle cx="80" cy="80" r="62" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+              <text font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3.5" fill="currentColor" font-weight="600">
+                <textPath href="#stampArcTop" startOffset="50%" text-anchor="middle">· FRÜHJAHRS-RABATT ·</textPath>
+              </text>
+              <text font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="3" fill="currentColor">
+                <textPath href="#stampArcBot" startOffset="50%" text-anchor="middle">GÜLTIG · MMXXVI</textPath>
+              </text>
+              <text x="80" y="78" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="46" font-weight="700" fill="currentColor" font-variation-settings='"opsz" 144,"WONK" 1,"SOFT" 60'>−65%</text>
+              <text x="80" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" letter-spacing="2.5" fill="currentColor" opacity=".85">SPAREN: 1300 EUR</text>
+            </svg>
           </div>
         </div>
-      </div>
 
-      <div class="xclsv__bottom reveal">
-        <p class="xclsv__legal">Preise zzgl. gesetzl. MwSt. Es gelten unsere <a href="agb.html">AGB</a>.</p>
+        <div class="receipt__action">
+          <a href="#kontakt" class="btn btn--primary"><span>Kostenlose Beratung buchen</span></a>
+          <p class="receipt__legal">Preise zzgl. gesetzl. MwSt. · Es gelten unsere <a href="agb.html">AGB</a>.</p>
+        </div>
+
+        <footer class="receipt__foot">
+          <div class="receipt__sig">
+            <span class="receipt__sig-cap">i. A.</span>
+            <svg class="receipt__sig-mark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M4 28 Q14 4 28 18 T56 16 Q72 8 86 22 Q98 28 116 12"
+                    stroke="currentColor" stroke-width="1.6" fill="none"
+                    stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"
+                    id="receiptSigPath"/>
+            </svg>
+            <span class="receipt__sig-name">Adam Dia · Atelier Addus</span>
+          </div>
+          <div class="receipt__meta">
+            <span>Vielen Dank für Ihr Vertrauen.</span>
+            <span class="receipt__meta-mono">PRINTED ON WEB · v.2026.05</span>
+          </div>
+        </footer>
+
+        <span class="receipt__perf receipt__perf--bot" aria-hidden="true"></span>
       </div>
 
     </section>
 
-<!-- ══ 5. ÜBER UNS ══ -->
-    <section id="ueber-uns" class="abt" aria-labelledby="about-headline">
-
-      <!-- Header (lst-style) -->
-      <div class="abt__head reveal">
-        <span class="lst__tag">Über mich</span>
-        <h2 class="lst__title" id="about-headline">Kein Team. Kein Büro.<br>Nur Ergebnisse.</h2>
+    <!-- ══ 7. ÜBER UNS ══ -->
+    <section id="ueber-uns" class="abt" aria-labelledby="abt-headline">
+      <div class="section__head reveal">
+        <span class="kicker">Kapitel VI — Über uns</span>
+        <h2 class="section__title" id="abt-headline">Kein Team. Kein Büro.<br><em>Nur</em> Ergebnisse.</h2>
       </div>
 
-      <!-- Split: Photo + Text -->
       <div class="abt__split">
-
-        <div class="abt__photo reveal">
+        <figure class="abt__portrait reveal">
           <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_600/addus/adam-portrait.jpg"
                srcset="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_400/addus/adam-portrait.jpg 400w,
                        https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_600/addus/adam-portrait.jpg 600w,
                        https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_800/addus/adam-portrait.jpg 800w"
                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 35vw"
-               alt="Adam Dia — Gründer von addus." width="600" height="750" loading="lazy" decoding="async" fetchpriority="low">
-        </div>
+               alt="Adam Dia — Gründer von addus." width="600" height="750" loading="lazy" decoding="async">
+          <figcaption>
+            <span>Tafel II</span>
+            <strong>Adam Dia</strong>
+            <span>Gründer &amp; Entwickler · seit 2024</span>
+          </figcaption>
+        </figure>
 
         <div class="abt__content reveal">
-          <p class="abt__intro">Ich bin Adam &mdash; Informatik-Student, 20 Jahre alt, und die Person, die Ihr Projekt von Anfang bis Ende umsetzt.</p>
+          <p class="abt__lede">Ich bin Adam — Informatik-Student, 20 Jahre alt, und die Person, die Ihr Projekt von Anfang bis Ende umsetzt.</p>
           <p>Sie reden mit dem Menschen, der Ihre Website tatsächlich baut. Kein Projektmanager dazwischen, kein Briefing das falsch ankommt, keine Wartezeiten.</p>
-          <p>Ich programmiere, designe und optimiere alles selbst. Schnell, persönlich und zu einem Preis, der fair ist &mdash; weil Sie bei mir für die Arbeit zahlen, nicht für einen Firmennamen.</p>
+          <p>Ich programmiere, designe und optimiere alles selbst. Schnell, persönlich und zu einem Preis, der fair ist — weil Sie bei mir für die Arbeit zahlen, nicht für einen Firmennamen.</p>
 
           <div class="abt__sig">
-            <span class="abt__sig-name">Adam Dia</span>
-            <span class="abt__sig-role">Gründer & Entwickler</span>
+            <span>— Adam Dia</span>
           </div>
         </div>
-
       </div>
 
-      <!-- Drei Gründe als Cards -->
       <div class="abt__reasons">
         <div class="abt__card reveal">
-          <div class="abt__card-accent"></div>
-          <strong>Direkte Kommunikation</strong>
-          <p>Sie sprechen immer mit mir &mdash; dem, der Ihre Website tatsächlich baut. Kein Mittelsmann.</p>
+          <span class="abt__card-num">i</span>
+          <h4>Direkte Kommunikation</h4>
+          <p>Sie sprechen immer mit mir — dem, der Ihre Website tatsächlich baut. Kein Mittelsmann.</p>
         </div>
         <div class="abt__card reveal">
-          <div class="abt__card-accent"></div>
-          <strong>Schnell & flexibel</strong>
-          <p>Keine Abstimmungsrunden mit fünf Leuten. Ich setze um &mdash; oft noch am gleichen Tag.</p>
+          <span class="abt__card-num">ii</span>
+          <h4>Schnell &amp; flexibel</h4>
+          <p>Keine Abstimmungsrunden mit fünf Leuten. Ich setze um — oft noch am gleichen Tag.</p>
         </div>
         <div class="abt__card reveal">
-          <div class="abt__card-accent"></div>
-          <strong>Ehrlich & fair</strong>
+          <span class="abt__card-num">iii</span>
+          <h4>Ehrlich &amp; fair</h4>
           <p>Kein Agentur-Overhead, keine versteckten Kosten. Sie zahlen für Ergebnisse.</p>
         </div>
       </div>
 
       <div class="abt__bottom reveal">
-        <a href="#kontakt" class="lst__bottom-btn">Direkt mit mir sprechen</a>
+        <a href="#kontakt" class="btn btn--primary"><span>Direkt mit mir sprechen</span></a>
       </div>
-
     </section>
 
-<!-- ══ 6. BLOG ══ -->
-    <section id="blog" class="blg" aria-labelledby="blog-headline">
-
-      <div class="blg__head reveal">
-        <span class="lst__tag">Wissen & Insights</span>
-        <h2 class="lst__title" id="blog-headline">Vier Artikel.<br>Null Blabla.</h2>
+    <!-- ══ 8. BLOG / JOURNAL ══ -->
+    <section id="blog" class="blg" aria-labelledby="blg-headline">
+      <div class="section__head section__head--split reveal">
+        <span class="kicker">Kapitel VII — Journal</span>
+        <h2 class="section__title" id="blg-headline">Vier Artikel.<br><em>Null</em> Blabla.</h2>
       </div>
 
-      <div class="blg__accordion">
-
-        <article class="blg__item reveal">
-          <a href="blog/was-kostet-eine-website-2026.html" class="blg__trigger">
-
-            <span class="blg__name">Was kostet eine Website 2026?</span>
-            <span class="blg__meta-row">
-              <span class="blg__tag">Webdesign</span>
-              <span class="blg__time">8 Min</span>
-            </span>
-            <span class="blg__arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </span>
-          </a>
-          <div class="blg__preview">
+      <div class="blg__list">
+        <a href="blog/was-kostet-eine-website-2026.html" class="blg__row reveal">
+          <span class="blg__row-num">01</span>
+          <div class="blg__row-main">
+            <h3>Was kostet eine Website 2026?</h3>
             <p>Baukasten, Freelancer oder Agentur? Konkrete Zahlen und Empfehlung — ohne Marketing-Blabla.</p>
           </div>
-        </article>
-
-        <article class="blg__item reveal">
-          <a href="blog/5-website-fehler-kleine-unternehmen.html" class="blg__trigger">
-
-            <span class="blg__name">5 Fehler, die Unternehmen Kunden kosten.</span>
-            <span class="blg__meta-row">
-              <span class="blg__tag">Website-Tipps</span>
-              <span class="blg__time">7 Min</span>
-            </span>
-            <span class="blg__arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </span>
-          </a>
-          <div class="blg__preview">
+          <span class="blg__row-meta"><span class="blg__tag">Webdesign</span><span class="blg__time">8 Min</span></span>
+          <span class="blg__row-arrow">↗</span>
+        </a>
+        <a href="blog/5-website-fehler-kleine-unternehmen.html" class="blg__row reveal">
+          <span class="blg__row-num">02</span>
+          <div class="blg__row-main">
+            <h3>5 Fehler, die Unternehmen Kunden kosten.</h3>
             <p>Diese Fehler sehe ich bei 9 von 10 Websites — und die Inhaber wissen nicht mal, dass sie Geld verlieren.</p>
           </div>
-        </article>
-
-        <article class="blg__item reveal">
-          <a href="blog/warum-jedes-unternehmen-eine-website-braucht.html" class="blg__trigger">
-
-            <span class="blg__name">Warum jedes Unternehmen eine Website braucht.</span>
-            <span class="blg__meta-row">
-              <span class="blg__tag">Business</span>
-              <span class="blg__time">6 Min</span>
-            </span>
-            <span class="blg__arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </span>
-          </a>
-          <div class="blg__preview">
+          <span class="blg__row-meta"><span class="blg__tag">Tipps</span><span class="blg__time">7 Min</span></span>
+          <span class="blg__row-arrow">↗</span>
+        </a>
+        <a href="blog/warum-jedes-unternehmen-eine-website-braucht.html" class="blg__row reveal">
+          <span class="blg__row-num">03</span>
+          <div class="blg__row-main">
+            <h3>Warum jedes Unternehmen eine Website braucht.</h3>
             <p>93% aller Kaufentscheidungen beginnen online. 6 Gründe, warum Sie ohne Website unsichtbar bleiben.</p>
           </div>
-        </article>
-
-        <article class="blg__item reveal">
-          <a href="blog/google-my-business-2026-leitfaden.html" class="blg__trigger">
-
-            <span class="blg__name">Google My Business 2026: Der komplette Leitfaden.</span>
-            <span class="blg__meta-row">
-              <span class="blg__tag">SEO</span>
-              <span class="blg__time">12 Min</span>
-            </span>
-            <span class="blg__arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </span>
-          </a>
-          <div class="blg__preview">
+          <span class="blg__row-meta"><span class="blg__tag">Business</span><span class="blg__time">6 Min</span></span>
+          <span class="blg__row-arrow">↗</span>
+        </a>
+        <a href="blog/google-my-business-2026-leitfaden.html" class="blg__row reveal">
+          <span class="blg__row-num">04</span>
+          <div class="blg__row-main">
+            <h3>Google My Business 2026: Der komplette Leitfaden.</h3>
             <p>Profil einrichten, Bewertungen nutzen und bei Google Maps ganz oben stehen — komplett kostenlos.</p>
           </div>
-        </article>
-
+          <span class="blg__row-meta"><span class="blg__tag">SEO</span><span class="blg__time">12 Min</span></span>
+          <span class="blg__row-arrow">↗</span>
+        </a>
       </div>
 
       <div class="blg__bottom reveal">
-        <p class="blg__bottom-q">Mehr lesen?</p>
-        <a href="blog/" class="lst__bottom-btn">Alle Artikel ansehen</a>
+        <a href="blog/" class="btn btn--ghost">Alle Artikel ansehen ↗</a>
       </div>
-
     </section>
 
-<!-- ══ 7. KONTAKT ══ -->
-    <section id="kontakt" class="ktk" aria-labelledby="contact-headline">
-
-      <div class="ktk__head reveal">
-        <span class="lst__tag">Nächster Schritt</span>
-        <h2 class="lst__title" id="contact-headline">Projekt besprechen.<br>Unverbindlich.</h2>
+    <!-- ══ 9. KONTAKT ══ -->
+    <section id="kontakt" class="ktk" aria-labelledby="ktk-headline">
+      <div class="section__head reveal">
+        <span class="kicker">Kapitel VIII — Nächster Schritt</span>
+        <h2 class="section__title" id="ktk-headline">Projekt besprechen.<br><em>Unverbindlich.</em></h2>
       </div>
 
-      <!-- Contact channels as accordion rows -->
       <div class="ktk__channels">
-        <a href="tel:+4917621214416" class="ktk__row reveal">
-          <span class="ktk__row-num">01</span>
-          <span class="ktk__row-label">Anrufen</span>
-          <span class="ktk__row-value">+49 176 2121 44 16</span>
-          <span class="ktk__row-sub">Mo–Fr 9–18 Uhr</span>
-          <span class="blg__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <a href="tel:+4917621214416" class="ktk__channel reveal">
+          <span class="ktk__channel-num">i</span>
+          <div>
+            <span class="ktk__channel-label">Anrufen</span>
+            <span class="ktk__channel-val">+49 176 2121 44 16</span>
+            <span class="ktk__channel-sub">Mo–Fr 9–18 Uhr</span>
+          </div>
+          <span class="ktk__channel-arrow">↗</span>
         </a>
-        <a href="mailto:addubusiness@gmail.com" class="ktk__row reveal">
-          <span class="ktk__row-num">02</span>
-          <span class="ktk__row-label">E-Mail</span>
-          <span class="ktk__row-value">addubusiness@gmail.com</span>
-          <span class="ktk__row-sub">Antwort in 4 Stunden</span>
-          <span class="blg__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <a href="mailto:addubusiness@gmail.com" class="ktk__channel reveal">
+          <span class="ktk__channel-num">ii</span>
+          <div>
+            <span class="ktk__channel-label">E-Mail</span>
+            <span class="ktk__channel-val">addubusiness@gmail.com</span>
+            <span class="ktk__channel-sub">Antwort in 4 Stunden</span>
+          </div>
+          <span class="ktk__channel-arrow">↗</span>
         </a>
-        <a href="https://wa.me/4917621214416" class="ktk__row reveal" target="_blank" rel="noopener noreferrer">
-          <span class="ktk__row-num">03</span>
-          <span class="ktk__row-label">WhatsApp</span>
-          <span class="ktk__row-value">Direkt schreiben</span>
-          <span class="ktk__row-sub">Meist sofortige Antwort</span>
-          <span class="blg__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <a href="https://wa.me/4917621214416" class="ktk__channel reveal" target="_blank" rel="noopener noreferrer">
+          <span class="ktk__channel-num">iii</span>
+          <div>
+            <span class="ktk__channel-label">WhatsApp</span>
+            <span class="ktk__channel-val">Direkt schreiben</span>
+            <span class="ktk__channel-sub">Meist sofortige Antwort</span>
+          </div>
+          <span class="ktk__channel-arrow">↗</span>
         </a>
       </div>
 
-      <!-- Form as accordion item -->
-      <div class="ktk__form-wrap is-open reveal">
-        <button class="ktk__form-trigger" aria-expanded="true" onclick="this.parentElement.classList.toggle('is-open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('is-open'))">
-          <span class="ktk__form-num">04</span>
-          <span class="ktk__form-name">Nachricht senden</span>
-          <span class="ktk__form-arrow" aria-hidden="true"></span>
-        </button>
-        <div class="ktk__form-panel">
-          <div class="ktk__form-panel-inner">
-            <div class="ktk__form-head">
-              <h3 class="ktk__form-title">Kein Hochdruckverkauf. Nur ein ehrliches Gespräch.</h3>
+      <div class="ktk__form-wrap reveal">
+        <h3 class="ktk__form-title">Schreiben Sie uns — wie an einen <em>alten Freund</em>.</h3>
+
+        <form class="postcard" id="contactForm" novalidate>
+          <!-- Postkarte: Header-Leiste -->
+          <header class="postcard__head">
+            <span class="postcard__brand">ATELIER ADDUS · POSTKARTE</span>
+            <span class="postcard__no">N° 06 · MMXXVI</span>
+          </header>
+
+          <!-- Oberteil: Absender (links) | Empfänger + Briefmarke (rechts) -->
+          <div class="postcard__top">
+            <div class="postcard__sender">
+              <span class="postcard__col-label">Absender</span>
+              <div class="postcard__line">
+                <input type="text" id="firstName" name="firstName" placeholder="Vorname" required autocomplete="given-name" aria-label="Vorname">
+              </div>
+              <div class="postcard__line">
+                <input type="text" id="lastName" name="lastName" placeholder="Nachname" required autocomplete="family-name" aria-label="Nachname">
+              </div>
+              <div class="postcard__line">
+                <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required autocomplete="email" aria-label="E-Mail">
+              </div>
+              <div class="postcard__line">
+                <input type="tel" id="phone" name="phone" placeholder="Telefon (optional)" autocomplete="tel" aria-label="Telefon">
+              </div>
             </div>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="firstName">Vorname *</label>
-              <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Max" required autocomplete="given-name">
+
+            <div class="postcard__recipient">
+              <!-- Briefmarke -->
+              <div class="postcard__stamp" aria-hidden="true">
+                <svg viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Perforation -->
+                  <rect x="3.5" y="3.5" width="103" height="123" fill="#efe8d8" stroke="#b8421f" stroke-width="0.6" stroke-dasharray="2.6 1.4"/>
+                  <!-- Inner content -->
+                  <text x="55" y="40" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="20" fill="#b8421f"
+                        font-variation-settings='"opsz" 144,"WONK" 1,"SOFT" 60'>addus.</text>
+                  <text x="55" y="58" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" letter-spacing="2" fill="#b8421f" opacity=".85">ATELIER</text>
+                  <line x1="22" y1="68" x2="88" y2="68" stroke="#b8421f" stroke-width=".5" opacity=".5"/>
+                  <text x="55" y="93" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="22" fill="#b8421f"
+                        font-variation-settings='"opsz" 144,"WONK" 1'>0,85</text>
+                  <text x="55" y="106" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" letter-spacing="1.5" fill="#b8421f">EURO</text>
+                  <text x="55" y="119" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="4.6" letter-spacing="1.2" fill="#b8421f" opacity=".75">DEUTSCHE POST</text>
+                </svg>
+              </div>
+
+              <div class="postcard__address">
+                <span class="postcard__col-label">An</span>
+                <div class="postcard__address-lines">
+                  <span>Atelier Addus</span>
+                  <span>z. Hd. Adam Dia</span>
+                  <span>21335 Lüneburg</span>
+                  <span>Deutschland</span>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="lastName">Nachname *</label>
-              <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Mustermann" required autocomplete="family-name">
+          </div>
+
+          <!-- Nachrichten-Bereich mit linierter Schreibfläche -->
+          <div class="postcard__message">
+            <span class="postcard__col-label">Ihre Nachricht</span>
+            <textarea id="message" name="message" placeholder="Erzählen Sie uns kurz von Ihrem Projekt — was Sie vorhaben, wo Sie stehen, was Sie sich wünschen …" required></textarea>
+          </div>
+
+          <!-- Anliegen als kleine Marken -->
+          <div class="postcard__interests">
+            <span class="postcard__col-label">Anliegen <span class="postcard__col-sub">— Mehrfachauswahl</span></span>
+            <div class="postcard__tags">
+              <label class="postcard__tag"><input type="checkbox" name="interest" value="neuentwicklung"><span>Neuentwicklung</span></label>
+              <label class="postcard__tag"><input type="checkbox" name="interest" value="relaunch"><span>Relaunch</span></label>
+              <label class="postcard__tag"><input type="checkbox" name="interest" value="seo"><span>SEO</span></label>
+              <label class="postcard__tag"><input type="checkbox" name="interest" value="ecommerce"><span>E-Commerce</span></label>
+              <label class="postcard__tag"><input type="checkbox" name="interest" value="beratung"><span>Beratung</span></label>
             </div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">E-Mail-Adresse *</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="max@unternehmen.de" required autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="phone">Telefon (optional)</label>
-            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+49 89 ..." autocomplete="tel">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="interest">Ich interessiere mich für</label>
-            <div class="form-checks">
-              <label class="form-check"><input type="checkbox" name="interest" value="neuentwicklung"> <span>Website-Neuentwicklung</span></label>
-              <label class="form-check"><input type="checkbox" name="interest" value="relaunch"> <span>Website-Relaunch</span></label>
-              <label class="form-check"><input type="checkbox" name="interest" value="seo"> <span>SEO & Sichtbarkeit</span></label>
-              <label class="form-check"><input type="checkbox" name="interest" value="ecommerce"> <span>E-Commerce / Shop</span></label>
-              <label class="form-check"><input type="checkbox" name="interest" value="beratung"> <span>Beratung & Strategie</span></label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Ihre Nachricht *</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Erzählen Sie uns kurz von Ihrem Projekt und Ihren Zielen..." required></textarea>
-          </div>
+
+          <!-- Honeypot -->
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
-          <label class="dsgvo-check">
-            <input type="checkbox" id="dsgvoCheck" required>
-            <span>Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *</span>
-          </label>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAACwrVASeLL00ledx" data-theme="dark" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired"></div>
-          <div class="form-submit-area">
-            <button class="btn-submit" type="submit" id="submitBtn" disabled>
-              Nachricht senden →
-            </button>
-            <p class="form-submit-hint">Keine Kreditkarte. Keine versteckten Kosten. Antwort innerhalb von 4 Stunden.</p>
+
+          <!-- Fuß: DSGVO + Turnstile + Absenden -->
+          <footer class="postcard__foot">
+            <label class="postcard__dsgvo">
+              <input type="checkbox" id="dsgvoCheck" required>
+              <span>Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu — meine Daten werden ausschließlich zur Bearbeitung meiner Anfrage verwendet. *</span>
+            </label>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACwrVASeLL00ledx" data-theme="light" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired"></div>
+            <div class="postcard__submit-row">
+              <button type="submit" id="submitBtn" class="postcard__send" disabled aria-label="Postkarte absenden">
+                <span class="postcard__send-stamp" aria-hidden="true">
+                  <svg viewBox="0 0 160 90" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="156" height="86" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <rect x="6" y="6" width="148" height="78" fill="none" stroke="currentColor" stroke-width=".6" opacity=".5"/>
+                    <text x="80" y="48" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="28" fill="currentColor"
+                          font-variation-settings='"opsz" 144,"WONK" 1,"SOFT" 60'>ABSENDEN</text>
+                    <text x="80" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="3" fill="currentColor" opacity=".75">PORTO BEZAHLT · MMXXVI</text>
+                  </svg>
+                </span>
+              </button>
+              <p class="postcard__hint">Keine versteckten Kosten. Antwort in 4 Stunden.</p>
+            </div>
+          </footer>
+
+          <!-- Drop-Stempel beim Absenden (JS animiert ihn rein) -->
+          <div class="postcard__drop-stamp" id="postcardDropStamp" aria-hidden="true">
+            <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path id="psArcTop" d="M 90,90 m -66,0 a 66,66 0 1,1 132,0"/>
+                <path id="psArcBot" d="M 90,90 m 66,0 a 66,66 0 1,1 -132,0"/>
+              </defs>
+              <circle cx="90" cy="90" r="78" fill="none" stroke="currentColor" stroke-width="3" opacity=".95"/>
+              <circle cx="90" cy="90" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
+              <text font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3.6" fill="currentColor" font-weight="600">
+                <textPath href="#psArcTop" startOffset="50%" text-anchor="middle">· ABGESCHICKT ·</textPath>
+              </text>
+              <text font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="currentColor" opacity=".9">
+                <textPath href="#psArcBot" startOffset="50%" text-anchor="middle">ATELIER · ADDUS</textPath>
+              </text>
+              <text x="90" y="82" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="700" font-size="30" fill="currentColor"
+                    font-variation-settings='"opsz" 144,"WONK" 1,"SOFT" 60'>angekommen</text>
+              <text x="90" y="108" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.5" fill="currentColor">MMXXVI</text>
+            </svg>
           </div>
         </form>
-        <div class="form-success" id="formSuccess" aria-live="polite">
-          <div class="success-icon">✓</div>
-          <h3 class="success-title"><span class="success-name">Hallo</span>, Ihre Nachricht ist angekommen!</h3>
-          <p class="success-msg">Wir melden uns innerhalb von 4 Stunden — oder noch heute, falls Sie vor 15 Uhr schreiben. Schon neugierig? Schauen Sie sich unsere <a href="#vertrauen" class="link--accent">Case Studies</a> an.</p>
+
+        <div class="form__success" id="formSuccess" aria-live="polite">
+          <div class="form__success-icon">✓</div>
+          <h3 class="form__success-title"><span class="success-name">Hallo</span>, Ihre Postkarte ist angekommen!</h3>
+          <p>Wir melden uns innerhalb von 4 Stunden — oder noch heute, falls Sie vor 15 Uhr schreiben.</p>
         </div>
-          </div><!-- /.ktk__form-panel-inner -->
-        </div><!-- /.ktk__form-panel -->
       </div>
 
-      <!-- FAQ as accordion item -->
       <div class="ktk__faq reveal">
-        <button class="ktk__faq-trigger" aria-expanded="false" onclick="this.parentElement.classList.toggle('is-open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('is-open'))">
-          <span class="ktk__faq-num">05</span>
-          <span class="ktk__faq-name">Häufige Fragen</span>
-          <span class="ktk__faq-arrow" aria-hidden="true"></span>
-        </button>
-        <div class="ktk__faq-panel">
-          <div class="ktk__faq-panel-inner">
-        <div class="ktk__faq-list" role="list">
+        <h3 class="ktk__faq-title">Häufige Fragen</h3>
+        <div class="faq-list" role="list">
           <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Was kostet eine neue Website?
-              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
-            </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro. Im kostenlosen Erstgespräch finden wir das passende Paket für Sie.</div></div>
+            <button class="faq-q" aria-expanded="false">Was kostet eine neue Website? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro. Im kostenlosen Erstgespräch finden wir das passende Paket für Sie.</div></div>
           </div>
           <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Wie lange dauert ein Website-Projekt?
-              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
-            </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Unser Standard: 21 Werktage von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen. Immer pünktlich — das ist keine Phrase, sondern vertragliche Vereinbarung.</div></div>
+            <button class="faq-q" aria-expanded="false">Wie lange dauert ein Website-Projekt? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Unser Standard: <span class="mark">21 Werktage</span> von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen. Immer pünktlich — vertraglich vereinbart.</div></div>
           </div>
           <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Kann ich meine Website danach selbst bearbeiten?
-              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
-            </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket. Sie brauchen kein technisches Vorwissen.</div></div>
+            <button class="faq-q" aria-expanded="false">Kann ich meine Website danach selbst bearbeiten? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket. Sie brauchen kein technisches Vorwissen.</div></div>
           </div>
           <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Was, wenn mir das Ergebnis nicht gefällt?
-              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
-            </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie — oder wir arbeiten nach, bis es stimmt.</div></div>
+            <button class="faq-q" aria-expanded="false">Was, wenn mir das Ergebnis nicht gefällt? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie.</div></div>
           </div>
           <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Übernehmt ihr auch bestehende Websites?
-              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8M2 6h8"/></svg></span>
-            </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Ja. Website-Audits, Relaunch bestehender Seiten und Performance-Optimierungen gehören zu unseren häufigsten Projekten. Wir analysieren, was Sie haben, und zeigen Ihnen den besten Weg vorwärts.</div></div>
+            <button class="faq-q" aria-expanded="false">Übernehmt ihr auch bestehende Websites? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Ja. Website-Audits, Relaunch und Performance-Optimierungen gehören zu unseren häufigsten Projekten.</div></div>
           </div>
         </div>
-          </div><!-- /.ktk__faq-panel-inner -->
-        </div><!-- /.ktk__faq-panel -->
       </div>
-
     </section>
 
   </main>
 
+  <!-- ══ FOOTER — Editorial Colophon ══ -->
+  <footer class="ftr" role="contentinfo">
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__top">
-      <div class="footer-brand">
-        <div class="footer-logo">addus.</div>
-        <div class="footer-tagline">Websites, die wachsen.</div>
-        <p class="footer-desc">Professionelle Websites für kleine und mittlere Unternehmen. Persönlich, schnell und fair.</p>
-        <div class="footer-socials">
-          <a href="https://wa.me/4917621214416" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">WA</a>
-          <a href="mailto:addubusiness@gmail.com" class="social-link" aria-label="E-Mail">@</a>
-          <a href="tel:+4917621214416" class="social-link" aria-label="Telefon">✆</a>
+    <!-- Closing editorial statement — final flourish -->
+    <div class="ftr__close">
+      <span class="ftr__close-cap">— Letzte Seite —</span>
+      <h3 class="ftr__close-title">Bauen wir <em>Ihre Website</em><br>als nächstes Stück?</h3>
+      <a href="#kontakt" class="ftr__close-cta">
+        <span>Projekt anfragen</span>
+        <i>↗</i>
+      </a>
+    </div>
+
+    <!-- Top: dramatic brand block + columns -->
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <div class="ftr__logo">addus<span class="ftr__logo-dot">.</span></div>
+        <p class="ftr__tagline"><em>„Websites, die wachsen."</em></p>
+        <p class="ftr__desc">Professionelle Websites für kleine und mittlere Unternehmen. Persönlich, schnell und fair — aus Lüneburg, für ganz Norddeutschland und darüber hinaus.</p>
+        <div class="ftr__socials">
+          <a href="https://wa.me/4917621214416" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:addubusiness@gmail.com" aria-label="E-Mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="1"/>
+              <path d="M3 7l9 7 9-7"/>
+            </svg>
+            <span>E-Mail</span>
+          </a>
+          <a href="tel:+4917621214416" aria-label="Telefon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>Telefon</span>
+          </a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Leistungen</h4>
-        <ul>
-          <li><a href="#leistungen">Webdesign</a></li>
-          <li><a href="#leistungen">SEO</a></li>
-          <li><a href="#leistungen">E-Commerce</a></li>
-          <li><a href="#kontakt">Wartung & Support</a></li>
-          <li><a href="#kontakt">Preise</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Unternehmen</h4>
-        <ul>
-          <li><a href="#ueber-uns">Über uns</a></li>
-          <li><a href="#vertrauen">Referenzen</a></li>
-          <li><a href="#kontakt">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Ressourcen</h4>
-        <ul>
-          <li><a href="blog/">Blog</a></li>
-          <li><a href="blog/was-kostet-eine-website-2026.html">Was kostet eine Website?</a></li>
-          <li><a href="blog/5-website-fehler-kleine-unternehmen.html">5 Website-Fehler</a></li>
-          <li><a href="blog/warum-jedes-unternehmen-eine-website-braucht.html">Warum eine Website?</a></li>
-          <li><a href="blog/google-my-business-2026-leitfaden.html">Google My Business Guide</a></li>
-          <li><a href="blog/seo-fuer-handwerksbetriebe.html">SEO für Handwerker</a></li>
-          <li><a href="blog/lokales-seo-2026.html">Lokales SEO 2026</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="tel:+4917621214416">+49 176 2121 44 16</a></li>
-          <li><a href="mailto:addubusiness@gmail.com">addubusiness@gmail.com</a></li>
-          <li><a href="impressum.html">Lüneburg</a></li>
-        </ul>
+
+      <div class="ftr__cols">
+        <div class="ftr__col">
+          <h4><em>I.</em> Leistungen</h4>
+          <ul>
+            <li><a href="#leistungen">Webdesign</a></li>
+            <li><a href="#leistungen">SEO &amp; Sichtbarkeit</a></li>
+            <li><a href="#leistungen">E-Commerce</a></li>
+            <li><a href="#kontakt">Wartung &amp; Support</a></li>
+            <li><a href="#kontakt">Preise</a></li>
+          </ul>
+        </div>
+        <div class="ftr__col">
+          <h4><em>II.</em> Studio</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#vertrauen">Referenzen</a></li>
+            <li><a href="#kontakt">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="ftr__col">
+          <h4><em>III.</em> Journal</h4>
+          <ul>
+            <li><a href="blog/">Alle Artikel</a></li>
+            <li><a href="blog/was-kostet-eine-website-2026.html">Website-Kosten 2026</a></li>
+            <li><a href="blog/5-website-fehler-kleine-unternehmen.html">5 Website-Fehler</a></li>
+            <li><a href="blog/google-my-business-2026-leitfaden.html">Google My Business</a></li>
+          </ul>
+        </div>
+        <div class="ftr__col">
+          <h4><em>IV.</em> Kontakt</h4>
+          <ul>
+            <li><a href="tel:+4917621214416">+49 176 2121 44 16</a></li>
+            <li><a href="mailto:addubusiness@gmail.com">addubusiness@gmail.com</a></li>
+            <li>Lüneburg, Niedersachsen</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="footer__middle">
-      <div class="footer-newsletter-mini">
-        <span>Einmal im Monat. Nur Wissen. Kein Spam.</span>
-        <form class="nl-mini-form" novalidate>
-          <input class="nl-mini-input" type="email" placeholder="ihre@email.de" autocomplete="email" required>
-          <button class="nl-mini-btn" type="submit" data-orig-text="→">→</button>
-        </form>
+    <!-- Newsletter — Atelier-Brief subscription card -->
+    <div class="ftr__newsletter">
+      <div class="ftr__nl-text">
+        <span class="ftr__nl-cap">Atelier-Brief</span>
+        <h4 class="ftr__nl-title"><em>Einmal im Monat.</em><br>Nur Wissen. Kein Spam.</h4>
+        <p class="ftr__nl-desc">Web-Tipps, kleine Geschichten aus dem Atelier, Sneak-Peeks neuer Arbeiten. Jederzeit kündbar.</p>
       </div>
-      <div class="footer-trust-badges">
-        <span class="trust-badge-mini">SSL-verschlüsselt</span>
-        <span class="trust-badge-mini">DSGVO-konform</span>
+      <form class="ftr__nl-form" novalidate>
+        <label class="ftr__nl-label" for="nlEmail">Ihre Adresse</label>
+        <div class="ftr__nl-input-row">
+          <input class="ftr__nl-input" type="email" id="nlEmail" placeholder="ihre@adresse.de" autocomplete="email" required>
+          <button class="ftr__nl-btn" type="submit" aria-label="Abonnieren">
+            <span>Abonnieren</span>
+            <i>↗</i>
+          </button>
+        </div>
+        <span class="ftr__nl-meta">Sie erhalten eine Bestätigungs-Mail · Double-Opt-In</span>
+      </form>
+    </div>
+
+    <!-- ATELIER MAP — editorial Standort-Tafel -->
+    <div class="ftr__map">
+      <div class="ftr__map-head">
+        <span class="ftr__map-cap">— Atelier · auf der Karte —</span>
+        <span class="ftr__map-coords">53.2336° N · 10.4478° E</span>
+      </div>
+      <div class="ftr__map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.5!2d10.4478!3d53.2336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1f3b0a0a0a0a0%3A0x4720f3f0b4e8c81a!2sDahlenburger%20Landstra%C3%9Fe%2020H%2C%2021337%20L%C3%BCneburg!5e0!3m2!1sde!2sde!4v1700000000000" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="addus. Standort in Lüneburg"></iframe>
+
+        <!-- Floating editorial address card -->
+        <div class="ftr__map-card">
+          <span class="ftr__map-card-tag">Tafel V · Atelier</span>
+          <h4 class="ftr__map-card-name">addus<i>.</i></h4>
+          <p class="ftr__map-card-addr">
+            Dahlenburger Landstraße 20H<br>
+            21337 Lüneburg
+          </p>
+          <div class="ftr__map-card-rule"></div>
+          <p class="ftr__map-card-hours">
+            <span class="ftr__map-card-day">Mo — Fr</span> · 9:00 — 18:00<br>
+            <span class="ftr__map-card-day">Sa — So</span> · nach Vereinbarung
+          </p>
+          <a href="https://www.google.com/maps?cid=5126552526302917786" target="_blank" rel="noopener" class="ftr__map-card-link">In Karten öffnen <i>↗</i></a>
+        </div>
+
+        <!-- Decorative compass rose -->
+        <svg class="ftr__map-compass" viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width=".8" opacity=".5"/>
+          <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width=".4" opacity=".3"/>
+          <path d="M 30 6 L 33 30 L 30 54 L 27 30 Z" fill="currentColor" opacity=".75"/>
+          <path d="M 6 30 L 30 27 L 54 30 L 30 33 Z" fill="currentColor" opacity=".4"/>
+          <text x="30" y="4" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" letter-spacing="1" fill="currentColor">N</text>
+        </svg>
       </div>
     </div>
 
-    <div class="footer__map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.5!2d10.4478!3d53.2336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1f3b0a0a0a0a0%3A0x4720f3f0b4e8c81a!2sDahlenburger%20Landstra%C3%9Fe%2020H%2C%2021337%20L%C3%BCneburg!5e0!3m2!1sde!2sde!4v1700000000000" width="100%" height="280" style="border:0;border-top:1px solid rgba(255,255,255,0.07);filter:grayscale(1) invert(1) contrast(0.9) brightness(0.6);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="addus. Standort in Lüneburg"></iframe>
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer-legal">
-        <span>© 2026 addus.</span>
+    <div class="ftr__bottom">
+      <div class="ftr__legal">
+        <span class="ftr__copyright">© <em>MMXXVI</em> · addus<i>.</i></span>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
         <a href="agb.html">AGB</a>
         <a href="#" onclick="CookieConsent.showPreferences();return false;">Cookie-Einstellungen</a>
       </div>
-      <div class="footer-credit">Webdesign aus Lüneburg — auch für Hamburg, Harburg, Winsen, Uelzen, Celle, Buchholz, Stade und ganz Norddeutschland.</div>
-      <div class="footer-security" aria-label="Sicherheits-Zertifikate">
-        <span class="footer-security__label">Verifiziert:</span>
-        <a href="https://securityheaders.com/?q=addus-web.de&followRedirects=on" target="_blank" rel="noopener" title="Security Headers Score">
-          <img src="https://img.shields.io/badge/Security%20Headers-A%2B-success" alt="Security Headers Grade" loading="lazy" width="120" height="20">
+      <p class="ftr__credit">Webdesign aus Lüneburg — auch für Hamburg, Harburg, Winsen, Uelzen, Celle, Buchholz, Stade und ganz Norddeutschland.</p>
+      <div class="ftr__security">
+        <span class="ftr__security-cap"><em>Verifiziert:</em></span>
+        <a href="https://securityheaders.com/?q=addus-web.de&followRedirects=on" target="_blank" rel="noopener" class="ftr__badge" title="Security Headers Score">
+          <span class="ftr__badge-name">Security Headers</span>
+          <span class="ftr__badge-grade">A<i>+</i></span>
         </a>
-        <a href="https://www.ssllabs.com/ssltest/analyze.html?d=addus-web.de" target="_blank" rel="noopener" title="SSL Labs Test">
-          <img src="https://img.shields.io/badge/SSL%20Labs-A%2B-success" alt="SSL Labs Grade" loading="lazy" width="100" height="20">
+        <a href="https://www.ssllabs.com/ssltest/analyze.html?d=addus-web.de" target="_blank" rel="noopener" class="ftr__badge" title="SSL Labs Test">
+          <span class="ftr__badge-name">SSL Labs</span>
+          <span class="ftr__badge-grade">A<i>+</i></span>
         </a>
-        <a href="https://observatory.mozilla.org/analyze/addus-web.de" target="_blank" rel="noopener" title="Mozilla Observatory">
-          <img src="https://img.shields.io/mozilla-observatory/grade/addus-web.de?publish" alt="Mozilla Observatory Grade" loading="lazy" width="130" height="20">
+        <a href="https://observatory.mozilla.org/analyze/addus-web.de" target="_blank" rel="noopener" class="ftr__badge" title="Mozilla Observatory">
+          <span class="ftr__badge-name">Mozilla Observatory</span>
+          <span class="ftr__badge-grade">A<i>+</i></span>
         </a>
-        <a href="https://hstspreload.org/?domain=addus-web.de" target="_blank" rel="noopener" title="HSTS Preload Status">
-          <img src="https://img.shields.io/badge/HSTS%20Preload-pending-orange" alt="HSTS Preload Status" loading="lazy" width="135" height="20">
+        <a href="https://hstspreload.org/?domain=addus-web.de" target="_blank" rel="noopener" class="ftr__badge ftr__badge--pending" title="HSTS Preload Status">
+          <span class="ftr__badge-name">HSTS Preload</span>
+          <span class="ftr__badge-grade">…</span>
         </a>
       </div>
-
     </div>
 
-    <div class="footer__regions">
-      <div class="footer-regions__inner">
-        <span class="footer-regions__label">Regionen</span>
-        <div class="footer-regions__list">
-          <a href="regional/webdesign-hamburg.html">Webdesign Hamburg</a>
-          <a href="regional/webdesign-bremen.html">Webdesign Bremen</a>
-          <a href="regional/webdesign-lueneburg.html">Webdesign Lüneburg</a>
-          <a href="regional/webdesign-luebeck.html">Webdesign Lübeck</a>
-          <a href="regional/webdesign-celle.html">Webdesign Celle</a>
-          <a href="regional/webdesign-frankfurt.html">Webdesign Frankfurt</a>
-          <a href="regional/webdesign-koblenz.html">Webdesign Koblenz</a>
-          <a href="regional/webdesign-darmstadt.html">Webdesign Darmstadt</a>
-          <a href="regional/webdesign-dortmund.html">Webdesign Dortmund</a>
-          <a href="regional/webdesign-hannover.html">Webdesign Hannover</a>
-          <a href="regional/webdesign-berlin.html">Webdesign Berlin</a>
-          <a href="regional/webdesign-koeln.html">Webdesign Köln</a>
-          <a href="regional/webdesign-muenchen.html">Webdesign München</a>
-          <a href="regional/webdesign-duesseldorf.html">Webdesign Düsseldorf</a>
-          <a href="regional/webdesign-leipzig.html">Webdesign Leipzig</a>
-          <a href="regional/webdesign-dresden.html">Webdesign Dresden</a>
-        </div>
+    <div class="ftr__regions">
+      <span class="ftr__regions-label">Regionen</span>
+      <div class="ftr__regions-list">
+        <a href="regional/webdesign-hamburg.html">Hamburg</a>
+        <a href="regional/webdesign-bremen.html">Bremen</a>
+        <a href="regional/webdesign-lueneburg.html">Lüneburg</a>
+        <a href="regional/webdesign-luebeck.html">Lübeck</a>
+        <a href="regional/webdesign-celle.html">Celle</a>
+        <a href="regional/webdesign-frankfurt.html">Frankfurt</a>
+        <a href="regional/webdesign-koblenz.html">Koblenz</a>
+        <a href="regional/webdesign-darmstadt.html">Darmstadt</a>
+        <a href="regional/webdesign-dortmund.html">Dortmund</a>
+        <a href="regional/webdesign-hannover.html">Hannover</a>
+        <a href="regional/webdesign-berlin.html">Berlin</a>
+        <a href="regional/webdesign-koeln.html">Köln</a>
+        <a href="regional/webdesign-muenchen.html">München</a>
+        <a href="regional/webdesign-duesseldorf.html">Düsseldorf</a>
+        <a href="regional/webdesign-leipzig.html">Leipzig</a>
+        <a href="regional/webdesign-dresden.html">Dresden</a>
+      </div>
+    </div>
+
+    <!-- TYPE COLOPHON — wie der Buchrücken -->
+    <div class="ftr__colophon">
+      <div class="ftr__colophon-inner">
+        <span class="ftr__colophon-line">
+          <em>Gesetzt</em> in Fraunces · Instrument Sans · JetBrains Mono
+        </span>
+        <span class="ftr__colophon-mark">✦</span>
+        <span class="ftr__colophon-line">
+          <em>Gemacht</em> in Lüneburg · MMXXVI
+        </span>
       </div>
     </div>
   </footer>
-
-
-  <!-- ══ KOSTENRECHNER MODAL ══ -->
-  <div class="calc-modal" id="calcModal" aria-hidden="true">
-    <div class="calc-modal__backdrop" id="calcClose"></div>
-    <div class="calc-modal__box">
-      <button class="calc-modal__x" id="calcCloseBtn" type="button" aria-label="Schließen">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <div class="calc-progress"><div class="calc-progress__bar" id="calcBar"></div></div>
-      <div class="calc-steps" id="calcSteps">
-        <div class="calc-step is-active" data-step="1">
-          <p class="calc-step__title">Wonach suchen Sie?</p>
-          <p class="calc-hint">Eine Webseite verbindet mehrere Unterseiten über ein Menü.<br>Eine Landingpage zeigt alles kompakt auf einer einzelnen Seite.</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="webseite" data-price="0"><span class="calc-opt__letter">A</span>Eine Webseite mit mehreren Seiten</button>
-            <button class="calc-opt" data-val="landingpage" data-price="0"><span class="calc-opt__letter">B</span>Eine Landingpage (alles auf einer Seite)</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="2">
-          <p class="calc-step__title">Kommen wir zu den Einzelheiten.</p>
-          <p class="calc-hint">Es folgen ein paar kurze Fragen zum Umfang, zu Ihren Inhalten und zu Extras.</p>
-          <button class="calc-next" id="calcIntroNext" type="button">Weiter</button>
-        </div>
-        <div class="calc-step" data-step="3">
-          <p class="calc-step__title">Haben Sie bereits eine Website?</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="bestehend" data-price="0"><span class="calc-opt__letter">A</span>Ja — wir möchten sie überarbeiten lassen</button>
-            <button class="calc-opt" data-val="neu" data-price="50"><span class="calc-opt__letter">B</span>Nein — wir starten komplett neu</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="4">
-          <p class="calc-step__title">Wie viele Unterseiten brauchen Sie?</p>
-          <p class="calc-hint">Als Unterseite zählt jede Seite im Menü — z.B. Über uns, Leistungen, Kontakt.</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="klein" data-price="300"><span class="calc-opt__letter">A</span>3–5 Seiten</button>
-            <button class="calc-opt" data-val="mittel" data-price="500"><span class="calc-opt__letter">B</span>5–10 Seiten</button>
-            <button class="calc-opt" data-val="gross" data-price="700"><span class="calc-opt__letter">C</span>10–15 Seiten</button>
-            <button class="calc-opt" data-val="sehr-gross" data-price="900"><span class="calc-opt__letter">D</span>15+ Seiten</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="5">
-          <p class="calc-step__title">Haben Sie eigenes Bild- und Videomaterial?</p>
-          <p class="calc-hint">Fotos von Ihrem Geschäft, Team oder Produkten.</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="eigenes" data-price="0"><span class="calc-opt__letter">A</span>Ja, wir haben eigenes Material</button>
-            <button class="calc-opt" data-val="teilweise" data-price="30"><span class="calc-opt__letter">B</span>Teilweise — wir brauchen Unterstützung</button>
-            <button class="calc-opt" data-val="keines" data-price="60"><span class="calc-opt__letter">C</span>Nein — bitte komplett übernehmen</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="6">
-          <p class="calc-step__title">Wer schreibt die Texte für die Website?</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="selbst" data-price="0"><span class="calc-opt__letter">A</span>Wir liefern die Texte selbst</button>
-            <button class="calc-opt" data-val="gemeinsam" data-price="40"><span class="calc-opt__letter">B</span>Gemeinsam — wir liefern Stichpunkte, Sie formulieren</button>
-            <button class="calc-opt" data-val="komplett" data-price="80"><span class="calc-opt__letter">C</span>Bitte komplett übernehmen</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="7">
-          <p class="calc-step__title">Welchen Anspruch haben Sie ans Design?</p>
-          <div class="calc-options">
-            <button class="calc-opt" data-val="sauber" data-price="0"><span class="calc-opt__letter">A</span>Sauber und professionell</button>
-            <button class="calc-opt" data-val="individuell" data-price="60"><span class="calc-opt__letter">B</span>Individuell — passend zu unserer Marke</button>
-            <button class="calc-opt" data-val="premium" data-price="120"><span class="calc-opt__letter">C</span>Premium — wir wollen auffallen</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="8">
-          <p class="calc-step__title">Brauchen Sie Zusatzoptionen?</p>
-          <p class="calc-hint">Mehrfachauswahl möglich.</p>
-          <div class="calc-options calc-options--multi">
-            <button class="calc-opt" data-val="buchung" data-price="60">Online-Terminbuchung / Reservierung</button>
-            <button class="calc-opt" data-val="shop" data-price="100">Online-Shop / Produktverkauf</button>
-            <button class="calc-opt" data-val="mehrsprachig" data-price="60">Mehrsprachigkeit</button>
-            <button class="calc-opt" data-val="suche" data-price="30">Suchfunktion</button>
-            <button class="calc-opt" data-val="mitglieder" data-price="80">Mitgliederbereich / Login</button>
-            <button class="calc-opt" data-val="seo" data-price="60">Google-Sichtbarkeit (SEO)</button>
-          </div>
-          <button class="calc-next" id="calcMultiNext" type="button">Weiter</button>
-        </div>
-        <div class="calc-step" data-step="9">
-          <p class="calc-step__title">Ihre Kostenschätzung ist fertig.</p>
-          <p class="calc-hint">Tragen Sie Ihre Daten ein, um das Ergebnis zu sehen.</p>
-          <div class="calc-form">
-            <label for="calcName" class="sr-only">Vor- und Nachname</label>
-            <input class="calc-input" type="text" id="calcName" placeholder="Vor- und Nachname *" required autocomplete="name" spellcheck="false">
-            <label for="calcFirma" class="sr-only">Firma / Unternehmen</label>
-            <input class="calc-input" type="text" id="calcFirma" placeholder="Firma / Unternehmen" autocomplete="organization" spellcheck="false">
-            <label for="calcEmail" class="sr-only">E-Mail-Adresse</label>
-            <input class="calc-input" type="email" id="calcEmail" placeholder="E-Mail-Adresse *" required autocomplete="email" spellcheck="false">
-            <div class="calc-phone-row">
-              <select class="calc-country" id="calcCountry" autocomplete="tel-country-code">
-                <option value="+49" selected>DE +49</option>
-                <option value="+43">AT +43</option>
-                <option value="+41">CH +41</option>
-                <option value="+31">NL +31</option>
-                <option value="+32">BE +32</option>
-                <option value="+352">LU +352</option>
-                <option value="+48">PL +48</option>
-                <option value="+45">DK +45</option>
-                <option value="+33">FR +33</option>
-                <option value="+39">IT +39</option>
-                <option value="+44">UK +44</option>
-              </select>
-              <label for="calcPhone" class="sr-only">Telefonnummer</label>
-              <input class="calc-input calc-input--phone" type="tel" id="calcPhone" placeholder="Telefonnummer (optional)" autocomplete="tel-national" spellcheck="false">
-            </div>
-            <!-- Honeypot — hidden from humans, bots fill it -->
-            <input type="text" name="website" id="calcHoney" class="calc-honey" tabindex="-1" autocomplete="off">
-            <label class="calc-consent" id="calcConsentLabel">
-              <input type="checkbox" id="calcConsent">
-              <span>Ich bestätige, dass meine Angaben korrekt sind und bin damit einverstanden, dass addus. mich bezüglich meiner Anfrage kontaktiert. <a href="datenschutz.html">Datenschutzerklärung</a></span>
-            </label>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAACwrVASeLL00ledx" data-theme="dark" data-callback="onCalcTurnstileSuccess" data-expired-callback="onCalcTurnstileExpired" id="calcTurnstile"></div>
-            <button class="calc-next calc-next--submit" id="calcSubmit" type="button" disabled>Kostenschätzung anzeigen</button>
-          </div>
-        </div>
-        <div class="calc-step" data-step="result">
-          <p class="calc-step__title">Das Projekt für Ihre neue Webseite wird in etwa kosten:</p>
-          <div class="calc-result">
-            <span class="calc-result__price" id="calcPrice">0</span>
-            <span class="calc-result__currency">,00 €</span>
-          </div>
-          <p class="calc-result__note">Dieser Betrag ist ein Richtwert. Nach einem persönlichen Gespräch kann sich der Preis ändern.</p>
-          <p class="calc-result__cta-text">Wenn Sie jetzt mit unserem Team sprechen möchten:</p>
-          <div class="calc-result__actions">
-            <a href="#kontakt" class="calc-cta" id="calcCta">Kostenloses Erstgespräch vereinbaren</a>
-            <button class="calc-restart" id="calcRestart" type="button">Nochmal berechnen</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Structured Data for Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebSite",
-        "name": "addus.",
-        "url": "https://addus-web.de/",
-        "description": "Strategische Websites, die Besucher in zahlende Kunden verwandeln.",
-        "inLanguage": "de-DE",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://addus-web.de/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": ["ProfessionalService", "LocalBusiness"],
-        "name": "addus.",
-        "url": "https://addus-web.de/",
-        "logo": "https://addus-web.de/assets/logo-addus.svg",
-        "image": "https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto/addus/adam-portrait.jpg",
-        "description": "Webdesign-Agentur in Lüneburg für KMU und Mittelstand. Professionelle Websites, Google-Sichtbarkeit und Online-Shops — schnell, persönlich und zu fairen Festpreisen.",
-        "founder": {
-          "@type": "Person",
-          "name": "Adam Dia",
-          "jobTitle": "Gründer & Entwickler"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Dahlenburgerlandstraße 20H",
-          "addressLocality": "Lüneburg",
-          "postalCode": "21337",
-          "addressRegion": "Niedersachsen",
-          "addressCountry": "DE"
-        },
-        "telephone": "+4917621214416",
-        "email": "addubusiness@gmail.com",
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        ],
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "53.2336",
-          "longitude": "10.4478"
-        },
-        "priceRange": "€€",
-        "areaServed": [
-          { "@type": "City", "name": "Lüneburg" },
-          { "@type": "City", "name": "Hamburg" },
-          { "@type": "City", "name": "Bremen" },
-          { "@type": "City", "name": "Lübeck" },
-          { "@type": "City", "name": "Celle" },
-          { "@type": "City", "name": "Frankfurt am Main" },
-          { "@type": "City", "name": "Koblenz" },
-          { "@type": "City", "name": "Darmstadt" },
-          { "@type": "City", "name": "Dortmund" },
-          { "@type": "City", "name": "Hannover" },
-          { "@type": "City", "name": "Berlin" },
-          { "@type": "City", "name": "Köln" },
-          { "@type": "City", "name": "München" },
-          { "@type": "City", "name": "Düsseldorf" },
-          { "@type": "City", "name": "Leipzig" },
-          { "@type": "City", "name": "Dresden" },
-          { "@type": "Country", "name": "Deutschland" }
-        ],
-        "serviceType": ["Webdesign", "SEO", "Online-Shop", "Google-Sichtbarkeit", "Website-Erstellung"],
-        "knowsAbout": ["Webdesign", "Suchmaschinenoptimierung", "E-Commerce", "WordPress", "Shopify"],
-        "sameAs": [
-          "https://www.google.com/maps?cid=5126552526302917786"
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "worstRating": "1",
-          "ratingCount": "98",
-          "reviewCount": "98"
-        },
-        "review": [
-          {
-            "@type": "Review",
-            "author": { "@type": "Person", "name": "Thomas K." },
-            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!"
-          },
-          {
-            "@type": "Review",
-            "author": { "@type": "Person", "name": "Markus H." },
-            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Wir haben im ersten Jahr 3x mehr Anfragen bekommen als vorher. Adam arbeitet schnell, zuverlässig und hält was er verspricht. Absolute Empfehlung."
-          },
-          {
-            "@type": "Review",
-            "author": { "@type": "Person", "name": "Peter W." },
-            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Das ehrlichste Gespräch, das ich je mit einer Agentur hatte. Kein Upselling, keine leeren Versprechen. Einfach gute Arbeit zu einem fairen Preis."
-          }
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Webdesign-Leistungen",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": { "@type": "Service", "name": "Professionelle Website", "description": "Individuelles Webdesign für Ihr Unternehmen" },
-              "price": "699",
-              "priceCurrency": "EUR"
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": { "@type": "Service", "name": "Google-Sichtbarkeit", "description": "SEO und lokale Google-Optimierung" }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": { "@type": "Service", "name": "Online-Shop", "description": "E-Commerce mit Shopify oder WooCommerce" }
-            }
-          ]
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Was kostet eine neue Website?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro. Im kostenlosen Erstgespräch finden wir das passende Paket für Sie."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wie lange dauert ein Website-Projekt?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unser Standard: 21 Werktage von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen. Immer pünktlich — das ist keine Phrase, sondern vertragliche Vereinbarung."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kann ich meine Website danach selbst bearbeiten?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket. Sie brauchen kein technisches Vorwissen."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Was, wenn mir das Ergebnis nicht gefällt?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie — oder wir arbeiten nach, bis es stimmt."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Übernehmt ihr auch bestehende Websites?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Website-Audits, Relaunch bestehender Seiten und Performance-Optimierungen gehören zu unseren häufigsten Projekten. Wir analysieren, was Sie haben, und zeigen Ihnen den besten Weg vorwärts."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Leistungen",
-        "url": "https://addus-web.de/#leistungen",
-        "description": "Webdesign, SEO und E-Commerce für KMU"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Angebot & Preise",
-        "url": "https://addus-web.de/angebot.html",
-        "description": "Webdesign-Pakete ab 699€ — alle Leistungen und Preise"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Blog",
-        "url": "https://addus-web.de/blog/",
-        "description": "Tipps zu Webdesign, SEO und Online-Marketing für Unternehmen"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Über uns",
-        "url": "https://addus-web.de/#ueber-uns",
-        "description": "Adam Dia — Gründer von addus. Webdesign aus Lüneburg"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Kontakt",
-        "url": "https://addus-web.de/#kontakt",
-        "description": "Projekt besprechen — kostenlos und unverbindlich"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Regionen",
-        "url": "https://addus-web.de/regional/webdesign-hamburg.html",
-        "description": "Webdesign für Hamburg, Berlin, München und 13 weitere Städte"
-      }
+      {"@type":"WebSite","name":"addus.","url":"https://addus-web.de/","description":"Strategische Websites, die Besucher in zahlende Kunden verwandeln.","inLanguage":"de-DE","potentialAction":{"@type":"SearchAction","target":"https://addus-web.de/?s={search_term_string}","query-input":"required name=search_term_string"}},
+      {"@type":["ProfessionalService","LocalBusiness"],"name":"addus.","url":"https://addus-web.de/","logo":"https://addus-web.de/assets/logo-addus.svg","image":"https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto/addus/adam-portrait.jpg","description":"Webdesign-Agentur in Lüneburg für KMU und Mittelstand. Professionelle Websites, Google-Sichtbarkeit und Online-Shops — schnell, persönlich und zu fairen Festpreisen.","founder":{"@type":"Person","name":"Adam Dia","jobTitle":"Gründer & Entwickler"},"address":{"@type":"PostalAddress","streetAddress":"Dahlenburgerlandstraße 20H","addressLocality":"Lüneburg","postalCode":"21337","addressRegion":"Niedersachsen","addressCountry":"DE"},"telephone":"+4917621214416","email":"addubusiness@gmail.com","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"geo":{"@type":"GeoCoordinates","latitude":"53.2336","longitude":"10.4478"},"priceRange":"€€","areaServed":[{"@type":"City","name":"Lüneburg"},{"@type":"City","name":"Hamburg"},{"@type":"City","name":"Bremen"},{"@type":"City","name":"Lübeck"},{"@type":"City","name":"Celle"},{"@type":"City","name":"Frankfurt am Main"},{"@type":"City","name":"Koblenz"},{"@type":"City","name":"Darmstadt"},{"@type":"City","name":"Dortmund"},{"@type":"City","name":"Hannover"},{"@type":"City","name":"Berlin"},{"@type":"City","name":"Köln"},{"@type":"City","name":"München"},{"@type":"City","name":"Düsseldorf"},{"@type":"City","name":"Leipzig"},{"@type":"City","name":"Dresden"},{"@type":"Country","name":"Deutschland"}],"serviceType":["Webdesign","SEO","Online-Shop","Google-Sichtbarkeit","Website-Erstellung"],"knowsAbout":["Webdesign","Suchmaschinenoptimierung","E-Commerce","WordPress","Shopify"],"sameAs":["https://www.google.com/maps?cid=5126552526302917786"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5","worstRating":"1","ratingCount":"98","reviewCount":"98"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Thomas K."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Der Ablauf war sehr unkompliziert und mir wurde extrem viel Arbeit abgenommen. Meine Website ist hammer geworden und mein Feedback wurde schnell eingefügt. Preislich mehr als fair!"},{"@type":"Review","author":{"@type":"Person","name":"Markus H."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Wir haben im ersten Jahr 3x mehr Anfragen bekommen als vorher. Adam arbeitet schnell, zuverlässig und hält was er verspricht. Absolute Empfehlung."},{"@type":"Review","author":{"@type":"Person","name":"Peter W."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Das ehrlichste Gespräch, das ich je mit einer Agentur hatte. Kein Upselling, keine leeren Versprechen. Einfach gute Arbeit zu einem fairen Preis."}]},
+      {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was kostet eine neue Website?","acceptedAnswer":{"@type":"Answer","text":"Unsere Pakete starten bei 300 Euro für eine einfache Landingpage. Eine professionelle Business-Website liegt bei 1.200 Euro."}},{"@type":"Question","name":"Wie lange dauert ein Website-Projekt?","acceptedAnswer":{"@type":"Answer","text":"Unser Standard: 21 Werktage von Kick-off bis Go-Live. Bei komplexeren Projekten (Shop, multilinguale Sites) 4–6 Wochen."}},{"@type":"Question","name":"Kann ich meine Website danach selbst bearbeiten?","acceptedAnswer":{"@type":"Answer","text":"Ja. Jede Website liefern wir mit einem 2-stündigen Einführungs-Workshop und einem Video-Tutorial-Paket."}},{"@type":"Question","name":"Was, wenn mir das Ergebnis nicht gefällt?","acceptedAnswer":{"@type":"Answer","text":"Es gibt 2 Feedback-Runden inklusive. Falls Sie nach finalem Abschluss unzufrieden sind, gibt es unsere 30-Tage-Zufriedenheitsgarantie."}},{"@type":"Question","name":"Übernehmt ihr auch bestehende Websites?","acceptedAnswer":{"@type":"Answer","text":"Ja. Website-Audits, Relaunch bestehender Seiten und Performance-Optimierungen gehören zu unseren häufigsten Projekten."}}]}
     ]
   }
   </script>
 
-  <script src="js/aurora.min.js" defer></script>
-  <script src="js/hero.min.js" defer></script>
-  <script src="js/main.min.js" defer></script>
+  <!-- Editorial JS: nav burger, FAQ, reviews carousel, reveal-on-scroll, form -->
+  <script src="js/editorial.js" defer></script>
+
+  <!-- Sonderangebot Receipt — Motion library (ESM module) -->
+  <script type="module" src="js/receipt.js"></script>
+
+  <!-- Hero Werkschau-Notiz — Motion library -->
+  <script type="module" src="js/werkschau.js"></script>
+
+  <!-- Customer Story — choreographed Motion entry -->
+  <script type="module" src="js/cs.js"></script>
+
 
   <!-- Showcase Panel Cycling (lazy-loaded iframes) -->
   <script data-cfasync="false">
   (function() {
     'use strict';
-
     var ric = window.requestIdleCallback || function(cb) { setTimeout(cb, 80); };
-
     ric(function() {
+      var DEMOS_LEN = 4;
+      var frames     = Array.from(document.querySelectorAll('.showcase-iframe'));
+      var frontPanel = document.getElementById('showcaseFront');
+      var stage      = document.getElementById('showcaseStage');
+      if (!frames.length || !frontPanel) return;
+      var current = 0, switching = false, fallback = null, iframesLoaded = false;
 
-    var DEMOS_LEN = 4;
-
-    // ── DOM refs ──
-    var frames     = Array.from(document.querySelectorAll('.showcase-iframe'));
-    var labels     = Array.from(document.querySelectorAll('.demo-now__item'));
-    var frontPanel = document.getElementById('showcaseFront');
-    var stage      = document.getElementById('showcaseStage');
-
-    if (!frames.length || !frontPanel) return;
-
-    var current   = 0;
-    var switching = false;
-    var fallback  = null;
-    var paused    = false;
-    var iframesLoaded = false;
-
-    // ── Lazy-load single iframe on demand ──
-    function loadFrame(idx) {
-      var f = frames[idx];
-      if (!f) return;
-      var src = f.getAttribute('data-src');
-      if (src && !f.getAttribute('src')) f.src = src;
-    }
-
-    // Load only the first iframe when showcase enters viewport
-    function loadFirst() {
-      if (iframesLoaded) return;
-      iframesLoaded = true;
-      loadFrame(0);
-    }
-
-    if ('IntersectionObserver' in window && stage) {
-      var iframeObs = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting) {
-          loadFirst();
-          iframeObs.disconnect();
-        }
-      }, { rootMargin: '200px' });
-      iframeObs.observe(stage);
-    }
-
-    setTimeout(loadFirst, 2500);
-
-    // ── Tell a demo to start its animation ──
-    function startDemo(idx) {
-      var f = frames[idx];
-      if (!f || !f.getAttribute('src')) return;
-      var sent = false;
-      var send = function() {
-        if (sent) return;
-        sent = true;
-        try { f.contentWindow.postMessage('demo-start', '*'); } catch(e) {}
-      };
-      setTimeout(send, 400);
-      f.addEventListener('load', function() { setTimeout(send, 200); }, { once: true });
-    }
-
-    // ── Core switch: CSS class crossfade between stacked iframes ──
-    function switchTo(next) {
-      next = ((next % DEMOS_LEN) + DEMOS_LEN) % DEMOS_LEN;
-      if (switching || next === current) return;
-      var entering = frames[next];
-      loadFrame(next);
-      // Preload the iframe AFTER next to smooth the following switch
-      loadFrame((next + 1) % DEMOS_LEN);
-      switching = true;
-      clearTimeout(fallback);
-
-      var leaving = frames[current];
-
-      frontPanel.classList.add('is-switching');
-
-      var leavingLabel  = labels[current];
-      var enteringLabel = labels[next];
-
-      leaving.classList.remove('is-active');
-      leaving.classList.add('is-leaving');
-      entering.classList.add('is-entering');
-
-      if (leavingLabel) {
-        leavingLabel.classList.remove('is-active');
-        leavingLabel.classList.add('is-leaving');
+      // ── Iframe rescaling: render demos at natural size, scale down via transform ──
+      function updateFrameScale() {
+        if (!frontPanel) return;
+        var cw = frontPanel.offsetWidth, ch = frontPanel.offsetHeight;
+        if (cw < 10 || ch < 10) return;
+        frames.forEach(function(f){
+          var rw = parseInt(f.dataset.rw, 10) || 1300;
+          var rh = parseInt(f.dataset.rh, 10) || 975;
+          var scale = cw / rw;
+          f.style.width = rw + 'px';
+          f.style.height = rh + 'px';
+          f.style.transform = 'scale(' + scale + ')';
+          f.style.transformOrigin = '0 0';
+        });
       }
-      if (enteringLabel) {
-        enteringLabel.classList.add('is-entering');
+      window.addEventListener('resize', updateFrameScale, { passive: true });
+      requestAnimationFrame(function(){ requestAnimationFrame(updateFrameScale); });
+      window.addEventListener('load', updateFrameScale, { once: true, passive: true });
+
+      var ROMAN = ['I','II','III','IV'];
+      var META = [
+        { name:'Bella Vista Ristorante', meta:'Cucina Toscana · Lucca · 2026' },
+        { name:'Müller & Partner', meta:'Steuerberatung · Hamburg · 2026' },
+        { name:'Al-Hassan Elektro', meta:'Handwerk · Lüneburg · 2026' },
+        { name:'SportGear Pro', meta:'E-Commerce · Berlin · 2026' }
+      ];
+      var labelRoman = document.getElementById('labelRoman');
+      var labelName = document.getElementById('labelName');
+      var labelMeta = document.getElementById('labelMeta');
+      var exhibits = Array.from(document.querySelectorAll('.exhibit'));
+      function updateNum(idx) {
+        if (labelRoman) labelRoman.textContent = ROMAN[idx];
+        if (labelName) labelName.textContent = META[idx].name;
+        if (labelMeta) labelMeta.textContent = META[idx].meta;
+        exhibits.forEach(function(e,i){
+          var on = i === idx;
+          e.classList.toggle('is-active', on);
+          e.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
       }
-
-      setTimeout(function() {
-        leaving.classList.remove('is-leaving');
-        if (leavingLabel) leavingLabel.classList.remove('is-leaving');
-      }, 350);
-
-      setTimeout(function() {
-        entering.classList.remove('is-entering');
-        entering.classList.add('is-active');
-        if (enteringLabel) {
-          enteringLabel.classList.remove('is-entering');
-          enteringLabel.classList.add('is-active');
-        }
-        frontPanel.classList.remove('is-switching');
-
-        current   = next;
-        switching = false;
-
-        startDemo(next);
-        fallback = setTimeout(function() { switchTo(current + 1); }, 35000);
-      }, 720);
-    }
-
-    // ── Handle demo-complete from iframes ──
-    window.addEventListener('message', function(e) {
-      if (e.data !== 'demo-complete') return;
-      try {
-        if (e.source !== frames[current].contentWindow) return;
-      } catch(err) {}
-      clearTimeout(fallback);
-      if (!switching) switchTo(current + 1);
-    });
-
-    // ── Hover-to-pause ──
-    if (stage) {
-      stage.addEventListener('mouseenter', function() { paused = true; });
-      stage.addEventListener('mouseleave', function() { paused = false; });
-    }
-
-    // ── Boot: wait for first iframe to load, then fire demo-start ──
-    var booted = false;
-    function boot() {
-      if (booted) return;
-      booted = true;
-      startDemo(0);
-      fallback = setTimeout(function() { switchTo(1); }, 35000);
-    }
-
-    var f0 = frames[0];
-    function waitForLoad() {
-      if (!f0.getAttribute('src')) { setTimeout(waitForLoad, 200); return; }
-      setTimeout(boot, 600);
-      f0.addEventListener('load', function() { setTimeout(boot, 200); }, { once: true });
-    }
-    waitForLoad();
-
+      // Click to switch demos manually
+      exhibits.forEach(function(e){
+        e.addEventListener('click', function(){
+          var idx = parseInt(e.dataset.idx, 10);
+          if (!isNaN(idx) && idx !== current && !switching) switchTo(idx);
+        });
+      });
+      function loadFrame(idx) { var f = frames[idx]; if (!f) return; var src = f.getAttribute('data-src'); if (src && !f.getAttribute('src')) f.src = src; }
+      function loadFirst() { if (iframesLoaded) return; iframesLoaded = true; loadFrame(0); }
+      if ('IntersectionObserver' in window && stage) {
+        var iframeObs = new IntersectionObserver(function(entries) { if (entries[0].isIntersecting) { loadFirst(); iframeObs.disconnect(); } }, { rootMargin: '200px' });
+        iframeObs.observe(stage);
+      }
+      setTimeout(loadFirst, 2500);
+      function startDemo(idx) {
+        var f = frames[idx]; if (!f || !f.getAttribute('src')) return;
+        var sent = false;
+        var send = function() { if (sent) return; sent = true; try { f.contentWindow.postMessage('demo-start', '*'); } catch(e) {} };
+        setTimeout(send, 400);
+        f.addEventListener('load', function() { setTimeout(send, 200); }, { once: true });
+      }
+      function switchTo(next) {
+        next = ((next % DEMOS_LEN) + DEMOS_LEN) % DEMOS_LEN;
+        if (switching || next === current) return;
+        var entering = frames[next];
+        loadFrame(next); loadFrame((next + 1) % DEMOS_LEN);
+        switching = true; clearTimeout(fallback);
+        var leaving = frames[current];
+        if (!entering || !leaving) { switching = false; return; }
+        frontPanel.classList.add('is-switching');
+        leaving.classList.remove('is-active'); leaving.classList.add('is-leaving');
+        entering.classList.add('is-entering');
+        setTimeout(function() { leaving.classList.remove('is-leaving'); }, 350);
+        setTimeout(function() {
+          entering.classList.remove('is-entering'); entering.classList.add('is-active');
+          frontPanel.classList.remove('is-switching');
+          current = next; switching = false;
+          updateNum(current);
+          startDemo(next);
+          fallback = setTimeout(function() { switchTo(current + 1); }, 35000);
+        }, 720);
+      }
+      window.addEventListener('message', function(e) {
+        if (e.data !== 'demo-complete') return;
+        try { if (e.source !== frames[current].contentWindow) return; } catch(err) {}
+        clearTimeout(fallback); if (!switching) switchTo(current + 1);
+      });
+      var booted = false;
+      function boot() { if (booted) return; booted = true; startDemo(0); fallback = setTimeout(function() { switchTo(1); }, 35000); }
+      var f0 = frames[0];
+      function waitForLoad() { if (!f0.getAttribute('src')) { setTimeout(waitForLoad, 200); return; } setTimeout(boot, 600); f0.addEventListener('load', function() { setTimeout(boot, 200); }, { once: true }); }
+      waitForLoad();
     }, { timeout: 3000 });
   })();
   </script>

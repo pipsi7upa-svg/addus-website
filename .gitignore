@@ -79,3 +79,6 @@ node_modules/
 # Dead/experimental files
 assets/Caveat-Regular.ttf
 js/auftragsbuch.js
+
+# Local backups during migration
+*.OLD-BACKUP
