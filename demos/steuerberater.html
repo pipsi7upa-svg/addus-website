@@ -421,9 +421,47 @@
       .hero-ctas { flex-direction: column; }
       .process-steps { grid-template-columns: 1fr; }
     }
+
+    /* ── DEMO-CURSOR ─────────────────────────────────── */
+    .demo-cursor{
+      position:fixed;top:0;left:0;
+      width:26px;height:32px;
+      z-index:99999;pointer-events:none;
+      opacity:0;
+      transform:translate(-100px,-100px);
+      transition:transform .5s cubic-bezier(.3,.05,.2,1),opacity .3s ease;
+      will-change:transform,opacity;
+      filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
+    }
+    .demo-cursor.is-on{opacity:1}
+    .demo-cursor.is-fast{transition-duration:.32s}
+    .demo-cursor svg{display:block;width:100%;height:100%}
+    .demo-cursor.is-pressed svg{transform:scale(.82);transform-origin:5px 4px;transition:transform .12s ease}
+    .demo-cursor.is-pressed{transition-duration:.15s}
+    .demo-ripple{
+      position:fixed;top:0;left:0;
+      width:14px;height:14px;border-radius:50%;
+      border:2px solid #f0e8d8;
+      z-index:99998;pointer-events:none;
+      opacity:0;
+      transform:translate(-7px,-7px) scale(.3);
+      will-change:transform,opacity;
+    }
+    .demo-ripple.is-firing{animation:demoCursorClick .65s ease-out forwards}
+    @keyframes demoCursorClick{
+      0%{opacity:.95;transform:translate(-7px,-7px) scale(.3);border-color:#f0e8d8;border-width:2px}
+      100%{opacity:0;transform:translate(-7px,-7px) scale(2.8);border-color:#c9a96e;border-width:1px}
+    }
   </style>
 </head>
 <body>
+<!-- Animated Demo-Cursor -->
+<div class="demo-cursor" id="demoCursor" aria-hidden="true">
+  <svg viewBox="0 0 24 30" fill="#f0e8d8" stroke="#1a1410" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 2.5 2.5 L 2.5 22 L 8 17 L 12 25 L 14.2 24 L 9.7 16 L 17.5 14 Z"/>
+  </svg>
+</div>
+<div class="demo-ripple" id="demoRipple" aria-hidden="true"></div>
 <div class="page-wrap">
 
 <!-- ── NAVIGATION ── -->
@@ -852,6 +890,44 @@
     });
   }
 
+  /* ── DEMO-CURSOR helpers ─────────────────────────── */
+  var _cursorEl = document.getElementById('demoCursor');
+  var _rippleEl = document.getElementById('demoRipple');
+
+  function _coords(el, ox, oy){
+    var r = el.getBoundingClientRect();
+    var x = r.left + (ox !== undefined ? ox : r.width / 2);
+    var y = r.top + (oy !== undefined ? oy : r.height / 2);
+    return { x: x, y: y };
+  }
+  function moveCursor(el, ox, oy, fast){
+    if (!_cursorEl || !el) return;
+    var c = _coords(el, ox, oy);
+    _cursorEl.classList.toggle('is-fast', !!fast);
+    _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+  }
+  function showCursor(el, ox, oy){
+    if (!_cursorEl) return;
+    if (el) {
+      var c = _coords(el, ox, oy);
+      _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+    }
+    _cursorEl.classList.add('is-on');
+  }
+  function hideCursor(){ if (_cursorEl) _cursorEl.classList.remove('is-on'); }
+  function clickCursor(el, ox, oy){
+    if (!_rippleEl || !el) return;
+    var c = _coords(el, ox, oy);
+    _rippleEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+    _rippleEl.classList.remove('is-firing');
+    void _rippleEl.offsetWidth;
+    _rippleEl.classList.add('is-firing');
+    if (_cursorEl) {
+      _cursorEl.classList.add('is-pressed');
+      setTimeout(function(){ if (_cursorEl) _cursorEl.classList.remove('is-pressed'); }, 200);
+    }
+  }
+
   var _demoRun = 0;
 
   async function runDemo() {
@@ -861,6 +937,7 @@
     var pw = document.querySelector('.page-wrap');
 
     pw.scrollTo({ top: 0, behavior: 'instant' });
+    hideCursor();
 
     // Reset form
     document.getElementById('name').value = '';
@@ -873,15 +950,23 @@
     var svcCards  = document.querySelectorAll('.svc-card');
     var teamCards = document.querySelectorAll('.team-card');
 
+    // 0. Cursor erscheint am Hero-Bereich (rechts)
+    await wait(250); if (!ok()) return;
+    var heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) showCursor(heroTitle, heroTitle.offsetWidth - 60, heroTitle.offsetHeight - 20);
+
     // 1. Scroll to services section
-    await wait(800); if (!ok()) return;
+    await wait(550); if (!ok()) return;
     var elLeistungen = document.getElementById('leistungen');
     pw.scrollTo({ top: elLeistungen ? elLeistungen.offsetTop - 20 : 0, behavior: 'smooth' });
     await wait(1000); if (!ok()) return;
 
-    // Browse services
+    // Browse services — cursor an top-right der Karte
+    if (svcCards[0]) moveCursor(svcCards[0], svcCards[0].offsetWidth - 40, 60);
     await hoverEl(svcCards[0], 1100); if (!ok()) return;
+    if (svcCards[1]) moveCursor(svcCards[1], svcCards[1].offsetWidth - 40, 60);
     await hoverEl(svcCards[1], 1000); if (!ok()) return;
+    if (svcCards[2]) moveCursor(svcCards[2], svcCards[2].offsetWidth - 40, 60);
     await hoverEl(svcCards[2], 900);  if (!ok()) return;
 
     // 2. Scroll to team
@@ -891,7 +976,9 @@
     await wait(1000); if (!ok()) return;
 
     // Hover team members
+    if (teamCards[0]) moveCursor(teamCards[0], teamCards[0].offsetWidth - 40, 60);
     await hoverEl(teamCards[0], 900); if (!ok()) return;
+    if (teamCards[1]) moveCursor(teamCards[1], teamCards[1].offsetWidth - 40, 60);
     await hoverEl(teamCards[1], 700); if (!ok()) return;
 
     // 3. Scroll to contact form
@@ -900,29 +987,54 @@
     pw.scrollTo({ top: elKontakt ? elKontakt.offsetTop - 20 : 0, behavior: 'smooth' });
     await wait(900); if (!ok()) return;
 
-    // Type Name
-    await typeInto(document.getElementById('name'), 'Klaus Hoffmann', 46);
+    // Type Name — cursor zum rechten Rand
+    var nameEl = document.getElementById('name');
+    moveCursor(nameEl, nameEl.offsetWidth - 30, nameEl.offsetHeight / 2);
+    await wait(300); if (!ok()) return;
+    clickCursor(nameEl, nameEl.offsetWidth - 30, nameEl.offsetHeight / 2);
+    await typeInto(nameEl, 'Klaus Hoffmann', 46);
     if (!ok()) return;
     await wait(400); if (!ok()) return;
 
     // Type Unternehmen
-    await typeInto(document.getElementById('company'), 'Hoffmann GmbH', 48);
+    var companyEl = document.getElementById('company');
+    moveCursor(companyEl, companyEl.offsetWidth - 30, companyEl.offsetHeight / 2);
+    await wait(280); if (!ok()) return;
+    clickCursor(companyEl, companyEl.offsetWidth - 30, companyEl.offsetHeight / 2);
+    await typeInto(companyEl, 'Hoffmann GmbH', 48);
     if (!ok()) return;
     await wait(400); if (!ok()) return;
 
     // Select Anliegen
-    document.getElementById('anliegen').value = 'existenzgruendung';
-    document.getElementById('anliegen').dispatchEvent(new Event('change'));
+    var anliegenEl = document.getElementById('anliegen');
+    moveCursor(anliegenEl, anliegenEl.offsetWidth - 30, anliegenEl.offsetHeight / 2);
+    await wait(280); if (!ok()) return;
+    clickCursor(anliegenEl, anliegenEl.offsetWidth - 30, anliegenEl.offsetHeight / 2);
+    anliegenEl.value = 'existenzgruendung';
+    anliegenEl.dispatchEvent(new Event('change'));
     await wait(600); if (!ok()) return;
 
     // Select preferred time
-    document.getElementById('wunschtermin').value = 'di-vor';
-    document.getElementById('wunschtermin').dispatchEvent(new Event('change'));
+    var wunschEl = document.getElementById('wunschtermin');
+    moveCursor(wunschEl, wunschEl.offsetWidth - 30, wunschEl.offsetHeight / 2);
+    await wait(280); if (!ok()) return;
+    clickCursor(wunschEl, wunschEl.offsetWidth - 30, wunschEl.offsetHeight / 2);
+    wunschEl.value = 'di-vor';
+    wunschEl.dispatchEvent(new Event('change'));
     await wait(700); if (!ok()) return;
+
+    // Submit button click
+    var submitBtn = document.querySelector('#contactForm button[type="button"]');
+    if (submitBtn) {
+      moveCursor(submitBtn, submitBtn.offsetWidth/2, submitBtn.offsetHeight/2);
+      await wait(320); if (!ok()) return;
+      clickCursor(submitBtn);
+    }
 
     // Show toast
     toast.classList.add('show');
     await wait(1000); if (!ok()) return;
+    hideCursor();
     window.parent.postMessage('demo-complete', '*');
 
     // Reset for next replay
@@ -939,6 +1051,10 @@
   window.addEventListener('message', function(e) {
     if (e.data === 'demo-start') runDemo();
   });
+
+  setTimeout(function(){
+    if (typeof _demoRun !== 'undefined' && _demoRun === 0) runDemo();
+  }, 1500);
 </script>
 </body>
 </html>

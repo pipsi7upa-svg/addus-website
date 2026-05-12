@@ -71,3 +71,11 @@ PROJEKT-DOKU.txt
 *.backup
 *.old
 *~
+
+# npm artifacts (dev only)
+package.json
+package-lock.json
+node_modules/
+# Dead/experimental files
+assets/Caveat-Regular.ttf
+js/auftragsbuch.js

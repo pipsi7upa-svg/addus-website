@@ -904,9 +904,47 @@
       .product-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ── DEMO-CURSOR ─────────────────────────────────── */
+    .demo-cursor{
+      position:fixed;top:0;left:0;
+      width:26px;height:32px;
+      z-index:99999;pointer-events:none;
+      opacity:0;
+      transform:translate(-100px,-100px);
+      transition:transform .5s cubic-bezier(.3,.05,.2,1),opacity .3s ease;
+      will-change:transform,opacity;
+      filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
+    }
+    .demo-cursor.is-on{opacity:1}
+    .demo-cursor.is-fast{transition-duration:.32s}
+    .demo-cursor svg{display:block;width:100%;height:100%}
+    .demo-cursor.is-pressed svg{transform:scale(.82);transform-origin:5px 4px;transition:transform .12s ease}
+    .demo-cursor.is-pressed{transition-duration:.15s}
+    .demo-ripple{
+      position:fixed;top:0;left:0;
+      width:14px;height:14px;border-radius:50%;
+      border:2px solid #f0e8d8;
+      z-index:99998;pointer-events:none;
+      opacity:0;
+      transform:translate(-7px,-7px) scale(.3);
+      will-change:transform,opacity;
+    }
+    .demo-ripple.is-firing{animation:demoCursorClick .65s ease-out forwards}
+    @keyframes demoCursorClick{
+      0%{opacity:.95;transform:translate(-7px,-7px) scale(.3);border-color:#f0e8d8;border-width:2px}
+      100%{opacity:0;transform:translate(-7px,-7px) scale(2.8);border-color:#c9a96e;border-width:1px}
+    }
   </style>
 </head>
 <body>
+<!-- Animated Demo-Cursor -->
+<div class="demo-cursor" id="demoCursor" aria-hidden="true">
+  <svg viewBox="0 0 24 30" fill="#f0e8d8" stroke="#1a1410" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 2.5 2.5 L 2.5 22 L 8 17 L 12 25 L 14.2 24 L 9.7 16 L 17.5 14 Z"/>
+  </svg>
+</div>
+<div class="demo-ripple" id="demoRipple" aria-hidden="true"></div>
 <div class="page-wrap">
 
 <!-- PROMO BAR -->
@@ -1470,6 +1508,44 @@
     }, dur);
   }
 
+  /* ── DEMO-CURSOR helpers ─────────────────────────── */
+  var _cursorEl = document.getElementById('demoCursor');
+  var _rippleEl = document.getElementById('demoRipple');
+
+  function _coords(el, ox, oy){
+    var r = el.getBoundingClientRect();
+    var x = r.left + (ox !== undefined ? ox : r.width / 2);
+    var y = r.top + (oy !== undefined ? oy : r.height / 2);
+    return { x: x, y: y };
+  }
+  function moveCursor(el, ox, oy, fast){
+    if (!_cursorEl || !el) return;
+    var c = _coords(el, ox, oy);
+    _cursorEl.classList.toggle('is-fast', !!fast);
+    _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+  }
+  function showCursor(el, ox, oy){
+    if (!_cursorEl) return;
+    if (el) {
+      var c = _coords(el, ox, oy);
+      _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+    }
+    _cursorEl.classList.add('is-on');
+  }
+  function hideCursor(){ if (_cursorEl) _cursorEl.classList.remove('is-on'); }
+  function clickCursor(el, ox, oy){
+    if (!_rippleEl || !el) return;
+    var c = _coords(el, ox, oy);
+    _rippleEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+    _rippleEl.classList.remove('is-firing');
+    void _rippleEl.offsetWidth;
+    _rippleEl.classList.add('is-firing');
+    if (_cursorEl) {
+      _cursorEl.classList.add('is-pressed');
+      setTimeout(function(){ if (_cursorEl) _cursorEl.classList.remove('is-pressed'); }, 200);
+    }
+  }
+
   var _demoRun = 0;
   var btnDefaultHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> In den Warenkorb';
 
@@ -1484,24 +1560,46 @@
     btn0.classList.remove('added');
     btn0.innerHTML = btnDefaultHTML;
     pw.scrollTo({ top: 0, behavior: 'instant' });
+    hideCursor();
+
+    // 0. Cursor erscheint im Header-Bereich (rechts)
+    later(250, function(){
+      var logo = document.querySelector('.logo');
+      if (logo) showCursor(logo, logo.offsetWidth + 40, logo.offsetHeight / 2);
+    });
 
     later(600, function() {
+      if (cards[0]) moveCursor(cards[0], cards[0].offsetWidth - 40, 80);
       hoverCard(cards[0], 1300, function() {
         if (!ok()) return;
+        if (cards[1]) moveCursor(cards[1], cards[1].offsetWidth - 40, 80);
         hoverCard(cards[1], 1200, function() {
           if (!ok()) return;
+          if (cards[2]) moveCursor(cards[2], cards[2].offsetWidth - 40, 80);
           hoverCard(cards[2], 1000, function() {
             if (!ok()) return;
             later(300, function() {
+              if (cards[0]) moveCursor(cards[0], cards[0].offsetWidth - 40, 80);
               hoverCard(cards[0], 900, function() {
                 if (!ok()) return;
+                // Cursor zum "In den Warenkorb"-Button auf cards[0]
+                later(200, function(){
+                  if (btn0) moveCursor(btn0, btn0.offsetWidth/2, btn0.offsetHeight/2);
+                });
                 later(400, function() {
+                  if (btn0) clickCursor(btn0);
                   btn0.classList.add('added');
                   btn0.innerHTML = '<span style="font-size:16px;line-height:1;">&#x2713;</span>&nbsp;Hinzugef&uuml;gt!';
 
+                  later(450, function(){
+                    // Cursor zum Cart-Toggle-Button (rechts oben)
+                    if (cartToggle) moveCursor(cartToggle, cartToggle.offsetWidth/2, cartToggle.offsetHeight/2);
+                  });
                   later(600, function() {
+                    if (cartToggle) clickCursor(cartToggle);
                     openDrawer();
                     later(1000, function() {
+                      hideCursor();
                       closeDrawer();
                       window.parent.postMessage('demo-complete', '*');
                       later(400, function() {
@@ -1522,6 +1620,10 @@
   window.addEventListener('message', function(e) {
     if (e.data === 'demo-start') runDemo();
   });
+
+  setTimeout(function(){
+    if (typeof _demoRun !== 'undefined' && _demoRun === 0) runDemo();
+  }, 1500);
 
   /* ---- Interactive filter checkboxes ---- */
   document.querySelectorAll('.filter-checkbox').forEach(function(cb) {
