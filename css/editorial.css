@@ -2127,6 +2127,18 @@ html,body{overflow-anchor:none}
 }
 .ftr__badge--pending:hover{border-color:#e09040;background:rgba(224,144,64,.08)}
 
+/* Green Web — leaf-green grade */
+.ftr__badge--green{border-color:rgba(74,124,58,.45)}
+.ftr__badge--green .ftr__badge-grade{
+  background:#4a7c3a;
+  color:#f3efe4;
+  font-size:11px;
+  letter-spacing:.08em;
+  padding:0 10px;
+  min-width:auto;
+}
+.ftr__badge--green:hover{border-color:#4a7c3a;background:rgba(74,124,58,.08)}
+
 /* TYPE COLOPHON */
 .ftr__colophon{
   background:#0d0a07;

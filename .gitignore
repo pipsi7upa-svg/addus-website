@@ -82,3 +82,6 @@ js/auftragsbuch.js
 
 # Local backups during migration
 *.OLD-BACKUP
+.deploy-worker.py
+.read-rule.py
+.update-rule.py
