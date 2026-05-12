@@ -3,355 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-  <meta name="description" content="Allgemeine Geschäftsbedingungen (AGB) von addus. — Webdesign & Webentwicklung aus Lüneburg. Leistungen, Zahlungsbedingungen und Haftung.">
+  <meta name="description" content="Allgemeine Geschäftsbedingungen von addus. — Webdesign aus Lüneburg. Vertragsbedingungen, Zahlungsbedingungen, Gewährleistung und Haftung.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AGB — addus. Webdesign aus Lüneburg">
-  <meta property="og:description" content="Allgemeine Geschäftsbedingungen von addus. — Webdesign & Webentwicklung aus Lüneburg.">
+  <meta property="og:description" content="Allgemeine Geschäftsbedingungen von addus.">
   <meta property="og:url" content="https://addus-web.de/agb.html">
-  <meta property="og:image" content="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1200/addus/adam-portrait.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="addus.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://addus-web.de/agb.html">
   <title>Allgemeine Geschäftsbedingungen — addus.</title>
+
+  <style>
+    :root{--paper:#efe8d8;--paper-deep:#e6dcc4;--ink:#1a1612;--ink-soft:#3d3530;--ink-mute:#6b5f54;--rust:#b8421f;--rust-deep:#8a2f15;--line:rgba(26,22,18,.85);--line-soft:rgba(26,22,18,.18);--serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--container:1200px;--pad:clamp(1.25rem,4vw,2.75rem);--nav-h:72px;--ease:cubic-bezier(.2,.8,.2,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{min-height:100dvh;font-family:var(--sans);font-size:1rem;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.28;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .06 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}ul{list-style:none}
+    button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+    ::selection{background:var(--rust);color:var(--paper)}
+
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line-soft);height:var(--nav-h)}
+    .nav__inner{max-width:var(--container);margin:0 auto;height:100%;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .nav__brand{font-family:var(--serif);font-style:italic;font-weight:500;font-size:22px;letter-spacing:-.01em;color:var(--ink);font-variation-settings:"opsz" 24,"WONK" 1,"SOFT" 60}
+    .nav__brand-dot{color:var(--rust)}
+    .nav__menu ul{display:flex;gap:28px}
+    .nav__menu a{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);transition:color .25s var(--ease)}
+    .nav__menu a:hover{color:var(--rust)}
+    .nav__cta{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);padding:10px 18px;border:1px solid var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
+    .nav__cta:hover{background:var(--ink);color:var(--paper)}
+    .nav__burger{display:none;width:28px;height:22px;flex-direction:column;justify-content:space-between}
+    .nav__burger span{display:block;height:2px;width:100%;background:var(--ink)}
+    @media (max-width:880px){.nav__menu,.nav__cta{display:none}.nav__burger{display:flex}}
+
+    .legal{max-width:760px;margin:0 auto;padding:calc(var(--nav-h) + 88px) var(--pad) 96px}
+    .legal__back{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:64px;transition:color .25s var(--ease),transform .25s var(--ease)}
+    .legal__back i{font-style:normal;font-family:var(--serif);font-size:16px;line-height:1}
+    .legal__back:hover{color:var(--rust);transform:translateX(-3px)}
+
+    .legal__kicker{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--rust);margin-bottom:18px}
+    .legal__title{font-family:var(--serif);font-size:clamp(40px,6vw,68px);font-weight:300;line-height:.98;letter-spacing:-.025em;color:var(--ink);font-variation-settings:"opsz" 72,"SOFT" 50;margin-bottom:14px}
+    .legal__title em{font-style:italic;font-weight:400;color:var(--rust);font-variation-settings:"opsz" 72,"WONK" 1,"SOFT" 80}
+    .legal__date{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);padding-bottom:32px;margin-bottom:48px;border-bottom:1px solid var(--line-soft)}
+
+    /* Inline-TOC für AGB-Paragraphen */
+    .legal__toc{
+      background:var(--paper-deep);
+      border:1px solid var(--line-soft);
+      padding:28px 32px;
+      margin-bottom:64px;
+    }
+    .legal__toc-label{
+      display:block;
+      font-family:var(--mono);
+      font-size:9px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--ink-mute);
+      margin-bottom:14px;
+    }
+    .legal__toc ul{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:8px 28px;
+    }
+    .legal__toc li{
+      font-family:var(--serif);
+      font-style:italic;
+      font-size:14px;
+      line-height:1.4;
+      font-variation-settings:"opsz" 16,"WONK" 1,"SOFT" 60;
+    }
+    .legal__toc a{
+      color:var(--ink-soft);
+      transition:color .2s var(--ease);
+    }
+    .legal__toc a:hover{color:var(--rust)}
+    @media (max-width:640px){.legal__toc ul{grid-template-columns:1fr}}
+
+    .legal__body h2{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.01em;color:var(--ink);margin:48px 0 18px;font-variation-settings:"opsz" 26,"WONK" 1,"SOFT" 60;position:relative;scroll-margin-top:96px}
+    .legal__body h2::before{content:'';display:block;width:24px;height:1px;background:var(--rust);margin-bottom:12px;opacity:.55}
+    .legal__body p{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:0 0 16px;font-variation-settings:"opsz" 18,"SOFT" 60}
+    .legal__body strong{color:var(--ink);font-weight:600}
+    .legal__body a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s var(--ease)}
+    .legal__body a:hover{color:var(--rust-deep)}
+    .legal__body ul{padding-left:24px;margin:16px 0 24px;list-style:disc}
+    .legal__body ol{padding-left:24px;margin:16px 0 24px;list-style:decimal}
+    .legal__body li{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:8px 0;font-variation-settings:"opsz" 18,"SOFT" 60}
+
+    .lftr{background:var(--paper-deep);border-top:1px solid var(--line-soft);padding:36px var(--pad)}
+    .lftr__inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+    .lftr__brand{font-family:var(--serif);font-style:italic;font-weight:500;font-size:20px;color:var(--ink);font-variation-settings:"opsz" 22,"WONK" 1,"SOFT" 60}
+    .lftr__brand i{color:var(--rust);font-style:normal}
+    .lftr__links{display:flex;gap:24px;flex-wrap:wrap}
+    .lftr__links a{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);transition:color .25s var(--ease)}
+    .lftr__links a:hover{color:var(--rust)}
+    .lftr__copy{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mute)}
+    .lftr__copy em{font-style:italic;font-family:var(--serif);text-transform:none;font-size:12px}
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
   <link rel="stylesheet" href="css/cookieconsent.css">
   <script src="js/vendor/cookieconsent.umd.js" defer></script>
   <script src="js/cookie-config.js" defer></script>
-  <script type="text/plain" data-category="analytics">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w2c26qvw8j");</script>
   <script type="text/plain" data-category="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>
-  <script type="text/plain" data-category="analytics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R840KKM8JB',{anonymize_ip:true});</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <style>
-    .legal-page {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: calc(var(--space-20) + 80px) var(--container-pad) var(--space-20);
-      color: var(--color-text);
-    }
-    .legal-page h1 {
-      font-family: var(--font-body);
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #fff;
-      margin-bottom: var(--space-4);
-    }
-    .legal-page .legal-date {
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-12);
-    }
-    .legal-page h2 {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      font-weight: 700;
-      color: #fff;
-      margin-top: var(--space-12);
-      margin-bottom: var(--space-4);
-      padding-bottom: var(--space-2);
-      border-bottom: 1px solid var(--color-glass-border);
-    }
-    .legal-page h3 {
-      font-size: var(--text-lg);
-      font-weight: 600;
-      color: var(--color-accent);
-      margin-top: var(--space-6);
-      margin-bottom: var(--space-2);
-    }
-    .legal-page p {
-      color: var(--color-text-muted);
-      line-height: 1.75;
-      margin-bottom: var(--space-4);
-      font-size: var(--text-sm);
-    }
-    .legal-page ul, .legal-page ol {
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-      line-height: 1.75;
-      margin-bottom: var(--space-4);
-      padding-left: var(--space-6);
-    }
-    .legal-page li {
-      margin-bottom: var(--space-2);
-    }
-    .legal-page a {
-      color: var(--color-accent);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .legal-page a:hover {
-      color: var(--color-accent-hover);
-    }
-    .legal-page strong {
-      color: #fff;
-      font-weight: 600;
-    }
-    .legal-back {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-      text-decoration: none;
-      margin-bottom: var(--space-6);
-      transition: color var(--dur-fast) var(--ease-out);
-    }
-    .legal-back:hover {
-      color: #fff;
-    }
-    .legal-page .index {
-      list-style: none;
-      padding-left: 0;
-      columns: 2;
-      gap: var(--space-4);
-      margin-bottom: var(--space-10);
-    }
-    .legal-page .index li {
-      break-inside: avoid;
-    }
-    .legal-page .index a {
-      text-decoration: none;
-      color: var(--color-text-muted);
-      transition: color var(--dur-fast) var(--ease-out);
-    }
-    .legal-page .index a:hover {
-      color: var(--color-accent);
-    }
-    @media (max-width: 600px) {
-      .legal-page .index {
-        columns: 1;
-      }
-    }
-  </style>
+  <script type="text/plain" data-category="analytics" src="js/analytics.js"></script>
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══ -->
-  <header class="navbar" id="navbar" role="banner">
-    <div class="navbar__inner">
-      <a href="/" class="navbar__logo" aria-label="addus. — Zur Startseite">addus.</a>
-      <nav class="navbar__nav" id="main-nav" aria-label="Hauptnavigation">
+  <header class="nav" id="navbar" role="banner">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="addus. — Zur Startseite">addus<span class="nav__brand-dot">.</span></a>
+      <nav class="nav__menu" aria-label="Hauptnavigation">
         <ul role="list">
-          <li><a href="index.html#leistungen">Leistungen</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#ueber-uns">Über uns</a></li>
-          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="/#leistungen">Leistungen</a></li>
+          <li><a href="/#vertrauen">Arbeiten</a></li>
+          <li><a href="/#ueber-uns">Über</a></li>
+          <li><a href="/#kontakt">Kontakt</a></li>
         </ul>
       </nav>
-      <a href="index.html#kontakt" class="navbar__cta">Termin buchen</a>
-      <button class="navbar__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+      <a href="/#kontakt" class="nav__cta">Projekt anfragen</a>
+      <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main class="legal-page">
-    <a href="index.html" class="legal-back">&larr; Zurück zur Startseite</a>
+  <main class="legal">
+    <a href="/" class="legal__back"><i>←</i>&nbsp;Zurück zur Startseite</a>
 
-    <h1>Allgemeine Geschäftsbedingungen</h1>
-    <p class="legal-date">Stand: 26. März 2026</p>
+    <span class="legal__kicker">Anhang · §§ 1–17</span>
+    <h1 class="legal__title"><em>Allgemeine</em>&nbsp;Geschäftsbedingungen.</h1>
+    <p class="legal__date">Stand: 26. März 2026</p>
 
-    <ul class="index">
-      <li><a href="#g1">§ 1 Geltungsbereich</a></li>
-      <li><a href="#g2">§ 2 Vertragspartner</a></li>
-      <li><a href="#g3">§ 3 Vertragsgegenstand</a></li>
-      <li><a href="#g4">§ 4 Vertragsschluss</a></li>
-      <li><a href="#g5">§ 5 Leistungsumfang</a></li>
-      <li><a href="#g6">§ 6 Mitwirkungspflichten des Auftraggebers</a></li>
-      <li><a href="#g7">§ 7 Preise und Zahlungsbedingungen</a></li>
-      <li><a href="#g8">§ 8 Lieferung und Fertigstellung</a></li>
-      <li><a href="#g9">§ 9 Abnahme</a></li>
-      <li><a href="#g10">§ 10 Urheberrecht und Nutzungsrechte</a></li>
-      <li><a href="#g11">§ 11 Gewährleistung</a></li>
-      <li><a href="#g12">§ 12 Haftung</a></li>
-      <li><a href="#g13">§ 13 Vertraulichkeit und Datenschutz</a></li>
-      <li><a href="#g14">§ 14 Kündigung</a></li>
-      <li><a href="#g15">§ 15 Streitbeilegung</a></li>
-      <li><a href="#g16">§ 16 Schlussbestimmungen</a></li>
-    </ul>
+    <nav class="legal__toc" aria-label="Inhaltsverzeichnis">
+      <span class="legal__toc-label">Inhalt</span>
+      <ul role="list">
+        <li><a href="#g1">§ 1 Geltungsbereich</a></li>
+        <li><a href="#g2">§ 2 Vertragspartner</a></li>
+        <li><a href="#g3">§ 3 Vertragsgegenstand</a></li>
+        <li><a href="#g4">§ 4 Vertragsschluss</a></li>
+        <li><a href="#g5">§ 5 Leistungsumfang</a></li>
+        <li><a href="#g6">§ 6 Mitwirkungspflichten</a></li>
+        <li><a href="#g7">§ 7 Preise und Zahlung</a></li>
+        <li><a href="#g8">§ 8 Lieferung</a></li>
+        <li><a href="#g9">§ 9 Abnahme</a></li>
+        <li><a href="#g10">§ 10 Urheberrecht</a></li>
+        <li><a href="#g11">§ 11 Gewährleistung</a></li>
+        <li><a href="#g12">§ 12 Haftung</a></li>
+        <li><a href="#g13">§ 13 Vertraulichkeit</a></li>
+        <li><a href="#g14">§ 14 Kündigung</a></li>
+        <li><a href="#g15">§ 15 Streitbeilegung</a></li>
+        <li><a href="#g16">§ 16 Schlussbestimmungen</a></li>
+        <li><a href="#g17">§ 17 Kundenstimmen</a></li>
+      </ul>
+    </nav>
 
-    <!-- § 1 -->
-    <h2 id="g1">§ 1 Geltungsbereich</h2>
-    <p>(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle Verträge, Angebote und Leistungen zwischen Adam Dia, handelnd unter der Bezeichnung „addus.", Dahlenburgerlandstraße 20H, 21337 Lüneburg (nachfolgend „Auftragnehmer") und dem jeweiligen Auftraggeber (nachfolgend „Auftraggeber"), soweit nicht schriftlich etwas anderes vereinbart wurde.</p>
-    <p>(2) Der Auftragnehmer erbringt seine Leistungen ausschließlich auf Grundlage dieser AGB. Abweichende, entgegenstehende oder ergänzende Geschäftsbedingungen des Auftraggebers werden nur dann Vertragsbestandteil, wenn der Auftragnehmer ihrer Geltung ausdrücklich schriftlich zugestimmt hat.</p>
-    <p>(3) Diese AGB gelten sowohl gegenüber Verbrauchern im Sinne des § 13 BGB als auch gegenüber Unternehmern im Sinne des § 14 BGB, sofern nicht in den einzelnen Bestimmungen eine abweichende Regelung getroffen wird.</p>
+    <div class="legal__body">
+      <h2 id="g1">§ 1 Geltungsbereich</h2>
+      <p>(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle Verträge, Angebote und Leistungen zwischen Adam Dia, handelnd unter der Bezeichnung „addus.", Dahlenburgerlandstraße 20H, 21337 Lüneburg (nachfolgend „Auftragnehmer") und dem jeweiligen Auftraggeber (nachfolgend „Auftraggeber"), soweit nicht schriftlich etwas anderes vereinbart wurde.</p>
+      <p>(2) Der Auftragnehmer erbringt seine Leistungen ausschließlich auf Grundlage dieser AGB. Abweichende, entgegenstehende oder ergänzende Geschäftsbedingungen des Auftraggebers werden nur dann Vertragsbestandteil, wenn der Auftragnehmer ihrer Geltung ausdrücklich schriftlich zugestimmt hat.</p>
+      <p>(3) Diese AGB gelten sowohl gegenüber Verbrauchern im Sinne des § 13 BGB als auch gegenüber Unternehmern im Sinne des § 14 BGB, sofern nicht in den einzelnen Bestimmungen eine abweichende Regelung getroffen wird.</p>
 
-    <!-- § 2 -->
-    <h2 id="g2">§ 2 Vertragspartner</h2>
-    <p>Der Vertrag kommt zustande mit:</p>
-    <p>
-      <strong>Adam Dia / addus.</strong><br>
-      Dahlenburgerlandstraße 20H<br>
-      21337 Lüneburg<br>
-      Deutschland
-    </p>
-    <p>
-      E-Mail: <a href="mailto:addubusiness@gmail.com">addubusiness@gmail.com</a><br>
-      Telefon: +49 176 2121 44 16
-    </p>
+      <h2 id="g2">§ 2 Vertragspartner</h2>
+      <p>Der Vertrag kommt zustande mit:</p>
+      <p>
+        <strong>Adam Dia / addus.</strong><br>
+        Dahlenburgerlandstraße 20H<br>
+        21337 Lüneburg<br>
+        Deutschland
+      </p>
+      <p>
+        E-Mail: <a href="mailto:addubusiness@gmail.com">addubusiness@gmail.com</a><br>
+        Telefon: +49 176 2121 44 16
+      </p>
 
-    <!-- § 3 -->
-    <h2 id="g3">§ 3 Vertragsgegenstand</h2>
-    <p>(1) Der Auftragnehmer erbringt Dienstleistungen im Bereich Webdesign, Webentwicklung, Suchmaschinenoptimierung (SEO), strategische Beratung sowie verwandte digitale Dienstleistungen. Der konkrete Leistungsumfang ergibt sich aus dem jeweiligen Angebot, der Leistungsbeschreibung oder der individuellen Vereinbarung.</p>
-    <p>(2) Sofern der Auftragnehmer im Rahmen der Leistungserbringung Drittanbieter-Dienste einsetzt (z. B. Hosting-Provider, Schriftlizenzen, Stockfotos), gelten ergänzend die jeweiligen Nutzungsbedingungen dieser Drittanbieter. Der Auftragnehmer weist den Auftraggeber hierauf gesondert hin.</p>
+      <h2 id="g3">§ 3 Vertragsgegenstand</h2>
+      <p>(1) Der Auftragnehmer erbringt Dienstleistungen im Bereich Webdesign, Webentwicklung, Suchmaschinenoptimierung (SEO), strategische Beratung sowie verwandte digitale Dienstleistungen. Der konkrete Leistungsumfang ergibt sich aus dem jeweiligen Angebot, der Leistungsbeschreibung oder der individuellen Vereinbarung.</p>
+      <p>(2) Sofern der Auftragnehmer im Rahmen der Leistungserbringung Drittanbieter-Dienste einsetzt (z. B. Hosting-Provider, Schriftlizenzen, Stockfotos), gelten ergänzend die jeweiligen Nutzungsbedingungen dieser Drittanbieter. Der Auftragnehmer weist den Auftraggeber hierauf gesondert hin.</p>
 
-    <!-- § 4 -->
-    <h2 id="g4">§ 4 Vertragsschluss</h2>
-    <p>(1) Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind. Darstellungen auf der Website des Auftragnehmers stellen kein verbindliches Angebot dar.</p>
-    <p>(2) Der Vertrag kommt durch die schriftliche Auftragsbestätigung des Auftragnehmers oder durch den Beginn der Leistungserbringung zustande. Als Schriftform gilt auch die elektronische Form (E-Mail).</p>
-    <p>(3) Nachträgliche Änderungen oder Erweiterungen des vereinbarten Leistungsumfangs bedürfen einer gesonderten schriftlichen Vereinbarung und können zu einer Anpassung des Preises und der Lieferfrist führen.</p>
+      <h2 id="g4">§ 4 Vertragsschluss</h2>
+      <p>(1) Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind. Darstellungen auf der Website des Auftragnehmers stellen kein verbindliches Angebot dar.</p>
+      <p>(2) Der Vertrag kommt durch die schriftliche Auftragsbestätigung des Auftragnehmers oder durch den Beginn der Leistungserbringung zustande. Als Schriftform gilt auch die elektronische Form (E-Mail).</p>
+      <p>(3) Nachträgliche Änderungen oder Erweiterungen des vereinbarten Leistungsumfangs bedürfen einer gesonderten schriftlichen Vereinbarung und können zu einer Anpassung des Preises und der Lieferfrist führen.</p>
 
-    <!-- § 5 -->
-    <h2 id="g5">§ 5 Leistungsumfang</h2>
-    <p>(1) Der Umfang der zu erbringenden Leistungen ergibt sich aus der Leistungsbeschreibung im jeweiligen Angebot. Mündliche Nebenabreden bestehen nicht.</p>
-    <p>(2) Der Auftragnehmer ist berechtigt, zur Erfüllung seiner vertraglichen Pflichten qualifizierte Dritte (Subunternehmer) hinzuzuziehen. Die Verantwortung gegenüber dem Auftraggeber verbleibt beim Auftragnehmer.</p>
-    <p>(3) Leistungen, die über den im Angebot festgelegten Umfang hinausgehen, werden nach vorheriger Abstimmung gesondert vergütet. Der Auftragnehmer wird den Auftraggeber vorab über den voraussichtlichen Mehraufwand informieren.</p>
+      <h2 id="g5">§ 5 Leistungsumfang</h2>
+      <p>(1) Der Umfang der zu erbringenden Leistungen ergibt sich aus der Leistungsbeschreibung im jeweiligen Angebot. Mündliche Nebenabreden bestehen nicht.</p>
+      <p>(2) Der Auftragnehmer ist berechtigt, zur Erfüllung seiner vertraglichen Pflichten qualifizierte Dritte (Subunternehmer) hinzuzuziehen. Die Verantwortung gegenüber dem Auftraggeber verbleibt beim Auftragnehmer.</p>
+      <p>(3) Leistungen, die über den im Angebot festgelegten Umfang hinausgehen, werden nach vorheriger Abstimmung gesondert vergütet. Der Auftragnehmer wird den Auftraggeber vorab über den voraussichtlichen Mehraufwand informieren.</p>
 
-    <!-- § 6 -->
-    <h2 id="g6">§ 6 Mitwirkungspflichten des Auftraggebers</h2>
-    <p>(1) Der Auftraggeber stellt dem Auftragnehmer alle für die Durchführung des Projekts erforderlichen Informationen, Unterlagen und Materialien (z. B. Texte, Bilder, Logos, Zugangsdaten) rechtzeitig und unentgeltlich zur Verfügung.</p>
-    <p>(2) Der Auftraggeber benennt einen verbindlichen Ansprechpartner, der befugt ist, im Rahmen des Projekts Entscheidungen zu treffen und Freigaben zu erteilen.</p>
-    <p>(3) Der Auftraggeber stellt sicher, dass die von ihm bereitgestellten Inhalte und Materialien frei von Rechten Dritter sind oder die erforderlichen Nutzungsrechte vorliegen. Der Auftraggeber stellt den Auftragnehmer von etwaigen Ansprüchen Dritter frei, die aus einer Verletzung dieser Pflicht resultieren.</p>
-    <p>(4) Kommt der Auftraggeber seinen Mitwirkungspflichten nicht oder nicht rechtzeitig nach, verlängern sich vereinbarte Fristen entsprechend. Daraus resultierende Mehrkosten trägt der Auftraggeber.</p>
+      <h2 id="g6">§ 6 Mitwirkungspflichten des Auftraggebers</h2>
+      <p>(1) Der Auftraggeber stellt dem Auftragnehmer alle für die Durchführung des Projekts erforderlichen Informationen, Unterlagen und Materialien (z. B. Texte, Bilder, Logos, Zugangsdaten) rechtzeitig und unentgeltlich zur Verfügung.</p>
+      <p>(2) Der Auftraggeber benennt einen verbindlichen Ansprechpartner, der befugt ist, im Rahmen des Projekts Entscheidungen zu treffen und Freigaben zu erteilen.</p>
+      <p>(3) Der Auftraggeber stellt sicher, dass die von ihm bereitgestellten Inhalte und Materialien frei von Rechten Dritter sind oder die erforderlichen Nutzungsrechte vorliegen. Der Auftraggeber stellt den Auftragnehmer von etwaigen Ansprüchen Dritter frei, die aus einer Verletzung dieser Pflicht resultieren.</p>
+      <p>(4) Kommt der Auftraggeber seinen Mitwirkungspflichten nicht oder nicht rechtzeitig nach, verlängern sich vereinbarte Fristen entsprechend. Daraus resultierende Mehrkosten trägt der Auftraggeber.</p>
 
-    <!-- § 7 -->
-    <h2 id="g7">§ 7 Preise und Zahlungsbedingungen</h2>
-    <p>(1) Es gelten die im jeweiligen Angebot genannten Preise. Alle Preise verstehen sich als Nettopreise zuzüglich der gesetzlich geltenden Umsatzsteuer, sofern nicht ausdrücklich als Bruttopreise ausgewiesen. Gemäß § 19 UStG wird derzeit keine Umsatzsteuer erhoben (Kleinunternehmerregelung).</p>
-    <p>(2) Der Auftragnehmer bietet folgende Zahlungsarten an:</p>
-    <ul>
-      <li><strong>Vorkasse:</strong> Zahlung per Überweisung vor Beginn der Leistungserbringung. Die Bankverbindung wird nach Auftragsbestätigung mitgeteilt.</li>
-      <li><strong>Kreditkarte:</strong> Zahlung per Kreditkarte über einen sicheren Zahlungsdienstleister.</li>
-    </ul>
-    <p>(3) Sofern nicht anders vereinbart, werden Projekte wie folgt abgerechnet:</p>
-    <ul>
-      <li>50 % des Gesamtbetrags bei Auftragserteilung (Anzahlung)</li>
-      <li>50 % des Gesamtbetrags nach Fertigstellung und Abnahme</li>
-    </ul>
-    <p>(4) Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug fällig, sofern nicht anders vereinbart.</p>
-    <p>(5) Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen in gesetzlicher Höhe (§ 288 BGB) zu berechnen. Die Geltendmachung eines weitergehenden Verzugsschadens bleibt vorbehalten.</p>
+      <h2 id="g7">§ 7 Preise und Zahlungsbedingungen</h2>
+      <p>(1) Es gelten die im jeweiligen Angebot genannten Preise. Alle Preise verstehen sich als Nettopreise zuzüglich der gesetzlich geltenden Umsatzsteuer, sofern nicht ausdrücklich als Bruttopreise ausgewiesen. Gemäß § 19 UStG wird derzeit keine Umsatzsteuer erhoben (Kleinunternehmerregelung).</p>
+      <p>(2) Der Auftragnehmer bietet folgende Zahlungsarten an:</p>
+      <ul>
+        <li><strong>Vorkasse:</strong> Zahlung per Überweisung vor Beginn der Leistungserbringung. Die Bankverbindung wird nach Auftragsbestätigung mitgeteilt.</li>
+        <li><strong>Kreditkarte:</strong> Zahlung per Kreditkarte über einen sicheren Zahlungsdienstleister.</li>
+      </ul>
+      <p>(3) Sofern nicht anders vereinbart, werden Projekte wie folgt abgerechnet:</p>
+      <ul>
+        <li>50 % des Gesamtbetrags bei Auftragserteilung (Anzahlung)</li>
+        <li>50 % des Gesamtbetrags nach Fertigstellung und Abnahme</li>
+      </ul>
+      <p>(4) Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug fällig, sofern nicht anders vereinbart.</p>
+      <p>(5) Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen in gesetzlicher Höhe (§ 288 BGB) zu berechnen. Die Geltendmachung eines weitergehenden Verzugsschadens bleibt vorbehalten.</p>
 
-    <!-- § 8 -->
-    <h2 id="g8">§ 8 Lieferung und Fertigstellung</h2>
-    <p>(1) Liefertermine und -fristen sind nur dann verbindlich, wenn sie vom Auftragnehmer ausdrücklich als verbindlich bestätigt werden.</p>
-    <p>(2) Leistungen des Auftragnehmers werden digital erbracht. Eine physische Lieferung findet nicht statt. Die Bereitstellung erfolgt in der Regel durch Veröffentlichung auf dem vereinbarten Server oder durch digitale Übergabe der Projektdateien.</p>
-    <p>(3) Verzögerungen, die durch verspätete Zulieferung von Materialien oder Informationen durch den Auftraggeber oder durch nachträgliche Änderungswünsche entstehen, gehen nicht zu Lasten des Auftragnehmers.</p>
+      <h2 id="g8">§ 8 Lieferung und Fertigstellung</h2>
+      <p>(1) Liefertermine und -fristen sind nur dann verbindlich, wenn sie vom Auftragnehmer ausdrücklich als verbindlich bestätigt werden.</p>
+      <p>(2) Leistungen des Auftragnehmers werden digital erbracht. Eine physische Lieferung findet nicht statt. Die Bereitstellung erfolgt in der Regel durch Veröffentlichung auf dem vereinbarten Server oder durch digitale Übergabe der Projektdateien.</p>
+      <p>(3) Verzögerungen, die durch verspätete Zulieferung von Materialien oder Informationen durch den Auftraggeber oder durch nachträgliche Änderungswünsche entstehen, gehen nicht zu Lasten des Auftragnehmers.</p>
 
-    <!-- § 9 -->
-    <h2 id="g9">§ 9 Abnahme</h2>
-    <p>(1) Nach Fertigstellung der vereinbarten Leistung wird der Auftragnehmer den Auftraggeber zur Abnahme auffordern. Der Auftraggeber hat die Leistung innerhalb von 14 Tagen nach Aufforderung zu prüfen und abzunehmen.</p>
-    <p>(2) Beanstandungen sind innerhalb der Prüffrist schriftlich und konkret mitzuteilen. Unwesentliche Mängel berechtigen nicht zur Verweigerung der Abnahme.</p>
-    <p>(3) Äußert sich der Auftraggeber nicht innerhalb der Prüffrist und nutzt die Leistung produktiv (z. B. Veröffentlichung der Website), gilt die Leistung als abgenommen.</p>
+      <h2 id="g9">§ 9 Abnahme</h2>
+      <p>(1) Nach Fertigstellung der vereinbarten Leistung wird der Auftragnehmer den Auftraggeber zur Abnahme auffordern. Der Auftraggeber hat die Leistung innerhalb von 14 Tagen nach Aufforderung zu prüfen und abzunehmen.</p>
+      <p>(2) Beanstandungen sind innerhalb der Prüffrist schriftlich und konkret mitzuteilen. Unwesentliche Mängel berechtigen nicht zur Verweigerung der Abnahme.</p>
+      <p>(3) Äußert sich der Auftraggeber nicht innerhalb der Prüffrist und nutzt die Leistung produktiv (z. B. Veröffentlichung der Website), gilt die Leistung als abgenommen.</p>
 
-    <!-- § 10 -->
-    <h2 id="g10">§ 10 Urheberrecht und Nutzungsrechte</h2>
-    <p>(1) Der Auftragnehmer räumt dem Auftraggeber nach vollständiger Bezahlung das einfache, zeitlich unbeschränkte Nutzungsrecht an den im Rahmen des Vertrags erstellten Werken ein, soweit diese urheberrechtlich geschützt sind. Die Nutzungsrechte beschränken sich auf den vertraglich vereinbarten Zweck.</p>
-    <p>(2) Vor vollständiger Bezahlung verbleiben sämtliche Nutzungsrechte beim Auftragnehmer. Der Auftraggeber ist vor der vollständigen Bezahlung nicht berechtigt, die erstellten Werke zu nutzen, zu veröffentlichen oder Dritten zugänglich zu machen.</p>
-    <p>(3) Die Einräumung ausschließlicher Nutzungsrechte oder die Übertragung des Urheberrechts bedarf einer gesonderten schriftlichen Vereinbarung und kann gesondert vergütet werden.</p>
-    <p>(4) Der Auftragnehmer ist berechtigt, die im Rahmen des Vertrags erstellten Werke in seinem Portfolio und zu Referenzzwecken zu verwenden, sofern der Auftraggeber dem nicht ausdrücklich schriftlich widerspricht.</p>
-    <p>(5) Quellcode, der im Rahmen des Projekts erstellt wurde, wird nach vollständiger Bezahlung dem Auftraggeber übergeben. Standardbibliotheken, Frameworks und wiederverwendbare Komponenten, die nicht speziell für den Auftraggeber entwickelt wurden, verbleiben beim Auftragnehmer.</p>
+      <h2 id="g10">§ 10 Urheberrecht und Nutzungsrechte</h2>
+      <p>(1) Der Auftragnehmer räumt dem Auftraggeber nach vollständiger Bezahlung das einfache, zeitlich unbeschränkte Nutzungsrecht an den im Rahmen des Vertrags erstellten Werken ein, soweit diese urheberrechtlich geschützt sind. Die Nutzungsrechte beschränken sich auf den vertraglich vereinbarten Zweck.</p>
+      <p>(2) Vor vollständiger Bezahlung verbleiben sämtliche Nutzungsrechte beim Auftragnehmer. Der Auftraggeber ist vor der vollständigen Bezahlung nicht berechtigt, die erstellten Werke zu nutzen, zu veröffentlichen oder Dritten zugänglich zu machen.</p>
+      <p>(3) Die Einräumung ausschließlicher Nutzungsrechte oder die Übertragung des Urheberrechts bedarf einer gesonderten schriftlichen Vereinbarung und kann gesondert vergütet werden.</p>
+      <p>(4) Der Auftragnehmer ist berechtigt, die im Rahmen des Vertrags erstellten Werke in seinem Portfolio und zu Referenzzwecken zu verwenden, sofern der Auftraggeber dem nicht ausdrücklich schriftlich widerspricht.</p>
+      <p>(5) Quellcode, der im Rahmen des Projekts erstellt wurde, wird nach vollständiger Bezahlung dem Auftraggeber übergeben. Standardbibliotheken, Frameworks und wiederverwendbare Komponenten, die nicht speziell für den Auftraggeber entwickelt wurden, verbleiben beim Auftragnehmer.</p>
 
-    <!-- § 11 -->
-    <h2 id="g11">§ 11 Gewährleistung</h2>
-    <p>(1) Der Auftragnehmer gewährleistet, dass die erbrachten Leistungen den vertraglich vereinbarten Anforderungen entsprechen und nach dem aktuellen Stand der Technik erstellt werden.</p>
-    <p>(2) Mängel sind vom Auftraggeber unverzüglich nach Entdeckung schriftlich anzuzeigen. Der Auftragnehmer wird angezeigte Mängel innerhalb einer angemessenen Frist beheben.</p>
-    <p>(3) Eine vollständige Fehlerfreiheit von Software kann nach dem Stand der Technik nicht gewährleistet werden. Maßstab für die Mangelfreiheit ist die vereinbarte Leistungsbeschreibung.</p>
-    <p>(4) Von der Gewährleistung ausgenommen sind Mängel, die durch nachträgliche Eingriffe des Auftraggebers oder Dritter, durch unsachgemäße Nutzung, durch höhere Gewalt oder durch Änderungen an der technischen Umgebung (z. B. Browser-Updates, Server-Änderungen) entstehen.</p>
-    <p>(5) Die Gewährleistungsfrist beträgt 12 Monate ab Abnahme, sofern der Auftraggeber Unternehmer ist. Gegenüber Verbrauchern gelten die gesetzlichen Gewährleistungsfristen.</p>
+      <h2 id="g11">§ 11 Gewährleistung</h2>
+      <p>(1) Der Auftragnehmer gewährleistet, dass die erbrachten Leistungen den vertraglich vereinbarten Anforderungen entsprechen und nach dem aktuellen Stand der Technik erstellt werden.</p>
+      <p>(2) Mängel sind vom Auftraggeber unverzüglich nach Entdeckung schriftlich anzuzeigen. Der Auftragnehmer wird angezeigte Mängel innerhalb einer angemessenen Frist beheben.</p>
+      <p>(3) Eine vollständige Fehlerfreiheit von Software kann nach dem Stand der Technik nicht gewährleistet werden. Maßstab für die Mangelfreiheit ist die vereinbarte Leistungsbeschreibung.</p>
+      <p>(4) Von der Gewährleistung ausgenommen sind Mängel, die durch nachträgliche Eingriffe des Auftraggebers oder Dritter, durch unsachgemäße Nutzung, durch höhere Gewalt oder durch Änderungen an der technischen Umgebung (z. B. Browser-Updates, Server-Änderungen) entstehen.</p>
+      <p>(5) Die Gewährleistungsfrist beträgt 12 Monate ab Abnahme, sofern der Auftraggeber Unternehmer ist. Gegenüber Verbrauchern gelten die gesetzlichen Gewährleistungsfristen.</p>
 
-    <!-- § 12 -->
-    <h2 id="g12">§ 12 Haftung</h2>
-    <p>(1) Der Auftragnehmer haftet unbeschränkt für Schäden, die auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung beruhen, sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.</p>
-    <p>(2) Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten). In diesem Fall ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt.</p>
-    <p>(3) Die Haftung für mittelbare Schäden, Folgeschäden, entgangenen Gewinn oder Datenverlust ist bei leichter Fahrlässigkeit ausgeschlossen.</p>
-    <p>(4) Die vorstehenden Haftungsbeschränkungen gelten auch zugunsten der Erfüllungsgehilfen des Auftragnehmers.</p>
-    <p>(5) Die Haftung nach dem Produkthaftungsgesetz bleibt unberührt.</p>
+      <h2 id="g12">§ 12 Haftung</h2>
+      <p>(1) Der Auftragnehmer haftet unbeschränkt für Schäden, die auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung beruhen, sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.</p>
+      <p>(2) Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten). In diesem Fall ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt.</p>
+      <p>(3) Die Haftung für mittelbare Schäden, Folgeschäden, entgangenen Gewinn oder Datenverlust ist bei leichter Fahrlässigkeit ausgeschlossen.</p>
+      <p>(4) Die vorstehenden Haftungsbeschränkungen gelten auch zugunsten der Erfüllungsgehilfen des Auftragnehmers.</p>
+      <p>(5) Die Haftung nach dem Produkthaftungsgesetz bleibt unberührt.</p>
 
-    <!-- § 13 -->
-    <h2 id="g13">§ 13 Vertraulichkeit und Datenschutz</h2>
-    <p>(1) Beide Vertragsparteien verpflichten sich, alle im Rahmen der Zusammenarbeit erlangten vertraulichen Informationen und Geschäftsgeheimnisse der jeweils anderen Partei vertraulich zu behandeln und nicht an Dritte weiterzugeben. Diese Verpflichtung besteht auch nach Beendigung des Vertragsverhältnisses fort.</p>
-    <p>(2) Die Verarbeitung personenbezogener Daten erfolgt im Einklang mit den Bestimmungen der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG). Nähere Informationen entnehmen Sie unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-    <p>(3) Soweit der Auftragnehmer im Rahmen der Leistungserbringung Zugang zu personenbezogenen Daten des Auftraggebers erhält, schließen die Parteien bei Bedarf eine gesonderte Vereinbarung zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
+      <h2 id="g13">§ 13 Vertraulichkeit und Datenschutz</h2>
+      <p>(1) Beide Vertragsparteien verpflichten sich, alle im Rahmen der Zusammenarbeit erlangten vertraulichen Informationen und Geschäftsgeheimnisse der jeweils anderen Partei vertraulich zu behandeln und nicht an Dritte weiterzugeben. Diese Verpflichtung besteht auch nach Beendigung des Vertragsverhältnisses fort.</p>
+      <p>(2) Die Verarbeitung personenbezogener Daten erfolgt im Einklang mit den Bestimmungen der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG). Nähere Informationen entnehmen Sie unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+      <p>(3) Soweit der Auftragnehmer im Rahmen der Leistungserbringung Zugang zu personenbezogenen Daten des Auftraggebers erhält, schließen die Parteien bei Bedarf eine gesonderte Vereinbarung zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
 
-    <!-- § 14 -->
-    <h2 id="g14">§ 14 Kündigung</h2>
-    <p>(1) Verträge über einmalige Leistungen (z. B. Erstellung einer Website) können vor Fertigstellung nur aus wichtigem Grund gekündigt werden.</p>
-    <p>(2) Bei laufenden Verträgen (z. B. Wartung, SEO-Betreuung) beträgt die Kündigungsfrist einen Monat zum Monatsende, sofern nicht anders vereinbart.</p>
-    <p>(3) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt für beide Vertragsparteien unberührt. Ein wichtiger Grund liegt insbesondere vor, wenn:</p>
-    <ul>
-      <li>die andere Partei trotz Mahnung und angemessener Fristsetzung wesentliche Vertragspflichten nicht erfüllt;</li>
-      <li>über das Vermögen der anderen Partei ein Insolvenzverfahren eröffnet oder die Eröffnung mangels Masse abgelehnt wird.</li>
-    </ul>
-    <p>(4) Bei Kündigung durch den Auftraggeber vor Fertigstellung hat der Auftragnehmer Anspruch auf die Vergütung der bis zum Zeitpunkt der Kündigung erbrachten Leistungen. Bereits geleistete Anzahlungen werden verrechnet.</p>
+      <h2 id="g14">§ 14 Kündigung</h2>
+      <p>(1) Verträge über einmalige Leistungen (z. B. Erstellung einer Website) können vor Fertigstellung nur aus wichtigem Grund gekündigt werden.</p>
+      <p>(2) Bei laufenden Verträgen (z. B. Wartung, SEO-Betreuung) beträgt die Kündigungsfrist einen Monat zum Monatsende, sofern nicht anders vereinbart.</p>
+      <p>(3) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt für beide Vertragsparteien unberührt. Ein wichtiger Grund liegt insbesondere vor, wenn:</p>
+      <ul>
+        <li>die andere Partei trotz Mahnung und angemessener Fristsetzung wesentliche Vertragspflichten nicht erfüllt;</li>
+        <li>über das Vermögen der anderen Partei ein Insolvenzverfahren eröffnet oder die Eröffnung mangels Masse abgelehnt wird.</li>
+      </ul>
+      <p>(4) Bei Kündigung durch den Auftraggeber vor Fertigstellung hat der Auftragnehmer Anspruch auf die Vergütung der bis zum Zeitpunkt der Kündigung erbrachten Leistungen. Bereits geleistete Anzahlungen werden verrechnet.</p>
 
-    <!-- § 15 -->
-    <h2 id="g15">§ 15 Streitbeilegung</h2>
-    <p>(1) Die EU-Kommission hat eine Internetplattform zur Online-Beilegung von Streitigkeiten geschaffen. Die Plattform dient als Anlaufstelle zur außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus Online-Verträgen erwachsen. Nähere Informationen sind unter dem folgenden Link verfügbar: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
-    <p>(2) Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir weder bereit noch verpflichtet.</p>
+      <h2 id="g15">§ 15 Streitbeilegung</h2>
+      <p>(1) Die EU-Kommission hat eine Internetplattform zur Online-Beilegung von Streitigkeiten geschaffen. Die Plattform dient als Anlaufstelle zur außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus Online-Verträgen erwachsen. Nähere Informationen sind unter dem folgenden Link verfügbar: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
+      <p>(2) Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir weder bereit noch verpflichtet.</p>
 
-    <!-- § 16 -->
-    <h2 id="g16">§ 16 Schlussbestimmungen</h2>
-    <p>(1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>
-    <p>(2) Ist der Auftraggeber Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist der Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit dem Vertragsverhältnis Lüneburg.</p>
-    <p>(3) Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt. An die Stelle der unwirksamen Bestimmung tritt eine Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.</p>
-    <p>(4) Änderungen und Ergänzungen dieser AGB bedürfen der Schriftform. Dies gilt auch für die Aufhebung dieses Schriftformerfordernisses.</p>
+      <h2 id="g16">§ 16 Schlussbestimmungen</h2>
+      <p>(1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>
+      <p>(2) Ist der Auftraggeber Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist der Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit dem Vertragsverhältnis Lüneburg.</p>
+      <p>(3) Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt. An die Stelle der unwirksamen Bestimmung tritt eine Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.</p>
+      <p>(4) Änderungen und Ergänzungen dieser AGB bedürfen der Schriftform. Dies gilt auch für die Aufhebung dieses Schriftformerfordernisses.</p>
 
-    <h2 id="g17">§ 17 Hinweis zu Kundenstimmen und Bewertungen</h2>
-    <p>(1) Die auf der Website von addus. dargestellten Kundenstimmen, Bewertungen und Erfahrungsberichte sind illustrative Beispiele, die typische Kundenerfahrungen und -meinungen widerspiegeln sollen. Sie stellen keine verifizierten oder authentischen Bewertungen einzelner, identifizierbarer Personen dar.</p>
-    <p>(2) Namen, Berufsbezeichnungen und Ortsangaben in den dargestellten Bewertungen sind frei gewählt und dienen ausschließlich der Veranschaulichung. Etwaige Ähnlichkeiten mit tatsächlichen Personen oder Unternehmen sind rein zufällig und nicht beabsichtigt.</p>
-    <p>(3) Die auf der Website dargestellten Bewertungskennzahlen — insbesondere die Durchschnittsbewertung (z.&nbsp;B. „4.9"), die Anzahl der Bewertungen (z.&nbsp;B. „98 Bewertungen auf Google"), Sternebewertungen sowie die Anzahl abgeschlossener Projekte — sind fiktiv und dienen ausschließlich der beispielhaften Darstellung. Sie spiegeln keine tatsächlichen Daten einer Bewertungsplattform wider und stellen keine verifizierten Statistiken dar. Die Verwendung des Google-Logos und der Sternebewertungen dient der visuellen Veranschaulichung und impliziert keine Partnerschaft mit oder Verifizierung durch Google.</p>
-    <p>(4) Für tatsächliche, verifizierte Kundenbewertungen verweisen wir auf unser Google-Business-Profil, sofern vorhanden. Nur dort hinterlegte Bewertungen sind als authentisch zu betrachten.</p>
-
+      <h2 id="g17">§ 17 Hinweis zu Kundenstimmen und Bewertungen</h2>
+      <p>(1) Die auf der Website von addus. dargestellten Kundenstimmen, Bewertungen und Erfahrungsberichte sind illustrative Beispiele, die typische Kundenerfahrungen und -meinungen widerspiegeln sollen. Sie stellen keine verifizierten oder authentischen Bewertungen einzelner, identifizierbarer Personen dar.</p>
+      <p>(2) Namen, Berufsbezeichnungen und Ortsangaben in den dargestellten Bewertungen sind frei gewählt und dienen ausschließlich der Veranschaulichung. Etwaige Ähnlichkeiten mit tatsächlichen Personen oder Unternehmen sind rein zufällig und nicht beabsichtigt.</p>
+      <p>(3) Die auf der Website dargestellten Bewertungskennzahlen — insbesondere die Durchschnittsbewertung (z.&nbsp;B. „4.9"), die Anzahl der Bewertungen (z.&nbsp;B. „98 Bewertungen auf Google"), Sternebewertungen sowie die Anzahl abgeschlossener Projekte — sind fiktiv und dienen ausschließlich der beispielhaften Darstellung. Sie spiegeln keine tatsächlichen Daten einer Bewertungsplattform wider und stellen keine verifizierten Statistiken dar. Die Verwendung des Google-Logos und der Sternebewertungen dient der visuellen Veranschaulichung und impliziert keine Partnerschaft mit oder Verifizierung durch Google.</p>
+      <p>(4) Für tatsächliche, verifizierte Kundenbewertungen verweisen wir auf unser Google-Business-Profil, sofern vorhanden. Nur dort hinterlegte Bewertungen sind als authentisch zu betrachten.</p>
+    </div>
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__top">
-      <div class="footer-brand">
-        <div class="footer-logo">addus.</div>
-        <div class="footer-tagline">Websites, die wachsen.</div>
-        <p class="footer-desc">Wir helfen kleinen und mittleren Unternehmen, online mehr Kunden zu gewinnen.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
-          <li><a href="agb.html">AGB</a></li>
-          <li><a href="index.html#kontakt">Kontakt</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>&copy; 2026 addus. Alle Rechte vorbehalten.</p>
-      <div class="footer-security" aria-label="Sicherheits-Zertifikate">
-        <span class="footer-security__label">Verifiziert:</span>
-        <a href="https://securityheaders.com/?q=addus-web.de&followRedirects=on" target="_blank" rel="noopener" title="Security Headers Score">
-          <img src="https://img.shields.io/badge/Security%20Headers-A%2B-success" alt="Security Headers Grade" loading="lazy" width="120" height="20">
-        </a>
-        <a href="https://www.ssllabs.com/ssltest/analyze.html?d=addus-web.de" target="_blank" rel="noopener" title="SSL Labs Test">
-          <img src="https://img.shields.io/badge/SSL%20Labs-A%2B-success" alt="SSL Labs Grade" loading="lazy" width="100" height="20">
-        </a>
-        <a href="https://observatory.mozilla.org/analyze/addus-web.de" target="_blank" rel="noopener" title="Mozilla Observatory">
-          <img src="https://img.shields.io/mozilla-observatory/grade/addus-web.de?publish" alt="Mozilla Observatory Grade" loading="lazy" width="130" height="20">
-        </a>
-        <a href="https://hstspreload.org/?domain=addus-web.de" target="_blank" rel="noopener" title="HSTS Preload Status">
-          <img src="https://img.shields.io/badge/HSTS%20Preload-pending-orange" alt="HSTS Preload Status" loading="lazy" width="135" height="20">
-        </a>
-      </div>
+  <footer class="lftr" role="contentinfo">
+    <div class="lftr__inner">
+      <span class="lftr__brand">addus<i>.</i></span>
+      <ul class="lftr__links" role="list">
+        <li><a href="/">Startseite</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="#" onclick="CookieConsent.showPreferences();return false;">Cookie-Einstellungen</a></li>
+      </ul>
+      <span class="lftr__copy">© <em>MMXXVI</em> · Lüneburg</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
