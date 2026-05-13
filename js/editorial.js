@@ -285,7 +285,7 @@
     var cycleWords = [
       'Kunden', 'Aufträge', 'Anfragen', 'Vertrauen',
       'Umsatz', 'Termine', 'Reichweite', 'Wachstum',
-      'Stammkunden', 'Bekanntheit'
+      'Bekanntheit'
     ];
     var cycleIdx = 0;
     cycleEl.textContent = cycleWords[0];
@@ -301,8 +301,8 @@
       }, 350);
     }
     setTimeout(function () {
-      setInterval(cycleNext, 3400);
-    }, 4000);
+      setInterval(cycleNext, 1700);
+    }, 2000);
   }
 
   // — Watermark "01" parallax (only while hero is in view) —
