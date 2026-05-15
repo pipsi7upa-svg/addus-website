@@ -297,13 +297,13 @@
     color:rgba(239,232,216,.72);max-width:48ch;
   }
 
-  /* ─── Dial — semicircular SVG gauge (instrument) ─── */
+  /* ─── Dial — Reactor-Knob (full radial instrument) ─── */
   .wp-dial{
     position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
     padding:clamp(28px,3vw,48px);
     border:1px solid rgba(239,232,216,.18);
     background:
-      radial-gradient(ellipse at center,rgba(184,66,31,.06),transparent 60%),
+      radial-gradient(ellipse at center,rgba(184,66,31,.08),transparent 65%),
       rgba(239,232,216,.02);
     overflow:hidden;
   }
@@ -313,49 +313,89 @@
   .wp-dial::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
   .wp-dial::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
   .wp-dial__stamp{
-    position:absolute;top:18px;right:22px;
+    position:absolute;top:18px;right:22px;z-index:3;
     font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;
     color:var(--rust);border:1px solid var(--rust);padding:5px 9px;
-    transform:rotate(4deg);
+    transform:rotate(4deg);background:rgba(20,16,12,.6);
   }
-  .wp-dial__svg{width:100%;max-width:420px;height:auto;display:block}
-  .wp-dial__svg .arc-bg{stroke:rgba(239,232,216,.14);fill:none}
-  .wp-dial__svg .arc-fg{
-    stroke:var(--rust);fill:none;
-    stroke-dasharray:1;stroke-dashoffset:1;
-    transition:stroke-dashoffset 1.4s cubic-bezier(.2,.85,.2,1) .25s;
+
+  .wp-dial__wrap{position:relative;width:100%;max-width:440px;aspect-ratio:1}
+  .wp-dial__svg{width:100%;height:100%;display:block;overflow:visible}
+
+  /* Background arc (gap at bottom) */
+  .wp-dial__arc-bg{
+    stroke:rgba(239,232,216,.10);fill:none;stroke-width:7;stroke-linecap:round;
   }
-  .wp-r.is-in .wp-dial__svg .arc-fg{stroke-dashoffset:.16} /* 1 - 42/50 = .16 */
-  .wp-dial__svg .tick{stroke:rgba(239,232,216,.32)}
-  .wp-dial__svg .tick--major{stroke:rgba(239,232,216,.65)}
-  .wp-dial__svg .needle{
-    stroke:var(--rust);stroke-width:3;stroke-linecap:round;
-    transform-origin:200px 180px;transform:rotate(-90deg);
-    transition:transform 1.4s cubic-bezier(.2,.85,.2,1) .25s;
+  /* Foreground arc — animated fill */
+  .wp-dial__arc-fg{
+    stroke:var(--rust);fill:none;stroke-width:7;stroke-linecap:round;
+    pathLength:1;stroke-dasharray:1;stroke-dashoffset:1;
+    filter:drop-shadow(0 0 8px rgba(184,66,31,.55));
+    transition:stroke-dashoffset 1.6s cubic-bezier(.2,.85,.2,1) .25s;
   }
-  .wp-r.is-in .wp-dial__svg .needle{transform:rotate(61.2deg)} /* (42/50)*180 − 90 */
-  .wp-dial__svg .hub{fill:var(--rust)}
-  .wp-dial__svg .label{
-    font-family:var(--mono);font-size:13px;letter-spacing:.18em;
-    fill:rgba(239,232,216,.55);text-anchor:middle;
+  .wp-r.is-in .wp-dial__arc-fg{stroke-dashoffset:.16} /* fill 84% of the arc */
+
+  /* Tick ring — 41 ticks across 270° */
+  .wp-dial__tick{
+    stroke:rgba(239,232,216,.18);stroke-width:1.5;stroke-linecap:round;
+    transition:stroke .45s ease,opacity .45s ease,filter .45s ease;
+    transition-delay:calc(var(--i) * 22ms);
   }
+  .wp-dial__tick--major{stroke:rgba(239,232,216,.42);stroke-width:2}
+  .wp-r.is-in .wp-dial__tick--lit{
+    stroke:var(--rust);
+    filter:drop-shadow(0 0 4px rgba(184,66,31,.7));
+  }
+
+  /* Knob body */
+  .wp-dial__knob-outer{fill:#0d0a08;stroke:rgba(239,232,216,.10);stroke-width:1}
+  .wp-dial__knob-inner{fill:#050403;stroke:rgba(239,232,216,.06);stroke-width:1}
+  .wp-dial__knob-rim{
+    fill:none;stroke:rgba(239,232,216,.06);stroke-width:1;
+    stroke-dasharray:2 4;
+  }
+
+  /* Indicator (rotates from -135° to +91.8° = 84%) */
+  .wp-dial__indicator{
+    transform-origin:200px 200px;transform:rotate(-135deg);
+    transition:transform 1.6s cubic-bezier(.2,.85,.2,1) .25s;
+  }
+  .wp-r.is-in .wp-dial__indicator{transform:rotate(91.8deg)}
+  .wp-dial__indicator-line{
+    stroke:var(--rust);stroke-width:3.5;stroke-linecap:round;
+    filter:drop-shadow(0 0 9px rgba(184,66,31,.95));
+  }
+
+  /* Center readout */
   .wp-dial__readout{
-    margin-top:18px;display:flex;align-items:baseline;gap:10px;
-    font-family:var(--serif);
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    text-align:center;pointer-events:none;
   }
-  .wp-dial__num{
-    font-size:clamp(72px,11vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;
-    color:var(--rust);font-variation-settings:"opsz" 144,"WONK" 1;
+  .wp-dial__pct{
+    display:block;font-family:var(--serif);
+    font-size:clamp(64px,9vw,108px);font-weight:300;line-height:.9;
+    letter-spacing:-.05em;color:var(--rust);
+    font-variation-settings:"opsz" 144,"WONK" 1;
   }
-  .wp-dial__num em{font-style:italic;font-weight:500}
-  .wp-dial__denom{
-    font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
-    color:rgba(239,232,216,.55);
+  .wp-dial__pct sup{
+    font-size:.36em;font-weight:400;vertical-align:.85em;margin-left:3px;
+    color:rgba(239,232,216,.55);font-variation-settings:"opsz" 24;
   }
+  .wp-dial__pct-label{
+    display:block;margin-top:6px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    color:rgba(239,232,216,.5);
+  }
+
   .wp-dial__caption{
-    margin-top:14px;font-family:var(--serif);font-style:italic;font-size:16px;
-    color:var(--paper);text-align:center;max-width:30ch;line-height:1.4;
+    margin-top:22px;font-family:var(--serif);font-style:italic;font-size:16px;
+    color:var(--paper);text-align:center;max-width:32ch;line-height:1.4;
     font-variation-settings:"opsz" 24;
+  }
+  .wp-dial__caption em{font-style:italic;color:var(--rust);font-weight:500}
+
+  @media (prefers-reduced-motion:reduce){
+    .wp-dial__arc-fg,.wp-dial__indicator,.wp-dial__tick{transition:none}
   }
 
   /* Scan-Ticker — fühlt sich wie ein Audit-Lauf an */
@@ -983,34 +1023,29 @@
     </div>
     <figure class="wp-dial wp-r">
       <span class="wp-dial__stamp">Befund · Mai MMXXVI</span>
-      <svg class="wp-dial__svg" viewBox="0 0 400 220" role="img" aria-label="Audit-Messuhr: 42 von 50 Websites unsicher">
-        <!-- Background arc -->
-        <path class="arc-bg" d="M 40 180 A 160 160 0 0 1 360 180" stroke-width="14" pathLength="1"/>
-        <!-- Foreground arc — filled to 42/50 = 0.84 -->
-        <path class="arc-fg" d="M 40 180 A 160 160 0 0 1 360 180" stroke-width="14" pathLength="1" stroke-linecap="square"/>
-        <!-- Tick marks (11 ticks across 180°) -->
-        <g stroke-width="1.5">
-          <line class="tick tick--major" x1="40" y1="180" x2="50" y2="172"/>
-          <line class="tick" x1="68" y1="120" x2="76" y2="125"/>
-          <line class="tick tick--major" x1="120" y1="74" x2="125" y2="83"/>
-          <line class="tick" x1="200" y1="36" x2="200" y2="46"/>
-          <line class="tick tick--major" x1="280" y1="74" x2="275" y2="83"/>
-          <line class="tick" x1="332" y1="120" x2="324" y2="125"/>
-          <line class="tick tick--major" x1="360" y1="180" x2="350" y2="172"/>
-        </g>
-        <!-- Labels -->
-        <text class="label" x="40" y="208">0</text>
-        <text class="label" x="200" y="28">25</text>
-        <text class="label" x="360" y="208">50</text>
-        <!-- Needle -->
-        <line class="needle" x1="200" y1="180" x2="200" y2="50"/>
-        <circle class="hub" cx="200" cy="180" r="9"/>
-      </svg>
-      <div class="wp-dial__readout">
-        <span class="wp-dial__num">42<em>/</em>50</span>
-        <span class="wp-dial__denom">unsicher</span>
+      <div class="wp-dial__wrap">
+        <svg class="wp-dial__svg" viewBox="0 0 400 400" role="img" aria-label="Audit-Befund: 84 Prozent der geprüften Websites unsicher">
+          <!-- Background arc (270°, gap at bottom) -->
+          <path class="wp-dial__arc-bg" d="M 90.4 309.6 A 155 155 0 1 1 309.6 309.6"/>
+          <!-- Foreground arc — animated to 84% fill -->
+          <path class="wp-dial__arc-fg" d="M 90.4 309.6 A 155 155 0 1 1 309.6 309.6" pathLength="1"/>
+          <!-- Tick ring (41 ticks, generated via JS) -->
+          <g class="wp-dial__ticks" data-ticks="41" data-lit="34"></g>
+          <!-- Knob body -->
+          <circle class="wp-dial__knob-outer" cx="200" cy="200" r="105"/>
+          <circle class="wp-dial__knob-rim" cx="200" cy="200" r="92"/>
+          <circle class="wp-dial__knob-inner" cx="200" cy="200" r="80"/>
+          <!-- Indicator (rotates from rest to 84% position) -->
+          <g class="wp-dial__indicator">
+            <line class="wp-dial__indicator-line" x1="200" y1="98" x2="200" y2="120"/>
+          </g>
+        </svg>
+        <div class="wp-dial__readout">
+          <span class="wp-dial__pct">84<sup>%</sup></span>
+          <span class="wp-dial__pct-label">unsicher</span>
+        </div>
       </div>
-      <p class="wp-dial__caption">84 % aller geprüften Seiten haben mindestens <em style="font-style:italic;color:var(--rust)">eine offene Tür.</em></p>
+      <p class="wp-dial__caption">42 von 50 geprüften Seiten haben mindestens <em>eine offene Tür.</em></p>
     </figure>
   </div>
 
@@ -1443,6 +1478,30 @@
       });
     }, { rootMargin: '-8% 0px -8% 0px', threshold: 0.05 });
     document.querySelectorAll('.wp-r').forEach(el => io.observe(el));
+  })();
+
+  // Reactor-Knob — generate radial tick ring (41 ticks across 270°)
+  (function(){
+    const g = document.querySelector('.wp-dial__ticks');
+    if (!g) return;
+    const total = parseInt(g.dataset.ticks, 10) || 41;
+    const lit   = parseInt(g.dataset.lit,   10) || 0;
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    const span = 270;            // degrees of arc
+    const start = -135;          // start angle from top
+    const step = span / (total - 1);
+    let html = '';
+    for (let i = 0; i < total; i++) {
+      const angle = start + step * i;
+      const isMajor = (i % 5 === 0);
+      const isLit = (i < lit);
+      const cls = ['wp-dial__tick'];
+      if (isMajor) cls.push('wp-dial__tick--major');
+      if (isLit)   cls.push('wp-dial__tick--lit');
+      const y2 = isMajor ? 35 : 32;
+      html += `<line class="${cls.join(' ')}" style="--i:${i}" x1="200" y1="17" x2="200" y2="${y2}" transform="rotate(${angle} 200 200)"/>`;
+    }
+    g.innerHTML = html;
   })();
 
   // Nav scrolled shadow
