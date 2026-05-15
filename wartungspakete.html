@@ -23,40 +23,139 @@
      Erbt Tokens & Nav aus editorial.css
      ════════════════════════════════════════════════════════ */
 
-  /* ─── Masthead — bolder, dropcap-led, magazine-spread ─── */
-  .wp-mast{
-    max-width:var(--container);margin:0 auto;
-    padding:calc(var(--nav-h) + clamp(56px,8vw,120px)) var(--pad) clamp(48px,6vw,88px);
-    border-bottom:1px solid var(--ink);
+  /* ─── Nav · Editorial-Refinement (scoped overrides) ─── */
+  body .nav{height:auto;min-height:var(--nav-h);background:var(--paper)}
+  body .nav__inner{
+    align-items:stretch;gap:0;
+    padding:0 var(--pad);
+  }
+  /* Brand mit Sub-Label */
+  body .nav__brand{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:14px 24px 14px 0;line-height:1;
+    border-right:1px solid var(--line-soft);
     position:relative;
   }
-  .wp-mast::before{
-    content:'addus · Form AB-7 · Audit-Rapport · Mai 2026';
-    position:absolute;top:calc(var(--nav-h) + 18px);right:var(--pad);
-    font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--ink-mute);
+  body .nav__brand-sub{
+    font-family:var(--mono);font-size:9px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--ink-mute);font-weight:400;margin-top:4px;
   }
+  body .nav__brand-sub b{color:var(--rust);font-weight:500}
+
+  /* Menu — nummerierte Items wie ein TOC */
+  body .nav__menu{margin-left:0;flex:1;display:flex;align-items:center;justify-content:center}
+  body .nav__menu ul{gap:0;align-items:stretch;height:100%}
+  body .nav__menu li{display:flex;align-items:center}
+  body .nav__menu a{
+    display:inline-flex;align-items:baseline;gap:8px;
+    padding:0 18px;
+    font-family:var(--serif);font-size:15px;font-weight:400;letter-spacing:-.005em;
+    color:var(--ink);
+    font-variation-settings:"opsz" 18,"SOFT" 30;
+    transition:color .22s ease;
+  }
+  body .nav__menu a::after{display:none} /* alten Underline-Effekt aus */
+  body .nav__menu .nav__num{
+    font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.14em;
+    color:var(--rust);
+    transform:translateY(-.6em);
+    transition:transform .26s cubic-bezier(.16,1,.3,1);
+  }
+  body .nav__menu a:hover{color:var(--rust)}
+  body .nav__menu a:hover .nav__num{transform:translateY(-.6em) translateX(-3px)}
+
+  /* Stempel-CTA rechts */
+  body .nav__cta{
+    margin-left:auto;align-self:center;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);
+    padding:11px 18px 11px 22px;border:0;
+    display:inline-flex;align-items:center;gap:12px;
+    position:relative;overflow:hidden;isolation:isolate;
+    transition:color .22s ease;
+  }
+  body .nav__cta::before{
+    content:'';position:absolute;inset:0;background:var(--rust);
+    transform:translate3d(0,101%,0);transition:transform .38s var(--ease);z-index:-1;
+  }
+  body .nav__cta::after{content:'';display:none}
+  body .nav__cta:hover{background:var(--ink);color:var(--paper)}
+  body .nav__cta:hover::before{transform:translate3d(0,0,0)}
+  body .nav__cta .nav__cta-arrow{font-family:var(--sans);font-size:13px;letter-spacing:0;
+    transition:transform .26s cubic-bezier(.16,1,.3,1)}
+  body .nav__cta:hover .nav__cta-arrow{transform:translate3d(3px,-1px,0)}
+
+  @media (max-width:880px){
+    body .nav__menu{display:none}
+    body .nav__brand{border-right:0;padding-right:0}
+  }
+
+  /* ─── Masthead — Magazine Cover Plate ─── */
+  .wp-mast{
+    position:relative;border-bottom:1px solid var(--ink);
+    padding-top:var(--nav-h);
+    background:
+      linear-gradient(180deg,var(--paper) 0%,var(--paper-deep) 100%);
+  }
+
+  /* Top nameplate strip — wie der Kopf einer Zeitung */
+  .wp-plate{
+    max-width:var(--container);margin:0 auto;
+    padding:18px var(--pad);
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    border-bottom:1px solid var(--ink);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .wp-plate__center{
+    font-family:var(--serif);font-style:italic;font-weight:600;font-size:14px;
+    letter-spacing:.04em;color:var(--ink);text-transform:none;
+    font-variation-settings:"opsz" 16,"WONK" 1;
+  }
+  .wp-plate__center b{color:var(--rust)}
+  @media (max-width:720px){
+    .wp-plate{flex-wrap:wrap;gap:8px;font-size:9px;letter-spacing:.22em}
+    .wp-plate__center{order:-1;flex:1 0 100%;text-align:center}
+  }
+
+  .wp-mast__inner{
+    max-width:var(--container);margin:0 auto;
+    padding:clamp(48px,7vw,112px) var(--pad) clamp(40px,5vw,72px);
+    position:relative;overflow:hidden;
+  }
+  /* Riesige Geister-"I" im Hintergrund — Folio */
+  .wp-mast__folio{
+    position:absolute;right:calc(var(--pad) * -.2);top:50%;
+    transform:translateY(-50%);
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(360px,52vw,720px);line-height:.8;letter-spacing:-.06em;
+    color:rgba(184,66,31,.06);
+    pointer-events:none;user-select:none;z-index:0;
+    font-variation-settings:"opsz" 144,"WONK" 1;
+  }
+
   .wp-mast__edition{
     font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
     color:var(--ink-soft);
-    display:flex;align-items:center;gap:14px;margin-bottom:36px;
+    display:flex;align-items:center;gap:14px;margin-bottom:clamp(28px,3vw,40px);
+    position:relative;z-index:1;
   }
   .wp-mast__edition::before{content:'';width:42px;height:1px;background:var(--rust)}
   .wp-mast__edition b{color:var(--rust);font-weight:500}
 
   .wp-mast__head{
     display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);
-    align-items:start;
+    align-items:start;position:relative;z-index:1;
   }
   @media (min-width:960px){
-    .wp-mast__head{grid-template-columns:1.45fr .9fr;gap:80px}
+    .wp-mast__head{grid-template-columns:1.55fr .8fr;gap:64px}
   }
 
-  /* Massive editorial title with dropcap */
+  /* Massive editorial title */
   .wp-mast__title{
     font-family:var(--serif);
-    font-size:clamp(64px,11vw,168px);
-    font-weight:300;line-height:.88;letter-spacing:-.045em;
+    font-size:clamp(72px,12.5vw,196px);
+    font-weight:300;line-height:.86;letter-spacing:-.05em;
     color:var(--ink);
     font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;
     position:relative;
@@ -65,7 +164,6 @@
     font-style:italic;font-weight:700;color:var(--rust);
     font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
   }
-  /* Crossed-out "Schön" — drawn double-strike */
   .wp-mast__title .strike{
     position:relative;display:inline-block;color:var(--ink-mute);
   }
@@ -84,43 +182,89 @@
     .wp-mast__title .strike::after{animation:none;transform:rotate(-2deg) scaleX(1)}
   }
 
-  /* Right-column composition: lead + signed marginalia */
+  /* Rechte Spalte als Stempel-Box (Form AB-7) */
   .wp-mast__col{
-    padding-top:clamp(20px,3vw,56px);
-    border-left:1px solid var(--line-soft);
-    padding-left:clamp(20px,3vw,40px);
+    align-self:start;margin-top:clamp(12px,2vw,32px);
+    border:1.5px solid var(--ink);background:var(--paper);
+    padding:clamp(24px,2.4vw,32px);
+    position:relative;
+    box-shadow:6px 6px 0 var(--rust);
   }
-  @media (max-width:959px){
-    .wp-mast__col{border-left:0;padding-left:0;border-top:1px solid var(--line-soft);padding-top:32px}
+  .wp-mast__form{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-bottom:14px;margin-bottom:18px;
+    border-bottom:1.5px solid var(--ink);
+    font-family:var(--mono);font-size:10px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--ink-soft);
   }
-  .wp-mast__dropcap{
-    float:left;font-family:var(--serif);font-size:5.5em;font-weight:700;
-    line-height:.82;color:var(--rust);
-    margin:.05em .12em -.04em 0;
-    font-variation-settings:"opsz" 144,"WONK" 1;
-  }
+  .wp-mast__form b{color:var(--rust);font-weight:500}
   .wp-mast__sub{
     font-family:var(--serif);
-    font-size:clamp(17px,1.4vw,21px);
-    font-weight:300;line-height:1.55;
-    color:var(--ink);
-    font-variation-settings:"opsz" 32;
+    font-size:clamp(15px,1.2vw,18px);
+    font-weight:300;line-height:1.6;color:var(--ink);
+    font-variation-settings:"opsz" 24;
   }
-  .wp-mast__sub em{color:var(--rust);font-style:italic;font-weight:500}
-
+  .wp-mast__sub em{color:var(--rust);font-style:italic;font-weight:600}
+  .wp-mast__dropcap{
+    float:left;font-family:var(--serif);font-size:4.4em;font-weight:700;
+    line-height:.84;color:var(--rust);
+    margin:.04em .14em -.06em 0;
+    font-variation-settings:"opsz" 144,"WONK" 1;
+  }
   .wp-mast__note{
-    margin-top:clamp(28px,3vw,40px);
-    font-family:'Caveat',cursive;font-size:26px;color:var(--ink-soft);
-    line-height:1.25;
-    transform:rotate(-1.2deg);
-    border-top:1px dashed var(--line-soft);padding-top:20px;
+    margin-top:24px;padding-top:18px;
+    border-top:1px dashed var(--ink-mute);
+    font-family:'Caveat',cursive;font-size:24px;color:var(--ink-soft);
+    line-height:1.25;transform:rotate(-1deg);transform-origin:left center;
   }
   .wp-mast__note::before{content:'— ';color:var(--rust)}
   .wp-mast__sig{
-    margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+    margin-top:14px;display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;
     text-transform:uppercase;color:var(--ink-mute);
   }
   .wp-mast__sig b{color:var(--ink);font-weight:500}
+
+  /* Schnellblick — Stats-Strip unter dem Titel */
+  .wp-glance{
+    position:relative;z-index:1;
+    margin-top:clamp(48px,6vw,88px);
+    padding-top:clamp(24px,2.4vw,32px);
+    border-top:1px solid var(--ink);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  }
+  .wp-glance__lbl{
+    grid-column:1/-1;
+    font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--rust);margin-bottom:18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .wp-glance__lbl::before,.wp-glance__lbl::after{
+    content:'';flex:1;max-width:80px;height:1px;background:var(--rust);opacity:.5;
+  }
+  .wp-glance__item{
+    padding:0 clamp(12px,1.6vw,24px);
+    border-left:1px solid var(--line-soft);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .wp-glance__item:first-of-type{border-left:0;padding-left:0}
+  .wp-glance__big{
+    font-family:var(--serif);font-size:clamp(40px,5.5vw,76px);font-weight:300;line-height:.95;
+    letter-spacing:-.035em;color:var(--ink);
+    font-variation-settings:"opsz" 96,"SOFT" 30,"WONK" 1;
+  }
+  .wp-glance__big--accent{color:var(--rust);font-style:italic;font-weight:500}
+  .wp-glance__cap{
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-soft);line-height:1.5;
+  }
+  .wp-glance__cap b{color:var(--ink);font-weight:500}
+  @media (max-width:680px){
+    .wp-glance{grid-template-columns:repeat(2,1fr);gap:24px 0}
+    .wp-glance__item{border-left:0;padding-left:0;padding-right:0}
+    .wp-glance__item:nth-child(odd):not(:first-of-type){padding-left:0}
+    .wp-glance__big{font-size:clamp(36px,9vw,54px)}
+  }
 
   /* ─── Audit-Dashboard (Schock-Aufmacher) ─── */
   .wp-audit{
@@ -746,41 +890,82 @@
 </head>
 <body>
 
-<!-- NAV (kompakt, eigenständig — index.html bleibt unangetastet) -->
+<!-- NAV · Editorial-Index -->
 <header class="nav" id="navbar" role="banner">
   <div class="nav__inner">
-    <a href="/" class="nav__brand" aria-label="addus. — Zur Startseite">addus<span class="nav__brand-dot">.</span></a>
+    <a href="index.html" class="nav__brand" aria-label="addus. — Zur Startseite">
+      <span>addus<span class="nav__brand-dot">.</span></span>
+      <span class="nav__brand-sub"><b>Dossier</b> · MMXXVI</span>
+    </a>
     <nav class="nav__menu" id="main-nav" aria-label="Hauptnavigation">
       <ul role="list">
-        <li><a href="/#leistungen">Leistungen</a></li>
-        <li><a href="/#vertrauen">Arbeiten</a></li>
-        <li><a href="/#ueber-uns">Über</a></li>
-        <li><a href="/#blog">Journal</a></li>
-        <li><a href="/#kontakt">Kontakt</a></li>
+        <li><a href="index.html#leistungen"><span class="nav__num">I</span>Leistungen</a></li>
+        <li><a href="index.html#vertrauen"><span class="nav__num">II</span>Arbeiten</a></li>
+        <li><a href="index.html#ueber-uns"><span class="nav__num">III</span>Über</a></li>
+        <li><a href="index.html#blog"><span class="nav__num">IV</span>Journal</a></li>
+        <li><a href="index.html#kontakt"><span class="nav__num">V</span>Kontakt</a></li>
       </ul>
     </nav>
-    <a href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20m%C3%B6chte%20meine%20Website%20absichern." class="nav__cta">Website absichern</a>
+    <a href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20m%C3%B6chte%20meine%20Website%20absichern." class="nav__cta">
+      <span>Audit · jetzt</span>
+      <span class="nav__cta-arrow">↗</span>
+    </a>
   </div>
 </header>
 
-<!-- ══════ I · MASTHEAD ══════ -->
+<!-- ══════ I · MASTHEAD — Magazine Cover Plate ══════ -->
 <section class="wp-mast">
-  <div class="wp-mast__edition">
-    <span>Nº 01 · <b>Wartung & Sicherheit</b> · MMXXVI</span>
+  <div class="wp-plate">
+    <span>addus · Lüneburg</span>
+    <span class="wp-plate__center"><b>Dossier</b> der Sicherheit · <b>Nº 01</b></span>
+    <span>Mai · MMXXVI</span>
   </div>
-  <div class="wp-mast__head">
-    <h1 class="wp-mast__title">
-      <span class="strike">Schön</span><br>
-      ist nicht<br>
-      <em>sicher.</em>
-    </h1>
-    <aside class="wp-mast__col">
-      <p class="wp-mast__sub">
-        <span class="wp-mast__dropcap">I</span>hre Website kann jeden Designpreis gewinnen — und trotzdem in <em>vier Sekunden</em> gehackt sein. Wir prüfen, was zwischen Pixel und Wirklichkeit liegt: die Schichten, die niemand sieht, bis sie versagen.
-      </p>
-      <p class="wp-mast__note">Was nützt der schönste Schaufenster&shy;laden, wenn die Tür offen­steht?</p>
-      <p class="wp-mast__sig">Auditor · <b>A. Dia</b> · Lüneburg · MMXXVI</p>
-    </aside>
+
+  <div class="wp-mast__inner">
+    <span class="wp-mast__folio" aria-hidden="true">I</span>
+
+    <div class="wp-mast__edition">
+      <span>Kapitel I · <b>Wartung & Sicherheit</b></span>
+    </div>
+
+    <div class="wp-mast__head">
+      <h1 class="wp-mast__title">
+        <span class="strike">Schön</span><br>
+        ist nicht<br>
+        <em>sicher.</em>
+      </h1>
+      <aside class="wp-mast__col">
+        <div class="wp-mast__form">
+          <span>Form · <b>AB-7</b></span>
+          <span>Geprüft · 05/2026</span>
+        </div>
+        <p class="wp-mast__sub">
+          <span class="wp-mast__dropcap">I</span>hre Website kann jeden Designpreis gewinnen — und trotzdem in <em>vier Sekunden</em> gehackt sein. Wir prüfen, was zwischen Pixel und Wirklichkeit liegt: die Schichten, die niemand sieht, bis sie versagen.
+        </p>
+        <p class="wp-mast__note">Was nützt der schönste Schaufenster&shy;laden, wenn die Tür offen­steht?</p>
+        <p class="wp-mast__sig"><span>Auditor</span><span><b>A. Dia</b> · Lüneburg</span></p>
+      </aside>
+    </div>
+
+    <div class="wp-glance">
+      <div class="wp-glance__lbl">Schnellblick · Befund auf einen Blick</div>
+      <div class="wp-glance__item">
+        <span class="wp-glance__big">50</span>
+        <span class="wp-glance__cap"><b>Websites</b><br>geprüft</span>
+      </div>
+      <div class="wp-glance__item">
+        <span class="wp-glance__big wp-glance__big--accent">42</span>
+        <span class="wp-glance__cap"><b>unsicher</b><br>Befund</span>
+      </div>
+      <div class="wp-glance__item">
+        <span class="wp-glance__big">4<span style="color:var(--rust)">×</span></span>
+        <span class="wp-glance__cap"><b>A+</b><br>Standard bei addus.</span>
+      </div>
+      <div class="wp-glance__item">
+        <span class="wp-glance__big">1</span>
+        <span class="wp-glance__cap"><b>Auditor</b><br>vor Ort</span>
+      </div>
+    </div>
   </div>
 </section>
 
