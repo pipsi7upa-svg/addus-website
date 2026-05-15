@@ -177,7 +177,7 @@
           submitBtn.disabled = false;
           submitBtn.classList.remove('is-sending');
           submitBtn.removeAttribute('aria-busy');
-          alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an addubusiness@gmail.com.');
+          alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@addus-web.de.');
         }
       }).catch(function () {
         submitBtn.disabled = false;
