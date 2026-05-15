@@ -2164,8 +2164,11 @@ html,body{overflow-anchor:none}
 }
 .ftr__colophon-greenweb:hover,.ftr__colophon-greenweb:focus-visible{opacity:1}
 .ftr__colophon-greenweb img{
-  height:34px;width:auto;display:block;
-  filter:saturate(.85);
+  height:60px;width:auto;display:block;
+  filter:saturate(.9);
+}
+@media (max-width:560px){
+  .ftr__colophon-greenweb img{height:52px}
 }
 
 /* Footer Mobile */
