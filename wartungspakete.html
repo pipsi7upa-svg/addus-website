@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Wartung & Sicherheit für Ihre Website — drei Pakete, vierfache A+ Zertifizierung, persönlich betreut von Adam Dia. Lüneburg.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#efe8d8">
+<link rel="canonical" href="https://addus-web.de/wartungspakete.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<title>Wartung & Sicherheit · Leistungspakete — addus.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+
+<link rel="stylesheet" href="css/editorial.css">
+
+<style>
+  /* ════════════════════════════════════════════════════════
+     wartungspakete.html — page-specific styles
+     Erbt Tokens & Nav aus editorial.css
+     ════════════════════════════════════════════════════════ */
+
+  /* ─── Masthead — bolder, dropcap-led, magazine-spread ─── */
+  .wp-mast{
+    max-width:var(--container);margin:0 auto;
+    padding:calc(var(--nav-h) + clamp(56px,8vw,120px)) var(--pad) clamp(48px,6vw,88px);
+    border-bottom:1px solid var(--ink);
+    position:relative;
+  }
+  .wp-mast::before{
+    content:'addus · Form AB-7 · Audit-Rapport · Mai 2026';
+    position:absolute;top:calc(var(--nav-h) + 18px);right:var(--pad);
+    font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .wp-mast__edition{
+    font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;align-items:center;gap:14px;margin-bottom:36px;
+  }
+  .wp-mast__edition::before{content:'';width:42px;height:1px;background:var(--rust)}
+  .wp-mast__edition b{color:var(--rust);font-weight:500}
+
+  .wp-mast__head{
+    display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);
+    align-items:start;
+  }
+  @media (min-width:960px){
+    .wp-mast__head{grid-template-columns:1.45fr .9fr;gap:80px}
+  }
+
+  /* Massive editorial title with dropcap */
+  .wp-mast__title{
+    font-family:var(--serif);
+    font-size:clamp(64px,11vw,168px);
+    font-weight:300;line-height:.88;letter-spacing:-.045em;
+    color:var(--ink);
+    font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;
+    position:relative;
+  }
+  .wp-mast__title em{
+    font-style:italic;font-weight:700;color:var(--rust);
+    font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+  }
+  /* Crossed-out "Schön" — drawn double-strike */
+  .wp-mast__title .strike{
+    position:relative;display:inline-block;color:var(--ink-mute);
+  }
+  .wp-mast__title .strike::before,
+  .wp-mast__title .strike::after{
+    content:'';position:absolute;left:-3%;right:-3%;
+    height:.04em;min-height:2px;background:var(--rust);
+    transform-origin:left center;transform:scaleX(0);
+    animation:wp-strike 1s cubic-bezier(.2,.85,.2,1) forwards;
+  }
+  .wp-mast__title .strike::before{top:48%;transform:rotate(-2.2deg) scaleX(0);animation-delay:.35s}
+  .wp-mast__title .strike::after{top:60%;transform:rotate(-1.6deg) scaleX(0);animation-delay:.6s}
+  @keyframes wp-strike{to{transform:rotate(-2deg) scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){
+    .wp-mast__title .strike::before,
+    .wp-mast__title .strike::after{animation:none;transform:rotate(-2deg) scaleX(1)}
+  }
+
+  /* Right-column composition: lead + signed marginalia */
+  .wp-mast__col{
+    padding-top:clamp(20px,3vw,56px);
+    border-left:1px solid var(--line-soft);
+    padding-left:clamp(20px,3vw,40px);
+  }
+  @media (max-width:959px){
+    .wp-mast__col{border-left:0;padding-left:0;border-top:1px solid var(--line-soft);padding-top:32px}
+  }
+  .wp-mast__dropcap{
+    float:left;font-family:var(--serif);font-size:5.5em;font-weight:700;
+    line-height:.82;color:var(--rust);
+    margin:.05em .12em -.04em 0;
+    font-variation-settings:"opsz" 144,"WONK" 1;
+  }
+  .wp-mast__sub{
+    font-family:var(--serif);
+    font-size:clamp(17px,1.4vw,21px);
+    font-weight:300;line-height:1.55;
+    color:var(--ink);
+    font-variation-settings:"opsz" 32;
+  }
+  .wp-mast__sub em{color:var(--rust);font-style:italic;font-weight:500}
+
+  .wp-mast__note{
+    margin-top:clamp(28px,3vw,40px);
+    font-family:'Caveat',cursive;font-size:26px;color:var(--ink-soft);
+    line-height:1.25;
+    transform:rotate(-1.2deg);
+    border-top:1px dashed var(--line-soft);padding-top:20px;
+  }
+  .wp-mast__note::before{content:'— ';color:var(--rust)}
+  .wp-mast__sig{
+    margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-mute);
+  }
+  .wp-mast__sig b{color:var(--ink);font-weight:500}
+
+  /* ─── Audit-Dashboard (Schock-Aufmacher) ─── */
+  .wp-audit{
+    background:var(--ink);color:var(--paper);
+    position:relative;overflow:hidden;
+  }
+  .wp-audit__inner{
+    max-width:var(--container);margin:0 auto;
+    padding:clamp(56px,7vw,96px) var(--pad);
+    display:grid;grid-template-columns:1fr;gap:clamp(36px,5vw,72px);
+    align-items:center;
+  }
+  @media (min-width:880px){
+    .wp-audit__inner{grid-template-columns:1.1fr .9fr}
+  }
+  .wp-audit__kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--rust);display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  }
+  .wp-audit__kicker::before{content:'';width:42px;height:1px;background:var(--rust)}
+  .wp-audit__h{
+    font-family:var(--serif);font-size:clamp(32px,4.5vw,56px);
+    font-weight:300;line-height:1.08;letter-spacing:-.02em;
+    font-variation-settings:"opsz" 80,"SOFT" 50;
+    color:var(--paper);
+  }
+  .wp-audit__h em{color:var(--rust);font-style:italic;font-weight:500}
+  .wp-audit__lead{
+    margin-top:24px;font-size:16px;line-height:1.65;
+    color:rgba(239,232,216,.72);max-width:48ch;
+  }
+
+  /* ─── Dial — semicircular SVG gauge (instrument) ─── */
+  .wp-dial{
+    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:clamp(28px,3vw,48px);
+    border:1px solid rgba(239,232,216,.18);
+    background:
+      radial-gradient(ellipse at center,rgba(184,66,31,.06),transparent 60%),
+      rgba(239,232,216,.02);
+    overflow:hidden;
+  }
+  .wp-dial::before,.wp-dial::after{
+    content:'';position:absolute;width:16px;height:16px;border:1px solid var(--rust);
+  }
+  .wp-dial::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .wp-dial::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .wp-dial__stamp{
+    position:absolute;top:18px;right:22px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--rust);border:1px solid var(--rust);padding:5px 9px;
+    transform:rotate(4deg);
+  }
+  .wp-dial__svg{width:100%;max-width:420px;height:auto;display:block}
+  .wp-dial__svg .arc-bg{stroke:rgba(239,232,216,.14);fill:none}
+  .wp-dial__svg .arc-fg{
+    stroke:var(--rust);fill:none;
+    stroke-dasharray:1;stroke-dashoffset:1;
+    transition:stroke-dashoffset 1.4s cubic-bezier(.2,.85,.2,1) .25s;
+  }
+  .wp-r.is-in .wp-dial__svg .arc-fg{stroke-dashoffset:.16} /* 1 - 42/50 = .16 */
+  .wp-dial__svg .tick{stroke:rgba(239,232,216,.32)}
+  .wp-dial__svg .tick--major{stroke:rgba(239,232,216,.65)}
+  .wp-dial__svg .needle{
+    stroke:var(--rust);stroke-width:3;stroke-linecap:round;
+    transform-origin:200px 180px;transform:rotate(-90deg);
+    transition:transform 1.4s cubic-bezier(.2,.85,.2,1) .25s;
+  }
+  .wp-r.is-in .wp-dial__svg .needle{transform:rotate(61.2deg)} /* (42/50)*180 − 90 */
+  .wp-dial__svg .hub{fill:var(--rust)}
+  .wp-dial__svg .label{
+    font-family:var(--mono);font-size:13px;letter-spacing:.18em;
+    fill:rgba(239,232,216,.55);text-anchor:middle;
+  }
+  .wp-dial__readout{
+    margin-top:18px;display:flex;align-items:baseline;gap:10px;
+    font-family:var(--serif);
+  }
+  .wp-dial__num{
+    font-size:clamp(72px,11vw,128px);font-weight:300;line-height:1;letter-spacing:-.04em;
+    color:var(--rust);font-variation-settings:"opsz" 144,"WONK" 1;
+  }
+  .wp-dial__num em{font-style:italic;font-weight:500}
+  .wp-dial__denom{
+    font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(239,232,216,.55);
+  }
+  .wp-dial__caption{
+    margin-top:14px;font-family:var(--serif);font-style:italic;font-size:16px;
+    color:var(--paper);text-align:center;max-width:30ch;line-height:1.4;
+    font-variation-settings:"opsz" 24;
+  }
+
+  /* Scan-Ticker — fühlt sich wie ein Audit-Lauf an */
+  .wp-ticker{
+    margin-top:clamp(32px,4vw,48px);
+    border-top:1px dashed rgba(239,232,216,.18);
+    border-bottom:1px dashed rgba(239,232,216,.18);
+    padding:14px 0;
+    display:flex;align-items:center;gap:14px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(239,232,216,.62);
+    overflow:hidden;white-space:nowrap;
+  }
+  .wp-ticker__dot{
+    flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--rust);
+    box-shadow:0 0 12px var(--rust);
+    animation:wp-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes wp-pulse{50%{opacity:.4}}
+  .wp-ticker__lane{
+    flex:1;display:flex;gap:36px;
+    animation:wp-scroll 38s linear infinite;
+  }
+  @keyframes wp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .wp-ticker__item b{color:var(--rust);font-weight:500;margin-right:6px}
+  @media (prefers-reduced-motion:reduce){
+    .wp-ticker__lane{animation:none}
+    .wp-ticker__dot{animation:none}
+  }
+
+  /* ─── Beweisstücke (Audit-Karten) ─── */
+  .wp-exhibits{padding:clamp(64px,8vw,112px) 0;background:var(--paper)}
+  .wp-exhibits__head{
+    max-width:var(--container);margin:0 auto;padding:0 var(--pad) clamp(36px,5vw,56px);
+  }
+  .wp-exhibits__disclaimer{
+    max-width:var(--container);margin:0 auto;padding:0 var(--pad) clamp(32px,4vw,48px);
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    color:var(--ink-mute);max-width:78ch;line-height:1.6;
+  }
+  .wp-exhibits__disclaimer::before{
+    content:'§';font-family:var(--serif);font-style:italic;color:var(--rust);
+    margin-right:8px;font-size:16px;
+  }
+
+  /* ─── Beweisstücke · Declassified-Dossier ─── */
+  .wp-grid-exh{
+    max-width:var(--container);margin:0 auto;padding:0 var(--pad);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:clamp(18px,2vw,28px);
+  }
+  .wp-exh{
+    background:var(--paper-deep);
+    border:1px solid var(--ink);
+    padding:clamp(28px,3vw,40px) clamp(24px,2.6vw,32px) clamp(22px,2.4vw,28px);
+    display:flex;flex-direction:column;gap:14px;
+    position:relative;overflow:hidden;
+    box-shadow:0 1px 0 var(--paper-shadow);
+  }
+  /* "Vertraulich"-Wasserzeichen quer hinter dem Inhalt */
+  .wp-exh::before{
+    content:'VERTRAULICH';
+    position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%) rotate(-22deg);
+    font-family:var(--serif);font-style:italic;font-weight:700;
+    font-size:clamp(60px,9vw,108px);letter-spacing:.04em;
+    color:rgba(184,66,31,.07);
+    pointer-events:none;white-space:nowrap;
+    font-variation-settings:"opsz" 144,"WONK" 1;
+  }
+  /* Akten-Header */
+  .wp-exh__head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding-bottom:14px;border-bottom:2px solid var(--ink);
+    font-family:var(--mono);font-size:10px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--ink-soft);
+    position:relative;z-index:1;
+  }
+  .wp-exh__head b{color:var(--ink);font-weight:500}
+  .wp-exh__file{font-family:var(--mono);font-size:10px;letter-spacing:.18em}
+
+  /* Name mit Schwärzung */
+  .wp-exh__name{
+    font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.18;
+    color:var(--ink);letter-spacing:-.015em;position:relative;z-index:1;
+    font-variation-settings:"opsz" 32,"SOFT" 30;
+    margin-top:4px;
+  }
+  .wp-exh__redact{
+    display:inline-block;background:var(--ink);color:var(--ink);
+    padding:0 .35em;margin:0 .05em;border-radius:1px;
+    user-select:none;letter-spacing:-.02em;
+    transform:translateY(-.05em);
+  }
+  .wp-exh__meta{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-mute);
+    text-transform:uppercase;line-height:1.6;position:relative;z-index:1;
+  }
+  .wp-exh__design{
+    display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft);
+    padding:10px 0;border-top:1px dashed var(--ink-mute);border-bottom:1px dashed var(--ink-mute);
+    font-family:var(--serif);font-style:italic;
+    position:relative;z-index:1;
+    font-variation-settings:"opsz" 24;
+  }
+  .wp-exh__stars{color:var(--rust);letter-spacing:.08em;font-style:normal}
+
+  /* Verdict — Note + Schreibmaschinen-Findings */
+  .wp-exh__verdict{
+    display:grid;grid-template-columns:auto 1fr;gap:14px 20px;
+    padding-top:14px;align-items:start;position:relative;z-index:1;
+  }
+  .wp-exh__grade-wrap{
+    display:flex;flex-direction:column;align-items:center;
+    grid-row:span 2;align-self:center;gap:4px;
+    padding-right:18px;border-right:1px solid var(--ink-mute);
+  }
+  .wp-exh__grade{
+    font-family:var(--serif);font-size:84px;font-weight:600;line-height:.82;
+    color:var(--rust);letter-spacing:-.05em;
+    font-variation-settings:"opsz" 144,"WONK" 1;
+  }
+  .wp-exh__grade-lbl{
+    font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .wp-exh__finding{
+    font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--ink);
+    padding-left:14px;position:relative;
+  }
+  .wp-exh__finding::before{
+    content:'✗';position:absolute;left:0;top:0;color:var(--rust);font-weight:700;
+  }
+  .wp-exh__finding b{font-weight:500;color:var(--rust)}
+
+  /* Stempel — durchgefallen */
+  .wp-exh__stamp{
+    position:absolute;bottom:18px;right:18px;z-index:2;
+    font-family:var(--serif);font-size:14px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--rust);border:2px double var(--rust);padding:6px 12px;
+    transform:rotate(-7deg);
+    font-variation-settings:"opsz" 24,"WONK" 1;
+    opacity:.92;
+    background:rgba(239,232,216,.4);
+  }
+  .wp-exh__stamp::before{content:'·';margin-right:6px}
+  .wp-exh__stamp::after{content:'·';margin-left:6px}
+
+  /* Signatur unten */
+  .wp-exh__sig{
+    margin-top:10px;padding-top:10px;
+    border-top:1px solid var(--line-soft);
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-mute);position:relative;z-index:1;
+  }
+  .wp-exh__sig b{color:var(--ink);font-weight:500}
+
+  /* ─── Konsequenzen (Was kostet das?) ─── */
+  .wp-cost{
+    background:var(--paper-deep);
+    padding:clamp(64px,8vw,112px) 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .wp-cost__inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+  .wp-cost__grid{
+    margin-top:clamp(36px,5vw,56px);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:clamp(28px,3vw,40px);
+  }
+  .wp-cost__item{
+    display:flex;flex-direction:column;gap:14px;
+    padding:clamp(24px,2.5vw,32px) 0;
+    border-top:2px solid var(--ink);position:relative;
+  }
+  .wp-cost__num{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:14px;color:var(--rust);letter-spacing:.04em;
+  }
+  .wp-cost__big{
+    font-family:var(--serif);font-size:clamp(38px,4.5vw,56px);
+    font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--ink);
+    font-variation-settings:"opsz" 80,"SOFT" 30;
+  }
+  .wp-cost__big em{color:var(--rust);font-style:italic;font-weight:500}
+  .wp-cost__label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .wp-cost__text{
+    font-family:var(--serif);font-size:15.5px;line-height:1.6;color:var(--ink-soft);
+    margin-top:8px;font-variation-settings:"opsz" 24;
+  }
+
+  /* ─── Pivot — Hard left turn, one massive editorial sentence ─── */
+  .wp-pivot{
+    padding:clamp(80px,10vw,144px) 0 clamp(64px,8vw,112px);
+    background:var(--paper);
+    position:relative;overflow:hidden;
+  }
+  .wp-pivot::before{
+    content:'';position:absolute;left:50%;top:0;
+    width:1px;height:48px;background:var(--rust);
+  }
+  .wp-pivot__inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+  .wp-pivot__sep{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--rust);margin-bottom:clamp(40px,5vw,72px);
+  }
+  .wp-pivot__sep::before,.wp-pivot__sep::after{
+    content:'';flex:1;max-width:120px;height:1px;background:var(--rust);opacity:.4;
+  }
+
+  /* The one huge sentence */
+  .wp-pivot__h{
+    font-family:var(--serif);
+    font-size:clamp(40px,7.5vw,116px);
+    font-weight:300;line-height:.96;letter-spacing:-.035em;color:var(--ink);
+    font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;
+    text-align:left;
+    max-width:18ch;
+  }
+  .wp-pivot__h em{color:var(--rust);font-style:italic;font-weight:700;
+    font-variation-settings:"opsz" 144,"SOFT" 80,"WONK" 1}
+  .wp-pivot__h .quad{
+    display:inline-block;color:var(--rust);font-weight:700;font-style:italic;
+    position:relative;padding:0 .08em;
+  }
+  .wp-pivot__h .quad::before{
+    content:'';position:absolute;left:0;right:0;bottom:.05em;
+    height:.18em;background:rgba(184,66,31,.18);z-index:-1;
+  }
+  .wp-pivot__badges{
+    margin:clamp(48px,6vw,80px) auto 0;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;
+    background:var(--ink);border:1px solid var(--ink);
+  }
+  .wp-badge{
+    background:var(--ink);color:var(--paper);
+    padding:clamp(28px,3vw,40px) clamp(20px,2vw,28px);
+    text-align:left;position:relative;overflow:hidden;
+  }
+  .wp-badge::after{
+    content:'A+';position:absolute;right:-10px;bottom:-30px;
+    font-family:var(--serif);font-size:160px;font-weight:600;
+    color:rgba(184,66,31,.16);line-height:1;letter-spacing:-.04em;
+    font-variation-settings:"opsz" 144,"WONK" 1;pointer-events:none;
+  }
+  .wp-badge__no{
+    font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(239,232,216,.5);margin-bottom:18px;
+  }
+  .wp-badge__grade{
+    font-family:var(--serif);font-size:44px;font-weight:600;color:var(--rust);
+    line-height:1;letter-spacing:-.03em;margin-bottom:14px;
+    font-variation-settings:"opsz" 80,"WONK" 1;
+  }
+  .wp-badge__name{
+    font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.25;
+    color:var(--paper);font-variation-settings:"opsz" 24;
+  }
+  .wp-badge__desc{
+    margin-top:10px;font-size:12.5px;line-height:1.55;color:rgba(239,232,216,.62);
+  }
+
+  /* ─── Pakete ─── */
+  .wp-pkgs{
+    padding:clamp(64px,8vw,112px) 0;
+    background:var(--paper);border-top:1px solid var(--line-soft);
+  }
+  .wp-pkgs__inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+  .wp-pkgs__grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:clamp(20px,2vw,28px);
+    margin-top:clamp(36px,5vw,56px);
+  }
+  .wp-pkg{
+    background:var(--paper);
+    border:1px solid var(--line-soft);
+    padding:clamp(28px,3vw,40px);
+    display:flex;flex-direction:column;
+    position:relative;
+    transition:border-color .28s var(--ease);
+  }
+  .wp-pkg:hover{border-color:var(--ink-soft)}
+  .wp-pkg--featured{
+    background:var(--ink);color:var(--paper);
+    border-color:var(--ink);
+  }
+  .wp-pkg--featured::before{
+    content:'EMPFOHLEN';
+    position:absolute;top:-1px;left:24px;
+    background:var(--rust);color:var(--paper);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;
+    padding:6px 12px;
+  }
+  .wp-pkg__roman{
+    font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--ink-mute);margin-bottom:12px;
+  }
+  .wp-pkg--featured .wp-pkg__roman{color:rgba(239,232,216,.55)}
+  .wp-pkg__name{
+    font-family:var(--serif);font-size:32px;font-weight:600;line-height:1;
+    letter-spacing:-.02em;
+    font-variation-settings:"opsz" 48,"SOFT" 30;
+  }
+  .wp-pkg__sub{
+    margin-top:8px;font-size:13.5px;line-height:1.5;color:var(--ink-mute);
+    max-width:34ch;
+  }
+  .wp-pkg--featured .wp-pkg__sub{color:rgba(239,232,216,.62)}
+  .wp-pkg__price{
+    margin-top:24px;padding:20px 0;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .wp-pkg--featured .wp-pkg__price{border-color:rgba(239,232,216,.18)}
+  .wp-pkg__amt{
+    font-family:var(--serif);font-size:64px;font-weight:300;line-height:1;
+    letter-spacing:-.04em;
+    font-variation-settings:"opsz" 96,"SOFT" 0,"WONK" 1;
+  }
+  .wp-pkg__cur{font-family:var(--serif);font-size:28px;font-weight:400}
+  .wp-pkg__per{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-mute);margin-left:6px;
+  }
+  .wp-pkg--featured .wp-pkg__per{color:rgba(239,232,216,.55)}
+  .wp-pkg__vat{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-mute);margin-top:8px;
+  }
+  .wp-pkg--featured .wp-pkg__vat{color:rgba(239,232,216,.5)}
+
+  .wp-pkg__list{
+    margin:24px 0;padding:0;list-style:none;
+    flex:1;display:flex;flex-direction:column;gap:2px;
+  }
+  .wp-pkg__list li{
+    font-family:var(--serif);font-size:14.5px;line-height:1.45;
+    padding:10px 0 10px 28px;position:relative;
+    border-bottom:1px dashed var(--line-soft);
+    font-variation-settings:"opsz" 24;
+  }
+  .wp-pkg--featured .wp-pkg__list li{border-color:rgba(239,232,216,.12)}
+  .wp-pkg__list li::before{
+    content:'✓';position:absolute;left:0;top:10px;
+    font-family:var(--mono);font-size:13px;color:var(--rust);font-weight:600;
+  }
+  .wp-pkg__list li.is-star{font-weight:600}
+  .wp-pkg__list li.is-star::before{content:'★';color:var(--rust)}
+  .wp-pkg__list li:last-child{border-bottom:none}
+
+  .wp-pkg__cta{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:18px 22px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    font-weight:500;
+    border:1px solid currentColor;color:var(--ink);background:transparent;
+    text-decoration:none;
+    position:relative;overflow:hidden;isolation:isolate;
+    transition:color .22s var(--ease);
+  }
+  .wp-pkg__cta::before{
+    content:'';position:absolute;inset:0;background:var(--ink);
+    transform:translate3d(0,101%,0);
+    transition:transform .32s var(--ease);
+    z-index:-1;
+  }
+  .wp-pkg__cta:hover{color:var(--paper)}
+  .wp-pkg__cta:hover::before{transform:translate3d(0,0,0)}
+  .wp-pkg__cta .arr{font-family:var(--sans);font-size:14px;letter-spacing:0}
+  .wp-pkg--featured .wp-pkg__cta{
+    color:var(--paper);border-color:var(--paper);
+  }
+  .wp-pkg--featured .wp-pkg__cta::before{background:var(--rust)}
+
+  /* Note */
+  .wp-note{
+    max-width:var(--container);margin:clamp(36px,4vw,48px) auto 0;padding:0 var(--pad);
+  }
+  .wp-note__box{
+    padding:24px 28px;border:1px solid var(--line-soft);
+    border-left:3px solid var(--rust);
+    background:var(--paper-deep);
+  }
+  .wp-note__label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--rust);margin-bottom:10px;
+  }
+  .wp-note__text{
+    font-family:var(--serif);font-size:14.5px;line-height:1.65;color:var(--ink-soft);
+    font-variation-settings:"opsz" 24;
+  }
+  .wp-note__text b{color:var(--ink);font-weight:600}
+
+  /* ─── Extras ─── */
+  .wp-extras{padding:clamp(56px,7vw,96px) 0;background:var(--paper)}
+  .wp-extras__inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+  .wp-extras__grid{
+    margin-top:clamp(32px,4vw,48px);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1px;background:var(--line-soft);
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+  }
+  .wp-xtra{
+    background:var(--paper);padding:clamp(24px,2.5vw,32px);
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .wp-xtra__name{
+    font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.2;
+    font-variation-settings:"opsz" 32;
+  }
+  .wp-xtra__desc{font-size:13.5px;line-height:1.55;color:var(--ink-mute);flex:1}
+  .wp-xtra__price{
+    margin-top:12px;
+    font-family:var(--serif);font-size:20px;font-weight:600;color:var(--rust);
+    font-variation-settings:"opsz" 32,"WONK" 1;
+    letter-spacing:-.01em;
+  }
+
+  /* ─── Why addus ─── */
+  .wp-why{padding:clamp(64px,8vw,112px) 0;background:var(--paper-deep);
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .wp-why__inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+  .wp-why__grid{
+    margin-top:clamp(36px,5vw,56px);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:clamp(36px,4vw,56px);
+  }
+  .wp-why__item{display:flex;flex-direction:column;gap:14px;
+    border-top:2px solid var(--ink);padding-top:24px}
+  .wp-why__roman{
+    font-family:var(--serif);font-style:italic;font-size:30px;font-weight:300;
+    color:var(--rust);line-height:1;
+    font-variation-settings:"opsz" 48,"WONK" 1;
+  }
+  .wp-why__h{
+    font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.25;
+    font-variation-settings:"opsz" 32,"SOFT" 30;
+  }
+  .wp-why__t{font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
+
+  /* ─── Final CTA ─── */
+  .wp-final{padding:clamp(72px,9vw,128px) 0;background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+  .wp-final::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at center top,var(--rust-glow),transparent 60%);
+    pointer-events:none;
+  }
+  .wp-final__inner{max-width:920px;margin:0 auto;padding:0 var(--pad);position:relative}
+  .wp-final__kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--rust);margin-bottom:24px;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .wp-final__kicker::before,.wp-final__kicker::after{content:'';width:32px;height:1px;background:var(--rust)}
+  .wp-final__h{
+    font-family:var(--serif);font-size:clamp(36px,5.5vw,72px);
+    font-weight:300;line-height:1.04;letter-spacing:-.025em;
+    font-variation-settings:"opsz" 144,"SOFT" 40;
+  }
+  .wp-final__h em{color:var(--rust);font-style:italic;font-weight:600}
+  .wp-final__sub{
+    margin-top:20px;font-family:var(--serif);font-size:17px;font-style:italic;
+    color:rgba(239,232,216,.7);font-variation-settings:"opsz" 24;
+  }
+  .wp-final__btns{
+    margin-top:clamp(28px,3vw,40px);
+    display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .wp-cta{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:18px 28px;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+    text-decoration:none;font-weight:500;
+    position:relative;overflow:hidden;isolation:isolate;
+    transition:color .22s var(--ease);
+  }
+  .wp-cta--solid{background:var(--rust);color:var(--paper)}
+  .wp-cta--solid::before{content:'';position:absolute;inset:0;background:var(--rust-deep);
+    transform:translate3d(0,101%,0);transition:transform .34s var(--ease);z-index:-1}
+  .wp-cta--solid:hover::before{transform:translate3d(0,0,0)}
+  .wp-cta--ghost{background:transparent;color:var(--paper);border:1px solid rgba(239,232,216,.32)}
+  .wp-cta--ghost::before{content:'';position:absolute;inset:0;background:var(--paper);
+    transform:translate3d(0,101%,0);transition:transform .34s var(--ease);z-index:-1}
+  .wp-cta--ghost:hover{color:var(--ink);border-color:var(--paper)}
+  .wp-cta--ghost:hover::before{transform:translate3d(0,0,0)}
+  .wp-cta .arr{font-family:var(--sans);font-size:14px;letter-spacing:0;
+    transition:transform .26s cubic-bezier(.16,1,.3,1)}
+  .wp-cta:hover .arr{transform:translate3d(4px,0,0)}
+
+  /* ─── Footer ─── */
+  .wp-foot{
+    max-width:var(--container);margin:0 auto;
+    padding:clamp(32px,4vw,48px) var(--pad);
+    border-top:1px solid var(--line-soft);
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:16px;
+  }
+  .wp-foot__l{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-mute);
+  }
+  .wp-foot__l a{color:var(--ink-soft);border-bottom:1px solid var(--line-soft);padding-bottom:1px}
+  .wp-foot__l a:hover{color:var(--rust);border-color:var(--rust)}
+  .wp-foot__b{display:flex;gap:8px;flex-wrap:wrap}
+  .wp-foot__b span{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-mute);padding:5px 10px;border:1px solid var(--line-soft);
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width:680px){
+    .wp-mast__title{font-size:clamp(40px,11vw,68px)}
+    .wp-gauge__num{font-size:128px}
+    .wp-exh__grade{font-size:52px}
+    .wp-pkg__amt{font-size:52px}
+    .wp-pivot__h,.wp-final__h{font-size:clamp(28px,8vw,44px)}
+  }
+
+  /* ─── Reveal on scroll (transform/opacity only) ─── */
+  .wp-r{opacity:0;transform:translate3d(0,18px,0)}
+  .wp-r.is-in{opacity:1;transform:none;
+    transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  @media (prefers-reduced-motion:reduce){
+    .wp-r,.wp-r.is-in{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV (kompakt, eigenständig — index.html bleibt unangetastet) -->
+<header class="nav" id="navbar" role="banner">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand" aria-label="addus. — Zur Startseite">addus<span class="nav__brand-dot">.</span></a>
+    <nav class="nav__menu" id="main-nav" aria-label="Hauptnavigation">
+      <ul role="list">
+        <li><a href="/#leistungen">Leistungen</a></li>
+        <li><a href="/#vertrauen">Arbeiten</a></li>
+        <li><a href="/#ueber-uns">Über</a></li>
+        <li><a href="/#blog">Journal</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20m%C3%B6chte%20meine%20Website%20absichern." class="nav__cta">Website absichern</a>
+  </div>
+</header>
+
+<!-- ══════ I · MASTHEAD ══════ -->
+<section class="wp-mast">
+  <div class="wp-mast__edition">
+    <span>Nº 01 · <b>Wartung & Sicherheit</b> · MMXXVI</span>
+  </div>
+  <div class="wp-mast__head">
+    <h1 class="wp-mast__title">
+      <span class="strike">Schön</span><br>
+      ist nicht<br>
+      <em>sicher.</em>
+    </h1>
+    <aside class="wp-mast__col">
+      <p class="wp-mast__sub">
+        <span class="wp-mast__dropcap">I</span>hre Website kann jeden Designpreis gewinnen — und trotzdem in <em>vier Sekunden</em> gehackt sein. Wir prüfen, was zwischen Pixel und Wirklichkeit liegt: die Schichten, die niemand sieht, bis sie versagen.
+      </p>
+      <p class="wp-mast__note">Was nützt der schönste Schaufenster&shy;laden, wenn die Tür offen­steht?</p>
+      <p class="wp-mast__sig">Auditor · <b>A. Dia</b> · Lüneburg · MMXXVI</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════ II · AUDIT-DASHBOARD (Schock) ══════ -->
+<section class="wp-audit">
+  <div class="wp-audit__inner">
+    <div class="wp-r">
+      <div class="wp-audit__kicker">Bestandsaufnahme · Frühjahr 2026</div>
+      <h2 class="wp-audit__h">
+        Wir haben <em>50 schöne</em> Mittelstands-Websites in Lüneburg, Hamburg und Hannover geprüft.
+      </h2>
+      <p class="wp-audit__lead">
+        Mit denselben Tools, die jeder Browser-Hersteller, jede Aufsichtsbehörde und jede:r Hacker:in benutzt: <code style="font-family:var(--mono);font-size:13px;color:var(--rust)">securityheaders.com</code>, <code style="font-family:var(--mono);font-size:13px;color:var(--rust)">ssllabs.com</code>, <code style="font-family:var(--mono);font-size:13px;color:var(--rust)">observatory.mozilla.org</code>. Öffentlich. Kostenlos. In 30 Sekunden pro Seite.
+      </p>
+    </div>
+    <figure class="wp-dial wp-r">
+      <span class="wp-dial__stamp">Befund · Mai MMXXVI</span>
+      <svg class="wp-dial__svg" viewBox="0 0 400 220" role="img" aria-label="Audit-Messuhr: 42 von 50 Websites unsicher">
+        <!-- Background arc -->
+        <path class="arc-bg" d="M 40 180 A 160 160 0 0 1 360 180" stroke-width="14" pathLength="1"/>
+        <!-- Foreground arc — filled to 42/50 = 0.84 -->
+        <path class="arc-fg" d="M 40 180 A 160 160 0 0 1 360 180" stroke-width="14" pathLength="1" stroke-linecap="square"/>
+        <!-- Tick marks (11 ticks across 180°) -->
+        <g stroke-width="1.5">
+          <line class="tick tick--major" x1="40" y1="180" x2="50" y2="172"/>
+          <line class="tick" x1="68" y1="120" x2="76" y2="125"/>
+          <line class="tick tick--major" x1="120" y1="74" x2="125" y2="83"/>
+          <line class="tick" x1="200" y1="36" x2="200" y2="46"/>
+          <line class="tick tick--major" x1="280" y1="74" x2="275" y2="83"/>
+          <line class="tick" x1="332" y1="120" x2="324" y2="125"/>
+          <line class="tick tick--major" x1="360" y1="180" x2="350" y2="172"/>
+        </g>
+        <!-- Labels -->
+        <text class="label" x="40" y="208">0</text>
+        <text class="label" x="200" y="28">25</text>
+        <text class="label" x="360" y="208">50</text>
+        <!-- Needle -->
+        <line class="needle" x1="200" y1="180" x2="200" y2="50"/>
+        <circle class="hub" cx="200" cy="180" r="9"/>
+      </svg>
+      <div class="wp-dial__readout">
+        <span class="wp-dial__num">42<em>/</em>50</span>
+        <span class="wp-dial__denom">unsicher</span>
+      </div>
+      <p class="wp-dial__caption">84 % aller geprüften Seiten haben mindestens <em style="font-style:italic;color:var(--rust)">eine offene Tür.</em></p>
+    </figure>
+  </div>
+
+  <div class="wp-audit__inner" style="padding-top:0">
+    <div class="wp-ticker" style="grid-column:1/-1" aria-hidden="true">
+      <span class="wp-ticker__dot"></span>
+      <div class="wp-ticker__lane">
+        <span class="wp-ticker__item"><b>SCAN ●</b> SSL Labs · 42 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> Security Headers · 47 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> Mozilla Observatory · 39 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> HSTS Preload · 49 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> DSGVO Art. 32 · 31 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> CSP-Header · 46 Fail</span>
+        <!-- duplicate for seamless scroll -->
+        <span class="wp-ticker__item"><b>SCAN ●</b> SSL Labs · 42 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> Security Headers · 47 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> Mozilla Observatory · 39 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> HSTS Preload · 49 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> DSGVO Art. 32 · 31 Fail</span>
+        <span class="wp-ticker__item"><b>SCAN ●</b> CSP-Header · 46 Fail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ III · BEWEISSTÜCKE ══════ -->
+<section class="wp-exhibits">
+  <div class="wp-exhibits__head">
+    <div class="wp-mast__edition"><span>Kapitel I · <b>Beweisstücke</b></span></div>
+    <h2 class="wp-mast__title" style="font-size:clamp(36px,5vw,68px)">
+      Sechs Befunde.<br>Alle <em>echt.</em> Alle <em>anonymisiert.</em>
+    </h2>
+  </div>
+
+  <div class="wp-exhibits__disclaimer">
+    Anonymisierte Auszüge aus öffentlich auditierbaren Quellen (securityheaders.com / ssllabs.com / Mozilla Observatory · Mär–Apr 2026). Branche, Region und Design-Bewertung verifiziert. Firmierungen geschützt — nicht aus Höflichkeit, sondern aus juristischer Vernunft.
+  </div>
+
+  <div class="wp-grid-exh">
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/01</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name">Anwaltskanzlei <span class="wp-exh__redact">██████</span> &amp; Partner</h3>
+      <div class="wp-exh__meta">Lüneburg · est. 1987 · 12 Berufsträger · Mandanten­portal aktiv</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★★☆</span> · prämiert „Best of Web Legal 2023"</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">F</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>SSL Labs Grade F</b> · veraltete TLS 1.0-Verschlüsselung aktiv</div>
+        <div class="wp-exh__finding"><b>Security Headers 0/9</b> · CSP, HSTS, X-Frame — alle fehlen</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>KRITISCH</b></span><span>Prüfung: 04/2026</span></div>
+    </article>
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/02</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name"><span class="wp-exh__redact">█████</span>-Steuer­beratung mbB</h3>
+      <div class="wp-exh__meta">Hannover-Mitte · 4 Standorte · Mandanten-Upload aktiv</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★★★</span> · Agentur-Relaunch 2024, sechsstelliges Budget</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">F</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>HSTS nicht gesetzt</b> · Browser fällt auf HTTP zurück</div>
+        <div class="wp-exh__finding"><b>Cookie-Banner</b> trackt <b>vor</b> der Einwilligung — DSGVO Art. 7</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>HOCH</b></span><span>Prüfung: 04/2026</span></div>
+    </article>
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/03</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name"><span class="wp-exh__redact">██████</span>-Gruppe · Restaurants</h3>
+      <div class="wp-exh__meta">Hamburg · Eppendorf · Eimsbüttel · HafenCity</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★★☆</span> · Hochglanz-Bildsprache, Award-Shortlist</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">D</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>Reservierungs-Formular</b> über ungesichertes <b>HTTP</b></div>
+        <div class="wp-exh__finding"><b>Observatory Score 15/100</b> · Drittparteien ungekapselt</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>MITTEL</b></span><span>Prüfung: 03/2026</span></div>
+    </article>
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/04</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name">Zahnarzt­praxis <span class="wp-exh__redact">█████</span></h3>
+      <div class="wp-exh__meta">Buchholz i. d. Nordheide · Patienten-Login aktiv</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★★☆</span> · modernes Praxis-CI, neu 2023</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">F</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>Patientendaten</b> über veraltete TLS-Versionen ausgeliefert</div>
+        <div class="wp-exh__finding"><b>DSGVO Art. 28</b> · Auftrags­verarbeitung nicht dokumentiert</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>KRITISCH</b></span><span>Prüfung: 04/2026</span></div>
+    </article>
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/05</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name">Boutique-Hotel „<span class="wp-exh__redact">█████</span>"</h3>
+      <div class="wp-exh__meta">Travemünde · 28 Zimmer · 4-Sterne-Superior</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★★★</span> · Hospitality Design Award 2024</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">C</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>Buchungs-iFrame</b> ohne Content-Security-Policy — XSS-anfällig</div>
+        <div class="wp-exh__finding"><b>Backup-Konzept</b> · kein automatisiertes, kein offsite</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>HOCH</b></span><span>Prüfung: 03/2026</span></div>
+    </article>
+
+    <article class="wp-exh wp-r">
+      <header class="wp-exh__head">
+        <span>Akte · <b>Nº AB-7/06</b></span>
+        <span class="wp-exh__file">DOSSIER &middot; 2026.05</span>
+      </header>
+      <h3 class="wp-exh__name"><span class="wp-exh__redact">██████</span>-Bäckerei · Filialkette</h3>
+      <div class="wp-exh__meta">Niedersachsen · 14 Standorte · Familienbetrieb seit 1934</div>
+      <div class="wp-exh__design">Design­note: <span class="wp-exh__stars">★★★☆☆</span> · solider Re-Launch 2022</div>
+      <div class="wp-exh__verdict">
+        <div class="wp-exh__grade-wrap">
+          <span class="wp-exh__grade">D</span>
+          <span class="wp-exh__grade-lbl">Sec-Note</span>
+        </div>
+        <div class="wp-exh__finding"><b>Newsletter-Formular</b> Klartext — Spam-Liste leakte 2024</div>
+        <div class="wp-exh__finding"><b>WordPress 5.4</b> · 30+ bekannte CVEs unbehoben</div>
+      </div>
+      <span class="wp-exh__stamp">Durchgefallen</span>
+      <div class="wp-exh__sig"><span>Klassifizierung: <b>HOCH</b></span><span>Prüfung: 04/2026</span></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══════ IV · KONSEQUENZEN ══════ -->
+<section class="wp-cost">
+  <div class="wp-cost__inner">
+    <div class="wp-mast__edition"><span>Kapitel II · <b>Was kostet das?</b></span></div>
+    <h2 class="wp-mast__title" style="font-size:clamp(36px,5vw,68px);margin-top:8px">
+      Drei Rechnungen,<br>die niemand <em>bestellt</em> hat.
+    </h2>
+
+    <div class="wp-cost__grid">
+      <div class="wp-cost__item wp-r">
+        <div class="wp-cost__num"><em>I.</em></div>
+        <div class="wp-cost__big">bis <em>20 Mio</em> €</div>
+        <div class="wp-cost__label">DSGVO · Bußgeldrahmen</div>
+        <p class="wp-cost__text">Art. 83 DSGVO: bis zu 4 % vom Jahresumsatz oder 20 Mio €. Auch für Mittelständler — und Datenpannen sind meldepflichtig.</p>
+      </div>
+      <div class="wp-cost__item wp-r">
+        <div class="wp-cost__num"><em>II.</em></div>
+        <div class="wp-cost__big"><em>5–12</em> Tage</div>
+        <div class="wp-cost__label">Durchschnittliche Offline-Zeit nach Hack</div>
+        <p class="wp-cost__text">Nach einem erfolgreichen Angriff: Forensik, Bereinigung, Wiederherstellung. Während Ihre Konkurrenz ranged Sie nicht mehr auf Google.</p>
+      </div>
+      <div class="wp-cost__item wp-r">
+        <div class="wp-cost__num"><em>III.</em></div>
+        <div class="wp-cost__big"><em>nicht</em> messbar</div>
+        <div class="wp-cost__label">Vertrauensverlust</div>
+        <p class="wp-cost__text">Eine Datenpanne taucht in Suchergebnissen auf. Kunden lesen sie. Mitarbeiter erklären sie. Und der nächste Auftrag geht woanders hin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ V · PIVOT — Unsere Note ══════ -->
+<section class="wp-pivot">
+  <div class="wp-pivot__inner">
+    <div class="wp-pivot__sep">Seitenwechsel · und jetzt unsere Seite</div>
+    <h2 class="wp-pivot__h">
+      Jede addus.-Web­site kommt mit <span class="quad">vier&nbsp;A+</span> ins Internet — <em>nicht optional.</em>
+    </h2>
+    <div class="wp-pivot__badges">
+      <div class="wp-badge wp-r">
+        <span class="wp-badge__no">Zertifikat I</span>
+        <span class="wp-badge__grade">A+</span>
+        <span class="wp-badge__name">Security Headers</span>
+        <span class="wp-badge__desc">Alle HTTP-Sicherheits-Richtlinien nach höchstem Standard.</span>
+      </div>
+      <div class="wp-badge wp-r">
+        <span class="wp-badge__no">Zertifikat II</span>
+        <span class="wp-badge__grade">A+</span>
+        <span class="wp-badge__name">SSL Labs</span>
+        <span class="wp-badge__desc">TLS-Verschlüsselung auf höchstem Niveau. Qualys-geprüft.</span>
+      </div>
+      <div class="wp-badge wp-r">
+        <span class="wp-badge__no">Zertifikat III</span>
+        <span class="wp-badge__grade">A+</span>
+        <span class="wp-badge__name">Mozilla Observatory</span>
+        <span class="wp-badge__desc">Mozillas strenge Sicherheits-Policies vollständig bestanden.</span>
+      </div>
+      <div class="wp-badge wp-r">
+        <span class="wp-badge__no">Zertifikat IV</span>
+        <span class="wp-badge__grade">A+</span>
+        <span class="wp-badge__name">HSTS Preload</span>
+        <span class="wp-badge__desc">In der offiziellen Preload-Liste der Browser-Hersteller registriert.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ VI · PAKETE ══════ -->
+<section class="wp-pkgs" id="pakete">
+  <div class="wp-pkgs__inner">
+    <div class="wp-mast__edition"><span>Kapitel III · <b>Leistungspakete</b></span></div>
+    <h2 class="wp-mast__title" style="font-size:clamp(36px,5vw,68px);margin-top:8px">
+      Drei Pakete.<br>Ein <em>Versprechen:</em> Ihre Website läuft.
+    </h2>
+
+    <div class="wp-pkgs__grid">
+
+      <article class="wp-pkg wp-r">
+        <div class="wp-pkg__roman">Paket I</div>
+        <h3 class="wp-pkg__name">Starter</h3>
+        <p class="wp-pkg__sub">Für Visitenkarten-Seiten & kleine Auftritte ohne Login-Bereich.</p>
+        <div class="wp-pkg__price">
+          <span class="wp-pkg__amt">59</span>
+          <span class="wp-pkg__cur">€</span>
+          <span class="wp-pkg__per">/ Monat</span>
+        </div>
+        <div class="wp-pkg__vat">Netto · zzgl. gesetzl. MwSt.</div>
+        <ul class="wp-pkg__list">
+          <li class="is-star">Hosting auf deutschem Server inklusive</li>
+          <li>SSL-Zertifikat & HTTPS-Verschlüsselung</li>
+          <li class="is-star">4× A+ Sicherheitszertifizierung</li>
+          <li>Security Headers nach höchstem Standard</li>
+          <li>Tägliche Backups, 30 Tage Speicherung</li>
+          <li>Verfügbarkeits-Monitoring (Uptime)</li>
+          <li>Monatlicher Sicherheits-Check</li>
+          <li>E-Mail-Support · Reaktion in 48 Std.</li>
+        </ul>
+        <a class="wp-pkg__cta" href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Starter-Paket.">
+          <span>Paket anfragen</span><span class="arr">↗</span>
+        </a>
+      </article>
+
+      <article class="wp-pkg wp-pkg--featured wp-r">
+        <div class="wp-pkg__roman">Paket II</div>
+        <h3 class="wp-pkg__name">Business</h3>
+        <p class="wp-pkg__sub">Für Unternehmensseiten mit laufender Betreuung & DSGVO-Pflichten.</p>
+        <div class="wp-pkg__price">
+          <span class="wp-pkg__amt">99</span>
+          <span class="wp-pkg__cur">€</span>
+          <span class="wp-pkg__per">/ Monat</span>
+        </div>
+        <div class="wp-pkg__vat">Netto · zzgl. gesetzl. MwSt.</div>
+        <ul class="wp-pkg__list">
+          <li class="is-star">Alles aus Starter — plus:</li>
+          <li>Firewall & DDoS-Schutz</li>
+          <li>Schwachstellen-Scan (monatlich)</li>
+          <li class="is-star">Bis zu 1 Std. Inhaltspflege / Monat</li>
+          <li>Performance-Optimierung</li>
+          <li>Monatlicher Statusbericht per E-Mail</li>
+          <li>Prioritäts-Support · Reaktion in 24 Std.</li>
+          <li>DSGVO-konforme Cookie-Verwaltung</li>
+        </ul>
+        <a class="wp-pkg__cta" href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Business-Paket.">
+          <span>Paket anfragen</span><span class="arr">↗</span>
+        </a>
+      </article>
+
+      <article class="wp-pkg wp-r">
+        <div class="wp-pkg__roman">Paket III</div>
+        <h3 class="wp-pkg__name">Premium</h3>
+        <p class="wp-pkg__sub">Maximale Sicherheit, Rundum-Betreuung & Express-Reaktion.</p>
+        <div class="wp-pkg__price">
+          <span class="wp-pkg__amt">169</span>
+          <span class="wp-pkg__cur">€</span>
+          <span class="wp-pkg__per">/ Monat</span>
+        </div>
+        <div class="wp-pkg__vat">Netto · zzgl. gesetzl. MwSt.</div>
+        <ul class="wp-pkg__list">
+          <li class="is-star">Alles aus Business — plus:</li>
+          <li>Regelmäßige Penetration Tests</li>
+          <li class="is-star">Bis zu 3 Std. Inhaltspflege / Monat</li>
+          <li>SEO-Basis-Monitoring (Rankings & Meta-Tags)</li>
+          <li>Barrierefreiheits-Check (BFSG)</li>
+          <li>Quartalsweises Review-Gespräch (30 Min.)</li>
+          <li>Express-Support · Reaktion in 12 Std.</li>
+          <li>Notfall-Wiederherstellung priorisiert</li>
+        </ul>
+        <a class="wp-pkg__cta" href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Premium-Paket.">
+          <span>Paket anfragen</span><span class="arr">↗</span>
+        </a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="wp-note">
+    <div class="wp-note__box">
+      <div class="wp-note__label">§ · Vertragsbedingungen</div>
+      <p class="wp-note__text">
+        Mindestlaufzeit <b>6 Monate</b>, danach monatlich kündbar. Jährliche Vorauszahlung: <b>10 % Rabatt</b>. Zusätzliche Arbeitsstunden über das inkludierte Kontingent hinaus: <b>75 €/Std. netto</b>. Alle Preise zzgl. gesetzl. MwSt. Preisanpassung jährlich max. 5 % möglich.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ VII · EINZELLEISTUNGEN ══════ -->
+<section class="wp-extras">
+  <div class="wp-extras__inner">
+    <div class="wp-mast__edition"><span>Kapitel IV · <b>Einzelleistungen</b></span></div>
+    <h2 class="wp-mast__title" style="font-size:clamp(34px,4.5vw,60px);margin-top:8px">
+      Kein Paket? <em>Kein</em> Problem.
+    </h2>
+
+    <div class="wp-extras__grid">
+      <div class="wp-xtra wp-r">
+        <h3 class="wp-xtra__name">Sicherheits-Audit</h3>
+        <p class="wp-xtra__desc">Einmalige Tiefenprüfung Ihrer Website: SSL, Headers, Schwachstellen, DSGVO. Mit schriftlichem Maßnahmenbericht.</p>
+        <div class="wp-xtra__price">ab 249 €</div>
+      </div>
+      <div class="wp-xtra wp-r">
+        <h3 class="wp-xtra__name">Notfall-Wiederherstellung</h3>
+        <p class="wp-xtra__desc">Website gehackt oder offline? Sofortige Analyse, Bereinigung und Wiederherstellung aus Backup — innerhalb von 24 Std.</p>
+        <div class="wp-xtra__price">ab 199 €</div>
+      </div>
+      <div class="wp-xtra wp-r">
+        <h3 class="wp-xtra__name">Performance-Optimierung</h3>
+        <p class="wp-xtra__desc">Ladezeit-Analyse, Bild-Optimierung, Code-Minifizierung, Caching. Messbar schneller, Google-konform.</p>
+        <div class="wp-xtra__price">ab 149 €</div>
+      </div>
+      <div class="wp-xtra wp-r">
+        <h3 class="wp-xtra__name">Inhaltspflege (Einzelauftrag)</h3>
+        <p class="wp-xtra__desc">Texte, Bilder, neue Unterseiten — minutengenau abgerechnet. Keine Vertragsbindung, kein Mindestumfang.</p>
+        <div class="wp-xtra__price">75 €/Std.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ VIII · WARUM ADDUS ══════ -->
+<section class="wp-why">
+  <div class="wp-why__inner">
+    <div class="wp-mast__edition"><span>Kapitel V · <b>Warum addus.</b></span></div>
+    <h2 class="wp-mast__title" style="font-size:clamp(34px,4.8vw,64px);margin-top:8px">
+      Was uns <em>unterscheidet.</em>
+    </h2>
+
+    <div class="wp-why__grid">
+      <div class="wp-why__item wp-r">
+        <div class="wp-why__roman">I.</div>
+        <h3 class="wp-why__h">Gebaut & betreut von <em>derselben Person.</em></h3>
+        <p class="wp-why__t">Kein Ticket-System. Kein Support-Level-1. Sie sprechen immer direkt mit dem Entwickler, der Ihre Website kennt — jede Zeile Code, jede Konfigurationsdatei.</p>
+      </div>
+      <div class="wp-why__item wp-r">
+        <div class="wp-why__roman">II.</div>
+        <h3 class="wp-why__h">4× A+ Sicherheit ist <em>Standard.</em></h3>
+        <p class="wp-why__t">Jede addus.-Website wird mit höchster Sicherheitsstufe ausgeliefert — verifiziert durch vier unabhängige internationale Prüfstellen. Nicht optional. Grundausstattung.</p>
+      </div>
+      <div class="wp-why__item wp-r">
+        <div class="wp-why__roman">III.</div>
+        <h3 class="wp-why__h">Eigene Infrastruktur, <em>kein Ami-Cloud.</em></h3>
+        <p class="wp-why__t">Hosting auf eigenen Servern in Deutschland. Keine Drittanbieter, keine Black-Box-Abhängigkeiten. Volle Kontrolle über Ihre Daten und Verfügbarkeit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ IX · FINALE ══════ -->
+<section class="wp-final" id="kontakt">
+  <div class="wp-final__inner">
+    <div class="wp-final__kicker">Letzte Seite</div>
+    <h2 class="wp-final__h">Bereit?<br>Lassen Sie uns <em>Ihre Website absichern.</em></h2>
+    <p class="wp-final__sub">Kostenloses Erstgespräch — unverbindlich, ehrlich, in 15 Minuten wissen Sie mehr über den Zustand Ihrer Website als die letzten zehn Jahre.</p>
+    <div class="wp-final__btns">
+      <a class="wp-cta wp-cta--solid" href="https://wa.me/4917621214416?text=Hallo%20Adam%2C%20ich%20m%C3%B6chte%20meine%20Website%20absichern.">
+        <span>WhatsApp schreiben</span><span class="arr">↗</span>
+      </a>
+      <a class="wp-cta wp-cta--ghost" href="tel:+4917621214416">
+        <span>Anrufen · +49 176 21 21 44 16</span><span class="arr">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="wp-foot">
+  <div class="wp-foot__l">
+    © MMXXVI · addus. · Lüneburg · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a>
+  </div>
+  <div class="wp-foot__b">
+    <span>Security Headers A+</span>
+    <span>SSL Labs A+</span>
+    <span>Mozilla Observatory A+</span>
+    <span>HSTS Preload A+</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll · IntersectionObserver (transform/opacity only)
+  (function(){
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.wp-r').forEach(el => el.classList.add('is-in'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '-8% 0px -8% 0px', threshold: 0.05 });
+    document.querySelectorAll('.wp-r').forEach(el => io.observe(el));
+  })();
+
+  // Nav scrolled shadow
+  (function(){
+    const nav = document.getElementById('navbar');
+    if (!nav) return;
+    const upd = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    upd(); window.addEventListener('scroll', upd, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
