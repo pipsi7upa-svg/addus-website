@@ -2135,18 +2135,6 @@ html,body{overflow-anchor:none}
 }
 .ftr__badge--pending:hover{border-color:#e09040;background:rgba(224,144,64,.08)}
 
-/* Green Web — leaf-green grade */
-.ftr__badge--green{border-color:rgba(74,124,58,.45)}
-.ftr__badge--green .ftr__badge-grade{
-  background:#4a7c3a;
-  color:#f3efe4;
-  font-size:11px;
-  letter-spacing:.08em;
-  padding:0 10px;
-  min-width:auto;
-}
-.ftr__badge--green:hover{border-color:#4a7c3a;background:rgba(74,124,58,.08)}
-
 /* TYPE COLOPHON */
 .ftr__colophon{
   background:#0d0a07;
@@ -2169,6 +2157,16 @@ html,body{overflow-anchor:none}
   font-variation-settings:"opsz" 14,"WONK" 1,"SOFT" 80;
 }
 .ftr__colophon-mark{color:var(--rust);font-size:11px;opacity:.7}
+.ftr__colophon-greenweb{
+  display:inline-flex;align-items:center;
+  opacity:.78;transition:opacity .25s ease;
+  border-radius:3px;
+}
+.ftr__colophon-greenweb:hover,.ftr__colophon-greenweb:focus-visible{opacity:1}
+.ftr__colophon-greenweb img{
+  height:34px;width:auto;display:block;
+  filter:saturate(.85);
+}
 
 /* Footer Mobile */
 @media (max-width:980px){
