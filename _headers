@@ -7,10 +7,11 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://*.clarity.ms https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://res.cloudinary.com https://images.pexels.com https://*.clarity.ms https://*.google-analytics.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://formspree.io; frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://challenges.cloudflare.com https://www.google.com/maps/; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://*.clarity.ms https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com https://www.it-recht-kanzlei.de; style-src 'self' 'unsafe-inline' https://addus-web.de; img-src 'self' data: https://res.cloudinary.com https://images.pexels.com https://*.clarity.ms https://*.google-analytics.com https://www.it-recht-kanzlei.de https://addus-web.de; font-src 'self' https://addus-web.de; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms https://challenges.cloudflare.com https://formspree.io https://itrk.legal; frame-src 'self' https://challenges.cloudflare.com https://www.google.com/maps/ https://itrk.legal; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
 /css/*
   Cache-Control: public, max-age=2592000

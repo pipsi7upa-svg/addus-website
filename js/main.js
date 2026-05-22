@@ -369,25 +369,6 @@
     });
   }
 
-  /* ─── Newsletter form (inline + footer) ─────────── */
-  document.querySelectorAll('.newsletter-form, .nl-mini-form').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('input[type="email"]');
-      const btn = form.querySelector('button');
-      if (!input || !input.validity.valid) return;
-      btn.textContent = 'Abonniert';
-      btn.style.background = 'linear-gradient(135deg, #1DB954, #0E7C31)';
-      input.value = '';
-      input.disabled = true;
-      setTimeout(() => {
-        btn.textContent = btn.dataset.origText || 'Abonnieren →';
-        btn.style.background = '';
-        input.disabled = false;
-      }, 4000);
-    });
-  });
-
   /* ─── Sticky "Termin buchen" floating button ─────── */
   const stickyCtaEl = document.getElementById('stickyCtaBtn');
   if (stickyCtaEl) {

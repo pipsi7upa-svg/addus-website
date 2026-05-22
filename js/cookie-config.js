@@ -25,11 +25,11 @@
         de: {
           consentModal: {
             title: 'Cookies & Tracking',
-            description: 'Wir nutzen Cookies, um die Nutzung der Website zu analysieren und zu verbessern. Notwendige Cookies sind immer aktiv. Statistik-Cookies (Google Analytics, Microsoft Clarity) helfen uns zu verstehen, wie Besucher mit der Seite interagieren — anonymisiert. <a href="datenschutz.html">Datenschutz</a>',
+            description: 'Wir nutzen Cookies, um die Nutzung der Website zu analysieren und zu verbessern. Notwendige Cookies sind immer aktiv. Statistik-Cookies (Google Analytics, Microsoft Clarity) helfen uns zu verstehen, wie Besucher mit der Seite interagieren — anonymisiert. <a href="/datenschutz.html">Datenschutz</a>',
             acceptAllBtn: 'Alle akzeptieren',
             acceptNecessaryBtn: 'Nur Notwendige',
             showPreferencesBtn: 'Einstellungen',
-            footer: '<a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>',
+            footer: '<a href="/datenschutz.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a>',
           },
           preferencesModal: {
             title: 'Cookie-Einstellungen',
@@ -53,7 +53,7 @@
                   ],
                 },
               },
-              { title: 'Mehr Informationen', description: 'Bei Fragen zur Cookie-Richtlinie kontaktieren Sie uns: <a href="impressum.html">Impressum</a>' },
+              { title: 'Mehr Informationen', description: 'Bei Fragen zur Cookie-Richtlinie kontaktieren Sie uns: <a href="/impressum.html">Impressum</a>' },
             ],
           },
         },

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="description" content="Allgemeine Geschäftsbedingungen von addus. — Webdesign aus Lüneburg. Vertragsbedingungen, Zahlungsbedingungen, Gewährleistung und Haftung.">
+  <meta name="description" content="Allgemeine Geschäftsbedingungen von addus. — Webdesign aus Lüneburg. Vertragsbedingungen und Informationen zum Datenschutz.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AGB — addus. Webdesign aus Lüneburg">
   <meta property="og:description" content="Allgemeine Geschäftsbedingungen von addus.">
@@ -38,60 +38,46 @@
     .nav__burger span{display:block;height:2px;width:100%;background:var(--ink)}
     @media (max-width:880px){.nav__menu,.nav__cta{display:none}.nav__burger{display:flex}}
 
+    /* ── Legal-page shell ── */
     .legal{max-width:760px;margin:0 auto;padding:calc(var(--nav-h) + 88px) var(--pad) 96px}
     .legal__back{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:64px;transition:color .25s var(--ease),transform .25s var(--ease)}
     .legal__back i{font-style:normal;font-family:var(--serif);font-size:16px;line-height:1}
     .legal__back:hover{color:var(--rust);transform:translateX(-3px)}
-
     .legal__kicker{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--rust);margin-bottom:18px}
     .legal__title{font-family:var(--serif);font-size:clamp(40px,6vw,68px);font-weight:300;line-height:.98;letter-spacing:-.025em;color:var(--ink);font-variation-settings:"opsz" 72,"SOFT" 50;margin-bottom:14px}
     .legal__title em{font-style:italic;font-weight:400;color:var(--rust);font-variation-settings:"opsz" 72,"WONK" 1,"SOFT" 80}
     .legal__date{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);padding-bottom:32px;margin-bottom:48px;border-bottom:1px solid var(--line-soft)}
 
-    /* Inline-TOC für AGB-Paragraphen */
-    .legal__toc{
-      background:var(--paper-deep);
-      border:1px solid var(--line-soft);
-      padding:28px 32px;
-      margin-bottom:64px;
-    }
-    .legal__toc-label{
-      display:block;
-      font-family:var(--mono);
-      font-size:9px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      color:var(--ink-mute);
-      margin-bottom:14px;
-    }
-    .legal__toc ul{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:8px 28px;
-    }
-    .legal__toc li{
-      font-family:var(--serif);
-      font-style:italic;
-      font-size:14px;
-      line-height:1.4;
-      font-variation-settings:"opsz" 16,"WONK" 1,"SOFT" 60;
-    }
-    .legal__toc a{
-      color:var(--ink-soft);
-      transition:color .2s var(--ease);
-    }
-    .legal__toc a:hover{color:var(--rust)}
-    @media (max-width:640px){.legal__toc ul{grid-template-columns:1fr}}
-
-    .legal__body h2{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.01em;color:var(--ink);margin:48px 0 18px;font-variation-settings:"opsz" 26,"WONK" 1,"SOFT" 60;position:relative;scroll-margin-top:96px}
+    /* ── Rechtstext-Body (IT-Recht-AGB, statisch) ── */
+    .legal__body h1{display:none}
+    .legal__body h2{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(22px,2.5vw,28px);letter-spacing:-.01em;color:var(--ink);margin:56px 0 18px;font-variation-settings:"opsz" 28,"WONK" 1,"SOFT" 60;position:relative;scroll-margin-top:96px}
     .legal__body h2::before{content:'';display:block;width:24px;height:1px;background:var(--rust);margin-bottom:12px;opacity:.55}
-    .legal__body p{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:0 0 16px;font-variation-settings:"opsz" 18,"SOFT" 60}
-    .legal__body strong{color:var(--ink);font-weight:600}
-    .legal__body a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s var(--ease)}
+    .legal__body h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(17px,2vw,20px);letter-spacing:-.01em;color:var(--ink);margin:34px 0 12px;font-variation-settings:"opsz" 20,"WONK" 1,"SOFT" 60;scroll-margin-top:96px}
+    .legal__body p{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:0 0 14px;font-variation-settings:"opsz" 18,"SOFT" 60}
+    .legal__body p b:first-child{color:var(--ink);font-weight:600;min-width:2.4em;display:inline-block}
+    .legal__body strong,.legal__body b{color:var(--ink);font-weight:600}
+    .legal__body a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s var(--ease);overflow-wrap:anywhere}
     .legal__body a:hover{color:var(--rust-deep)}
-    .legal__body ul{padding-left:24px;margin:16px 0 24px;list-style:disc}
-    .legal__body ol{padding-left:24px;margin:16px 0 24px;list-style:decimal}
-    .legal__body li{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:8px 0;font-variation-settings:"opsz" 18,"SOFT" 60}
+    .legal__body ol,.legal__body ul{margin:14px 0 22px 2em;font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);font-variation-settings:"opsz" 18,"SOFT" 60}
+    .legal__body ol{list-style:decimal}
+    .legal__body ul{list-style:disc}
+    .legal__body li{margin:7px 0}
+
+    /* ── IT-Recht-Copyright-Block ── */
+    #itkanzlei_txt_copyright{margin-top:64px!important;padding-top:28px;border-top:1px solid var(--line-soft);font-family:var(--mono)!important;font-size:9px!important;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+    #itkanzlei_txt_copyright img{margin-top:0!important;max-width:150px}
+    #itkanzlei_txt_copyright a{opacity:.9;transition:opacity .2s var(--ease)}
+    #itkanzlei_txt_copyright a:hover{opacity:1}
+
+    /* ── Ergänzender Hinweis von addus. (UWG) ── */
+    .legal__appendix{max-width:760px;margin:0 auto;padding:0 var(--pad) 96px}
+    .legal__appendix-note{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);padding:20px 22px;background:var(--paper-deep);border:1px solid var(--line-soft);margin-bottom:8px;line-height:1.7}
+    .legal__appendix h2{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.01em;color:var(--ink);margin:40px 0 18px;font-variation-settings:"opsz" 26,"WONK" 1,"SOFT" 60;position:relative;scroll-margin-top:96px}
+    .legal__appendix h2::before{content:'';display:block;width:24px;height:1px;background:var(--rust);margin-bottom:12px;opacity:.55}
+    .legal__appendix p{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-soft);margin:0 0 14px;font-variation-settings:"opsz" 18,"SOFT" 60}
+    .legal__appendix strong{color:var(--ink);font-weight:600}
+    .legal__appendix a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+    .legal__appendix a:hover{color:var(--rust-deep)}
 
     .lftr{background:var(--paper-deep);border-top:1px solid var(--line-soft);padding:36px var(--pad)}
     .lftr__inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
@@ -104,11 +90,10 @@
     .lftr__copy em{font-style:italic;font-family:var(--serif);text-transform:none;font-size:12px}
   </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <!-- Editorial Fonts -->
+  <link rel="stylesheet" href="css/fonts.css">
 
+  <!-- CookieConsent + Analytics -->
   <link rel="stylesheet" href="css/cookieconsent.css">
   <script src="js/vendor/cookieconsent.umd.js" defer></script>
   <script src="js/cookie-config.js" defer></script>
@@ -117,6 +102,7 @@
 </head>
 <body>
 
+  <!-- ══ NAV ══ -->
   <header class="nav" id="navbar" role="banner">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="addus. — Zur Startseite">addus<span class="nav__brand-dot">.</span></a>
@@ -138,153 +124,182 @@
   <main class="legal">
     <a href="/" class="legal__back"><i>←</i>&nbsp;Zurück zur Startseite</a>
 
-    <span class="legal__kicker">Anhang · §§ 1–17</span>
+    <span class="legal__kicker">Vertragsbedingungen für Webdesign-Leistungen</span>
     <h1 class="legal__title"><em>Allgemeine</em>&nbsp;Geschäftsbedingungen.</h1>
-    <p class="legal__date">Stand: 26. März 2026</p>
-
-    <nav class="legal__toc" aria-label="Inhaltsverzeichnis">
-      <span class="legal__toc-label">Inhalt</span>
-      <ul role="list">
-        <li><a href="#g1">§ 1 Geltungsbereich</a></li>
-        <li><a href="#g2">§ 2 Vertragspartner</a></li>
-        <li><a href="#g3">§ 3 Vertragsgegenstand</a></li>
-        <li><a href="#g4">§ 4 Vertragsschluss</a></li>
-        <li><a href="#g5">§ 5 Leistungsumfang</a></li>
-        <li><a href="#g6">§ 6 Mitwirkungspflichten</a></li>
-        <li><a href="#g7">§ 7 Preise und Zahlung</a></li>
-        <li><a href="#g8">§ 8 Lieferung</a></li>
-        <li><a href="#g9">§ 9 Abnahme</a></li>
-        <li><a href="#g10">§ 10 Urheberrecht</a></li>
-        <li><a href="#g11">§ 11 Gewährleistung</a></li>
-        <li><a href="#g12">§ 12 Haftung</a></li>
-        <li><a href="#g13">§ 13 Vertraulichkeit</a></li>
-        <li><a href="#g14">§ 14 Kündigung</a></li>
-        <li><a href="#g15">§ 15 Streitbeilegung</a></li>
-        <li><a href="#g16">§ 16 Schlussbestimmungen</a></li>
-        <li><a href="#g17">§ 17 Kundenstimmen</a></li>
-      </ul>
-    </nav>
+    <p class="legal__date">Rechtstext der IT-Recht Kanzlei · Stand: Mai 2026</p>
 
     <div class="legal__body">
-      <h2 id="g1">§ 1 Geltungsbereich</h2>
-      <p>(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle Verträge, Angebote und Leistungen zwischen Adam Dia, handelnd unter der Bezeichnung „addus.", Dahlenburgerlandstraße 20H, 21337 Lüneburg (nachfolgend „Auftragnehmer") und dem jeweiligen Auftraggeber (nachfolgend „Auftraggeber"), soweit nicht schriftlich etwas anderes vereinbart wurde.</p>
-      <p>(2) Der Auftragnehmer erbringt seine Leistungen ausschließlich auf Grundlage dieser AGB. Abweichende, entgegenstehende oder ergänzende Geschäftsbedingungen des Auftraggebers werden nur dann Vertragsbestandteil, wenn der Auftragnehmer ihrer Geltung ausdrücklich schriftlich zugestimmt hat.</p>
-      <p>(3) Diese AGB gelten sowohl gegenüber Verbrauchern im Sinne des § 13 BGB als auch gegenüber Unternehmern im Sinne des § 14 BGB, sofern nicht in den einzelnen Bestimmungen eine abweichende Regelung getroffen wird.</p>
+      <div><h1>Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen &amp; Informationen zum Datenschutz</h1>
+<h2>Inhaltsverzeichnis</h2>
+<h3>A. Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen</h3>
+<ol>
+<li>Geltungsbereich</li>
+<li>Vertragsgegenstand</li>
+<li>Vertragsschluss</li>
+<li>Verg&uuml;tung, Preise, Zahlungsbedingungen</li>
+<li>Verg&uuml;tung f&uuml;r zus&auml;tzliche Leistungen</li>
+<li>Abnahme, F&auml;lligkeit der Verg&uuml;tung</li>
+<li>Zeitplan</li>
+<li>Mitwirkungspflichten des Kunden</li>
+<li>Pflichten zur Namensnennung, Entstellungen</li>
+<li>Rechteeinr&auml;umung durch den Kunden, Haftungsfreistellung</li>
+<li>Einr&auml;umung von Nutzungsrechten durch den Auftragnehmer</li>
+<li>Eigenwerbung des Auftragnehmers</li>
+<li>M&auml;ngelhaftung (Gew&auml;hrleistung)</li>
+<li>Haftung</li>
+<li>K&uuml;ndigung des Vertrages</li>
+<li>Anwendbares Recht</li>
+</ol>
+<h3>B. Informationen zum Datenschutz</h3>
+<ol>
+<li>Information &uuml;ber die Erhebung personenbezogener Daten und Kontaktdaten des Verantwortlichen</li>
+<li>Datenverarbeitung zur Auftragsabwicklung</li>
+<li>Rechte des Betroffenen</li>
+<li>Dauer der Speicherung personenbezogener Daten</li>
+</ol>
+<h2>A. Allgemeine Gesch&auml;ftsbedingungen mit Kundeninformationen</h2>
+<h3>1) Geltungsbereich</h3>
+<p><b>1.1</b>&nbsp;Diese Allgemeinen Gesch&auml;ftsbedingungen (nachfolgend &quot;AGB&quot;) des Adam Dia, handelnd unter &bdquo;Adam Dia&#8220; (nachfolgend &quot;Auftragnehmer&quot;), gelten f&uuml;r alle Vertr&auml;ge zur Erbringung von Webdesign-Leistungen, die ein Unternehmer (nachfolgend &quot;Kunde&quot;) mit dem Auftragnehmer hinsichtlich der vom Auftragnehmer auf seiner Website dargestellten Leistungen abschlie&szlig;t. Hiermit wird der Einbeziehung von eigenen Bedingungen des Kunden widersprochen, es sei denn, es ist etwas anderes vereinbart.</p>
+<p><b>1.2</b>&nbsp;Unternehmer im Sinne dieser AGB ist eine nat&uuml;rliche oder juristische Person oder eine rechtsf&auml;hige Personengesellschaft, die bei Abschluss eines Rechtsgesch&auml;fts in Aus&uuml;bung ihrer gewerblichen oder selbst&auml;ndigen beruflichen T&auml;tigkeit handelt.</p>
+<p><b>1.3</b>&nbsp;Unternehmer im Sinne dieser AGB sind auch Beh&ouml;rden und sonstige Einrichtungen des &ouml;ffentlichen Rechts, wenn diese bei Vertragsschluss ausschlie&szlig;lich privatrechtlich handeln.</p>
+<h3>2) Vertragsgegenstand</h3>
+<p><b>2.1</b>&nbsp;Der Vertragsgegenstand bestimmt sich nach den einzelnen Vereinbarungen zwischen dem Auftragnehmer und dem Kunden. Der Auftragnehmer ist zu keinen Leistungen verpflichtet, die nicht im Einzelnen zwischen den Parteien vereinbart sind.</p>
+<p><b>2.2</b>&nbsp;Der Auftragnehmer schuldet dem Kunden die Konzeption, Gestaltung und Umsetzung einer Website. Hiervon umfasst ist in der Regel<br />
+- die Erarbeitung einer Konzeption,<br />
+- die Abstimmung der Konzeption mit dem Kunden,<br />
+- die grafische Gestaltung der mit dem Kunden abgestimmten Konzeption,<br />
+- die technische Umsetzung der Konzeption und Gestaltung und<br />
+- nach Absprache zwischen Auftragnehmer und Kunden auch die Programmierung der Website gem&auml;&szlig; dem aktuellen Stand der Technik zum Zeitpunkt des Vertragsschlusses.</p>
+<p><b>2.3</b>&nbsp;Weitere Leistungen werden von diesem Vertrag nicht umfasst. Dies betrifft unter anderem die folgenden Leistungen, die der Auftragnehmer und der Kunde daher gesondert vereinbaren und verg&uuml;ten m&uuml;ssen:<br />
+- Die &Uuml;bergabe von sog. offenen Dateien an den Kunden<br />
+- Der Erwerb von Nutzungsrechten an Bildern, Grafiken, Texten, Software oder sonstigen gesch&uuml;tzten Elemente von Dritten<br />
+- Recherchen zur Verf&uuml;gbarkeit von bestimmten Domains<br />
+- Die Registrierung von Domains f&uuml;r den Kunden und weitere Leistungen im Zusammenhang mit Domains f&uuml;r den Kunden<br />
+- Das Hosting der Website, also die &Uuml;berlassung von Webspace (Speicherplatz) auf Servern des Auftragnehmers oder von Dritten<br />
+- Die inhaltliche und technische Wartung und Pflege der Website</p>
+<p><b>2.4</b>&nbsp;Der Auftragnehmer kann seine Leistungen pers&ouml;nlich oder durch qualifiziertes, von ihm ausgew&auml;hltes Personal erbringen. Dabei kann sich der Auftragnehmer zur Erf&uuml;llung seiner vertraglichen Leistungspflichten auch der Dienste und Leistungen Dritter (Subunternehmer) bedienen, die in seinem Auftrag t&auml;tig werden. Sofern die Parteien nichts anderes vereinbart haben, hat der Kunde keinen Anspruch auf Auswahl einer bestimmten Person zur Durchf&uuml;hrung der gew&uuml;nschten Leistung.</p>
+<h3>3) Vertragsschluss</h3>
+<p><b>3.1</b>&nbsp;Der Kunde kann &uuml;ber ein ggf. vom Auftragnehmer online bereitgestelltes Kontaktformular, in Textform (z.B. per E-Mail), oder telefonisch eine unverbindliche Anfrage auf Abgabe eines Angebots an den Auftragnehmer richten.</p>
+<p><b>3.2</b>&nbsp;Der Auftragnehmer l&auml;sst dem Kunden auf dessen Anfrage hin in Textform (z.B. per E-Mail) ein verbindliches Angebot zur Erbringung der vom Kunden angefragten Leistung bzw. Leistungen zukommen. Dieses Angebot kann der Kunde durch eine gegen&uuml;ber dem Auftragnehmer abzugebende Annahmeerkl&auml;rung in Textform (z.B. per E-Mail) innerhalb von 7 (sieben) Tagen ab Zugang des Angebots annehmen, wobei f&uuml;r die Berechnung der Frist der Tag des Angebotszugangs nicht mitgerechnet wird. F&auml;llt der letzte Tag der Frist zur Annahme des Angebots auf einen Samstag, Sonntag, oder einen am Sitz des Kunden staatlich anerkannten allgemeinen Feiertag, so tritt an die Stelle eines solchen Tages der n&auml;chste Werktag. Nimmt der Kunde das Angebot des Auftragnehmers innerhalb der vorgenannten Frist nicht an, so ist der Auftragnehmer nicht mehr an sein Angebot gebunden.</p>
+<p><b>3.3</b>&nbsp;Die Bestellabwicklung und Kontaktaufnahme finden in der Regel per E-Mail statt. Der Kunde hat sicherzustellen, dass die von ihm zur Bestellabwicklung angegebene E-Mail-Adresse zutreffend ist, so dass unter dieser Adresse die vom Auftragnehmer versandten E-Mails empfangen werden k&ouml;nnen. Insbesondere hat der Kunde bei dem Einsatz von SPAM-Filtern sicherzustellen, dass alle vom Auftragnehmer oder von diesem mit der Bestellabwicklung beauftragten Dritten versandten E-Mails zugestellt werden k&ouml;nnen.</p>
+<p><b>3.4</b>&nbsp;F&uuml;r den Vertragsschluss steht ausschlie&szlig;lich die deutsche Sprache zur Verf&uuml;gung.</p>
+<h3>4) Verg&uuml;tung, Preise, Zahlungsbedingungen</h3>
+<p><b>4.1</b>&nbsp;Soweit zwischen dem Auftragnehmer und dem Kunden nicht ausdr&uuml;cklich anders vereinbart, sind s&auml;mtliche Leistungen des Auftragnehmers gegen&uuml;ber dem Kunden verg&uuml;tungspflichtig. Vorschl&auml;ge, Entw&uuml;rfe oder sonstige Zuarbeiten durch den Kunden, seine Mitarbeiter oder sonstige Personen, die auf Seite des Kunden an der Durchf&uuml;hrung dieses Vertrags beteiligt sind, haben keine Auswirkungen auf die H&ouml;he der Verg&uuml;tung des Auftragnehmers. Leistungen des Auftragnehmers, die vom Leistungsumfang dieses Vertrags nicht umfasst sind, wie z.B. Sonder-, Neben- oder Mehrleistungen des Auftragnehmers sind ebenso verg&uuml;tungspflichtig und gesondert zu verg&uuml;ten.</p>
+<p><b>4.2</b>&nbsp;Der Kunde ist verpflichtet, dem Auftragnehmer f&uuml;r dessen Leistungen nach diesem Vertrag die vertraglich vereinbarte Verg&uuml;tung zu zahlen. Diese Verg&uuml;tung besteht aus einem Entwurfs- und einem Nutzungshonorar, soweit dies zwischen den Parteien nicht ausdr&uuml;cklich anderes vereinbart ist. Nicht Bestandteil dieser Verg&uuml;tung sind etwaige Leistungen, die der Auftragnehmer gem&auml;&szlig; entsprechender Absprache mit dem Kunden von Dritten bezieht und gegen&uuml;ber diesen Dritten verg&uuml;ten muss, wie z.B. f&uuml;r den Erwerb von Lizenzen bzw. Nutzungsrechten an Bildern, Grafiken, Texten, Software oder sonstigen gesch&uuml;tzten Elementen, welche jeweils gesondert zwischen den Parteien abgerechnet werden, soweit zwischen den Parteien nicht ausdr&uuml;cklich etwas anderes vereinbart ist.</p>
+<p>(1) Das Entwurfshonorar entspricht dem Betrag, den der Auftragnehmer und der Kunde f&uuml;r:<br />
+- die Erarbeitung einer Konzeption,<br />
+- die Abstimmung der Konzeption mit dem Kunden,<br />
+- die grafische Gestaltung der mit dem Kunden abgestimmten Konzeption,<br />
+- die technische Umsetzung der Konzeption und Gestaltung und<br />
+- ggf. die Programmierung der Website gem&auml;&szlig; dem aktuellen Stand der Technik zum Zeitpunkt des Vertragsschlusses<br />
+als Entwurfshonorar vereinbaren.</p>
+<p>(2) Das Nutzungshonorar bestimmt sich nach dem zwischen dem Auftragnehmer und dem Kunden vereinbarten Nutzungsumfang hinsichtlich der Leistungen des Auftragnehmers nach diesem Vertrag und entspricht dem Betrag, den der Auftragnehmer und der Kunde als Nutzungshonorar vereinbaren. Weitere, hier&uuml;ber hinaus gehende Nutzungen der Leistungen des Auftragnehmers auf Grundlage dieses Vertrags durch den Kunden muss der Kunde zus&auml;tzlich gesondert verg&uuml;ten.</p>
+<p>(3) Soweit dies zwischen den Parteien nicht anders vereinbart ist, bemisst sich die H&ouml;he des Entwurfs- und des Nutzungshonorars nach dem zum Zeitpunkt des Vertragsschlusses g&uuml;ltigen Verg&uuml;tungstarif des Allianz deutscher Designer (AGD) e.V., wie er zwischen diesem und der Vereinigung Selbstst&auml;ndige Design-Studios (SDSt) geschlossen worden ist. Der Verg&uuml;tungstarif des Allianz deutscher Designer (AGD) e.V. kann jederzeit beim Auftragnehmer angefordert werden.</p>
+<p><b>4.3</b>&nbsp;Bei Verz&ouml;gerungen der Durchf&uuml;hrung der Leistungen nach diesem Vertrag aus Gr&uuml;nden, die der Kunde zu vertreten hat, hat der Auftragnehmer das Recht, eine angemessene Erh&ouml;hung der Verg&uuml;tung zu fordern.</p>
+<p><b>4.4</b>&nbsp;Sofern sich aus der Leistungsbeschreibung des Auftragnehmers nichts Abweichendes ergibt, handelt es sich bei den angegebenen Betr&auml;gen um Gesamtpreise. Umsatzsteuer f&auml;llt nicht an, da der Auftragnehmer als Kleinunternehmer umsatzsteuerbefreit ist.</p>
+<h3>5) Verg&uuml;tung f&uuml;r zus&auml;tzliche Leistungen</h3>
+<p><b>5.1</b>&nbsp;Soweit der Auftragnehmer nach Absprache mit dem Kunden zus&auml;tzliche Leistungen erbringt, die &uuml;ber die vom Auftragnehmer nach diesem Vertrag urspr&uuml;nglich geschuldeten Leistungen hinausgehen, wie etwa die Anpassung oder &Auml;nderung von bereits abnahmef&auml;higen Konzeptionen, Entw&uuml;rfen, Gestaltungen, Programmierungen oder sonstigen Leistungen, ist der Kunde verpflichtet, diese Leistungen dem Auftragnehmer gem&auml;&szlig; dem vereinbarten Stundensatz und den sonstigen Vereinbarungen der Parteien nach dem tats&auml;chlich angefallenen Zeitaufwand zu verg&uuml;ten. Haben der Auftragnehmer und der Kunde hierf&uuml;r keinen Stundensatz vereinbart oder keine sonstige Vereinbarung getroffen, ist der Kunde verpflichtet, den angefallenen Zeitaufwand gem&auml;&szlig; dem zum Zeitpunkt des Vertragsschlusses g&uuml;ltigen Verg&uuml;tungstarif des Allianz deutscher Designer (AGD) e.V., wie er zwischen diesem und der Vereinigung Selbstst&auml;ndige Design-Studios (SDSt) geschlossen worden ist, zu verg&uuml;ten.</p>
+<p><b>5.2</b>&nbsp;Der Auftragnehmer hat das Recht, nach vorheriger Absprache mit dem Kunden die zur Erf&uuml;llung dieses Vertrags erforderlichen Drittleistungen im Namen und f&uuml;r Rechnung des Kunden zu erwerben. Dies gilt insbesondere, aber nicht ausschlie&szlig;lich, f&uuml;r den Erwerb von Lizenzen bzw. Nutzungsrechten an Bildern, Grafiken, Texten, Software oder sonstigen gesch&uuml;tzten Elementen oder auch f&uuml;r die Anmietung von Speicherplatz auf Servern von Drittanbietern zwecks Web-Hosting der Website. Der Kunde verpflichtet sich, dem Auftragnehmer hierf&uuml;r Vollmacht zu erteilen und erteilt diese hiermit sogleich. Im Falle des Erwerbs von solchen Drittleistungen verpflichtet sich der Kunde, den Auftragnehmer im Innenverh&auml;ltnis von s&auml;mtlichen Verg&uuml;tungsanspr&uuml;chen freizustellen, die aus den Vertragsschl&uuml;ssen mit den jeweiligen Drittanbietern folgen. Der Auftragnehmer ist berechtigt, diese Kosten in Rechnung zu stellen, sobald sie ihrerseits von dem Dritten in Rechnung gestellt werden.</p>
+<p><b>5.3</b>&nbsp;Der Kunde ist verpflichtet, Auslagen und sonstige Nebenkosten zu erstatten, die dem Auftragnehmer nach vorheriger Absprache zwischen ihm und dem Kunden im Zusammenhang mit der Erf&uuml;llung dieses Vertrags notwendigerweise entstehen, wie ggf. etwa f&uuml;r die Anfertigung von Fotografien, Modellen, Teasern oder Web-Hosting.</p>
+<h3>6) Abnahme, F&auml;lligkeit der Verg&uuml;tung</h3>
+<p><b>6.1</b>&nbsp;Die Leistungen des Auftragnehmers werden dem Kunden zur Pr&uuml;fung und Abnahme bereitgestellt. Der Kunde ist verpflichtet, vertragsgem&auml;&szlig;e Leistungen des Auftragnehmers abzunehmen. Werden keine begr&uuml;ndeten Beanstandungen geltend gemacht, hat die Abnahme innerhalb einer angemessenen Frist, jedenfalls aber innerhalb einer Frist von sieben (7) Tagen ab Ablieferung der jeweiligen Leistungen beim Kunden, zu erfolgen. Der Abnahme steht es gleich, wenn der Kunde die Leistungen innerhalb vorgenannter Frist nicht abnimmt, obwohl er dazu verpflichtet ist.</p>
+<p><b>6.2</b>&nbsp;Verlangt der Kunde nach der Abnahme gem&auml;&szlig; vorstehender Ziffer &Auml;nderungen vom Auftragnehmer, so kann der Auftragnehmer ihm hierf&uuml;r eine zus&auml;tzliche aufwandsbezogene Verg&uuml;tung berechnen. Hier&uuml;ber l&auml;sst der Auftragnehmer dem Kunden auf dessen Anforderung ein konkretes Angebot zukommen. Die gesetzlichen M&auml;ngelrechte des Kunden werden hierdurch nicht eingeschr&auml;nkt.</p>
+<p><b>6.3</b>&nbsp;Im Rahmen der Vereinbarungen zwischen dem Auftragnehmer und dem Kunden steht dem Auftragnehmer eine Gestaltungsfreiheit zu. Der Kunde darf die Abnahme nicht aus gestalterischen oder k&uuml;nstlerischen Gr&uuml;nden verweigern. M&auml;ngelanspr&uuml;che des Kunden aus gestalterischen oder k&uuml;nstlerischen Gr&uuml;nden sind ausgeschlossen.</p>
+<p><b>6.4</b>&nbsp;Die Verg&uuml;tung des Auftragnehmers wird in Abschl&auml;gen wie folgt f&auml;llig, soweit zwischen den Parteien nicht ausdr&uuml;cklich etwas anderes vereinbart wird:<br />
+- 50 Prozent der vertraglich vereinbarten Gesamtverg&uuml;tung werden zum Zeitpunkt des Vertragsschlusses f&auml;llig.<br />
+- 30 Prozent der vertraglich vereinbarten Gesamtverg&uuml;tung werden zu dem Zeitpunkt f&auml;llig, zu dem der Auftragnehmer dem Kunden das Konzept und die Gestaltung vorgelegt hat.<br />
+- 20 Prozent der vertraglich vereinbarten Gesamtverg&uuml;tung werden mit Ablieferung der Leistungen des Auftragnehmers nach diesem Vertrag f&auml;llig.</p>
+<h3>7) Zeitplan</h3>
+<p><b>7.1</b>&nbsp;Der Auftragnehmer erbringt seine Leistungen im Rahmen der mit dem Kunden vereinbarten Zeitr&auml;ume und zu den jeweils vereinbarten Zeitpunkten.</p>
+<p><b>7.2</b>&nbsp;Soweit zwischen dem Auftragnehmer und dem Kunden nicht ausdr&uuml;cklich etwas anderes vereinbart ist, beginnt der Auftragnehmer mit der Erf&uuml;llung des Vertrags fr&uuml;hestens, wenn bei ihm die erste Abschlagzahlung eingegangen ist. Verz&ouml;gerungen bei den Zahlungen der vereinbarten Abschl&auml;ge verschieben die vereinbarten Zeitpl&auml;ne und Zeitpunkte entsprechend nach hinten.</p>
+<h3>8) Mitwirkungspflichten des Kunden</h3>
+<p><b>8.1</b>&nbsp;Der Kunde ist zur Mitwirkung verpflichtet, soweit dies zur ordnungsgem&auml;&szlig;en Erf&uuml;llung der vertraglichen Leistungen des Auftragnehmers erforderlich ist. Insbesondere muss der Kunde vereinbarte Termine einhalten.</p>
+<p><b>8.2</b>&nbsp;Verletzt der Kunde seine Mitwirkungspflicht, so ist der Auftragnehmer berechtigt, eine angemessene Frist mit der Erkl&auml;rung zu bestimmen, dass er die Fortsetzung des Vertrages nach Ablauf der Frist ablehnt. Nach erfolglosem Ablauf der Frist ist der Auftragnehmer berechtigt, den Vertrag fristlos zu k&uuml;ndigen. Der Anspruch des Auftragnehmers auf Ersatz der ihm durch die unterlassene Mitwirkung des Kunden entstandenen Mehraufwendungen sowie des verursachten Schadens bleibt hiervon unber&uuml;hrt.</p>
+<h3>9) Pflichten zur Namensnennung, Entstellungen</h3>
+<p><b>9.1</b>&nbsp;Der Kunde ist verpflichtet, den Namen und auf Wunsch des Auftragnehmers auch die Kontaktdaten des Auftragnehmers im Impressum der Website anzugeben, die der Auftragnehmer auf Grundlage dieser AGB f&uuml;r den Kunden erstellt, es sei denn, eine solche Nennung ist in der Branche des Kunden vollkommen un&uuml;blich.</p>
+<p><b>9.2</b>&nbsp;Der Auftragnehmer hat das Recht, Entstellungen oder sonstige Beeintr&auml;chtigungen seiner Konzeptionen, Entw&uuml;rfe, Gestaltungen, Programmierungen und sonstigen gesch&uuml;tzten oder schutzf&auml;higen Leistungen, einschlie&szlig;lich Webdesigns, die auf Grundlage des Vertrags zwischen dem Auftragnehmer und dem Kunden entstehen, zu verbieten, soweit diese Entstellungen oder sonstigen Beeintr&auml;chtigungen geeignet sind, die berechtigten geistigen oder pers&ouml;nlichen Interessen des Urhebers an den Leistungen zu gef&auml;hrden.</p>
+<h3>10) Rechteeinr&auml;umung durch den Kunden, Haftungsfreistellung</h3>
+<p><b>10.1</b>&nbsp;Der Kunde sichert zu, dass er zur Verwendung, &Uuml;bergabe und &Uuml;bermittlung s&auml;mtlicher Muster, Vorlagen, Datentr&auml;ger, Dateien, Daten und sonstigen Materialien, Dokumente und Informationen (z.B. Bilder, Grafiken, Texte und Templates), die er in physischer oder elektronischer Form dem Auftragnehmer zur Verf&uuml;gung stellt, berechtigt ist.</p>
+<p><b>10.2</b>&nbsp;Der Kunde r&auml;umt dem Auftragnehmer die Rechte zur vertragsgem&auml;&szlig;en Bearbeitung und Bereitstellung der an den Auftragnehmer &uuml;bergebenen oder &uuml;bermittelten Muster, Vorlagen, Datentr&auml;ger, Dateien, Daten und sonstigen Materialien, Dokumente und Informationen erforderlichen Rechte ein.</p>
+<p><b>10.3</b>&nbsp;Soweit es entgegen der vorgenannten Zusicherung an einer Berechtigung zur Verwendung, &Uuml;bergabe oder &Uuml;bermittlung fehlt, ist der Kunde verpflichtet, den Auftragnehmer von s&auml;mtlichen etwaigen Anspr&uuml;chen Dritter in diesem Zusammenhang freizustellen und die notwendigen Kosten der Rechtsverteidigung einschlie&szlig;lich aller Gerichts- und Anwaltskosten in gesetzlicher H&ouml;he zu tragen. Dies gilt nicht, wenn die Rechtsverletzung vom Kunden nicht zu vertreten ist. Der Kunde ist verpflichtet, dem Auftragnehmer im Falle einer Inanspruchnahme durch Dritte unverz&uuml;glich, wahrheitsgem&auml;&szlig; und vollst&auml;ndig s&auml;mtliche Informationen zur Verf&uuml;gung zu stellen, die f&uuml;r die Pr&uuml;fung der Anspr&uuml;che und die Verteidigung gegen diese erforderlich sind.</p>
+<h3>11) Einr&auml;umung von Nutzungsrechten durch den Auftragnehmer</h3>
+<p><b>11.1</b>&nbsp;S&auml;mtliche Konzeptionen, Entw&uuml;rfe, Gestaltungen, Programmierungen und sonstigen gesch&uuml;tzten oder schutzf&auml;higen Leistungen, einschlie&szlig;lich Webdesigns, des Auftragnehmers, die auf Grundlage des Vertrags zwischen dem Auftragnehmer und dem Kunden entstehen, (im Folgenden auch &quot;Vertragsleistungen&quot;) darf der Kunde nur nach Ma&szlig;gabe der mit dem Auftragnehmer getroffenen Vereinbarungen hinsichtlich der Nutzungs- und Verwertungsrechte, insbesondere im Hinblick auf die Art, den Umfang, die Dauer und das Gebiet der Nutzungen nutzen und verwerten. Jede unbefugte Nutzung und Verwertung der gesch&uuml;tzten Vertragsleistungen au&szlig;erhalb der mit dem Auftragnehmer getroffenen Vereinbarungen ist unzul&auml;ssig.</p>
+<p><b>11.2</b>&nbsp;Der Auftragnehmer r&auml;umt dem Kunden mit vollst&auml;ndiger Bezahlung der Verg&uuml;tung die Nutzungs- und Verwertungsrechte an den Vertragsleistungen in dem Umfang ein, wie dies zwischen den Parteien ausdr&uuml;cklich vereinbart ist. Fehlt eine solche ausdr&uuml;ckliche Vereinbarung, r&auml;umt der Auftragnehmer dem Kunden mit vollst&auml;ndiger Bezahlung der Verg&uuml;tung die f&uuml;r den jeweiligen Vertragszweck erforderlichen Nutzungs- und Verwertungsrechte an den Vertragsleistungen ein. Soweit zwischen den Parteien nichts anderes vereinbart ist, r&auml;umt der Auftragnehmer dem Kunden im Zweifel jeweils nur ein einfaches Nutzungsrecht ein.</p>
+<p><b>11.3</b>&nbsp;Der Auftragnehmer r&auml;umt dem Kunden an den Konzeptionen, Entw&uuml;rfen und Satzdateien sowie an den sonstigen Gegenst&auml;nden, Dateien und Daten, die auf Grundlage des Vertrags entstehen, blo&szlig; die Nutzungsrechte gem&auml;&szlig; diesem Vertrag ein und &uuml;bertr&auml;gt dem Kunden nicht auch das Eigentum an diesen, soweit zwischen den Parteien nicht ausdr&uuml;cklich etwas anderes vereinbart ist. Die Konzeptionen, Entw&uuml;rfe und Satzdateien sowie die sonstigen Gegenst&auml;nde, Dateien und Daten, die auf Grundlage dieses Vertrags entstehen, verbleiben vielmehr im Eigentum des Auftragnehmers, der zu deren Herausgabe nach diesem Vertrag nicht verpflichtet ist. Der Auftragnehmer und der Kunde k&ouml;nnen deren Herausgabe gegen eine gesonderte Verg&uuml;tung vereinbaren.</p>
+<p><b>11.4</b>&nbsp;Jede &Uuml;bertragung, Teil-&Uuml;bertragung oder Einr&auml;umung von Nutzungsrechten, einschlie&szlig;lich von Unterlizenzen, an den Vertragsleistungen des Auftragnehmers bedarf dessen vorheriger schriftlicher Zustimmung.</p>
+<p><b>11.5</b>&nbsp;S&auml;mtliche Nutzungen und Verwertungen der Vertragsleistungen, die &uuml;ber den vereinbarten Umfang hinausgehen, sind nur mit vorheriger Zustimmung des Auftragnehmers zul&auml;ssig und verpflichten den Kunden zur Zahlung eines entsprechenden zus&auml;tzlichen Nutzungshonorars gegen&uuml;ber dem Auftragnehmer. Bei unberechtigten Nutzungen und Verwertungen hat der Auftragnehmer das Recht, gem&auml;&szlig; den gesetzlichen Vorgaben Unterlassungs- und Schadensersatzanspr&uuml;che gegen&uuml;ber dem Kunden geltend zu machen.</p>
+<p><b>11.6</b>&nbsp;Soweit zwischen den Parteien nicht ausdr&uuml;cklich anders vereinbart, ist jede vollst&auml;ndige oder teilweise Nachahmung, Bearbeitung sowie sonstige Umgestaltung und Ver&auml;nderung der Vertragsleistungen ohne vorherige schriftliche Zustimmung des Auftragnehmers unzul&auml;ssig.</p>
+<h3>12) Eigenwerbung des Auftragnehmers</h3>
+<p><b>12.1</b>&nbsp;Der Auftragnehmer hat das Recht, s&auml;mtliche Vertragsleistungen zum Zweck der Eigenwerbung des Auftragnehmers in s&auml;mtlichen Medien unter Angabe des Namens des Kunden zu verwenden, einschlie&szlig;lich auf das T&auml;tigwerden f&uuml;r den Kunden in diesem Zusammenhang hinzuweisen, soweit zwischen den Parteien nicht ausdr&uuml;cklich etwas anderes vereinbart ist.</p>
+<p><b>12.2</b>&nbsp;Dieses Recht zur Eigenwerbung besteht dar&uuml;ber hinaus nicht, wenn der Kunde den Auftragnehmer &uuml;ber ein etwaiges Geheimhaltungsinteresse informiert hat, das einer solchen Verwendung entgegensteht.</p>
+<h3>13) M&auml;ngelhaftung (Gew&auml;hrleistung)</h3>
+<p><b>13.1</b>&nbsp;F&uuml;r M&auml;ngel der vereinbarten Leistungen haftet der Auftragnehmer nach den Vorschriften der gesetzlichen M&auml;ngelhaftung, soweit in diesen AGB nichts Abweichendes geregelt ist.</p>
+<p><b>13.2</b>&nbsp;Der Kunde muss s&auml;mtliche Leistungen, die der Auftragnehmer ihm abliefert, unverz&uuml;glich auf etwaige M&auml;ngel &uuml;berpr&uuml;fen und, soweit der Auftragnehmer den Kunden hierzu aufgefordert hat oder dies aus sonstigen Gr&uuml;nden erforderlich ist, freigeben. Soweit der Kunde die Leistungen des Auftragnehmers freigibt, sind hinsichtlich offensichtlicher M&auml;ngel etwaige M&auml;ngelrechte ausgeschlossen.</p>
+<p><b>13.3</b>&nbsp;Offensichtliche M&auml;ngel der Leistungen des Auftragnehmers muss der Kunde binnen 14 Tagen nach Ablieferung der jeweiligen Leistungen schriftlich gegen&uuml;ber dem Auftragnehmer anzeigen. Unterl&auml;sst der Kunde die M&auml;ngelanzeige, gelten die Leistungen als genehmigt, es sei denn, dass es sich um einen Mangel handelt, der bei der Untersuchung nicht erkennbar war. Zur Fristwahrung gen&uuml;gt die rechtzeitige Absendung der M&auml;ngelanzeige.</p>
+<h3>14) Haftung</h3>
+<p><b>14.1</b>&nbsp;Der Auftragnehmer haftet nicht f&uuml;r Sch&auml;den, die durch die St&ouml;rung seines Betriebs infolge von h&ouml;herer Gewalt, Aufruhr, Kriegs- und Naturereignissen oder infolge von sonstigen vom Auftragnehmer nicht zu vertretenden Vorkommnissen (z.B. Streik, Aussperrung, Verkehrsst&ouml;rungen, Verf&uuml;gungen von &ouml;ffentlicher Hand des In- und Auslands) veranlasst oder auf nicht schuldhaft durch ihn verursachte technische Probleme zur&uuml;ckzuf&uuml;hren sind. Dies gilt auch, soweit diese St&ouml;rungen bei vom Auftragnehmer beauftragten Dritten eintreten.</p>
+<p><b>14.2</b>&nbsp;Im &Uuml;brigen haftet der Auftragnehmer dem Kunden aus allen vertraglichen, vertrags&auml;hnlichen und gesetzlichen &ndash; einschlie&szlig;lich deliktischen &ndash; Anspr&uuml;chen auf Schadens- und Aufwendungsersatz wie folgt:</p>
+<p><b>14.3</b>&nbsp;Der Auftragnehmer haftet aus jedem Rechtsgrund uneingeschr&auml;nkt<br />
+- bei Vorsatz oder grober Fahrl&auml;ssigkeit,<br />
+- bei vors&auml;tzlicher oder fahrl&auml;ssiger Verletzung des Lebens, des K&ouml;rpers oder der Gesundheit,<br />
+- aufgrund eines Garantieversprechens, soweit diesbez&uuml;glich nichts Anderes geregelt ist,<br />
+- aufgrund zwingender Haftung, wie etwa nach dem Produkthaftungsgesetz.</p>
+<p><b>14.4</b>&nbsp;Verletzt der Auftragnehmer fahrl&auml;ssig eine wesentliche Vertragspflicht, ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt, sofern der Auftragnehmer nicht gem&auml;&szlig; vorstehender Ziffer unbeschr&auml;nkt haftet. Wesentliche Vertragspflichten sind Pflichten, die der Vertrag dem Auftragnehmer nach seinem Inhalt zur Erreichung des Vertragszwecks auferlegt, deren Erf&uuml;llung die ordnungsgem&auml;&szlig;e Durchf&uuml;hrung des Vertrags &uuml;berhaupt erst erm&ouml;glicht und auf deren Einhaltung der Kunde regelm&auml;&szlig;ig vertrauen darf.</p>
+<p><b>14.5</b>&nbsp;Im &Uuml;brigen ist eine Haftung des Auftragnehmers ausgeschlossen.</p>
+<p><b>14.6</b>&nbsp;Vorstehende Haftungsregelungen gelten auch im Hinblick auf die Haftung des Auftragnehmers f&uuml;r seine Erf&uuml;llungsgehilfen und gesetzlichen Vertreter.</p>
+<h3>15) K&uuml;ndigung des Vertrages</h3>
+<p><b>15.1</b>&nbsp;Der Kunde kann bis zur Fertigstellung der Leistungen den Vertrag jederzeit k&uuml;ndigen. K&uuml;ndigt der Kunde, so ist der Auftragnehmer berechtigt, die vereinbarte Verg&uuml;tung zu verlangen; er muss sich jedoch dasjenige anrechnen lassen, was er infolge der Aufhebung des Vertrags an Aufwendungen erspart oder durch anderweitige Verwendung seiner Arbeitskraft erwirbt oder zu erwerben b&ouml;swillig unterl&auml;sst. Es wird vermutet, dass dem Auftragnehmer danach ein Anteil in H&ouml;he von f&uuml;nf (5) Prozent der vereinbarten Verg&uuml;tung zusteht, die auf den noch nicht erbrachten Teil der Leistung entf&auml;llt.</p>
+<p><b>15.2</b>&nbsp;Beide Parteien k&ouml;nnen den Vertrag aus wichtigem Grund ohne Einhaltung einer K&uuml;ndigungsfrist k&uuml;ndigen. Ein wichtiger Grund liegt vor, wenn dem k&uuml;ndigenden Teil unter Ber&uuml;cksichtigung aller Umst&auml;nde des Einzelfalls und unter Abw&auml;gung der beiderseitigen Interessen die Fortsetzung des Vertragsverh&auml;ltnisses bis zur Fertigstellung nicht zugemutet werden kann.</p>
+<h3>16) Anwendbares Recht</h3>
+<p><b>16.1</b>&nbsp;F&uuml;r s&auml;mtliche Rechtsbeziehungen der Parteien gilt das Recht der Bundesrepublik Deutschland unter Ausschluss der Gesetze &uuml;ber den internationalen Kauf beweglicher Waren.</p>
+<p><b>16.2</b>&nbsp;Handelt der Kunde als Kaufmann, juristische Person des &ouml;ffentlichen Rechts oder &ouml;ffentlich-rechtliches Sonderverm&ouml;gen mit Sitz im Hoheitsgebiet der Bundesrepublik Deutschland, ist ausschlie&szlig;licher Gerichtsstand f&uuml;r alle Streitigkeiten aus diesem Vertrag der Gesch&auml;ftssitz des Auftragnehmers. Hat der Kunde seinen Sitz au&szlig;erhalb des Hoheitsgebiets der Bundesrepublik Deutschland, so ist der Gesch&auml;ftssitz des Auftragnehmers ausschlie&szlig;licher Gerichtsstand f&uuml;r alle Streitigkeiten aus diesem Vertrag, wenn der Vertrag oder Anspr&uuml;che aus dem Vertrag der beruflichen oder gewerblichen T&auml;tigkeit des Kunden zugerechnet werden k&ouml;nnen. Der Auftragnehmer ist in den vorstehenden F&auml;llen jedoch in jedem Fall berechtigt, das Gericht am Sitz des Kunden anzurufen.</p>
+<h2>B. Informationen zum Datenschutz</h2>
+<h3>1) Information &uuml;ber die Erhebung personenbezogener Daten und Kontaktdaten des Verantwortlichen</h3>
+<p><b>1.1</b>&nbsp;Im Folgenden informieren wir Sie &uuml;ber den Umgang mit Ihren personenbezogenen Daten im Zusammenhang mit unserer Beauftragung. Personenbezogene Daten sind hierbei alle Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen.</p>
+<p><b>1.2</b>&nbsp;Verantwortlicher f&uuml;r die Datenverarbeitung im Sinne der Datenschutz-Grundverordnung (DSGVO) ist Adam Dia, Dahlenburger Landstra&szlig;e 20H, 21337 L&uuml;neburg, Deutschland, Tel.: 017621214416, E-Mail: info@addus-web.de.</p>
+<p><b>1.3</b>&nbsp;Der f&uuml;r die Verarbeitung von personenbezogenen Daten Verantwortliche ist diejenige nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+<h3>2) Datenverarbeitung zur Auftragsabwicklung</h3>
+<p><b>2.1</b>&nbsp;Zur Erf&uuml;llung unserer vertraglichen Pflichten im Falle einer Auftragserteilung erfassen, speichern und bearbeiten wir ggf. Abbildungen von Personen, welche auf die Identit&auml;t der abgebildeten Personen schlie&szlig;en lassen k&ouml;nnen. Sofern die Bilddateien zur Speicherung und/oder Bearbeitung an externe Dienstleister weitergegeben werden, informieren wir Sie hier&uuml;ber in unserem Angebot. Eine dar&uuml;berhinausgehende Weitergabe erfolgt nicht. Die vorgenannten Verarbeitungsvorg&auml;nge erfolgen ausschlie&szlig;lich zum Zwecke der Auftragsabwicklung gem&auml;&szlig; Art. 6 Abs. 1 lit. b DSGVO. Nach abschlie&szlig;ender Abwicklung des Auftrags werden die betreffenden Bilddateien vollst&auml;ndig gel&ouml;scht, sofern wir mit Ihnen nichts anderes vereinbart haben.</p>
+<p><b>2.2</b>&nbsp;Ihre Zahlungsdaten geben wir im Rahmen der Zahlungsabwicklung an das beauftragte Kreditinstitut weiter, sofern dies f&uuml;r die Zahlungsabwicklung erforderlich ist. Die Rechtsgrundlage f&uuml;r die Weitergabe der Daten ist hierbei Art. 6 Abs. 1 lit. b DSGVO.</p>
+<h3>3) Rechte des Betroffenen</h3>
+<p><b>3.1</b>&nbsp;Das geltende Datenschutzrecht gew&auml;hrt Ihnen gegen&uuml;ber dem Verantwortlichen hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten umfassende Betroffenenrechte (Auskunfts- und Interventionsrechte), &uuml;ber die wir Sie nachstehend informieren:</p>
+<ul>
+<li>Auskunftsrecht gem&auml;&szlig; Art. 15 DSGVO: Sie haben insbesondere ein Recht auf Auskunft &uuml;ber Ihre von uns verarbeiteten personenbezogenen Daten, die Verarbeitungszwecke, die Kategorien der verarbeiteten personenbezogenen Daten, die Empf&auml;nger oder Kategorien von Empf&auml;ngern, gegen&uuml;ber denen Ihre Daten offengelegt wurden oder werden, die geplante Speicherdauer bzw. die Kriterien f&uuml;r die Festlegung der Speicherdauer, das Bestehen eines Rechts auf Berichtigung, L&ouml;schung, Einschr&auml;nkung der Verarbeitung, Widerspruch gegen die Verarbeitung, Beschwerde bei einer Aufsichtsbeh&ouml;rde, die Herkunft Ihrer Daten, wenn diese nicht durch uns bei Ihnen erhoben wurden, das Bestehen einer automatisierten Entscheidungsfindung einschlie&szlig;lich Profiling und ggf. aussagekr&auml;ftige Informationen &uuml;ber die involvierte Logik und die Sie betreffende Tragweite und die angestrebten Auswirkungen einer solchen Verarbeitung, sowie Ihr Recht auf Unterrichtung, welche Garantien gem&auml;&szlig; Art. 46 DSGVO bei Weiterleitung Ihrer Daten in Drittl&auml;nder bestehen;</li>
+<li>Recht auf Berichtigung gem&auml;&szlig; Art. 16 DSGVO: Sie haben ein Recht auf unverz&uuml;gliche Berichtigung Sie betreffender unrichtiger Daten und/oder Vervollst&auml;ndigung Ihrer bei uns gespeicherten unvollst&auml;ndigen Daten;</li>
+<li>Recht auf L&ouml;schung gem&auml;&szlig; Art. 17 DSGVO: Sie haben das Recht, die L&ouml;schung Ihrer personenbezogenen Daten bei Vorliegen der Voraussetzungen des Art. 17 Abs. 1 DSGVO zu verlangen. Dieses Recht besteht jedoch insbesondere dann nicht, wenn die Verarbeitung zur Aus&uuml;bung des Rechts auf freie Meinungs&auml;u&szlig;erung und Information, zur Erf&uuml;llung einer rechtlichen Verpflichtung, aus Gr&uuml;nden des &ouml;ffentlichen Interesses oder zur Geltendmachung, Aus&uuml;bung oder Verteidigung von Rechtsanspr&uuml;chen erforderlich ist;</li>
+<li>Recht auf Einschr&auml;nkung der Verarbeitung gem&auml;&szlig; Art. 18 DSGVO: Sie haben das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen, solange die von Ihnen bestrittene Richtigkeit Ihrer Daten &uuml;berpr&uuml;ft wird, wenn Sie eine L&ouml;schung Ihrer Daten wegen unzul&auml;ssiger Datenverarbeitung ablehnen und stattdessen die Einschr&auml;nkung der Verarbeitung Ihrer Daten verlangen, wenn Sie Ihre Daten zur Geltendmachung, Aus&uuml;bung oder Verteidigung von Rechtsanspr&uuml;chen ben&ouml;tigen, nachdem wir diese Daten nach Zweckerreichung nicht mehr ben&ouml;tigen oder wenn Sie Widerspruch aus Gr&uuml;nden Ihrer besonderen Situation eingelegt haben, solange noch nicht feststeht, ob unsere berechtigten Gr&uuml;nde &uuml;berwiegen;</li>
+<li>Recht auf Unterrichtung gem&auml;&szlig; Art. 19 DSGVO: Haben Sie das Recht auf Berichtigung, L&ouml;schung oder Einschr&auml;nkung der Verarbeitung gegen&uuml;ber dem Verantwortlichen geltend gemacht, ist dieser verpflichtet, allen Empf&auml;ngern, denen die Sie betreffenden personenbezogenen Daten offengelegt wurden, diese Berichtigung oder L&ouml;schung der Daten oder Einschr&auml;nkung der Verarbeitung mitzuteilen, es sei denn, dies erweist sich als unm&ouml;glich oder ist mit einem unverh&auml;ltnism&auml;&szlig;igen Aufwand verbunden. Ihnen steht das Recht zu, &uuml;ber diese Empf&auml;nger unterrichtet zu werden.</li>
+<li>Recht auf Daten&uuml;bertragbarkeit gem&auml;&szlig; Art. 20 DSGVO: Sie haben das Recht, Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, g&auml;ngigen und maschinenlesebaren Format zu erhalten oder die &Uuml;bermittlung an einen anderen Verantwortlichen zu verlangen, soweit dies technisch machbar ist;</li>
+<li>Recht auf Widerruf erteilter Einwilligungen gem&auml;&szlig; Art. 7 Abs. 3 DSGVO: Sie haben das Recht, eine einmal erteilte Einwilligung in die Verarbeitung von Daten jederzeit mit Wirkung f&uuml;r die Zukunft zu widerrufen. Im Falle des Widerrufs werden wir die betroffenen Daten unverz&uuml;glich l&ouml;schen, sofern eine weitere Verarbeitung nicht auf eine Rechtsgrundlage zur einwilligungslosen Verarbeitung gest&uuml;tzt werden kann. Durch den Widerruf der Einwilligung wird die Rechtm&auml;&szlig;igkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht ber&uuml;hrt;</li>
+<li>Recht auf Beschwerde gem&auml;&szlig; Art. 77 DSGVO: Wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die DSGVO verst&ouml;&szlig;t, haben Sie - unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs - das Recht auf Beschwerde bei einer Aufsichtsbeh&ouml;rde, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsortes, Ihres Arbeitsplatzes oder des Ortes des mutma&szlig;lichen Versto&szlig;es.</li>
+</ul>
+<p><b>3.2</b>&nbsp;WIDERSPRUCHSRECHT</p>
+<p>WENN WIR IM RAHMEN EINER INTERESSENABW&Auml;GUNG IHRE PERSONENBEZOGENEN DATEN AUFGRUND UNSERES &Uuml;BERWIEGENDEN BERECHTIGTEN INTERESSES VERARBEITEN, HABEN SIE DAS JEDERZEITIGE RECHT, AUS GR&Uuml;NDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIESE VERARBEITUNG WIDERSPRUCH MIT WIRKUNG F&Uuml;R DIE ZUKUNFT EINZULEGEN.</p>
+<p>MACHEN SIE VON IHREM WIDERSPRUCHSRECHT GEBRAUCH, BEENDEN WIR DIE VERARBEITUNG DER BETROFFENEN DATEN. EINE WEITERVERARBEITUNG BLEIBT ABER VORBEHALTEN, WENN WIR ZWINGENDE SCHUTZW&Uuml;RDIGE GR&Uuml;NDE F&Uuml;R DIE VERARBEITUNG NACHWEISEN K&Ouml;NNEN, DIE IHRE INTERESSEN, GRUNDRECHTE UND GRUNDFREIHEITEN &Uuml;BERWIEGEN, ODER WENN DIE VERARBEITUNG DER GELTENDMACHUNG, AUS&Uuml;BUNG ODER VERTEIDIGUNG VON RECHTSANSPR&Uuml;CHEN DIENT.</p>
+<p>WERDEN IHRE PERSONENBEZOGENEN DATEN VON UNS VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN. SIE K&Ouml;NNEN DEN WIDERSPRUCH WIE OBEN BESCHRIEBEN AUS&Uuml;BEN.</p>
+<p>MACHEN SIE VON IHREM WIDERSPRUCHSRECHT GEBRAUCH, BEENDEN WIR DIE VERARBEITUNG DER BETROFFENEN DATEN ZU DIREKTWERBEZWECKEN.</p>
+<h3>4) Dauer der Speicherung personenbezogener Daten</h3>
+<p>Die Dauer der Speicherung von personenbezogenen Daten bemisst sich anhand der jeweiligen Rechtsgrundlage, am Verarbeitungszweck und &ndash; sofern einschl&auml;gig &ndash; zus&auml;tzlich anhand der jeweiligen gesetzlichen Aufbewahrungsfrist (z.B. handels- und steuerrechtliche Aufbewahrungsfristen).</p>
+<p>Bei der Verarbeitung von personenbezogenen Daten auf Grundlage einer ausdr&uuml;cklichen Einwilligung gem&auml;&szlig; Art. 6 Abs. 1 lit. a DSGVO werden die betroffenen Daten so lange gespeichert, bis Sie Ihre Einwilligung widerrufen.</p>
+<p>Existieren gesetzliche Aufbewahrungsfristen f&uuml;r Daten, die im Rahmen rechtsgesch&auml;ftlicher bzw. rechtsgesch&auml;fts&auml;hnlicher Verpflichtungen auf der Grundlage von Art. 6 Abs. 1 lit. b DSGVO verarbeitet werden, werden diese Daten nach Ablauf der Aufbewahrungsfristen routinem&auml;&szlig;ig gel&ouml;scht, sofern sie nicht mehr zur Vertragserf&uuml;llung oder Vertragsanbahnung erforderlich sind und/oder unsererseits kein berechtigtes Interesse an der Weiterspeicherung fortbesteht.</p>
+<p>Bei der Verarbeitung von personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO werden diese Daten so lange gespeichert, bis Sie Ihr Widerspruchsrecht nach Art. 21 Abs. 1 DSGVO aus&uuml;ben, es sei denn, wir k&ouml;nnen zwingende schutzw&uuml;rdige Gr&uuml;nde f&uuml;r die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten &uuml;berwiegen, oder die Verarbeitung dient der Geltendmachung, Aus&uuml;bung oder Verteidigung von Rechtsanspr&uuml;chen.</p>
+<p>Bei der Verarbeitung von personenbezogenen Daten zum Zwecke der Direktwerbung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO werden diese Daten so lange gespeichert, bis Sie Ihr Widerspruchsrecht nach Art. 21 Abs. 2 DSGVO aus&uuml;ben.</p>
+<p>Sofern sich aus den sonstigen Informationen dieser Erkl&auml;rung &uuml;ber spezifische Verarbeitungssituationen nichts anderes ergibt, werden gespeicherte personenbezogene Daten im &Uuml;brigen dann gel&ouml;scht, wenn sie f&uuml;r die Zwecke, f&uuml;r die sie erhoben oder auf sonstige Weise verarbeitet wurden, nicht mehr notwendig sind.</p></div><div id="itkanzlei_txt_copyright" style="font-size: 12px; margin-top: 8em;"><div style="display: inline-block; vertical-align: top;"><a href="https://www.it-recht-kanzlei.de/" target="_blank"><img src="assets/itrk-copyright-agb.png" id="itkanzlei_img_copyright" alt="&copy; IT-Recht Kanzlei" title="&copy; IT-Recht Kanzlei" style="margin-top: -20px; border-style: none; max-width: 100%;" /></a></div><div style="display: inline-block; vertical-align: top; margin-left: 5px; float: right; white-space: nowrap;">Stand: 22.05.2026, 23:48:45</div><div style="clear: right;"></div></div>
+    </div>
 
-      <h2 id="g2">§ 2 Vertragspartner</h2>
-      <p>Der Vertrag kommt zustande mit:</p>
-      <p>
-        <strong>Adam Dia / addus.</strong><br>
-        Dahlenburgerlandstraße 20H<br>
-        21337 Lüneburg<br>
-        Deutschland
-      </p>
-      <p>
-        E-Mail: <a href="mailto:info@addus-web.de">info@addus-web.de</a><br>
-        Telefon: +49 176 2121 44 16
-      </p>
-
-      <h2 id="g3">§ 3 Vertragsgegenstand</h2>
-      <p>(1) Der Auftragnehmer erbringt Dienstleistungen im Bereich Webdesign, Webentwicklung, Suchmaschinenoptimierung (SEO), strategische Beratung sowie verwandte digitale Dienstleistungen. Der konkrete Leistungsumfang ergibt sich aus dem jeweiligen Angebot, der Leistungsbeschreibung oder der individuellen Vereinbarung.</p>
-      <p>(2) Sofern der Auftragnehmer im Rahmen der Leistungserbringung Drittanbieter-Dienste einsetzt (z. B. Hosting-Provider, Schriftlizenzen, Stockfotos), gelten ergänzend die jeweiligen Nutzungsbedingungen dieser Drittanbieter. Der Auftragnehmer weist den Auftraggeber hierauf gesondert hin.</p>
-
-      <h2 id="g4">§ 4 Vertragsschluss</h2>
-      <p>(1) Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind. Darstellungen auf der Website des Auftragnehmers stellen kein verbindliches Angebot dar.</p>
-      <p>(2) Der Vertrag kommt durch die schriftliche Auftragsbestätigung des Auftragnehmers oder durch den Beginn der Leistungserbringung zustande. Als Schriftform gilt auch die elektronische Form (E-Mail).</p>
-      <p>(3) Nachträgliche Änderungen oder Erweiterungen des vereinbarten Leistungsumfangs bedürfen einer gesonderten schriftlichen Vereinbarung und können zu einer Anpassung des Preises und der Lieferfrist führen.</p>
-
-      <h2 id="g5">§ 5 Leistungsumfang</h2>
-      <p>(1) Der Umfang der zu erbringenden Leistungen ergibt sich aus der Leistungsbeschreibung im jeweiligen Angebot. Mündliche Nebenabreden bestehen nicht.</p>
-      <p>(2) Der Auftragnehmer ist berechtigt, zur Erfüllung seiner vertraglichen Pflichten qualifizierte Dritte (Subunternehmer) hinzuzuziehen. Die Verantwortung gegenüber dem Auftraggeber verbleibt beim Auftragnehmer.</p>
-      <p>(3) Leistungen, die über den im Angebot festgelegten Umfang hinausgehen, werden nach vorheriger Abstimmung gesondert vergütet. Der Auftragnehmer wird den Auftraggeber vorab über den voraussichtlichen Mehraufwand informieren.</p>
-
-      <h2 id="g6">§ 6 Mitwirkungspflichten des Auftraggebers</h2>
-      <p>(1) Der Auftraggeber stellt dem Auftragnehmer alle für die Durchführung des Projekts erforderlichen Informationen, Unterlagen und Materialien (z. B. Texte, Bilder, Logos, Zugangsdaten) rechtzeitig und unentgeltlich zur Verfügung.</p>
-      <p>(2) Der Auftraggeber benennt einen verbindlichen Ansprechpartner, der befugt ist, im Rahmen des Projekts Entscheidungen zu treffen und Freigaben zu erteilen.</p>
-      <p>(3) Der Auftraggeber stellt sicher, dass die von ihm bereitgestellten Inhalte und Materialien frei von Rechten Dritter sind oder die erforderlichen Nutzungsrechte vorliegen. Der Auftraggeber stellt den Auftragnehmer von etwaigen Ansprüchen Dritter frei, die aus einer Verletzung dieser Pflicht resultieren.</p>
-      <p>(4) Kommt der Auftraggeber seinen Mitwirkungspflichten nicht oder nicht rechtzeitig nach, verlängern sich vereinbarte Fristen entsprechend. Daraus resultierende Mehrkosten trägt der Auftraggeber.</p>
-
-      <h2 id="g7">§ 7 Preise und Zahlungsbedingungen</h2>
-      <p>(1) Es gelten die im jeweiligen Angebot genannten Preise. Alle Preise verstehen sich als Nettopreise zuzüglich der gesetzlich geltenden Umsatzsteuer, sofern nicht ausdrücklich als Bruttopreise ausgewiesen. Gemäß § 19 UStG wird derzeit keine Umsatzsteuer erhoben (Kleinunternehmerregelung).</p>
-      <p>(2) Der Auftragnehmer bietet folgende Zahlungsarten an:</p>
-      <ul>
-        <li><strong>Vorkasse:</strong> Zahlung per Überweisung vor Beginn der Leistungserbringung. Die Bankverbindung wird nach Auftragsbestätigung mitgeteilt.</li>
-        <li><strong>Kreditkarte:</strong> Zahlung per Kreditkarte über einen sicheren Zahlungsdienstleister.</li>
-      </ul>
-      <p>(3) Sofern nicht anders vereinbart, werden Projekte wie folgt abgerechnet:</p>
-      <ul>
-        <li>50 % des Gesamtbetrags bei Auftragserteilung (Anzahlung)</li>
-        <li>50 % des Gesamtbetrags nach Fertigstellung und Abnahme</li>
-      </ul>
-      <p>(4) Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug fällig, sofern nicht anders vereinbart.</p>
-      <p>(5) Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen in gesetzlicher Höhe (§ 288 BGB) zu berechnen. Die Geltendmachung eines weitergehenden Verzugsschadens bleibt vorbehalten.</p>
-
-      <h2 id="g8">§ 8 Lieferung und Fertigstellung</h2>
-      <p>(1) Liefertermine und -fristen sind nur dann verbindlich, wenn sie vom Auftragnehmer ausdrücklich als verbindlich bestätigt werden.</p>
-      <p>(2) Leistungen des Auftragnehmers werden digital erbracht. Eine physische Lieferung findet nicht statt. Die Bereitstellung erfolgt in der Regel durch Veröffentlichung auf dem vereinbarten Server oder durch digitale Übergabe der Projektdateien.</p>
-      <p>(3) Verzögerungen, die durch verspätete Zulieferung von Materialien oder Informationen durch den Auftraggeber oder durch nachträgliche Änderungswünsche entstehen, gehen nicht zu Lasten des Auftragnehmers.</p>
-
-      <h2 id="g9">§ 9 Abnahme</h2>
-      <p>(1) Nach Fertigstellung der vereinbarten Leistung wird der Auftragnehmer den Auftraggeber zur Abnahme auffordern. Der Auftraggeber hat die Leistung innerhalb von 14 Tagen nach Aufforderung zu prüfen und abzunehmen.</p>
-      <p>(2) Beanstandungen sind innerhalb der Prüffrist schriftlich und konkret mitzuteilen. Unwesentliche Mängel berechtigen nicht zur Verweigerung der Abnahme.</p>
-      <p>(3) Äußert sich der Auftraggeber nicht innerhalb der Prüffrist und nutzt die Leistung produktiv (z. B. Veröffentlichung der Website), gilt die Leistung als abgenommen.</p>
-
-      <h2 id="g10">§ 10 Urheberrecht und Nutzungsrechte</h2>
-      <p>(1) Der Auftragnehmer räumt dem Auftraggeber nach vollständiger Bezahlung das einfache, zeitlich unbeschränkte Nutzungsrecht an den im Rahmen des Vertrags erstellten Werken ein, soweit diese urheberrechtlich geschützt sind. Die Nutzungsrechte beschränken sich auf den vertraglich vereinbarten Zweck.</p>
-      <p>(2) Vor vollständiger Bezahlung verbleiben sämtliche Nutzungsrechte beim Auftragnehmer. Der Auftraggeber ist vor der vollständigen Bezahlung nicht berechtigt, die erstellten Werke zu nutzen, zu veröffentlichen oder Dritten zugänglich zu machen.</p>
-      <p>(3) Die Einräumung ausschließlicher Nutzungsrechte oder die Übertragung des Urheberrechts bedarf einer gesonderten schriftlichen Vereinbarung und kann gesondert vergütet werden.</p>
-      <p>(4) Der Auftragnehmer ist berechtigt, die im Rahmen des Vertrags erstellten Werke in seinem Portfolio und zu Referenzzwecken zu verwenden, sofern der Auftraggeber dem nicht ausdrücklich schriftlich widerspricht.</p>
-      <p>(5) Quellcode, der im Rahmen des Projekts erstellt wurde, wird nach vollständiger Bezahlung dem Auftraggeber übergeben. Standardbibliotheken, Frameworks und wiederverwendbare Komponenten, die nicht speziell für den Auftraggeber entwickelt wurden, verbleiben beim Auftragnehmer.</p>
-
-      <h2 id="g11">§ 11 Gewährleistung</h2>
-      <p>(1) Der Auftragnehmer gewährleistet, dass die erbrachten Leistungen den vertraglich vereinbarten Anforderungen entsprechen und nach dem aktuellen Stand der Technik erstellt werden.</p>
-      <p>(2) Mängel sind vom Auftraggeber unverzüglich nach Entdeckung schriftlich anzuzeigen. Der Auftragnehmer wird angezeigte Mängel innerhalb einer angemessenen Frist beheben.</p>
-      <p>(3) Eine vollständige Fehlerfreiheit von Software kann nach dem Stand der Technik nicht gewährleistet werden. Maßstab für die Mangelfreiheit ist die vereinbarte Leistungsbeschreibung.</p>
-      <p>(4) Von der Gewährleistung ausgenommen sind Mängel, die durch nachträgliche Eingriffe des Auftraggebers oder Dritter, durch unsachgemäße Nutzung, durch höhere Gewalt oder durch Änderungen an der technischen Umgebung (z. B. Browser-Updates, Server-Änderungen) entstehen.</p>
-      <p>(5) Die Gewährleistungsfrist beträgt 12 Monate ab Abnahme, sofern der Auftraggeber Unternehmer ist. Gegenüber Verbrauchern gelten die gesetzlichen Gewährleistungsfristen.</p>
-
-      <h2 id="g12">§ 12 Haftung</h2>
-      <p>(1) Der Auftragnehmer haftet unbeschränkt für Schäden, die auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung beruhen, sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.</p>
-      <p>(2) Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten). In diesem Fall ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt.</p>
-      <p>(3) Die Haftung für mittelbare Schäden, Folgeschäden, entgangenen Gewinn oder Datenverlust ist bei leichter Fahrlässigkeit ausgeschlossen.</p>
-      <p>(4) Die vorstehenden Haftungsbeschränkungen gelten auch zugunsten der Erfüllungsgehilfen des Auftragnehmers.</p>
-      <p>(5) Die Haftung nach dem Produkthaftungsgesetz bleibt unberührt.</p>
-
-      <h2 id="g13">§ 13 Vertraulichkeit und Datenschutz</h2>
-      <p>(1) Beide Vertragsparteien verpflichten sich, alle im Rahmen der Zusammenarbeit erlangten vertraulichen Informationen und Geschäftsgeheimnisse der jeweils anderen Partei vertraulich zu behandeln und nicht an Dritte weiterzugeben. Diese Verpflichtung besteht auch nach Beendigung des Vertragsverhältnisses fort.</p>
-      <p>(2) Die Verarbeitung personenbezogener Daten erfolgt im Einklang mit den Bestimmungen der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG). Nähere Informationen entnehmen Sie unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-      <p>(3) Soweit der Auftragnehmer im Rahmen der Leistungserbringung Zugang zu personenbezogenen Daten des Auftraggebers erhält, schließen die Parteien bei Bedarf eine gesonderte Vereinbarung zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
-
-      <h2 id="g14">§ 14 Kündigung</h2>
-      <p>(1) Verträge über einmalige Leistungen (z. B. Erstellung einer Website) können vor Fertigstellung nur aus wichtigem Grund gekündigt werden.</p>
-      <p>(2) Bei laufenden Verträgen (z. B. Wartung, SEO-Betreuung) beträgt die Kündigungsfrist einen Monat zum Monatsende, sofern nicht anders vereinbart.</p>
-      <p>(3) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt für beide Vertragsparteien unberührt. Ein wichtiger Grund liegt insbesondere vor, wenn:</p>
-      <ul>
-        <li>die andere Partei trotz Mahnung und angemessener Fristsetzung wesentliche Vertragspflichten nicht erfüllt;</li>
-        <li>über das Vermögen der anderen Partei ein Insolvenzverfahren eröffnet oder die Eröffnung mangels Masse abgelehnt wird.</li>
-      </ul>
-      <p>(4) Bei Kündigung durch den Auftraggeber vor Fertigstellung hat der Auftragnehmer Anspruch auf die Vergütung der bis zum Zeitpunkt der Kündigung erbrachten Leistungen. Bereits geleistete Anzahlungen werden verrechnet.</p>
-
-      <h2 id="g15">§ 15 Streitbeilegung</h2>
-      <p>(1) Die EU-Kommission hat eine Internetplattform zur Online-Beilegung von Streitigkeiten geschaffen. Die Plattform dient als Anlaufstelle zur außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus Online-Verträgen erwachsen. Nähere Informationen sind unter dem folgenden Link verfügbar: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
-      <p>(2) Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir weder bereit noch verpflichtet.</p>
-
-      <h2 id="g16">§ 16 Schlussbestimmungen</h2>
-      <p>(1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>
-      <p>(2) Ist der Auftraggeber Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist der Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit dem Vertragsverhältnis Lüneburg.</p>
-      <p>(3) Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt. An die Stelle der unwirksamen Bestimmung tritt eine Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.</p>
-      <p>(4) Änderungen und Ergänzungen dieser AGB bedürfen der Schriftform. Dies gilt auch für die Aufhebung dieses Schriftformerfordernisses.</p>
-
-      <h2 id="g17">§ 17 Hinweis zu Kundenstimmen, Bewertungen und Bewertungskennzahlen</h2>
+    <section class="legal__appendix" aria-label="Ergänzender Transparenzhinweis">
+      <p class="legal__appendix-note">Ergänzender Hinweis von addus. — nicht Teil der vorstehenden Allgemeinen Geschäftsbedingungen der IT-Recht Kanzlei.</p>
+      <h2 id="g17">Transparenzhinweis zu Kundenstimmen, Bewertungen und Bewertungskennzahlen</h2>
       <p>(1) <strong>Transparenzhinweis nach § 5b Abs. 3 UWG.</strong> addus. weist ausdrücklich darauf hin, dass sämtliche auf dieser Website dargestellten Kundenstimmen, Erfahrungsberichte und Bewertungstexte keine verifizierten Verbraucherbewertungen darstellen. Eine Überprüfung, ob die Inhalte von Personen stammen, die tatsächlich Leistungen von addus. in Anspruch genommen haben, findet nicht statt. Die dargestellten Inhalte sind illustrativ und dienen ausschließlich der Veranschaulichung typischer Anwendungsfälle und Erwartungshorizonte.</p>
       <p>(2) Namen, Berufsbezeichnungen, Branchen- sowie Ortsangaben in den dargestellten Bewertungen sind frei gewählt. Etwaige Ähnlichkeiten mit tatsächlich existierenden Personen, Unternehmen oder Einrichtungen sind nicht beabsichtigt und rein zufällig.</p>
-      <p>(3) Die auf der Website dargestellten Bewertungskennzahlen — insbesondere die Durchschnittsbewertung (z.&nbsp;B. „4,9 Sterne"), die Anzahl der Bewertungen (z.&nbsp;B. „98 Bewertungen auf Google"), sämtliche Sterne-Darstellungen sowie die Anzahl abgeschlossener Projekte — sind ebenfalls illustrativ. Sie geben keine geprüften Daten einer Bewertungsplattform wieder und stellen keine verifizierten Statistiken im Sinne von Anhang zu § 3 Abs. 3 Nr. 23 UWG dar.</p>
+      <p>(3) Die auf der Website dargestellten Bewertungskennzahlen — insbesondere die Durchschnittsbewertung (z.&nbsp;B. „4,9 Sterne“), die Anzahl der Bewertungen (z.&nbsp;B. „98 Bewertungen auf Google“), sämtliche Sterne-Darstellungen sowie die Anzahl abgeschlossener Projekte — sind ebenfalls illustrativ. Sie geben keine geprüften Daten einer Bewertungsplattform wieder und stellen keine verifizierten Statistiken im Sinne von Anhang zu § 3 Abs. 3 Nr. 23 UWG dar.</p>
       <p>(4) Die Verwendung des Google-Logos sowie der von Google verwendeten Sterne-Darstellung erfolgt ausschließlich zur visuellen Illustration. Sie begründet keine geschäftliche Verbindung, Partnerschaft, Lizenzierung, Zertifizierung oder sonstige Beziehung zur Google&nbsp;LLC oder einem mit ihr verbundenen Unternehmen und impliziert insbesondere keine Verifizierung der dargestellten Inhalte durch Google.</p>
       <p>(5) Tatsächliche, durch die jeweilige Plattform geprüfte Kundenbewertungen können — soweit vorhanden — ausschließlich dem öffentlichen Google-Unternehmensprofil von addus. entnommen werden. Nur die dort hinterlegten Bewertungen sind als authentisch und durch Dritte nachprüfbar anzusehen.</p>
       <p>(6) Dieser Hinweis konkretisiert die Pflichten aus § 5 UWG (Verbot irreführender geschäftlicher Handlungen), § 5b Abs. 3 UWG (wesentliche Informationen bei Verbraucherbewertungen) sowie Anhang zu § 3 Abs. 3 Nr. 23, 23a, 23b und 23c UWG (per-se-Verbote im Zusammenhang mit Bewertungen).</p>
-    </div>
+    </section>
   </main>
 
+  <!-- ══ FOOTER ══ -->
   <footer class="lftr" role="contentinfo">
     <div class="lftr__inner">
       <span class="lftr__brand">addus<i>.</i></span>

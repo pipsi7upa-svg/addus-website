@@ -190,16 +190,6 @@
 
   // ── HERO CYCLING WORD — replaced by Lektor-cycle below ──
 
-  // ── NEWSLETTER MINI (no-op, prevent submit until wired up) ──
-  var nlForm = document.querySelector('.ftr__nl-form');
-  if (nlForm) {
-    nlForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = nlForm.querySelector('.ftr__nl-btn');
-      if (btn) btn.textContent = '✓';
-    });
-  }
-
   // ════════════════════════════════════════════════════════
   //  HERO — Cinematic interactions
   //  • Per-letter spans for magnetic hover
