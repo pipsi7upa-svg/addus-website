@@ -82,6 +82,20 @@ js/auftragsbuch.js
 
 # Local backups during migration
 *.OLD-BACKUP
+*.ALT
+
+# Interne Arbeitsdateien / Design-Experimente (nie deployen)
+DESIGN.md
+PRODUCT.md
+SESSION.md
+RECHTSTEXTE-STATUS.md
+_ref-flowers.webp
+demo-botanic.html
+demo-taste.html
+index-taste.html
 .deploy-worker.py
 .read-rule.py
 .update-rule.py
+
+.frugal-fable/
+.playwright-mcp/

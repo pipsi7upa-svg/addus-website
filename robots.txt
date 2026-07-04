@@ -2,6 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /demos/
 Disallow: /assets/*.html
+Disallow: /demo-botanic.html
+Disallow: /demo-taste.html
+Disallow: /index-taste.html
+Disallow: /editorial-preview.html
+Disallow: /index.html.OLD-BACKUP
 
 User-agent: GPTBot
 Allow: /

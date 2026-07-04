@@ -1,1294 +1,188 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bella Vista Ristorante — München</title>
-  <link rel="stylesheet" href="../css/fonts.css">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #0d0806;
-      --bg2:       #120f0c;
-      --bg3:       #1a1410;
-      --gold:      #c9a96e;
-      --gold-light:#e2c99a;
-      --gold-dim:  #8a6e44;
-      --cream:     #f0e8d8;
-      --cream-dim: #b8a898;
-      --border:    rgba(201,169,110,0.18);
-    }
-
-    html, body { overflow: hidden; height: 100%; }
-    .page-wrap { height: 100%; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
-    .page-wrap::-webkit-scrollbar { display: none; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--cream);
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-      overscroll-behavior: none;
-    }
-
-    /* ── NAV ─────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 56px;
-      height: 76px;
-      background: linear-gradient(to bottom, rgba(13,8,6,0.97) 0%, rgba(13,8,6,0.80) 100%);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 26px;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--cream-dim);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.25s;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    .nav-cta {
-      padding: 10px 24px;
-      border: 1px solid var(--gold);
-      color: var(--gold) !important;
-      border-radius: 2px;
-      font-size: 12px !important;
-      letter-spacing: 0.15em !important;
-      text-transform: uppercase;
-      transition: background 0.25s, color 0.25s !important;
-    }
-
-    .nav-cta:hover {
-      background: var(--gold) !important;
-      color: var(--bg) !important;
-    }
-
-    /* ── HERO ────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      background: url('https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1400/addus/demo-restaurant-hero.jpg') center/cover no-repeat;
-      transform: scale(1.04);
-      transition: transform 8s ease;
-    }
-
-    #hero:hover .hero-img { transform: scale(1.0); }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(13,8,6,0.35) 0%,
-        rgba(13,8,6,0.55) 50%,
-        rgba(13,8,6,0.90) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      padding: 0 32px;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 22px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(201,169,110,0.4);
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(62px, 9vw, 110px);
-      line-height: 0.92;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      margin-bottom: 24px;
-    }
-
-    .hero-title span { color: var(--gold); }
-
-    .hero-sub {
-      font-size: 15px;
-      letter-spacing: 0.08em;
-      color: var(--cream-dim);
-      margin-bottom: 18px;
-    }
-
-    .stars {
-      color: var(--gold);
-      font-size: 18px;
-      letter-spacing: 4px;
-      margin-bottom: 36px;
-      display: block;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 16px 44px;
-      background: var(--gold);
-      color: var(--bg);
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.25s, transform 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    /* ── SECTION COMMONS ─────────────────────────────── */
-    section {
-      padding: 100px 56px;
-    }
-
-    .section-label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      text-align: center;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(38px, 5vw, 58px);
-      color: var(--cream);
-      text-align: center;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .section-intro {
-      text-align: center;
-      color: var(--cream-dim);
-      font-size: 15px;
-      max-width: 540px;
-      margin: 0 auto 60px;
-      line-height: 1.8;
-    }
-
-    /* ── MENU ────────────────────────────────────────── */
-    #menu {
-      background: var(--bg2);
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .menu-card {
-      position: relative;
-      overflow: hidden;
-      background: var(--bg3);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .menu-card-img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-      filter: brightness(0.88) saturate(0.9);
-    }
-
-    .menu-card:hover .menu-card-img,
-    .menu-card.mock-hover .menu-card-img {
-      transform: scale(1.06);
-      filter: brightness(0.95) saturate(1.0);
-    }
-
-    .menu-card.mock-hover {
-      box-shadow: 0 12px 40px rgba(201,169,110,0.18);
-      border-color: var(--gold);
-    }
-
-    .menu-card-body {
-      padding: 24px 28px 28px;
-      border: 1px solid var(--border);
-      border-top: none;
-      flex: 1;
-    }
-
-    .menu-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-
-    .menu-card-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 22px;
-      color: var(--cream);
-      font-weight: 400;
-    }
-
-    .menu-card-price {
-      font-size: 17px;
-      color: var(--gold);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-    }
-
-    .menu-card-desc {
-      font-size: 13px;
-      color: var(--cream-dim);
-      line-height: 1.65;
-    }
-
-    /* ── RESERVE ─────────────────────────────────────── */
-    #reserve {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-
-    .reserve-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start;
-    }
-
-    .reserve-info-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 48px;
-      color: var(--cream);
-      line-height: 1.05;
-      margin-bottom: 32px;
-    }
-
-    .reserve-info-title span {
-      display: block;
-      color: var(--gold);
-    }
-
-    .reserve-desc {
-      font-size: 14px;
-      color: var(--cream-dim);
-      line-height: 1.85;
-      margin-bottom: 44px;
-      max-width: 360px;
-    }
-
-    .hours-block {
-      margin-bottom: 40px;
-    }
-
-    .hours-label {
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .hours-row:first-of-type { border-top: 1px solid var(--border); }
-
-    .hours-day { color: var(--cream-dim); }
-    .hours-time { color: var(--cream); }
-
-    .reserve-phone {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: var(--gold);
-      font-size: 18px;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      text-decoration: none;
-    }
-
-    .reserve-phone-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--gold-dim);
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .reserve-phone-icon svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 1.5;
-    }
-
-    /* FORM */
-    .reserve-form {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 48px 44px;
-    }
-
-    .form-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 28px;
-      color: var(--cream);
-      margin-bottom: 32px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      color: var(--cream);
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      padding: 13px 16px;
-      outline: none;
-      border-radius: 2px;
-      transition: border-color 0.25s, background 0.25s;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    .form-group select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a6e44' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 16px;
-      background-color: rgba(255,255,255,0.04);
-      padding-right: 40px;
-      cursor: pointer;
-    }
-
-    .form-group select option {
-      background: #1a1410;
-      color: var(--cream);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold-dim);
-      background: rgba(201,169,110,0.06);
-    }
-
-    .form-group input.filled,
-    .form-group select.filled {
-      border-color: rgba(201,169,110,0.45);
-    }
-
-    .btn-reserve {
-      width: 100%;
-      padding: 17px;
-      background: var(--gold);
-      color: var(--bg);
-      border: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background 0.35s, color 0.35s, transform 0.2s;
-      margin-top: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-reserve:hover { background: var(--gold-light); }
-
-    .btn-reserve.success {
-      background: #2d5a2d;
-      color: #9dd49d;
-      letter-spacing: 0.18em;
-    }
-
-    .btn-reserve:active { transform: scale(0.99); }
-
-    /* ── STORIA ──────────────────────────────────────── */
-    #storia {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-    }
-
-    .storia-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: center;
-    }
-
-    .storia-img {
-      width: 100%;
-      height: 460px;
-      object-fit: cover;
-      filter: brightness(0.80) sepia(0.12);
-      display: block;
-    }
-
-    .storia-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 18px;
-    }
-
-    .storia-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 44px;
-      color: var(--cream);
-      line-height: 1.1;
-      margin-bottom: 28px;
-    }
-
-    .storia-text {
-      font-size: 14px;
-      color: var(--cream-dim);
-      line-height: 1.9;
-      margin-bottom: 18px;
-    }
-
-    .storia-quote {
-      border-left: 2px solid var(--gold);
-      padding-left: 24px;
-      margin: 32px 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 20px;
-      color: var(--cream);
-      line-height: 1.5;
-    }
-
-    /* ── FOOTER ──────────────────────────────────────── */
-    footer {
-      background: #080504;
-      border-top: 1px solid var(--border);
-      padding: 60px 56px 40px;
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      max-width: 1100px;
-      margin: 0 auto 48px;
-    }
-
-    .footer-brand-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 28px;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 14px;
-    }
-
-    .footer-brand-desc {
-      font-size: 13px;
-      color: var(--cream-dim);
-      line-height: 1.75;
-      max-width: 240px;
-    }
-
-    .footer-col-title {
-      font-size: 10px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--cream-dim);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--gold); }
-
-    .footer-address {
-      font-size: 13px;
-      color: var(--cream-dim);
-      line-height: 1.9;
-      font-style: normal;
-    }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--gold-dim);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px;
-    }
-
-    .social-link {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cream-dim);
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .social-link:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* ── TOAST ───────────────────────────────────────── */
-    .toast-success {
-      position: fixed;
-      bottom: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #1e1a10 0%, #2a2110 100%);
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      padding: 18px 36px;
-      font-size: 14px;
-      color: var(--cream);
-      letter-spacing: 0.04em;
-      z-index: 9999;
-      white-space: nowrap;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.08);
-      transition: bottom 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
-      opacity: 0;
-    }
-
-    .toast-success.visible {
-      bottom: 40px;
-      opacity: 1;
-    }
-
-    .toast-success.hiding {
-      opacity: 0;
-      bottom: 20px;
-      transition: bottom 0.4s ease, opacity 0.4s ease;
-    }
-
-    /* ── TYPING ACTIVE STATE ─────────────────────────── */
-    .typing-active {
-      border-color: var(--gold) !important;
-      background: rgba(201,169,110,0.08) !important;
-    }
-
-    /* ── DEMO-CURSOR ─────────────────────────────────── */
-    .demo-cursor{
-      position:fixed;top:0;left:0;
-      width:26px;height:32px;
-      z-index:99999;pointer-events:none;
-      opacity:0;
-      transform:translate(-100px,-100px);
-      transition:transform .5s cubic-bezier(.3,.05,.2,1),opacity .3s ease;
-      will-change:transform,opacity;
-      filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
-    }
-    .demo-cursor.is-on{opacity:1}
-    .demo-cursor.is-fast{transition-duration:.32s}
-    .demo-cursor svg{display:block;width:100%;height:100%}
-    .demo-cursor.is-pressed svg{transform:scale(.82);transform-origin:5px 4px;transition:transform .12s ease}
-    .demo-cursor.is-pressed{transition-duration:.15s}
-
-    .demo-ripple{
-      position:fixed;top:0;left:0;
-      width:14px;height:14px;border-radius:50%;
-      border:2px solid var(--cream);
-      z-index:99998;pointer-events:none;
-      opacity:0;
-      transform:translate(-7px,-7px) scale(.3);
-      will-change:transform,opacity;
-    }
-    .demo-ripple.is-firing{animation:demoCursorClick .65s ease-out forwards}
-    @keyframes demoCursorClick{
-      0%{opacity:.95;transform:translate(-7px,-7px) scale(.3);border-color:var(--cream);border-width:2px}
-      100%{opacity:0;transform:translate(-7px,-7px) scale(2.8);border-color:var(--gold);border-width:1px}
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Bella Vista Ristorante — Demo</title>
+<style>
+  /* ── Bella Vista · Cucina Toscana ─────────────────────────
+     Kerzenlicht-Palette: Espresso-Braun, Creme, Terracotta,
+     ein Hauch Salbei. Serif mit Charakter, ruhige Flächen,
+     ein Foto trägt die Stimmung. ─────────────────────────── */
+  :root{
+    --creme:#f7f1e5; --espresso:#2b211a; --espresso-soft:#4a3c30;
+    --terra:#b8502c; --salbei:#7d8a6a; --gold:#c9a35a;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+    --sans:'Avenir Next','Segoe UI',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:900px;overflow:hidden}
+  body{background:var(--creme);color:var(--espresso);font-family:var(--sans);display:flex;flex-direction:column}
+  img{display:block;max-width:100%}
+
+  .nav{display:flex;align-items:center;gap:38px;padding:22px 52px;position:relative;z-index:6;flex-shrink:0}
+  .nav b{font-family:var(--serif);font-size:25px;font-style:italic}
+  .nav span{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--espresso-soft)}
+  .nav .cta{margin-left:auto;background:var(--terra);color:var(--creme);padding:13px 26px;border-radius:100px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .25s,box-shadow .25s}
+  .nav .cta.is-hot{transform:scale(1.05);box-shadow:0 10px 26px -8px rgba(184,80,44,.55)}
+
+  /* Hero: Text links, Foto rechts mit Ken-Burns */
+  .hero{display:grid;grid-template-columns:1fr 540px;gap:48px;padding:14px 52px 0;align-items:stretch;flex:1;min-height:0}
+  .hero > div:first-child{align-self:center}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:88px;line-height:1;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero .sub{margin-top:22px;font-size:16.5px;line-height:1.65;color:var(--espresso-soft);max-width:40ch}
+  .hero .meta{display:flex;gap:34px;margin-top:30px;font-size:13px;letter-spacing:.06em;color:var(--espresso-soft)}
+  .hero .meta b{display:block;font-family:var(--serif);font-size:19px;font-style:italic;color:var(--espresso);letter-spacing:0;margin-bottom:2px}
+  .foto{position:relative;height:100%;min-height:320px;border-radius:220px 220px 18px 18px;overflow:hidden;box-shadow:0 34px 70px -28px rgba(43,33,26,.5)}
+  .foto img{width:100%;height:100%;object-fit:cover;animation:ken 18s ease-in-out infinite alternate}
+  @keyframes ken{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.5%,1%)}}
+  .foto .siegel{
+    position:absolute;left:22px;bottom:22px;background:rgba(247,241,229,.94);
+    border-radius:100px;padding:10px 20px;font-size:12.5px;letter-spacing:.08em;
+    display:flex;align-items:center;gap:9px;
+  }
+  .foto .siegel i{font-style:normal;color:var(--gold)}
+
+  /* Menü-Karten */
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:26px 52px 0;flex-shrink:0}
+  .karte{background:#fffdf8;border-radius:14px;overflow:hidden;box-shadow:0 12px 32px -18px rgba(43,33,26,.35);transition:transform .3s ease,box-shadow .3s ease}
+  .karte.is-hot,.karte:hover{transform:translateY(-8px);box-shadow:0 26px 46px -20px rgba(43,33,26,.45)}
+  .karte img{height:128px;width:100%;object-fit:cover}
+  .karte .kt{display:flex;align-items:baseline;gap:10px;padding:14px 18px 16px}
+  .karte h3{font-family:var(--serif);font-size:18.5px;font-weight:600}
+  .karte p{font-size:12.5px;color:var(--espresso-soft);margin-top:2px}
+  .karte .preis{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--terra)}
+
+  /* Reservierungszeile */
+  .resa{display:flex;align-items:center;gap:14px;margin:24px 52px 24px;background:var(--espresso);border-radius:16px;padding:18px 22px;flex-shrink:0}
+  .resa label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,241,229,.55);display:block;margin-bottom:5px}
+  .resa .feld{flex:1;background:rgba(247,241,229,.08);border-radius:10px;padding:10px 16px}
+  .resa input{width:100%;background:none;border:0;outline:0;color:var(--creme);font:15px var(--sans)}
+  .resa input::placeholder{color:rgba(247,241,229,.4)}
+  .resa .senden{background:var(--terra);color:var(--creme);border:0;border-radius:10px;padding:10px 26px;font:600 14px var(--sans);letter-spacing:.06em;align-self:stretch;cursor:pointer;transition:transform .2s}
+  .resa .senden.is-hot{transform:scale(1.06)}
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);
+    background:var(--salbei);color:#fff;padding:14px 26px;border-radius:100px;
+    font-size:14.5px;letter-spacing:.04em;box-shadow:0 16px 40px -12px rgba(0,0,0,.4);
+    transition:transform .5s cubic-bezier(.2,.9,.3,1.2);z-index:50;
+  }
+  .toast.is-on{transform:translate(-50%,0)}
+
+  /* ── Autopilot-Cursor ── */
+  .ap{position:fixed;top:0;left:0;width:34px;height:40px;z-index:9999;pointer-events:none;opacity:0;
+    transform:translate(-80px,-80px);
+    transition:transform .58s cubic-bezier(.3,.05,.2,1),opacity .3s;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.5));will-change:transform}
+  .ap.on{opacity:1}
+  .ap.fast{transition-duration:.34s}
+  .ap.press svg{transform:scale(.8);transform-origin:6px 5px}
+  .ap svg{transition:transform .12s}
+  .ripple{position:fixed;width:14px;height:14px;border-radius:50%;border:2.5px solid var(--terra);z-index:9998;pointer-events:none;transform:translate(-50%,-50%);animation:rip .55s ease-out forwards}
+  @keyframes rip{from{opacity:.9;scale:.4}to{opacity:0;scale:2.6}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ap{display:none}}
+</style>
 </head>
 <body>
-<!-- Animated Demo-Cursor -->
-<div class="demo-cursor" id="demoCursor" aria-hidden="true">
-  <svg viewBox="0 0 24 30" fill="#f0e8d8" stroke="#1a1410" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M 2.5 2.5 L 2.5 22 L 8 17 L 12 25 L 14.2 24 L 9.7 16 L 17.5 14 Z"/>
-  </svg>
-</div>
-<div class="demo-ripple" id="demoRipple" aria-hidden="true"></div>
-
-<div class="page-wrap">
-
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Bella Vista</a>
-    <ul class="nav-links">
-      <li><a href="#menu">Menü</a></li>
-      <li><a href="#reserve">Reservierung</a></li>
-      <li><a href="#storia">Geschichte</a></li>
-      <li><a href="#footer">Kontakt</a></li>
-      <li><a href="#reserve" class="nav-cta">Tisch reservieren</a></li>
-    </ul>
+  <nav class="nav">
+    <b>Bella Vista</b>
+    <span>Carta</span>
+    <span>Storia</span>
+    <span>Eventi</span>
+    <a class="cta" id="navCta">Tisch reservieren</a>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-img"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow">München &middot; Schwabing &middot; Seit 1987</span>
-      <h1 class="hero-title">Bella<br><span>Vista</span></h1>
-      <p class="hero-sub">Authentische italienische Küche seit 1987</p>
-      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-      <a href="#reserve" class="btn-primary">Tisch reservieren</a>
+  <section class="hero">
+    <div>
+      <h1>La cucina<br><em>racconta.</em></h1>
+      <p class="sub">Handgemachte Pasta, Olivenöl aus eigener Ernte und ein Esszimmer voller Geschichten — im Herzen von Lucca, seit 1987.</p>
+      <div class="meta">
+        <div><b>17:30 — 23:00</b>Küche täglich</div>
+        <div><b>Via Fillungo 12</b>Lucca · Centro</div>
+        <div><b>★ 4,9</b>612 Bewertungen</div>
+      </div>
     </div>
+    <figure class="foto">
+      <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto,w_1400/addus/demo-restaurant-hero.jpg" alt="Abendstimmung im Bella Vista">
+      <span class="siegel"><i>✦</i> Guida Michelin · empfohlen</span>
+    </figure>
   </section>
 
-  <!-- MENU -->
-  <section id="menu">
-    <span class="section-label">La Cucina</span>
-    <h2 class="section-title">Unsere Spezialitäten</h2>
-    <p class="section-intro">Sorgfältig ausgewählte Zutaten aus Italien, zubereitet nach überlieferten Familienrezepten der Region Toskana und Mailand.</p>
-
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-tagliatelle.jpg" alt="Tagliatelle al Ragù" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Tagliatelle al Ragù</span>
-            <span class="menu-card-price">€ 18,50</span>
-          </div>
-          <p class="menu-card-desc">Handgemachte Eiernudeln mit langsam geschmortem Rindfleisch-Ragù nach bolognensischer Tradition, gereift über sechs Stunden.</p>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-risotto.jpg" alt="Risotto ai Frutti di Mare" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Risotto ai Frutti di Mare</span>
-            <span class="menu-card-price">€ 22,00</span>
-          </div>
-          <p class="menu-card-desc">Cremiges Carnaroli-Risotto mit frischen Meeresfrüchten — Garnelen, Venusmuscheln und Tintenfisch — verfeinert mit Safran und Weißwein.</p>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-branzino.jpg" alt="Branzino al Forno" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Branzino al Forno</span>
-            <span class="menu-card-price">€ 26,00</span>
-          </div>
-          <p class="menu-card-desc">Im Ofen gegarter Wolfsbarsch auf einem Bett aus Fenchel, Oliven und Kapernbutter, begleitet von gegrilltem Gemüse der Saison.</p>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-tiramisu.jpg" alt="Tiramisu della Casa" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Tiramisù della Casa</span>
-            <span class="menu-card-price">€ 8,50</span>
-          </div>
-          <p class="menu-card-desc">Das klassische Rezept unserer Nonna — Mascarpone, Savoiardi, Marsala und frisch gemahlener Espresso. Über Nacht gereift.</p>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-ossobuco.jpg" alt="Osso Buco Milanese" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Osso Buco Milanese</span>
-            <span class="menu-card-price">€ 29,00</span>
-          </div>
-          <p class="menu-card-desc">Geschmorte Kalbshaxe auf Gremolata mit Safranrisotto nach mailändischem Original — das Herzstück unserer Küche seit 1987.</p>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img class="menu-card-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-penne.jpg" alt="Penne all'Arrabbiata" loading="lazy" />
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <span class="menu-card-name">Penne all'Arrabbiata</span>
-            <span class="menu-card-price">€ 14,50</span>
-          </div>
-          <p class="menu-card-desc">Bronzegezogene Penne in einer würzigen Tomatensauce mit Peperoncino, frischem Knoblauch und Basilikum — einfach und ehrlich.</p>
-        </div>
-      </div>
-
-    </div>
+  <section class="karten">
+    <article class="karte" id="k1">
+      <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-tagliatelle.jpg" alt="Tagliatelle al Tartufo">
+      <div class="kt"><div><h3>Tagliatelle al Tartufo</h3><p>frischer Sommertrüffel</p></div><span class="preis">24</span></div>
+    </article>
+    <article class="karte" id="k2">
+      <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-branzino.jpg" alt="Branzino al Forno">
+      <div class="kt"><div><h3>Branzino al Forno</h3><p>Wolfsbarsch · Zitrone · Fenchel</p></div><span class="preis">28</span></div>
+    </article>
+    <article class="karte" id="k3">
+      <img src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_300/addus/demo-tiramisu.jpg" alt="Tiramisù della casa">
+      <div class="kt"><div><h3>Tiramisù della casa</h3><p>nach Nonnas Rezept</p></div><span class="preis">9</span></div>
+    </article>
   </section>
 
-  <!-- RESERVATION -->
-  <section id="reserve">
-    <span class="section-label">Reservierung</span>
-    <h2 class="section-title" style="margin-bottom: 64px;">Ihren Tisch reservieren</h2>
-
-    <div class="reserve-inner">
-
-      <!-- LEFT INFO -->
-      <div class="reserve-info">
-        <h3 class="reserve-info-title">Wir freuen uns<br><span>auf Ihren Besuch</span></h3>
-        <p class="reserve-desc">Reservieren Sie Ihren Tisch bei Bella Vista und genießen Sie einen unvergesslichen Abend mit authentischer italienischer Küche in eleganter Atmosphäre.</p>
-
-        <div class="hours-block">
-          <span class="hours-label">Öffnungszeiten</span>
-          <div class="hours-row">
-            <span class="hours-day">Montag – Dienstag</span>
-            <span class="hours-time">Geschlossen</span>
-          </div>
-          <div class="hours-row">
-            <span class="hours-day">Mittwoch – Freitag</span>
-            <span class="hours-time">17:00 – 23:00</span>
-          </div>
-          <div class="hours-row">
-            <span class="hours-day">Samstag</span>
-            <span class="hours-time">12:00 – 23:30</span>
-          </div>
-          <div class="hours-row">
-            <span class="hours-day">Sonntag</span>
-            <span class="hours-time">12:00 – 22:00</span>
-          </div>
-        </div>
-
-        <a href="tel:+4989123456789" class="reserve-phone">
-          <span class="reserve-phone-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.84-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          +49 (0) 89 123 456 789
-        </a>
-      </div>
-
-      <!-- RIGHT FORM -->
-      <div class="reserve-form">
-        <div class="form-title">Tischreservierung</div>
-
-        <div class="form-group">
-          <label for="f-name">Name</label>
-          <input type="text" id="f-name" placeholder="Ihr vollständiger Name" autocomplete="off" spellcheck="false" />
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-date">Datum</label>
-            <input type="date" id="f-date" />
-          </div>
-          <div class="form-group">
-            <label for="f-time">Uhrzeit</label>
-            <select id="f-time">
-              <option value="">Bitte wählen</option>
-              <option value="12:00">12:00 Uhr</option>
-              <option value="12:30">12:30 Uhr</option>
-              <option value="13:00">13:00 Uhr</option>
-              <option value="13:30">13:30 Uhr</option>
-              <option value="14:00">14:00 Uhr</option>
-              <option value="17:00">17:00 Uhr</option>
-              <option value="17:30">17:30 Uhr</option>
-              <option value="18:00">18:00 Uhr</option>
-              <option value="18:30">18:30 Uhr</option>
-              <option value="19:00">19:00 Uhr</option>
-              <option value="19:30">19:30 Uhr</option>
-              <option value="20:00">20:00 Uhr</option>
-              <option value="20:30">20:30 Uhr</option>
-              <option value="21:00">21:00 Uhr</option>
-              <option value="21:30">21:30 Uhr</option>
-              <option value="22:00">22:00 Uhr</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-persons">Anzahl Personen</label>
-            <select id="f-persons">
-              <option value="">Bitte wählen</option>
-              <option value="1">1 Person</option>
-              <option value="2">2 Personen</option>
-              <option value="3">3 Personen</option>
-              <option value="4">4 Personen</option>
-              <option value="5">5 Personen</option>
-              <option value="6">6 Personen</option>
-              <option value="7">7 Personen</option>
-              <option value="8">8 Personen</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="f-anlass">Anlass</label>
-            <select id="f-anlass">
-              <option value="">Kein besonderer Anlass</option>
-              <option value="geburtstag">Geburtstag</option>
-              <option value="jahrestag">Jahrestag</option>
-              <option value="business">Geschäftsessen</option>
-              <option value="romantisch">Romantisches Dinner</option>
-              <option value="sonstiges">Sonstiges</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="f-wishes">Besondere Wünsche</label>
-          <textarea id="f-wishes" placeholder="Allergien, besondere Anlässe, Sitzplatzpräferenzen …" spellcheck="false"></textarea>
-        </div>
-
-        <button class="btn-reserve" id="btn-reserve">Tisch reservieren</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STORIA -->
-  <section id="storia">
-    <div class="storia-inner">
-      <div>
-        <img class="storia-img" src="https://res.cloudinary.com/dzzl5k8wn/image/upload/f_auto,q_auto:low,w_400/addus/demo-restaurant-story.jpg" alt="Restaurant Geschichte" loading="lazy" />
-      </div>
-      <div>
-        <span class="storia-eyebrow">La Nostra Storia</span>
-        <h2 class="storia-title">Eine Geschichte<br>der Leidenschaft</h2>
-        <p class="storia-text">Im Jahr 1987 öffnete Giuseppe Ferrara seine erste kleine Trattoria im Herzen Schwabings. Was als bescheidenes Familienrestaurant begann, wurde über Jahrzehnte zu einer Institution der Münchner Gastronomie.</p>
-        <div class="storia-quote">"Die beste Küche ist die, die Erinnerungen schafft — jeder Teller erzählt eine Geschichte."</div>
-        <p class="storia-text">Heute führt seine Tochter Sofia das Restaurant in zweiter Generation — mit denselben Rezepten, denselben Werten und derselben Liebe zur toskanischen Küche, die Bella Vista zu dem gemacht hat, was es ist.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="footer-inner">
-      <div>
-        <span class="footer-brand-name">Bella Vista</span>
-        <p class="footer-brand-desc">Authentische italienische Küche in München-Schwabing. Seit 1987 ein Ort für unvergessliche Momente am Tisch.</p>
-      </div>
-      <div>
-        <span class="footer-col-title">Navigation</span>
-        <ul class="footer-links">
-          <li><a href="#menu">Speisekarte</a></li>
-          <li><a href="#reserve">Reservierung</a></li>
-          <li><a href="#storia">Geschichte</a></li>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
-        </ul>
-      </div>
-      <div>
-        <span class="footer-col-title">Öffnungszeiten</span>
-        <ul class="footer-links">
-          <li><a href="#">Mi–Fr: 17–23 Uhr</a></li>
-          <li><a href="#">Sa: 12–23:30 Uhr</a></li>
-          <li><a href="#">So: 12–22 Uhr</a></li>
-          <li><a href="#">Mo+Di: Ruhetag</a></li>
-        </ul>
-      </div>
-      <div>
-        <span class="footer-col-title">Kontakt</span>
-        <address class="footer-address">
-          Leopoldstraße 48<br />
-          80802 München<br /><br />
-          +49 (0) 89 123 456 789<br />
-          info@bellavista-muc.de
-        </address>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Bella Vista Ristorante. Alle Rechte vorbehalten.</span>
-      <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram">ig</a>
-        <a href="#" class="social-link" aria-label="Facebook">fb</a>
-        <a href="#" class="social-link" aria-label="TripAdvisor">ta</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- TOAST -->
-  <div class="toast-success" id="toast">
-    <span id="toast-text">Tisch reserviert — Wir freuen uns auf Sie!</span>
+  <div class="resa" id="resa">
+    <div class="feld"><label>Name</label><input id="rName" placeholder="Ihr Name" readonly></div>
+    <div class="feld"><label>Datum</label><input id="rDatum" placeholder="Datum wählen" readonly></div>
+    <div class="feld"><label>Personen</label><input id="rPers" placeholder="2" readonly></div>
+    <button class="senden" id="rSenden">Reservieren</button>
   </div>
-</div><!-- /.page-wrap -->
+
+  <div class="toast" id="toast">✓ Tavolo riservato — wir freuen uns, Familie Weber!</div>
+
+  <div class="ap" id="ap"><svg viewBox="0 0 26 32"><path d="M2 2l8 24 3.5-9.5L23 13z" fill="#fff" stroke="#1c1c1c" stroke-width="2" stroke-linejoin="round"/></svg></div>
 
   <script>
-    /* ── helpers ───────────────────────────────────── */
-    function getNextSaturday() {
-      var d = new Date();
-      var day = d.getDay(); // 0=Sun … 6=Sat
-      var diff = (6 - day + 7) % 7;
-      if (diff === 0) diff = 7; // if today is Saturday, get next week
-      d.setDate(d.getDate() + diff);
-      var yyyy = d.getFullYear();
-      var mm   = String(d.getMonth() + 1).padStart(2, '0');
-      var dd   = String(d.getDate()).padStart(2, '0');
-      return { iso: yyyy + '-' + mm + '-' + dd, pretty: dd + '.' + mm + '.' + yyyy };
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ap=document.getElementById('ap'), run=0;
+    function co(el,ox,oy){var r=el.getBoundingClientRect();return{x:r.left+(ox!==undefined?ox:r.width/2),y:r.top+(oy!==undefined?oy:r.height/2)}}
+    function setPos(el,ox,oy){var c=co(el,ox,oy);ap.style.transform='translate('+c.x+'px,'+c.y+'px)'}
+    function move(el,cb,fast,ox,oy){ap.classList.toggle('fast',!!fast);setPos(el,ox,oy);setTimeout(cb,fast?400:640)}
+    function klick(el,cb){
+      ap.classList.add('press');
+      var c=ap.getBoundingClientRect(),r=document.createElement('span');
+      r.className='ripple';r.style.left=(c.left+6)+'px';r.style.top=(c.top+5)+'px';
+      document.body.appendChild(r);setTimeout(function(){r.remove()},600);
+      setTimeout(function(){ap.classList.remove('press');cb&&cb()},240);
     }
-
-    function typeText(el, text, charDelay, cb) {
-      el.classList.add('typing-active');
-      el.value = '';
-      var i = 0;
-      var iv = setInterval(function() {
-        el.value += text[i];
-        i++;
-        if (i >= text.length) {
-          clearInterval(iv);
-          el.classList.remove('typing-active');
-          el.classList.add('filled');
-          if (cb) cb();
-        }
-      }, charDelay);
+    function tippen(el,txt,cb){
+      var i=0;(function s(){if(i<=txt.length){el.value=txt.slice(0,i++);setTimeout(s,52)}else cb&&cb()})();
     }
-
-    function setSelect(el, val, cb) {
-      el.classList.add('typing-active');
-      setTimeout(function() {
-        el.value = val;
-        el.classList.remove('typing-active');
-        el.classList.add('filled');
-        if (cb) cb();
-      }, 380);
+    function demo(){
+      var id=++run; function ok(){return run===id}
+      var nav=document.getElementById('navCta'),k2=document.getElementById('k2'),
+          n=document.getElementById('rName'),d=document.getElementById('rDatum'),
+          p=document.getElementById('rPers'),s=document.getElementById('rSenden'),
+          toast=document.getElementById('toast');
+      var steps=[
+        function(nx){n.value=d.value=p.value='';toast.classList.remove('is-on');setTimeout(nx,900)},
+        function(nx){setPos(document.body,600,120);ap.classList.add('on');setTimeout(nx,300)},
+        function(nx){move(k2,nx)},
+        function(nx){k2.classList.add('is-hot');setTimeout(nx,700)},
+        function(nx){k2.classList.remove('is-hot');move(nav,nx)},
+        function(nx){nav.classList.add('is-hot');klick(nav,nx)},
+        function(nx){nav.classList.remove('is-hot');move(n.parentElement,nx)},
+        function(nx){klick(n.parentElement,nx)},
+        function(nx){tippen(n,'Familie Weber',nx)},
+        function(nx){move(d.parentElement,nx,true)},
+        function(nx){klick(d.parentElement,nx)},
+        function(nx){tippen(d,'Sa., 20:00 Uhr',nx)},
+        function(nx){move(p.parentElement,nx,true)},
+        function(nx){klick(p.parentElement,nx)},
+        function(nx){tippen(p,'4',nx)},
+        function(nx){move(s,nx)},
+        function(nx){s.classList.add('is-hot');klick(s,nx)},
+        function(nx){s.classList.remove('is-hot');toast.classList.add('is-on');setTimeout(nx,2600)},
+        function(nx){toast.classList.remove('is-on');ap.classList.remove('on');setTimeout(nx,1600)},
+        function(){demo()}
+      ];
+      (function lauf(i){if(!ok())return;if(i>=steps.length)return;steps[i](function(){lauf(i+1)})})(0);
     }
-
-    function showToast(text) {
-      var toast = document.getElementById('toast');
-      document.getElementById('toast-text').textContent = text;
-      toast.classList.remove('hiding');
-      toast.classList.add('visible');
-      setTimeout(function() {
-        toast.classList.add('hiding');
-        setTimeout(function() {
-          toast.classList.remove('visible', 'hiding');
-        }, 500);
-      }, 4000);
-    }
-
-    /* ── DEMO-CURSOR helpers ─────────────────────────── */
-    var _cursorEl = document.getElementById('demoCursor');
-    var _rippleEl = document.getElementById('demoRipple');
-
-    function _coords(el, ox, oy){
-      var r = el.getBoundingClientRect();
-      var x = r.left + (ox !== undefined ? ox : r.width / 2);
-      var y = r.top + (oy !== undefined ? oy : r.height / 2);
-      return { x: x, y: y };
-    }
-    function moveCursor(el, ox, oy, fast){
-      if (!_cursorEl || !el) return;
-      var c = _coords(el, ox, oy);
-      _cursorEl.classList.toggle('is-fast', !!fast);
-      _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
-    }
-    function showCursor(el, ox, oy){
-      if (!_cursorEl) return;
-      if (el) {
-        var c = _coords(el, ox, oy);
-        _cursorEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
-      }
-      _cursorEl.classList.add('is-on');
-    }
-    function hideCursor(){ if (_cursorEl) _cursorEl.classList.remove('is-on'); }
-
-    function clickCursor(el, ox, oy){
-      if (!_rippleEl || !el) return;
-      var c = _coords(el, ox, oy);
-      _rippleEl.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
-      _rippleEl.classList.remove('is-firing');
-      void _rippleEl.offsetWidth;
-      _rippleEl.classList.add('is-firing');
-      if (_cursorEl) {
-        _cursorEl.classList.add('is-pressed');
-        setTimeout(function(){ if (_cursorEl) _cursorEl.classList.remove('is-pressed'); }, 200);
-      }
-    }
-
-    /* ── auto-demo: triggered by parent via postMessage('demo-start') ── */
-    var _demoRun = 0;  // incremented each call — old chains abort
-
-    function runDemo() {
-      var rid = ++_demoRun;
-      function ok() { return _demoRun === rid; }
-
-      // helper: delayed action that auto-cancels if a new run started
-      function later(ms, fn) { setTimeout(function() { if (ok()) fn(); }, ms); }
-      var pw = document.querySelector('.page-wrap');
-
-      // scroll back to top so each replay starts fresh
-      pw.scrollTo({ top: 0, behavior: 'instant' });
-      hideCursor();
-
-      var sat      = getNextSaturday();
-      var cards    = document.querySelectorAll('.menu-card');
-      var nameEl   = document.getElementById('f-name');
-      var dateEl   = document.getElementById('f-date');
-      var timeEl   = document.getElementById('f-time');
-      var personsEl= document.getElementById('f-persons');
-      var btnEl    = document.getElementById('btn-reserve');
-
-      // reset form
-      nameEl.value = ''; dateEl.value = '';
-      timeEl.value = ''; personsEl.value = '';
-      btnEl.classList.remove('success');
-      btnEl.textContent = 'Tisch reservieren';
-
-      function hover(el, dur, cb) {
-        if (!ok() || !el) return;
-        el.classList.add('mock-hover');
-        later(dur, function() {
-          el.classList.remove('mock-hover');
-          if (cb) later(220, cb);
-        });
-      }
-
-      // 0. Cursor erscheint rechts oben am Hero (verdeckt nichts)
-      later(250, function() {
-        var t = document.querySelector('.hero-title');
-        if (t) showCursor(t, t.offsetWidth - 60, t.offsetHeight - 30);
-      });
-
-      // 1. Scroll slowly to menu section
-      later(700, function() {
-        var el = document.getElementById('menu');
-        pw.scrollTo({ top: el ? el.offsetTop - 20 : 0, behavior: 'smooth' });
-      });
-
-      // 2. Hover menu cards — cursor an Bottom-Right Ecke (über Bild, unter Text)
-      later(1700, function() {
-        if (cards[0]) moveCursor(cards[0], cards[0].offsetWidth - 40, 100);
-        hover(cards[0], 1200, function() {
-          if (cards[1]) moveCursor(cards[1], cards[1].offsetWidth - 40, 100);
-          hover(cards[1], 1300, function() {
-              // 3. Scroll to reservation
-              later(400, function() {
-                var el = document.getElementById('reserve');
-                pw.scrollTo({ top: el ? el.offsetTop + 20 : 0, behavior: 'smooth' });
-              });
-
-              // 3b. Cursor zum rechten Rand des Namensfelds (verdeckt Text nicht)
-              later(1100, function() {
-                if (nameEl) moveCursor(nameEl, nameEl.offsetWidth - 30, nameEl.offsetHeight / 2);
-              });
-
-              // 4. Fill form — cursor klickt rechts neben den Feldern parallel zum Tippen
-              later(1450, function() {
-                if (nameEl) clickCursor(nameEl, nameEl.offsetWidth - 30, nameEl.offsetHeight / 2);
-                typeText(nameEl, 'Max Mustermann', 55, function() {
-                  if (!ok()) return;
-                  later(150, function() { if (dateEl) moveCursor(dateEl, dateEl.offsetWidth - 30, dateEl.offsetHeight / 2); });
-                  later(320, function() {
-                    if (dateEl) clickCursor(dateEl, dateEl.offsetWidth - 30, dateEl.offsetHeight / 2);
-                    setSelect(dateEl, sat.iso, function() {
-                      if (!ok()) return;
-                      later(150, function() { if (timeEl) moveCursor(timeEl, timeEl.offsetWidth - 30, timeEl.offsetHeight / 2); });
-                      later(380, function() {
-                        if (timeEl) clickCursor(timeEl, timeEl.offsetWidth - 30, timeEl.offsetHeight / 2);
-                        setSelect(timeEl, '19:30', function() {
-                          if (!ok()) return;
-                          later(150, function() { if (personsEl) moveCursor(personsEl, personsEl.offsetWidth - 30, personsEl.offsetHeight / 2); });
-                          later(380, function() {
-                            if (personsEl) clickCursor(personsEl, personsEl.offsetWidth - 30, personsEl.offsetHeight / 2);
-                            setSelect(personsEl, '2', function() {
-                              if (!ok()) return;
-                              later(180, function() { if (btnEl) moveCursor(btnEl, btnEl.offsetWidth/2, btnEl.offsetHeight/2); });
-                              later(420, function() {
-                                if (btnEl) clickCursor(btnEl);
-                                later(120, function() {
-                                  btnEl.classList.add('success');
-                                btnEl.textContent = '\u2713 Reservierung bestätigt';
-                                later(350, function() {
-                                  showToast('\u2713 Tisch für 2 Personen am ' + sat.pretty + ' um 19:30 Uhr reserviert!');
-                                });
-                                later(1000, function() {
-                                  window.parent.postMessage('demo-complete', '*');
-                                });
-                                later(2000, function() {
-                                  btnEl.classList.remove('success');
-                                  btnEl.textContent = 'Tisch reservieren';
-                                });
-                              });
-                            });
-                          });
-                        });
-                      });
-                    });
-                  });
-                });
-              });
-          });
-        });
-      });
-      });
-    }
-
-    window.addEventListener('message', function(e) {
-      if (e.data === 'demo-start') runDemo();
-    });
-
-    // Standalone fallback: starte Demo automatisch wenn keine Parent-Nachricht kommt
-    setTimeout(function(){
-      if (_demoRun === 0) runDemo();
-    }, 1500);
-
-    /* ── manual submit ─────────────────────────────── */
-    document.getElementById('btn-reserve').addEventListener('click', function(e) {
-      e.preventDefault();
-      var sat     = getNextSaturday();
-      var persons = document.getElementById('f-persons').value || '2';
-      var time    = document.getElementById('f-time').value || '19:30';
-      var dateVal = document.getElementById('f-date').value;
-      var pretty  = sat.pretty;
-      if (dateVal) {
-        var parts = dateVal.split('-');
-        pretty = parts[2] + '.' + parts[1] + '.' + parts[0];
-      }
-      this.classList.add('success');
-      this.textContent = '\u2713 Reservierung bestätigt';
-      showToast('\u2713 Tisch für ' + persons + ' Person(en) am ' + pretty + ' um ' + time + ' Uhr reserviert!');
-      var self = this;
-      setTimeout(function() {
-        self.classList.remove('success');
-        self.textContent = 'Tisch reservieren';
-      }, 5200);
-    });
+    demo();
+  })();
   </script>
 </body>
 </html>

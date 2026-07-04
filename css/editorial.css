@@ -34,10 +34,10 @@ html,body{overflow-anchor:none}
 .nav__brand-dot{color:var(--rust)}
 .nav__menu{margin-left:auto}
 .nav__menu ul{display:flex;gap:36px;align-items:center}
-.nav__menu a{font-size:14px;font-weight:500;color:var(--ink);position:relative;padding:4px 0;transition:color .2s ease}
-.nav__menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--rust);transition:width .32s var(--ease)}
+.nav__menu a{font-size:14px;font-weight:500;color:var(--ink);position:relative;padding:4px 0;transition:color .18s cubic-bezier(.165,.84,.44,1)}
+.nav__menu a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform .18s cubic-bezier(.165,.84,.44,1)}
 .nav__menu a:hover{color:var(--rust)}
-.nav__menu a:hover::after{width:100%}
+.nav__menu a:hover::after{transform:scaleX(1)}
 .nav__cta{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:9px 16px;transition:all .24s ease;display:inline-flex;align-items:center;gap:8px;font-weight:500}
 .nav__cta::after{content:'↗';font-family:var(--sans);transition:transform .24s ease}
 .nav__cta:hover{background:var(--ink);color:var(--paper)}
@@ -47,6 +47,46 @@ html,body{overflow-anchor:none}
 .nav__burger.is-active span:first-child{transform:translateY(7px) rotate(45deg)}
 .nav__burger.is-active span:nth-child(2){opacity:0}
 .nav__burger.is-active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Nav — dezenter Load-Nachzug (opacity, Stagger 40ms). js-ready-gated → ohne JS sofort sichtbar. */
+html.js-ready .nav__brand,
+html.js-ready .nav__menu li,
+html.js-ready .nav__cta{animation:navIn .55s var(--ease) both}
+@keyframes navIn{from{opacity:0}to{opacity:1}}
+html.js-ready .nav__brand{animation-delay:.05s}
+html.js-ready .nav__menu li:nth-child(1){animation-delay:.14s}
+html.js-ready .nav__menu li:nth-child(2){animation-delay:.18s}
+html.js-ready .nav__menu li:nth-child(3){animation-delay:.22s}
+html.js-ready .nav__menu li:nth-child(4){animation-delay:.26s}
+html.js-ready .nav__menu li:nth-child(5){animation-delay:.30s}
+html.js-ready .nav__cta{animation-delay:.34s}
+
+/* ══════════════════ CHAPTER MARKER — Kapitel-Grammatik (Slices C/D/E) ══════════════════
+   Wiederverwendbare Kapitel-Marker-Komponente. In späteren Slices pro Sektion einsetzen:
+     <div class="chapter">
+       <span class="chapter__folio" aria-hidden="true">II</span>   ← Roman-Geister-Folio hinter Headline
+       <p class="chapter__marker">
+         <span class="chapter__rule"></span>
+         <span class="chapter__title">Was wir verändern</span>
+       </p>
+       <h2 …>…</h2>
+     </div>
+   Klassen: .chapter · .chapter__folio · .chapter__marker · .chapter__rule · .chapter__title */
+.chapter{position:relative}
+.chapter__folio{position:absolute;top:-.34em;left:-.06em;z-index:0;font-family:var(--serif);font-style:italic;font-weight:200;font-size:clamp(120px,18vw,240px);line-height:.8;letter-spacing:-.05em;color:var(--rust);opacity:.08;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 100;pointer-events:none;user-select:none}
+.chapter__marker{display:flex;align-items:center;gap:14px;position:relative;z-index:1;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+.chapter__rule{flex-shrink:0;width:38px;height:1px;background:var(--ink)}
+.chapter__title{white-space:nowrap}
+
+/* ══════════════════ SECTION TONE UTILITIES — Rhythmus-Wechsel (Slices C/D) ══════════════════
+   paper → paper-deep → ink-dunkel → paper. Klassen auf <section> setzen; noch nicht angewendet. */
+.tone-paper{background:var(--paper);color:var(--ink)}
+.tone-paper-deep{background:var(--paper-deep);color:var(--ink)}
+.tone-ink{background:var(--ink);color:var(--paper)}
+.tone-ink .kicker,.tone-ink .chapter__marker{color:rgba(239,232,216,.72)}
+.tone-ink .chapter__rule{background:var(--paper)}
+.tone-ink .chapter__folio{color:var(--rust);opacity:.16}
+.tone-ink .section__title{color:var(--paper)}
 
 /* ══════════════════ SHARED — Section heads, buttons, reveal ══════════════════ */
 .section__head{max-width:var(--container);margin:0 auto;padding:clamp(56px,8vw,112px) var(--pad) clamp(36px,5vw,64px);display:grid;grid-template-columns:1fr;gap:24px}
@@ -84,12 +124,8 @@ html,body{overflow-anchor:none}
 /* Vertical side-text on far left edge (rotated -90°) */
 .hero__side{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;font-family:var(--mono);font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap;pointer-events:none;z-index:2}
 
-/* Folio top — book-page header */
-.hero__folio{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line-soft);position:relative;z-index:1}
-.hero__folio::after{content:'';position:absolute;bottom:-1px;left:0;width:42px;height:1px;background:var(--rust)}
-
-/* Watermark "01" — chapter opener backdrop */
-.hero__watermark{position:absolute;right:-12px;top:-32px;font-family:var(--serif);font-style:italic;font-weight:200;font-size:clamp(220px,28vw,360px);line-height:.78;color:var(--rust);opacity:.07;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 100;letter-spacing:-.06em;z-index:0;pointer-events:none;user-select:none}
+/* Watermark "01" — Geister-Folio (chapter opener backdrop), gekräftigt */
+.hero__watermark{position:absolute;right:-12px;top:-32px;font-family:var(--serif);font-style:italic;font-weight:200;font-size:clamp(220px,28vw,360px);line-height:.78;color:var(--rust);opacity:.085;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 100;letter-spacing:-.06em;z-index:0;pointer-events:none;user-select:none}
 
 /* Editorial Eyebrow (date strip) */
 .hero__eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;position:relative;z-index:1}
@@ -103,9 +139,8 @@ html,body{overflow-anchor:none}
   box-shadow:0 0 0 1px rgba(255,235,200,.18);
 }
 
-/* Cycling word + hand-drawn underline — schnell & auffällig */
-.hero__cycle{display:inline-block}
-.hero__underline{position:absolute;left:-4%;right:-4%;bottom:-.18em;width:108%;height:.42em;color:var(--rust);pointer-events:none;overflow:visible}
+/* Accent-word underline (hand-drawn SVG, zeichnet beim Load) */
+.hero__underline{position:absolute;left:-4%;right:-4%;bottom:-.18em;width:108%;height:.42em;color:var(--rust);pointer-events:none;overflow:visible;z-index:1}
 
 /* Pull-quote between headline & lede */
 .hero__pullquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:22px;line-height:1.3;color:var(--rust);margin:-12px 0 28px;letter-spacing:-.01em;font-variation-settings:"opsz" 24,"WONK" 1,"SOFT" 80;display:flex;align-items:baseline;gap:10px;position:relative;z-index:1}
@@ -126,8 +161,10 @@ html,body{overflow-anchor:none}
 /* Caveat marginal note (handwritten) */
 .hero__margin-note{position:absolute;right:-32px;top:46%;font-family:'Caveat',cursive;font-weight:700;font-size:22px;color:var(--rust);transform:rotate(-6deg);opacity:.85;pointer-events:none;z-index:2;white-space:nowrap}
 
-/* Rubber-Stamp seal (rust, distressed) */
-.hero__stamp{position:absolute;bottom:-30px;right:-44px;width:120px;height:120px;color:var(--rust);opacity:.4;transform:rotate(-12deg);pointer-events:none;z-index:2;filter:contrast(1.05)}
+/* Rubber-Stamp — "geprüft · Lüneburg", doppellinierter rust-Rahmen, Thunk beim Load */
+.hero__stamp{position:absolute;bottom:-24px;right:-30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:9px 15px 8px;color:var(--rust);background:var(--rust-glow);border:1.5px solid var(--rust);box-shadow:0 0 0 2.5px var(--paper),0 0 0 4px var(--rust);transform:rotate(-8deg);transform-origin:50% 50%;pointer-events:none;z-index:2}
+.hero__stamp-top{font-family:var(--serif);font-style:italic;font-weight:600;font-size:21px;line-height:1;letter-spacing:-.01em;text-transform:lowercase;font-variation-settings:"opsz" 24,"WONK" 1,"SOFT" 80}
+.hero__stamp-bot{font-family:var(--mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;margin-top:3px}
 
 /* Postage / Atelier detail (small stamp on left) */
 .hero__postage{position:absolute;bottom:24px;left:-44px;width:48px;height:60px;background:var(--rust-glow);border:1px solid var(--rust);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-4deg);z-index:2;pointer-events:none;box-shadow:0 4px 8px -2px rgba(26,22,18,.18)}
@@ -142,18 +179,19 @@ html,body{overflow-anchor:none}
 /* Mobile: hide outermost decorative elements that need space */
 @media (max-width:640px){
   .hero__side,.hero__margin-note,.hero__stamp,.hero__postage{display:none}
-  .hero__watermark{font-size:clamp(160px,40vw,220px);right:-4px;top:-16px;opacity:.05}
+  .hero__watermark{font-size:clamp(160px,40vw,220px);right:-4px;top:-16px;opacity:.065}
   .hero__content{padding-left:0}
   .hero__dropcap{font-size:64px;padding:8px 10px 0 0}
   .hero__usps{gap:10px}
   .hero__usps li b{font-size:16px}
   .hero__pullquote{font-size:18px}
 }
-.hero__headline{font-family:var(--serif);font-size:clamp(40px,6.5vw,96px);font-weight:300;line-height:.98;letter-spacing:-.035em;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 40;margin-bottom:32px}
+.hero__headline{font-family:var(--serif);font-size:clamp(40px,5.6vw,88px);font-weight:300;line-height:.95;letter-spacing:-.035em;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 40;margin-bottom:32px}
 .hero__headline em{font-style:italic;font-weight:600;color:var(--rust);font-variation-settings:"opsz" 144,"SOFT" 80,"WONK" 1;position:relative;display:inline-block}
-.word{display:inline-block;margin-right:.18em}
-.word--accent em::before{content:'';position:absolute;left:-.05em;right:-.05em;bottom:.08em;height:.42em;background:var(--rust-glow);z-index:-1;transform:scaleX(0);transform-origin:left;animation:swipeRust 1.1s 1.4s var(--ease) forwards}
-@keyframes swipeRust{to{transform:scaleX(1)}}
+/* Headline word-masks (Zeilen-Masken-Reveal). .word = Maske, .word__i = fahrender Inhalt. */
+.hero__headline .word{display:inline-block;overflow:hidden;vertical-align:top;margin:0 .18em -.14em 0;padding-bottom:.14em}
+.hero__headline .word--accent{overflow:visible;position:relative}
+.word__i{display:inline-block;will-change:transform}
 
 .hero__lede{font-family:var(--serif);font-size:20px;line-height:1.55;color:var(--ink-soft);font-weight:400;max-width:50ch;margin-bottom:36px;font-variation-settings:"opsz" 18}
 .hero__actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
@@ -705,10 +743,11 @@ html,body{overflow-anchor:none}
   padding:16px;
   position:relative;
   box-shadow:
+    6px 7px 0 var(--rust),
     0 36px 72px -28px rgba(26,22,18,.55),
     0 16px 32px -14px rgba(26,22,18,.35),
     0 1px 0 rgba(239,232,216,.04) inset;
-  /* Subtle frame inner-detail rule */
+  /* Formular-Box: ink-Rahmen + 6px rust Offset-Schatten */
 }
 .atelier__frame::before,.atelier__frame::after{
   content:'';position:absolute;
@@ -1384,260 +1423,6 @@ html,body{overflow-anchor:none}
 .lst__branchen-label{color:var(--ink-mute);margin-right:8px}
 .lst__branchen span:not(.lst__branchen-label){padding:5px 10px;border:1px solid var(--line-soft);transition:all .2s ease}
 .lst__branchen span:not(.lst__branchen-label):hover{border-color:var(--rust);color:var(--rust)}
-
-/* ══ CUSTOMER STORY — Magazin-Feature ════════════════
-   Wirkt wie ein opener-spread aus einem Architektur-Magazin:
-   Byline, Portrait mit credit, Drop-Cap, Pull-Quote, Eckdaten-Box.
-   ═══════════════════════════════════════════════════ */
-.cs{border-bottom:1px solid var(--line-soft);padding-bottom:clamp(56px,7vw,88px)}
-
-/* Byline strip — magazine "issue"-line */
-.cs__byline{
-  max-width:var(--container);
-  margin:0 auto 32px;
-  padding:14px var(--pad);
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  gap:24px;
-  align-items:baseline;
-  border-top:1px solid var(--ink);
-  border-bottom:1px solid var(--line-soft);
-  position:relative;
-}
-.cs__byline::before{
-  content:'';position:absolute;
-  top:-1px;left:var(--pad);
-  width:80px;height:2px;background:var(--rust);
-}
-.cs__byline-pre{
-  font-family:var(--mono);
-  font-size:10px;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--rust);
-  font-weight:500;
-}
-.cs__byline-mid{
-  font-family:var(--serif);
-  font-size:15px;color:var(--ink-soft);
-  font-variation-settings:"opsz" 16,"SOFT" 40;
-}
-.cs__byline-mid em{
-  font-style:italic;font-weight:500;color:var(--ink);
-  font-variation-settings:"opsz" 16,"WONK" 1,"SOFT" 80;
-}
-.cs__byline-folio{
-  font-family:var(--mono);
-  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--ink-mute);
-  font-feature-settings:"tnum";
-}
-
-/* Magazine spread layout — 1fr 1.4fr asymmetric */
-.cs__spread{
-  max-width:var(--container);
-  margin:0 auto;
-  padding:0 var(--pad);
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:clamp(32px,5vw,80px);
-  align-items:start;
-}
-
-/* Portrait — magazine photo with full-style caption */
-.cs__portrait{margin:0;display:flex;flex-direction:column;position:relative}
-.cs__portrait-tag{
-  position:absolute;
-  top:14px;left:14px;
-  z-index:2;
-  font-family:var(--mono);
-  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--paper);
-  background:var(--ink);
-  padding:5px 10px;
-  font-weight:500;
-}
-.cs__portrait img{
-  width:100%;height:auto;
-  aspect-ratio:4/5;object-fit:cover;
-  filter:sepia(.18) contrast(1.04);
-}
-.cs__portrait figcaption{
-  padding:14px 0 0;
-  display:flex;flex-direction:column;gap:4px;
-  font-family:var(--mono);
-  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink-mute);
-  border-top:1px solid var(--line);
-  margin-top:14px;
-  position:relative;
-}
-.cs__portrait figcaption::before{
-  content:'';position:absolute;
-  top:-1px;left:0;width:48px;height:2px;background:var(--rust);
-}
-.cs__portrait figcaption strong{
-  font-family:var(--serif);
-  font-style:italic;font-weight:500;
-  font-size:22px;letter-spacing:-.01em;
-  text-transform:none;color:var(--ink);
-  font-variation-settings:"opsz" 22,"WONK" 1,"SOFT" 60;
-  margin-bottom:2px;
-}
-.cs__photo-credit{
-  font-family:var(--mono);
-  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink-mute);
-  margin-top:6px;
-  padding-top:6px;
-  border-top:1px dotted var(--line-soft);
-  font-style:normal;
-}
-
-/* Content column — the article body */
-.cs__content{display:flex;flex-direction:column}
-
-.cs__lede{
-  font-family:var(--serif);
-  font-size:clamp(24px,3vw,32px);
-  line-height:1.3;
-  color:var(--ink);
-  margin-bottom:24px;
-  letter-spacing:-.015em;
-  font-variation-settings:"opsz" 32,"SOFT" 40;
-  font-weight:300;
-}
-.cs__dropcap{
-  font-family:var(--serif);
-  font-style:italic;font-weight:900;
-  font-size:96px;line-height:.78;
-  color:var(--rust);
-  float:left;
-  padding:10px 14px 0 0;
-  font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 100;
-}
-
-.cs__body{
-  font-family:var(--serif);
-  font-size:18px;line-height:1.6;
-  color:var(--ink-soft);
-  margin-bottom:32px;
-  font-variation-settings:"opsz" 18;
-}
-
-/* Pull-quote — magazine-style, breaks rhythm */
-.cs__quote{
-  margin:0 0 32px;
-  padding:24px 0 24px 36px;
-  position:relative;
-  border-top:1px solid var(--line-soft);
-  border-bottom:1px solid var(--line-soft);
-}
-.cs__quote::before{
-  content:'';position:absolute;
-  top:-1px;left:0;
-  width:48px;height:2px;background:var(--rust);
-}
-.cs__quote-mark{
-  position:absolute;
-  left:-6px;top:8px;
-  font-family:var(--serif);
-  font-style:italic;font-weight:300;
-  font-size:88px;line-height:.5;
-  color:var(--rust);
-  opacity:.45;
-  font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 100;
-}
-.cs__quote p{
-  font-family:var(--serif);
-  font-style:italic;font-weight:400;
-  font-size:clamp(22px,2.6vw,28px);
-  line-height:1.35;
-  color:var(--ink);
-  letter-spacing:-.01em;
-  font-variation-settings:"opsz" 28,"WONK" 1,"SOFT" 60;
-  margin-bottom:14px;
-}
-.cs__quote p em{
-  font-style:italic;font-weight:600;color:var(--rust);
-  font-variation-settings:"opsz" 28,"WONK" 1,"SOFT" 80;
-}
-.cs__quote footer{
-  font-family:var(--mono);
-  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--ink-mute);
-}
-
-/* Eckdaten data box */
-.cs__data{
-  margin-bottom:32px;
-  padding:20px 24px;
-  background:var(--paper-deep);
-  border-left:2px solid var(--rust);
-  position:relative;
-}
-.cs__data-cap{
-  display:block;
-  font-family:var(--mono);
-  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--ink-mute);
-  margin-bottom:14px;
-  padding-bottom:10px;
-  border-bottom:1px dotted var(--line-soft);
-}
-.cs__data-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-.cs__stat{display:flex;flex-direction:column;gap:4px}
-.cs__stat-num{
-  font-family:var(--serif);
-  font-size:34px;font-weight:300;
-  line-height:1;letter-spacing:-.02em;
-  color:var(--ink);
-  font-variation-settings:"opsz" 36,"SOFT" 40;
-}
-.cs__stat-num em{
-  font-style:italic;color:var(--rust);
-  font-variation-settings:"opsz" 36,"WONK" 1,"SOFT" 80;
-}
-.cs__stat-cap{
-  font-family:var(--mono);
-  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink-soft);line-height:1.3;
-}
-
-/* CTA — editorial link with arrow */
-.cs__cta{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--ink);
-  border-bottom:1px solid var(--ink);
-  padding:0 0 4px;
-  align-self:flex-start;
-  font-weight:500;
-  transition:all .24s ease;
-}
-.cs__cta i{font-style:normal;color:var(--rust);transition:transform .24s ease}
-.cs__cta:hover{color:var(--rust);border-bottom-color:var(--rust)}
-.cs__cta:hover i{transform:translate(3px,-3px)}
-
-/* Mobile */
-@media (max-width:980px){
-  .cs__byline{grid-template-columns:1fr;gap:6px;text-align:left}
-  .cs__byline-folio{justify-self:start}
-  .cs__spread{grid-template-columns:1fr;gap:32px}
-  .cs__portrait{max-width:480px}
-  .cs__data-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:560px){
-  .cs__lede{font-size:22px}
-  .cs__dropcap{font-size:72px;padding:8px 10px 0 0}
-  .cs__quote{padding-left:24px}
-  .cs__quote p{font-size:20px}
-  .cs__data-grid{grid-template-columns:1fr 1fr}
-  .cs__stat-num{font-size:28px}
-}
 
 /* ══════════════════ SONDERANGEBOT ══════════════════ */
 .off{border-bottom:1px solid var(--line-soft);padding-bottom:clamp(56px,7vw,88px);background:var(--paper-deep)}
@@ -2488,7 +2273,6 @@ html,body{overflow-anchor:none}
   .trust__nums{grid-template-columns:1fr 1fr}
   .trust__review-text{font-size:18px}
   .cs__lede,.abt__lede{font-size:20px}
-  .cs__lede::first-letter{font-size:48px}
   .off__now{font-size:88px}
   .ktk__channel{grid-template-columns:auto 1fr;padding:20px 16px}
   .ktk__channel-arrow{display:none}
@@ -2503,25 +2287,9 @@ html,body{overflow-anchor:none}
    ════════════════════════════════════════════════════════ */
 
 /* ── Cinematic page-load choreography ── */
-.hero__folio,
-.hero__watermark,
-.hero__eyebrow,
-.hero__headline .word,
-.hero__pullquote,
-.hero__lede,
-.hero__actions,
-.hero__usps,
-.hero__stamp,
-.hero__postage,
-.hero__showcase,
-.hero__ribbon{
-  opacity:0;
-  will-change:transform,opacity,filter;
-}
-html.js-ready .hero__folio,
+/* Initialer Hidden-State NUR unter js-ready → ohne JS bleibt alles sichtbar (keine hängenden opacity:0). */
 html.js-ready .hero__watermark,
 html.js-ready .hero__eyebrow,
-html.js-ready .hero__headline .word,
 html.js-ready .hero__pullquote,
 html.js-ready .hero__lede,
 html.js-ready .hero__actions,
@@ -2530,7 +2298,7 @@ html.js-ready .hero__stamp,
 html.js-ready .hero__postage,
 html.js-ready .hero__showcase,
 html.js-ready .hero__ribbon{
-  animation:heroFade .9s var(--ease) forwards;
+  animation:heroFade .9s var(--ease) both;
 }
 @keyframes heroFade{
   from{ opacity:0; transform:translateY(14px); filter:blur(4px); }
@@ -2542,21 +2310,24 @@ html.js-ready .hero__ribbon{
 }
 
 /* Staged delays — unfolds like a magazine spread */
-html.js-ready .hero__folio       { animation-delay:.05s; }
-html.js-ready .hero__eyebrow     { animation-delay:.18s; }
-html.js-ready .hero__headline .word{ animation:heroWordIn .85s var(--ease) both; }
-html.js-ready .hero__headline .word:nth-child(1){ animation-delay:.32s; }
-html.js-ready .hero__headline .word:nth-child(2){ animation-delay:.40s; }
-html.js-ready .hero__headline .word:nth-child(3){ animation-delay:.48s; }
-html.js-ready .hero__headline .word:nth-child(4){ animation-delay:.56s; }
-html.js-ready .hero__headline .word:nth-child(5){ animation-delay:.72s; }
-html.js-ready .hero__headline .word:nth-child(6){ animation-delay:.80s; }
-html.js-ready .hero__headline .word:nth-child(7){ animation-delay:.88s; }
-html.js-ready .hero__headline .word:nth-child(8){ animation-delay:1.00s; }
-html.js-ready .hero__pullquote   { animation-delay:1.18s; }
-html.js-ready .hero__lede        { animation-delay:1.30s; }
-html.js-ready .hero__actions     { animation-delay:1.48s; }
-html.js-ready .hero__usps        { animation-delay:1.62s; }
+html.js-ready .hero__eyebrow     { animation-delay:.05s; }
+/* Headline — überlappende Wort-Masken (translateY 110%→0, Stagger 90ms) */
+html.js-ready .hero__headline .word:not(.word--accent) .word__i{ animation:heroWordMask .72s cubic-bezier(.16,.84,.3,1) both; }
+html.js-ready .hero__headline .word--accent .word__i{ animation:heroAccentIn .72s cubic-bezier(.16,.84,.3,1) both; }
+html.js-ready .hero__headline .word:nth-of-type(1) .word__i{ animation-delay:.20s; }
+html.js-ready .hero__headline .word:nth-of-type(2) .word__i{ animation-delay:.29s; }
+html.js-ready .hero__headline .word:nth-of-type(3) .word__i{ animation-delay:.38s; }
+html.js-ready .hero__headline .word:nth-of-type(4) .word__i{ animation-delay:.47s; }
+html.js-ready .hero__headline .word:nth-of-type(5) .word__i{ animation-delay:.56s; }
+html.js-ready .hero__headline .word:nth-of-type(6) .word__i{ animation-delay:.65s; }
+html.js-ready .hero__headline .word:nth-of-type(7) .word__i{ animation-delay:.74s; }
+html.js-ready .hero__headline .word:nth-of-type(8) .word__i{ animation-delay:.83s; }
+@keyframes heroWordMask{ from{ transform:translateY(110%); } to{ transform:translateY(0); } }
+@keyframes heroAccentIn{ from{ opacity:0; transform:translateY(42%); } to{ opacity:1; transform:translateY(0); } }
+html.js-ready .hero__pullquote   { animation-delay:1.05s; }
+html.js-ready .hero__lede        { animation-delay:1.18s; }
+html.js-ready .hero__actions     { animation-delay:1.34s; }
+html.js-ready .hero__usps        { animation-delay:1.48s; }
 
 /* Watermark "01" — dramatic zoom-in (parallax handled via --pY in inline transform) */
 html.js-ready .hero__watermark{
@@ -2567,15 +2338,15 @@ html.js-ready .hero__watermark{
   to  { opacity:.07; filter:blur(0); letter-spacing:0; }
 }
 
-/* Stamp — rotates in like being pressed onto paper */
+/* Stamp — Thunk: scale 1.4→1 + opacity, back-out easing (auf Papier gepresst) */
 html.js-ready .hero__stamp{
-  animation:heroStamp 1.1s cubic-bezier(.34,1.56,.64,1) 1.3s forwards;
+  animation:heroStamp .95s cubic-bezier(.34,1.56,.64,1) 1.15s both;
   transform-origin:50% 50%;
 }
 @keyframes heroStamp{
-  0%  { opacity:0; transform:scale(1.5) rotate(-22deg); filter:blur(6px); }
-  60% { opacity:1; transform:scale(.92) rotate(-7deg); filter:blur(0); }
-  100%{ opacity:1; transform:scale(1) rotate(-9deg); }
+  0%  { opacity:0; transform:scale(1.4) rotate(-20deg); }
+  60% { opacity:1; transform:scale(.94) rotate(-6deg); }
+  100%{ opacity:1; transform:scale(1) rotate(-8deg); }
 }
 
 /* Postage — slides in from right */
@@ -2587,13 +2358,13 @@ html.js-ready .hero__postage{
   to  { opacity:1; transform:none; }
 }
 
-/* Showcase — lifts in from below */
+/* Showcase — fährt mit translateY + opacity ein (nach dem Headline-Reveal) */
 html.js-ready .hero__showcase{
-  animation:heroShowcase 1.2s cubic-bezier(.16,.84,.3,1) .55s forwards;
+  animation:heroShowcase 1s cubic-bezier(.16,.84,.3,1) .85s both;
 }
 @keyframes heroShowcase{
-  from{ opacity:0; transform:translateY(60px) scale(.96); filter:blur(8px); }
-  to  { opacity:1; transform:none; filter:blur(0); }
+  from{ opacity:0; transform:translateY(46px); }
+  to  { opacity:1; transform:none; }
 }
 
 /* Ribbon ticks in */
@@ -2601,82 +2372,12 @@ html.js-ready .hero__ribbon{
   animation:heroFadeNoBlur .8s var(--ease) 1.85s forwards;
 }
 
-/* Per-word fade — refined */
-@keyframes heroWordIn{
-  from{ opacity:0; transform:translateY(28px) rotateX(-30deg); filter:blur(5px); }
-  to  { opacity:1; transform:none; filter:blur(0); }
-}
-.hero__headline .word{
-  display:inline-block;
-  transform-origin:50% 100%;
-  perspective:600px;
-}
-
-/* ── Magnetic letters on headline (JS toggles per-letter spans) ── */
-.hero__headline .char{
-  display:inline-block;
-  transition:transform .35s cubic-bezier(.2,.9,.2,1.4), color .25s ease;
-  will-change:transform;
-}
-.hero__headline .word:not(.word--accent):hover .char{
-  color:var(--rust);
-}
-
-/* ── Cycle word: Lektor-Korrektur (red-pen strikethrough + handwritten replace) ── */
-.hero__cycle{
-  position:relative;
-  display:inline-block;
-  white-space:nowrap;
-  transition:opacity .25s ease;
-}
-.hero__cycle.is-strike::after{
-  content:'';
-  position:absolute;
-  left:-4%;right:-4%;
-  top:55%;
-  height:.18em;
-  background:
-    linear-gradient(90deg,
-      transparent 0%,
-      var(--rust) 4%,
-      var(--rust-deep) 50%,
-      var(--rust) 96%,
-      transparent 100%);
-  border-radius:60% 40% 50% 60% / 50% 60% 40% 50%;
-  transform:scaleX(0) rotate(-2deg);
-  transform-origin:0 50%;
-  animation:heroStrike .42s cubic-bezier(.55,.05,.4,1) forwards;
-  filter:drop-shadow(0 1px 0 rgba(184,66,31,.4));
-  pointer-events:none;
-  z-index:2;
-}
-@keyframes heroStrike{
-  0%  { transform:scaleX(0) rotate(-2deg); opacity:.9; }
-  100%{ transform:scaleX(1) rotate(-1.5deg); opacity:1; }
-}
-.hero__cycle.is-out{
-  animation:heroCycleOut .35s cubic-bezier(.55,.05,.4,1) forwards;
-}
-@keyframes heroCycleOut{
-  to{ opacity:0; transform:translateY(-6px); filter:blur(2px); }
-}
-.hero__cycle.is-in{
-  animation:heroCycleIn .55s cubic-bezier(.16,.84,.3,1) forwards;
-}
-@keyframes heroCycleIn{
-  from{ opacity:0; transform:translateY(10px) rotate(-1.5deg); filter:blur(3px); }
-  to  { opacity:1; transform:none; filter:blur(0); }
-}
-
-/* Underline draws AFTER cycle word settles */
+/* Underline zeichnet nach dem Headline-Reveal (stroke-dashoffset draw) */
 html.js-ready .hero__underline path{
-  animation:heroUnderline 1.4s cubic-bezier(.65,0,.35,1) 1.6s forwards;
+  animation:heroUnderline .9s cubic-bezier(.65,0,.35,1) 1.0s forwards;
 }
 @keyframes heroUnderline{
   to{ stroke-dashoffset:0; }
-}
-.hero__cycle.is-in ~ .hero__underline path{
-  animation:heroUnderline .9s cubic-bezier(.65,0,.35,1) .15s forwards;
 }
 
 /* ── Watermark parallax (JS sets --pY) ── */
@@ -2722,20 +2423,18 @@ html.js-ready .hero__underline path{
   transform:translateX(120%);
 }
 
-/* Reduced motion */
+/* Reduced motion — Inhalte sofort sichtbar, keine hängenden opacity:0 */
 @media (prefers-reduced-motion:reduce){
-  .hero__folio,.hero__watermark,.hero__eyebrow,.hero__headline .word,
+  .hero__watermark,.hero__eyebrow,.hero__headline .word,.hero__headline .word__i,
   .hero__pullquote,.hero__lede,.hero__actions,.hero__usps,.hero__stamp,
-  .hero__postage,.hero__showcase,.hero__ribbon{
+  .hero__postage,.hero__showcase,.hero__ribbon,
+  .nav__brand,.nav__menu li,.nav__cta{
     opacity:1 !important;
     animation:none !important;
     transform:none !important;
     filter:none !important;
   }
   .hero__underline path{ stroke-dashoffset:0 !important; animation:none !important; }
-  .hero__cycle, .hero__cycle.is-in, .hero__cycle.is-out{ animation:none !important; }
-  .hero__cycle.is-strike::after{ animation:none !important; transform:scaleX(1) rotate(-1.5deg) !important; }
-  .hero__headline .char{ transition:none !important; }
 }
 
 /* ════════════════════════════════════════════════════════
@@ -3435,14 +3134,6 @@ html.js-ready .hero__underline path{
 .mark:hover .mark__circle path,
 .mark.is-circled .mark__circle path{ stroke-dashoffset:0; }
 
-/* The zero-stat circle is bigger and stays after section enters viewport */
-.cs__stat-zero{
-  display:inline-block;
-  position:relative;
-}
-.cs__stat-zero .mark__circle{
-  inset:-30% -45% -30% -45%; /* wider for the standalone "0" */
-}
 @media (prefers-reduced-motion: reduce){
   .mark__circle path{ transition:none; }
 }
@@ -3638,10 +3329,11 @@ html.js-ready .hero__underline path{
   color:var(--rust);
   text-transform:none;
   font-variation-settings:"opsz" 22,"WONK" 1,"SOFT" 60;
-  min-width:1.4em;
+  min-width:1.6em;
   text-align:center;
-  transition:color .35s var(--ease);
+  transition:color .35s var(--ease),transform .16s var(--ease),opacity .16s var(--ease);
 }
+.pageno__num.is-flip{ transform:translateY(-8px); opacity:0; }
 .pageno__sep{
   color:var(--ink-mute);
   opacity:.45;
