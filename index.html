@@ -50,8 +50,9 @@
 
   <link rel="stylesheet" href="css/plakat.css">
 
-  <!-- CookieConsent v3 (self-hosted, MIT) -->
-  <link rel="stylesheet" href="css/cookieconsent.css">
+  <!-- CookieConsent v3 (self-hosted, MIT) — CSS nicht render-blockend:
+       non-blocking vorgeladen, appliziert wird es in cookie-config.js -->
+  <link rel="preload" href="css/cookieconsent.css" as="style">
   <script src="js/vendor/cookieconsent.umd.js" defer></script>
   <script src="js/cookie-config.js" defer></script>
   <script type="text/plain" data-category="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-R840KKM8JB"></script>

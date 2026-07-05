@@ -476,6 +476,10 @@
         end: '+=340%',
         pin: true,
         anticipatePin: 1,
+        /* Hero steht ganz oben und pinnt 340% — muss VOR Werkschau (Prio 1)
+           und allem darunter refreshen, sonst rechnen die ohne Hero-Spacing.
+           Prioritaet spiegelt die DOM-Reihenfolge: hoeher = weiter oben. */
+        refreshPriority: 2,
         scrub: .9,
         invalidateOnRefresh: true,
         onUpdate: function (self) {
@@ -824,6 +828,11 @@
         end: function () { return '+=' + dist(); },
         pin: true,
         anticipatePin: 1,
+        /* Werkschau steht im DOM vor #probleme, wird aber spaeter erstellt.
+           Ohne Prioritaet berechnet #probleme seine Positionen ohne das
+           Pin-Spacing → Scrub steht auf Desktop sofort am Ende (Handy okay,
+           da dort kein Pin). Hoehere Prioritaet = zuerst refreshen. */
+        refreshPriority: 1,
         scrub: 1,
         invalidateOnRefresh: true,
         onScrubComplete: function () { rTo.forEach(function (fn) { fn(0); }); },

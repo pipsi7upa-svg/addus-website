@@ -1,5 +1,15 @@
 /* CookieConsent v3 — Konfiguration für addus-web.de */
 (function () {
+  /* Stylesheet nicht render-blockend nachladen (im <head> nur preloaded,
+     daher sofort aus dem Cache → kein unstyled Banner-Flash). Idempotent. */
+  if (!document.querySelector('link[data-cc-style]')) {
+    var cs = document.createElement('link');
+    cs.rel = 'stylesheet';
+    cs.href = 'css/cookieconsent.css';
+    cs.setAttribute('data-cc-style', '');
+    document.head.appendChild(cs);
+  }
+
   if (typeof CookieConsent === 'undefined') return;
 
   CookieConsent.run({
