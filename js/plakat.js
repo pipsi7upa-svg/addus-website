@@ -23,7 +23,10 @@
   }
   /* Fällt Init-JS aus, darf die Seite nie hinterm Preloader hängen bleiben
      und Inhalte nicht unter [data-reveal]{opacity:0} verschwinden. */
-  window.addEventListener('error', function () {
+  window.addEventListener('error', function (e) {
+    /* Nur eigene Skriptfehler zählen: Drittanbieter (Turnstile, Analytics)
+       werfen sonst mitten in der Session motion-off und killen die Choreografie */
+    if (!e || !e.filename || e.filename.indexOf(location.origin) !== 0) return;
     document.documentElement.classList.add('motion-off');
     killLader();
   });
@@ -472,6 +475,7 @@
         start: 'top top',
         end: '+=340%',
         pin: true,
+        anticipatePin: 1,
         scrub: .9,
         invalidateOnRefresh: true,
         onUpdate: function (self) {
@@ -691,6 +695,19 @@
       });
   });
 
+  /* ── FAHRPLAN: Tages-Ruler füllt sich beim Reinscrollen ──
+     Ohne JS/bei motion-off bleiben die Ticks statisch sichtbar. */
+  gsap.utils.toArray('.etappe').forEach(function (li) {
+    var ticks = li.querySelectorAll('.etappe__ruler i.an');
+    if (!ticks.length) return;
+    gsap.fromTo(ticks,
+      { scaleY: 0, transformOrigin: 'bottom' },
+      {
+        scaleY: 1, duration: .5, ease: 'power3.out', stagger: .08,
+        scrollTrigger: { trigger: li, start: 'top 82%', once: true }
+      });
+  });
+
   /* ── PAPIER-CHOREOGRAFIE: Ghost-Parallaxe · Zeilen-Kino ──*/
 
   /* Ghost-Ziffern hinter den Sektionsköpfen fahren in eigener
@@ -718,18 +735,6 @@
       autoAlpha: 0, y: 34, duration: .8, delay: .1, ease: 'expo.out',
       scrollTrigger: { trigger: row, start: 'top 86%', once: true }
     });
-    /* Numeral: nur Alpha beim Eintritt, y gehört der Scrub-Parallaxe */
-    var nr = row.querySelector('.lst__nr');
-    if (nr) {
-      gsap.from(nr, {
-        autoAlpha: 0, duration: .8, ease: 'expo.out',
-        scrollTrigger: { trigger: row, start: 'top 86%', once: true }
-      });
-      gsap.fromTo(nr, { y: 34 }, {
-        y: -34, ease: 'none',
-        scrollTrigger: { trigger: row, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
-      });
-    }
   });
 
   /* ── PROBLEME: Streichliste ──────────────────────────────
@@ -740,7 +745,6 @@
   gsap.utils.toArray('.streich').forEach(function (row) {
     var problem = row.querySelector('.streich__problem');
     var flip = row.querySelector('.streich__flip');
-    var nr = row.querySelector('.streich__nr');
     var loesung = row.querySelector('.streich__loesung > span');
     if (!problem) return;
 
@@ -773,9 +777,6 @@
       .fromTo(flip,
         { yPercent: 0 },
         { yPercent: -50, duration: .3, ease: 'power2.inOut' }, '<')
-      .fromTo(nr,
-        { color: 'oklch(98% 0.005 92)', opacity: .55 },
-        { color: 'oklch(62% 0.22 264)', opacity: 1, duration: .3, ease: 'none' }, '<')
       .fromTo(loesung,
         { yPercent: 125 },
         { yPercent: 0, duration: .55, ease: 'power3.out' }, '-=.15');
@@ -822,6 +823,7 @@
         start: 'top top',
         end: function () { return '+=' + dist(); },
         pin: true,
+        anticipatePin: 1,
         scrub: 1,
         invalidateOnRefresh: true,
         onScrubComplete: function () { rTo.forEach(function (fn) { fn(0); }); },
@@ -968,8 +970,11 @@
   });
 
   /* ── ÜBER-FOTO: Scale-Reveal ──────────────────────────── */
+  /* clearProps: Inline-Transform nach dem Reveal räumen,
+     sonst blockiert er den CSS-Hover-Zoom (scale) */
   gsap.from('.ueber__foto img', {
     scale: 1.12, duration: 1.4, ease: 'expo.out',
+    clearProps: 'transform,scale,translate,rotate',
     scrollTrigger: { trigger: '.ueber__foto', start: 'top 88%', once: true }
   });
 
