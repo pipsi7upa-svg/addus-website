@@ -1,0 +1,27 @@
+/* TEAM */
+Studio: addus. — Studio für handcodierte Websites
+Kontakt: hallo [at] addus-web.de
+Standort: Deutschland
+Web: https://addus-web.de
+
+/* THANKS */
+An alle Betriebe, die Handarbeit statt Baukasten wollen.
+
+/* SITE */
+Zuletzt aktualisiert: 2026-07-06
+Sprache: Deutsch
+Doctype: HTML5
+
+/* STACK — jede Zeile von Hand geschrieben */
+Markup:      HTML5, semantisch + barrierefrei (ARIA, Skip-Links)
+Styling:     CSS3 — Custom Properties, Grid, clamp(), oklch(), overflow:clip
+Skripte:     JavaScript ES6+, Vanilla, kein Framework
+Motion:      GSAP 3 + ScrollTrigger (self-hosted), Lenis Smooth-Scroll,
+             SplitType (Zeichen-Choreografie), Canvas 2D (Partikel)
+Fonts:       Bricolage Grotesque (variabel, self-hosted, woff2)
+Tooling:     Node.js 22, npm, Terser, Git
+Hosting:     Cloudflare Pages, statisch, 4× A+ Security-Header
+Analytics:   Erst nach Einwilligung. 0 Trackingcookies vorher.
+
+/* HALTUNG */
+Kein Template. Kein Theme. Kein Plugin-Zoo. Handcode.

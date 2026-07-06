@@ -9,6 +9,16 @@
 
   document.documentElement.classList.add('js');
 
+  /* ── SIGNATUR: Visitenkarte für alle, die F12 drücken ──── */
+  try {
+    console.log(
+      '%c addus. %c handcodiert — keine Templates, kein Baukasten ',
+      'background:#2438ff;color:#f6f4ee;font-weight:700;padding:4px 8px;border-radius:3px 0 0 3px',
+      'background:#101010;color:#f6f4ee;padding:4px 8px;border-radius:0 3px 3px 0'
+    );
+    console.log('Stack: HTML5 · CSS3 · ES6 · GSAP + ScrollTrigger · Lenis · SplitType · Canvas — https://addus-web.de/humans.txt');
+  } catch (e) {}
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGsap = typeof window.gsap !== 'undefined';
   var motion = hasGsap && !reduce;
@@ -45,6 +55,15 @@
   var nav = document.getElementById('navbar');
   var navProg = document.getElementById('navProgress');
   var lastY = window.scrollY;
+  /* scrollHeight NICHT pro Scroll-Event lesen (Forced Reflow) — cachen,
+     neu messen bei Resize + ScrollTrigger-Refresh (Pins ändern die Höhe) */
+  var scrollMax = 0;
+  function messenScrollMax() {
+    scrollMax = document.documentElement.scrollHeight - window.innerHeight;
+  }
+  messenScrollMax();
+  window.addEventListener('resize', messenScrollMax);
+  if (window.ScrollTrigger) ScrollTrigger.addEventListener('refresh', messenScrollMax);
   function navState() {
     if (!nav) return;
     var y = window.scrollY;
@@ -58,8 +77,7 @@
     nav.classList.toggle('nav--hidden', verstecken);
     lastY = y;
     if (navProg) {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      navProg.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+      navProg.style.transform = 'scaleX(' + (scrollMax > 0 ? Math.min(1, y / scrollMax) : 0) + ')';
     }
   }
   navState();
@@ -71,6 +89,9 @@
       document.body.classList.toggle('menu-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      /* Hintergrund darf hinterm offenen Vollbild-Menü nicht weiterscrollen
+         (lenis ist var-gehoisted; existiert erst nach Motion-Init) */
+      if (typeof lenis !== 'undefined' && lenis) { open ? lenis.stop() : lenis.start(); }
     };
     burger.addEventListener('click', function () {
       setMenu(!document.body.classList.contains('menu-open'));
@@ -327,7 +348,14 @@
     if (!c) return;
     var qx = gsap.quickTo(c, 'x', { duration: .35, ease: 'power3.out' });
     var qy = gsap.quickTo(c, 'y', { duration: .35, ease: 'power3.out' });
+    var cursorAn = false;
     window.addEventListener('mousemove', function (e) {
+      if (!cursorAn) {
+        /* Erster Move: direkt hinsetzen statt von 0/0 hinzufliegen */
+        cursorAn = true;
+        gsap.set(c, { x: e.clientX, y: e.clientY });
+        c.classList.add('is-an');
+      }
       qx(e.clientX); qy(e.clientY);
       var el = e.target;
       var lab = el.closest && el.closest('[data-cursor]');
@@ -341,6 +369,68 @@
         c.classList.remove('is-link', 'is-label');
       }
     }, { passive: true });
+  })();
+
+  /* ── LABOR: Tabs + Mini-Syntax-Highlighter ──────────────
+     Läuft bewusst VOR dem Motion-Guard: Code lesen und Demos
+     wechseln muss auch ohne GSAP / mit reduced motion gehen. */
+  (function labor() {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.lab__tab'));
+    if (!tabs.length) return;
+
+    /* Highlighter: reicht für unsere kontrollierten Snippets —
+       Kommentar → String → @-Regel → Keyword → Zahl → Funktion */
+    /* Kein Lookbehind: alter Safari wirft sonst beim Parsen der ganzen Datei */
+    var TOKEN = /(\/\*[\s\S]*?\*\/)|('(?:[^'\\]|\\.)*')|(@[\w-]+)|\b(const|let|var|function|new|for|of|if|else|return|to|from|syntax|initial-value|inherits)\b|(\b\d+(?:\.\d+)?\b)|([\w$-]+)(?=\()/g;
+    document.querySelectorAll('.lab__code code').forEach(function (code) {
+      var txt = code.textContent
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var istTrio = !!code.closest('.lab__mehr');
+      if (code.getAttribute('data-lang') === 'html') {
+        /* HTML: Tag-Namen, Attribute, Attributwerte — EIN Durchlauf,
+           sonst zerlegt Pass 2 die in Pass 1 eingefügten Spans */
+        code.innerHTML = txt.replace(/(&lt;\/?)([\w-]+)|([\w-]+)(?==")|("[^"]*")/g, function (m, lt, tag, attr, str) {
+          if (tag) return lt + '<span class="tk-k">' + tag + '</span>';
+          if (attr) return '<span class="tk-f">' + attr + '</span>';
+          return '<span class="tk-s">' + str + '</span>';
+        });
+      } else {
+        code.innerHTML = txt.replace(TOKEN, function (m, c, s, p, k, n, f) {
+          var cls = c ? 'tk-c' : s ? 'tk-s' : p ? 'tk-p' : k ? 'tk-k' : n ? 'tk-n' : 'tk-f';
+          return '<span class="' + cls + '">' + m + '</span>';
+        });
+      }
+      /* Zusammenspiel-Blöcke: Zeilen einzeln ansprechbar machen —
+         die Demo tippt sie später Zeile für Zeile hin.
+         (Token-Spans liegen hier nie über Zeilengrenzen.) */
+      if (istTrio) {
+        code.innerHTML = code.innerHTML.split('\n').map(function (l) {
+          return '<span class="zeile">' + (l || '&nbsp;') + '</span>';
+        }).join('');
+      }
+    });
+
+    /* Tablist: Klick + Pfeiltasten (roving tabindex) */
+    function wahl(tab) {
+      tabs.forEach(function (t) {
+        var an = t === tab;
+        t.setAttribute('aria-selected', an ? 'true' : 'false');
+        t.tabIndex = an ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !an;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.tabIndex = i === 0 ? 0 : -1;
+      t.addEventListener('click', function () { wahl(t); });
+      t.addEventListener('keydown', function (e) {
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        var n = tabs[(i + d + tabs.length) % tabs.length];
+        wahl(n); n.focus();
+      });
+    });
   })();
 
   /* ── Ohne GSAP / mit reduced motion: hier Schluss ─────── */
@@ -632,10 +722,25 @@
       window.__introFertig = true;
     }
   });
+  /* Headline-Typo als Instrument: SplitType zerlegt die Kino-Zeilen
+     in Zeichen — jeder Buchstabe steigt einzeln aus der Zeilenmaske
+     (yPercent + Kippung), Stagger läuft als Welle über beide Zeilen.
+     .k-zeile bleibt als Hülle intakt: der Scroll-Scrub schert weiter
+     ganze Zeilen. Ohne SplitType: bewährter Zeilen-Reveal als Fallback. */
+  var kinoChars = null;
+  if (typeof window.SplitType !== 'undefined') {
+    var kinoH = document.getElementById('hero-headline');
+    if (kinoH) {
+      /* Screenreader lesen die Headline am Stück, nicht Buchstabensalat */
+      kinoH.setAttribute('aria-label', kinoH.textContent.replace(/\s+/g, ' ').trim());
+      var split = new SplitType('#hero-headline .k-zeile', { types: 'chars' });
+      kinoChars = split.chars && split.chars.length ? split.chars : null;
+    }
+  }
   intro
-    .from('.k-zeile', {
-      yPercent: 114, rotate: 4.5, duration: .95, stagger: .13, ease: 'expo.out'
-    })
+    .from(kinoChars || '.k-zeile', kinoChars
+      ? { yPercent: 118, rotate: 7, duration: .9, stagger: { each: .028, from: 'start' }, ease: 'expo.out' }
+      : { yPercent: 114, rotate: 4.5, duration: .95, stagger: .13, ease: 'expo.out' })
     .from('.hero__topline', { autoAlpha: 0, x: -30, duration: .6 }, '-=.6')
     .from('.hero__sub',     { autoAlpha: 0, y: 26,  duration: .6 }, '-=.5')
     .from('.hero__cta > *', { autoAlpha: 0, y: 22, stagger: .06, duration: .55 }, '-=.45')
@@ -819,6 +924,19 @@
     var rTo = stuecke.map(function (s) { return gsap.quickTo(s, 'rotation', { duration: .55, ease: 'power2.out' }); });
     var neigClamp = gsap.utils.clamp(-2.2, 2.2);
     if (stuecke[0]) stuecke[0].classList.add('is-fokus');
+    /* Panel-Mitten NICHT pro Frame via getBoundingClientRect messen (Layout-
+       Thrash im Pin-Scrub = Ruckeln). Einmal pro Refresh die Layout-Basis
+       cachen, pro Frame nur die gecachte Spur-X-Translation addieren. */
+    var basen = [];
+    var fokusIdx = 0;
+    function messenBasen() {
+      var spurX = Number(gsap.getProperty(spur, 'x')) || 0;
+      basen = stuecke.map(function (s) {
+        var r = s.getBoundingClientRect();
+        var eigenX = Number(gsap.getProperty(s, 'x')) || 0;
+        return r.left + r.width / 2 - spurX - eigenX;
+      });
+    }
     gsap.to(spur, {
       x: function () { return -dist(); },
       ease: 'none',
@@ -835,21 +953,24 @@
         refreshPriority: 1,
         scrub: 1,
         invalidateOnRefresh: true,
+        onRefresh: messenBasen,
         onScrubComplete: function () { rTo.forEach(function (fn) { fn(0); }); },
         onUpdate: function (self) {
           if (balken) balken.style.transform = 'scaleX(' + self.progress + ')';
           if (nr) nr.textContent = '0' + (Math.min(3, Math.floor(self.progress * 4)) + 1);
           var neig = neigClamp(self.getVelocity() / -1600);
+          var spurX = Number(gsap.getProperty(spur, 'x')) || 0;
           var mitte = window.innerWidth / 2, best = 0, bestD = Infinity;
           for (var i = 0; i < stuecke.length; i++) {
-            var r = stuecke[i].getBoundingClientRect();
-            var d = r.left + r.width / 2 - mitte;
+            var d = basen[i] + spurX - mitte;
             xSet[i]((d / window.innerWidth) * -30);
             rTo[i](neig);
             if (Math.abs(d) < bestD) { bestD = Math.abs(d); best = i; }
           }
-          for (i = 0; i < stuecke.length; i++) {
-            stuecke[i].classList.toggle('is-fokus', i === best);
+          if (best !== fokusIdx) {
+            stuecke[fokusIdx].classList.remove('is-fokus');
+            stuecke[best].classList.add('is-fokus');
+            fokusIdx = best;
           }
         }
       }
@@ -894,6 +1015,13 @@
       if (reihe) {
         reihe.addEventListener('mouseenter', function () { tw.pause(); });
         reihe.addEventListener('mouseleave', function () { tw.play(); });
+      }
+      /* Unsichtbare Bänder laufen nicht weiter: spart Frames + Akku (Mobile) */
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (e) {
+          if (!e[0].isIntersecting) tw.pause();
+          else if (!reihe || !reihe.matches(':hover')) tw.play();
+        }).observe(tr.parentElement || tr);
       }
       return tw;
     });
@@ -1026,6 +1154,517 @@
     if (lenis) lenis.scrollTo(z, { offset: -60, immediate: true });
     else z.scrollIntoView();
   }
+
+  /* ── LABOR-DEMOS: die Vorschau-Fenster leben wirklich ──── */
+
+  /* Demo „SVG-Zeichner": Sprach-Boten zeigen die Staffel — SVG liefert
+     den Pfad (Geisterlinie), JavaScript zeichnet ihn nach */
+  (function labSvg() {
+    var linie = document.getElementById('labLinie');
+    var knopf = document.getElementById('labLinieBtn');
+    var tab = document.getElementById('labt-svg');
+    if (!linie || !linie.getTotalLength) return;
+    var panel = document.getElementById('labp-svg');
+    var duo = panel.querySelector('.lab__duo');
+    var mehr = panel.querySelector('.lab__mehr');
+    var laenge = linie.getTotalLength();
+    gsap.set(linie, { strokeDasharray: laenge, strokeDashoffset: laenge });
+
+    /* Geisterlinie: der "Bauplan", den der SVG-Bote abliefert */
+    var geist = linie.cloneNode(false);
+    geist.removeAttribute('id');
+    geist.removeAttribute('style');
+    geist.setAttribute('class', 'linie-geist');
+    linie.parentNode.insertBefore(geist, linie);
+    gsap.set(geist, { autoAlpha: 0 });
+
+    function blockAktiv(name) {
+      mehr.classList.toggle('spielt', !!name);
+      mehr.querySelectorAll('.mehr__block').forEach(function (b) {
+        b.classList.toggle('aktiv', b.getAttribute('data-block') === name);
+      });
+    }
+
+    var spielt = false;
+    function zeichnen() {
+      if (spielt) return;
+      spielt = true;
+      gsap.set(linie, { strokeDasharray: laenge, strokeDashoffset: laenge });
+      gsap.set(geist, { autoAlpha: 0 });
+      blockAktiv('svg');
+      /* Bote 1: SVG bringt den Bauplan */
+      botFlug(duo, mehr.querySelector('[data-block="svg"]'), linie.parentNode, 'svg', {
+        beiAnkunft: function () {
+          gsap.to(geist, { autoAlpha: .3, duration: .3 });
+          blockAktiv('js2');
+          /* Bote 2: JavaScript kommt mit dem Stift */
+          botFlug(duo, mehr.querySelector('[data-block="js2"]'), linie.parentNode, 'js', {
+            beiAnkunft: function () {
+              gsap.to(linie, {
+                strokeDashoffset: 0, duration: 1.8, ease: 'power2.inOut', overwrite: true,
+                onComplete: function () { blockAktiv(null); spielt = false; }
+              });
+            }
+          });
+        }
+      });
+    }
+    if (knopf) knopf.addEventListener('click', zeichnen);
+    if (tab) tab.addEventListener('click', zeichnen);
+  })();
+
+  /* Demo „Schwerkraft": die Sprachen als werfbare Physik-Bälle —
+     Gravitation, Aufprall, Kollision, alles von Hand gerechnet */
+  (function labGrav() {
+    var cv = document.getElementById('labGrav');
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    var w = 0, h = 0, raf = 0, running = false, sichtbar = false;
+    var SORTEN = [
+      { g: '<>', f: '#E34F26', t: '#fff' },
+      { g: '#', f: '#33A9DC', t: '#101010' },
+      { g: '{}', f: '#F7DF1E', t: '#101010' },
+      { g: '~', f: '#FFB13B', t: '#101010' },
+      { g: 'n', f: '#5FA04E', t: '#fff' }
+    ];
+    var baelle = [], griff = null, letzt = { x: 0, y: 0 };
+
+    function bauen() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = cv.clientWidth; h = cv.clientHeight;
+      if (!w || !h) return;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!baelle.length) {
+        baelle = SORTEN.map(function (s, i) {
+          return {
+            x: w * (i + 1) / (SORTEN.length + 1), y: h * .25,
+            vx: (i % 2 ? 1 : -1) * (1 + i * .4), vy: 0, r: 24, s: s
+          };
+        });
+      }
+    }
+    function schritt() {
+      for (var i = 0; i < baelle.length; i++) {
+        var b = baelle[i];
+        if (b !== griff) {
+          b.vy += .5;                       /* Gravitation */
+          b.x += b.vx; b.y += b.vy;
+          if (b.y > h - b.r) { b.y = h - b.r; b.vy *= -.78; b.vx *= .99; }
+          if (b.x < b.r) { b.x = b.r; b.vx *= -.82; }
+          if (b.x > w - b.r) { b.x = w - b.r; b.vx *= -.82; }
+        }
+        /* Kollision: Impulse entlang der Verbindungslinie tauschen */
+        for (var j = i + 1; j < baelle.length; j++) {
+          var a = baelle[j];
+          var dx = a.x - b.x, dy = a.y - b.y;
+          var d = Math.hypot(dx, dy) || 1, min = a.r + b.r;
+          if (d < min) {
+            var nx = dx / d, ny = dy / d, ueber = (min - d) / 2;
+            a.x += nx * ueber; a.y += ny * ueber;
+            b.x -= nx * ueber; b.y -= ny * ueber;
+            var pa = a.vx * nx + a.vy * ny, pb = b.vx * nx + b.vy * ny;
+            a.vx += (pb - pa) * nx; a.vy += (pb - pa) * ny;
+            b.vx += (pa - pb) * nx; b.vy += (pa - pb) * ny;
+          }
+        }
+      }
+    }
+    function malen() {
+      ctx.clearRect(0, 0, w, h);
+      baelle.forEach(function (b) {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fillStyle = b.s.f;
+        ctx.fill();
+        ctx.fillStyle = b.s.t;
+        ctx.font = '700 13px ui-monospace, Consolas, monospace';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(b.s.g, b.x, b.y + 1);
+      });
+      if (running) { schritt(); raf = requestAnimationFrame(malen); }
+    }
+    function start() { if (!running) { bauen(); running = true; raf = requestAnimationFrame(malen); } }
+    function stop() { running = false; if (raf) cancelAnimationFrame(raf); }
+    function sync() {
+      var offen = !cv.closest('[hidden]');
+      (offen && sichtbar && !document.hidden) ? start() : stop();
+    }
+
+    function zeiger(e) {
+      var r = cv.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+    cv.addEventListener('pointerdown', function (e) {
+      var p = zeiger(e);
+      for (var i = baelle.length - 1; i >= 0; i--) {
+        var b = baelle[i];
+        if (Math.hypot(p.x - b.x, p.y - b.y) < b.r + 6) {
+          griff = b; letzt = p;
+          cv.setPointerCapture(e.pointerId);
+          break;
+        }
+      }
+    });
+    cv.addEventListener('pointermove', function (e) {
+      if (!griff) return;
+      var p = zeiger(e);
+      griff.vx = p.x - letzt.x; griff.vy = p.y - letzt.y;
+      griff.x = p.x; griff.y = p.y; letzt = p;
+    });
+    function loslassen() { griff = null; }
+    cv.addEventListener('pointerup', loslassen);
+    cv.addEventListener('pointercancel', loslassen);
+
+    window.addEventListener('resize', function () { if (running) bauen(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { sichtbar = e[0].isIntersecting; sync(); }).observe(cv);
+    } else { sichtbar = true; }
+    document.addEventListener('visibilitychange', sync);
+    document.querySelectorAll('.lab__tab').forEach(function (t) {
+      t.addEventListener('click', function () { setTimeout(sync, 0); });
+    });
+  })();
+
+  /* Demo „Partikel-Staub": exakt der gezeigte Code — läuft nur,
+     wenn das Panel offen UND im Viewport ist (kein Leerlauf-rAF) */
+  (function labStaub() {
+    var cv = document.getElementById('labStaub');
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    var punkte = [], w = 0, h = 0, raf = 0, running = false, sichtbar = false;
+    var maus = { x: -9999, y: -9999 };
+
+    function bauen() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = cv.clientWidth; h = cv.clientHeight;
+      if (!w || !h) return;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = 'rgba(246,244,238,.9)';
+      punkte = [];
+      for (var i = 0; i < 90; i++) {
+        var x = Math.random() * w, y = Math.random() * h;
+        punkte.push({ x: x, y: y, hx: x, hy: y });
+      }
+    }
+    function malen() {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < punkte.length; i++) {
+        var p = punkte[i];
+        var dx = p.x - maus.x, dy = p.y - maus.y;
+        var d = Math.hypot(dx, dy) || 1;
+        if (d < 80) { p.x += dx / d * 2.4; p.y += dy / d * 2.4; }
+        p.x += (p.hx - p.x) * .05;
+        p.y += (p.hy - p.y) * .05;
+        ctx.fillRect(p.x, p.y, 2, 2);
+      }
+      if (running) raf = requestAnimationFrame(malen);
+    }
+    function start() { if (!running) { if (!punkte.length) bauen(); running = true; raf = requestAnimationFrame(malen); } }
+    function stop() { running = false; if (raf) cancelAnimationFrame(raf); }
+    function sync() {
+      var offen = !cv.closest('[hidden]');
+      (offen && sichtbar && !document.hidden) ? start() : stop();
+    }
+
+    cv.addEventListener('pointermove', function (e) {
+      var r = cv.getBoundingClientRect();
+      maus.x = e.clientX - r.left; maus.y = e.clientY - r.top;
+    });
+    cv.addEventListener('pointerleave', function () { maus.x = maus.y = -9999; });
+    window.addEventListener('resize', function () { if (running) bauen(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { sichtbar = e[0].isIntersecting; sync(); }).observe(cv);
+    } else { sichtbar = true; }
+    document.addEventListener('visibilitychange', sync);
+    document.querySelectorAll('.lab__tab').forEach(function (t) {
+      t.addEventListener('click', function () { setTimeout(sync, 0); });
+    });
+  })();
+
+  /* ── SPRACH-BOTEN: jede Sprache ist ein gebrandeter Ball ────
+     Fliegt eine Quadratik-Bezier-Kurve (Bogen), neigt sich in
+     Flugrichtung, streckt sich im Flug (Squash & Stretch) und
+     hinterlässt eine Funkenspur. Von allen Demos gemeinsam genutzt. */
+  var BOTEN = {
+    html: { farbe: '#E34F26', glyph: '<>', text: '#fff' },
+    css:  { farbe: '#33A9DC', glyph: '#',  text: '#101010' },
+    js:   { farbe: '#F7DF1E', glyph: '{}', text: '#101010' },
+    svg:  { farbe: '#FFB13B', glyph: '~',  text: '#101010' },
+    node: { farbe: '#5FA04E', glyph: 'n',  text: '#fff' }
+  };
+
+  function botMitte(container, el) {
+    var r = el.getBoundingClientRect(), b = container.getBoundingClientRect();
+    return { x: r.left - b.left + r.width / 2, y: r.top - b.top + r.height / 2 };
+  }
+
+  function botFlug(container, vonEl, zuEl, sprache, opts) {
+    opts = opts || {};
+    var art = BOTEN[sprache];
+    var von = botMitte(container, vonEl), zu = botMitte(container, zuEl);
+    /* Kontrollpunkt: Bogen wölbt sich quer zur Flugrichtung nach oben */
+    var cx = (von.x + zu.x) / 2 + (opts.seitwaerts || 0);
+    var cy = Math.min(von.y, zu.y) - (opts.hoehe || 64);
+
+    var ball = document.createElement('span');
+    ball.className = 'bote';
+    ball.textContent = art.glyph;
+    ball.style.background = art.farbe;
+    ball.style.color = art.text;
+    ball.style.boxShadow = '0 0 14px ' + art.farbe + ', 0 0 30px ' + art.farbe + '66';
+    container.appendChild(ball);
+
+    var lauf = { t: 0 }, spurZeit = 0;
+    gsap.set(ball, { x: von.x, y: von.y, scale: .3, autoAlpha: 0 });
+    gsap.to(ball, { autoAlpha: 1, scale: 1, duration: .14 });
+    gsap.to(lauf, {
+      t: 1, duration: opts.dauer || .6, ease: 'power1.inOut',
+      onUpdate: function () {
+        var t = lauf.t, u = 1 - t;
+        var x = u * u * von.x + 2 * u * t * cx + t * t * zu.x;
+        var y = u * u * von.y + 2 * u * t * cy + t * t * zu.y;
+        /* Tangente → Ball neigt sich in Flugrichtung, streckt sich mittig */
+        var dx = 2 * u * (cx - von.x) + 2 * t * (zu.x - cx);
+        var dy = 2 * u * (cy - von.y) + 2 * t * (zu.y - cy);
+        var stretch = 1 + Math.sin(t * Math.PI) * .35;
+        gsap.set(ball, {
+          x: x, y: y,
+          rotation: Math.atan2(dy, dx) * 180 / Math.PI,
+          scaleX: stretch, scaleY: 2 - stretch
+        });
+        /* Funkenspur: alle ~45 ms ein verglühender Punkt */
+        var jetzt = lauf.t;
+        if (jetzt - spurZeit > .12) {
+          spurZeit = jetzt;
+          var funke = document.createElement('i');
+          funke.className = 'bote__funke';
+          funke.style.background = art.farbe;
+          container.appendChild(funke);
+          gsap.set(funke, { x: x, y: y });
+          gsap.to(funke, {
+            autoAlpha: 0, scale: .1, duration: .38, ease: 'power1.out',
+            onComplete: function () { funke.remove(); }
+          });
+        }
+      },
+      onComplete: function () {
+        gsap.to(ball, {
+          scale: 1.8, autoAlpha: 0, rotation: 0, duration: .22, ease: 'power2.out',
+          onComplete: function () { ball.remove(); }
+        });
+        if (opts.beiAnkunft) opts.beiAnkunft();
+      }
+    });
+  }
+
+  /* Demo „Zusammenspiel": drei Sprachen bauen live EIN Bauteil.
+     HTML mauert eine Wand aus echtem Code, der zu Stein wird —
+     CSS verputzt sie — JavaScript zieht ein. Die Boten (Bälle)
+     tragen die Arbeit vom Code zur Bühne. */
+  (function labTrio() {
+    var karte = document.getElementById('trioKarte');
+    var zahl = document.getElementById('trioZahl');
+    var schritt = document.getElementById('trioSchritt');
+    var los = document.getElementById('trioLos');
+    var replay = document.getElementById('trioReplay');
+    var tab = document.getElementById('labt-trio');
+    var mehr = document.querySelector('.lab__mehr');
+    if (!karte || !mehr) return;
+    var bloecke = Array.prototype.slice.call(mehr.querySelectorAll('.mehr__block'));
+    var duo = karte.closest('.lab__duo');
+
+    function aktiv(name) {
+      mehr.classList.toggle('spielt', !!name);
+      bloecke.forEach(function (b) {
+        b.classList.toggle('aktiv', b.getAttribute('data-block') === name);
+      });
+    }
+    function sage(text) { if (schritt) schritt.textContent = text; }
+    function block(name) { return mehr.querySelector('[data-block="' + name + '"]'); }
+    function zeilen(name) { return block(name).querySelectorAll('.zeile'); }
+
+    /* Echte Inhalte VOR dem Ring einsammeln — sonst tweent Akt 1 den Ring mit */
+    var kinder = Array.prototype.slice.call(karte.children);
+    var bauteile = kinder.slice().reverse();
+    var ring = document.createElement('i');
+    ring.className = 'mkarte__ring';
+    karte.appendChild(ring);
+
+    function ringBlitz(farbe) {
+      gsap.set(ring, { borderColor: farbe });
+      gsap.fromTo(ring, { autoAlpha: .9, scale: .92 }, { autoAlpha: 0, scale: 1.14, duration: .5, ease: 'power2.out' });
+    }
+
+    /* Staffelübergabe: Sprach-Bote fliegt Code → Karte, Ring blitzt */
+    function uebergabe(tl, name, pos) {
+      tl.add(function () {
+        botFlug(duo, block(name), karte, name, {
+          beiAnkunft: function () { ringBlitz(BOTEN[name].farbe); }
+        });
+      }, pos);
+      tl.to({}, { duration: .68 }); /* Flugzeit blocken */
+    }
+
+    /* ── CODE WIRD STEIN: die Wand mauert sich aus echten Tags,
+       jeder Brocken fliegt vom Code-Fenster an seinen Platz im
+       Mauerverbund und versteinert dort (Text → Ziegel) ── */
+    var WAND = ['<article>', '<h3>', '</h3>', '<p>', '<b id="zahl">', '</p>', '<button>', '</button>', '</article>', 'class="karte"'];
+    function mauern() {
+      var von = botMitte(duo, block('html'));
+      /* Karte ist hier auf scaleY:0 zusammengefaltet — die Bühne ist der stabile Anker */
+      var zu = botMitte(duo, karte.parentNode);
+      var kw = Math.max(karte.offsetWidth, 200), kh = Math.max(karte.offsetHeight, 150);
+      WAND.forEach(function (tok, i) {
+        var s = document.createElement('span');
+        s.className = 'brocken';
+        s.textContent = tok;
+        duo.appendChild(s);
+        var reihe = Math.floor(i / 2), spalte = i % 2;
+        /* Mauerverbund: jede zweite Reihe um einen halben Stein versetzt */
+        var tx = zu.x + (spalte ? kw * .21 : -kw * .21) + (reihe % 2 ? kw * .08 : 0);
+        var ty = zu.y + kh * .38 - reihe * (kh * .19);
+        gsap.fromTo(s,
+          { x: von.x, y: von.y + (i - WAND.length / 2) * 5, xPercent: -50, yPercent: -50, autoAlpha: 0, scale: .5, rotation: spalte ? 8 : -8 },
+          { x: tx, y: ty, autoAlpha: 1, scale: 1, rotation: 0, duration: .5, delay: i * .07, ease: 'power2.inOut' });
+        /* Versteinern: Schrift erlischt, der Ziegel bleibt */
+        gsap.to(s, {
+          delay: .55 + i * .07, duration: .4, ease: 'power1.in',
+          color: 'transparent',
+          backgroundColor: 'rgba(246,244,238,.14)',
+          borderColor: 'rgba(246,244,238,.38)'
+        });
+        /* Die Mauer löst sich in die fertige Karte auf */
+        gsap.to(s, {
+          delay: 1.55, duration: .45, autoAlpha: 0, scale: .85, ease: 'power2.in',
+          onComplete: function () { s.remove(); }
+        });
+      });
+    }
+
+    var z = { v: 0 };
+    var tl = gsap.timeline({ paused: true });
+    tl
+      /* ── Akt 1: HTML mauert — Code fliegt, wird Stein, wird Haus ── */
+      .add(function () {
+        aktiv('html'); sage('01 · HTML mauert die Wand — aus Code …');
+        karte.classList.add('mkarte--roh');
+        z.v = 0; if (zahl) zahl.textContent = '0';
+        gsap.set(kinder, { autoAlpha: 0 });
+        gsap.set(karte, { scaleY: 0, transformOrigin: 'bottom center', scale: 1, y: 0 });
+      })
+      .fromTo(zeilen('html'),
+        { autoAlpha: .12, x: -10 },
+        { autoAlpha: 1, x: 0, duration: .22, stagger: .07, ease: 'power2.out', immediateRender: false })
+      .add(mauern, '+=.05')
+      .to({}, { duration: 1.5 })
+      /* Hinter der Mauer wachsen die Wände hoch */
+      .fromTo(karte,
+        { scaleY: 0, transformOrigin: 'bottom center' },
+        { scaleY: 1, duration: .55, ease: 'power3.out', immediateRender: false }, '-=.55')
+      /* Bauteile stürzen ein: Tür → Fenster → Dach, Bounce beim Landen */
+      .fromTo(bauteile,
+        { y: -70, autoAlpha: 0, rotation: function (i) { return i % 2 ? 6 : -6; } },
+        { y: 0, autoAlpha: 1, rotation: 0, duration: .55, stagger: .2, ease: 'bounce.out', immediateRender: false }, '-=.1')
+      .to(karte, { y: 3, duration: .06, yoyo: true, repeat: 3, ease: 'power1.inOut' }, '-=.4')
+
+      /* ── Akt 2: CSS tippt, Bote fliegt, Design morpht drüber ── */
+      .add(function () { aktiv('css'); sage('02 · CSS verputzt und streicht …'); }, '+=.3')
+      .fromTo(zeilen('css'),
+        { autoAlpha: .12, x: -10 },
+        { autoAlpha: 1, x: 0, duration: .2, stagger: .06, ease: 'power2.out', immediateRender: false });
+    uebergabe(tl, 'css', '+=.05');
+    tl
+      .add(function () { karte.classList.remove('mkarte--roh'); }, '-=.12')
+      .fromTo(karte, { scale: .96 }, { scale: 1, duration: .55, ease: 'back.out(2.4)', immediateRender: false })
+
+      /* ── Akt 3: JS tippt, Bote fliegt, die Karte lebt ── */
+      .add(function () { aktiv('js'); sage('03 · JavaScript zieht ein …'); }, '+=.3')
+      .fromTo(zeilen('js'),
+        { autoAlpha: .12, x: -10 },
+        { autoAlpha: 1, x: 0, duration: .2, stagger: .06, ease: 'power2.out', immediateRender: false });
+    uebergabe(tl, 'js', '+=.05');
+    tl
+      .to(z, {
+        v: 100, duration: 1.1, ease: 'power2.out',
+        onUpdate: function () { if (zahl) zahl.textContent = Math.round(z.v); }
+      }, '-=.1')
+      .fromTo(los, { scale: 1 }, { scale: 1.12, duration: .16, yoyo: true, repeat: 3, ease: 'power2.inOut', immediateRender: false }, '-=.45')
+
+      /* ── Finale: die drei Boten drehen eine flüssige Ehrenrunde —
+         versetzte Bögen, dann saugt das Werk sie auf ── */
+      .add(function () {
+        aktiv(null); sage('Drei Sprachen · ein Bauteil');
+        var zu = botMitte(duo, karte);
+        ['html', 'css', 'js'].forEach(function (name, i) {
+          var art = BOTEN[name];
+          var b = document.createElement('span');
+          b.className = 'bote';
+          b.textContent = art.glyph;
+          b.style.background = art.farbe;
+          b.style.color = art.text;
+          b.style.boxShadow = '0 0 14px ' + art.farbe;
+          duo.appendChild(b);
+          var lauf = { w: -Math.PI / 2 + i * (Math.PI * 2 / 3) };
+          gsap.set(b, { x: zu.x, y: zu.y, scale: 0, autoAlpha: 0 });
+          gsap.to(b, { scale: .9, autoAlpha: 1, duration: .25, delay: i * .08 });
+          gsap.to(lauf, {
+            w: lauf.w + Math.PI * 2, duration: 1.3, delay: i * .08, ease: 'power1.inOut',
+            onUpdate: function () {
+              gsap.set(b, { x: zu.x + Math.cos(lauf.w) * 108, y: zu.y + Math.sin(lauf.w) * 64 });
+            },
+            onComplete: function () {
+              gsap.to(b, {
+                x: zu.x, y: zu.y, scale: 0, autoAlpha: 0, duration: .32, ease: 'power2.in',
+                onComplete: function () { b.remove(); }
+              });
+            }
+          });
+        });
+        gsap.delayedCall(1.75, function () { ringBlitz('#f6f4ee'); });
+      }, '+=.15')
+      .to({}, { duration: 2.2 });
+
+    function abspielen() { tl.restart(); }
+    if (replay) replay.addEventListener('click', abspielen);
+    if (tab) tab.addEventListener('click', abspielen);
+    if (los) los.addEventListener('click', function () {
+      gsap.fromTo(los, { scale: .9 }, { scale: 1, duration: .5, ease: 'elastic.out(1,.4)' });
+    });
+    /* Autoplay beim ersten Scroll ins Labor — nur wenn Trio-Panel offen */
+    ScrollTrigger.create({
+      trigger: '#labor', start: 'top 55%', once: true,
+      onEnter: function () { if (!karte.closest('[hidden]')) abspielen(); }
+    });
+  })();
+
+  /* Demo „Text-Decoder": exakt der gezeigte Code */
+  (function labDecoder() {
+    var ziel = document.getElementById('labDecoder');
+    var knopf = document.getElementById('labDecoderBtn');
+    var tab = document.getElementById('labt-decode');
+    if (!ziel) return;
+    var GLYPHEN = '!<>-_/[]{}=+*^?#';
+    var WORT = 'HANDCODE.';
+    var laeuft = false;
+    function entschluesseln() {
+      if (laeuft) return;
+      laeuft = true;
+      var frame = 0;
+      (function tick() {
+        var aus = '';
+        for (var i = 0; i < WORT.length; i++) {
+          aus += frame / 3 > i ? WORT[i] : GLYPHEN[Math.random() * GLYPHEN.length | 0];
+        }
+        ziel.textContent = aus;
+        if (frame++ < WORT.length * 3 + 3) requestAnimationFrame(tick);
+        else { ziel.textContent = WORT; laeuft = false; }
+      })();
+    }
+    if (knopf) knopf.addEventListener('click', entschluesseln);
+    if (tab) tab.addEventListener('click', entschluesseln);
+  })();
 
   /* Nach Font-Load Pins neu messen */
   if (document.fonts && document.fonts.ready) {

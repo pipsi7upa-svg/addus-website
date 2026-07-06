@@ -34,6 +34,7 @@
   <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
   <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/assets/favicon-192.png">
+  <link rel="author" href="/humans.txt">
   <title>Website erstellen lassen Lüneburg | Webdesign — addus.</title>
 
   <link rel="preload" href="assets/fonts/bricolage-vf-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -357,6 +358,303 @@
       </div>
     </section>
 
+    <!-- ═══ LABOR — Handcode live: Code links, Effekt rechts ═══ -->
+    <section id="labor" class="labor s-blau" aria-labelledby="lab-headline">
+      <div class="wrap">
+        <div class="skopf" data-reveal data-ghost="&lt;/&gt;">
+          <h2 id="lab-headline">Unser Werkzeug,<br><em>live im Einsatz.</em></h2>
+          <p class="skopf__lead">Kein Behaupten — ausprobieren. Links echter Code von dieser Seite, rechts was er tut. Wählen Sie einen Effekt.</p>
+        </div>
+
+        <!-- Original-Markenzeichen als SVG-Symbole: einmal definiert, überall per <use> -->
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <defs>
+            <symbol id="ikon-html" viewBox="0 0 24 24">
+              <path fill="#E34F26" d="M3 2h18l-1.64 18.5L11.98 22.7 4.64 20.5 3 2z"/>
+              <path fill="#EF652A" d="M12 3.8v17l5.94-1.78L19.36 3.8H12z"/>
+              <text x="12" y="16.6" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" font-weight="700" fill="#fff">5</text>
+            </symbol>
+            <symbol id="ikon-css" viewBox="0 0 24 24">
+              <path fill="#1572B6" d="M3 2h18l-1.64 18.5L11.98 22.7 4.64 20.5 3 2z"/>
+              <path fill="#33A9DC" d="M12 3.8v17l5.94-1.78L19.36 3.8H12z"/>
+              <text x="12" y="16.6" text-anchor="middle" font-family="Arial,sans-serif" font-size="11.5" font-weight="700" fill="#fff">3</text>
+            </symbol>
+            <symbol id="ikon-js" viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="3" fill="#F7DF1E"/>
+              <text x="20.5" y="20" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" font-weight="800" fill="#101010">JS</text>
+            </symbol>
+            <symbol id="ikon-gsap" viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="12" fill="#0AE448"/>
+              <text x="12" y="16" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#101010">GS</text>
+            </symbol>
+            <symbol id="ikon-lenis" viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="3" fill="#101010"/>
+              <path d="M4 14.5c2.6-5.4 5.4-5.4 8 0s5.4 5.4 8 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="ikon-canvas" viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="3" fill="#0E1120"/>
+              <circle cx="7" cy="8" r="1.7" fill="#E34F26"/><circle cx="15.5" cy="6" r="1.7" fill="#F7DF1E"/>
+              <circle cx="18.5" cy="14" r="1.7" fill="#33A9DC"/><circle cx="9" cy="16.5" r="1.7" fill="#0AE448"/>
+              <circle cx="16" cy="19.5" r="1.7" fill="#fff"/>
+            </symbol>
+            <symbol id="ikon-svg" viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="3" fill="#FFB13B"/>
+              <text x="12" y="15.8" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" font-weight="800" fill="#101010">SVG</text>
+            </symbol>
+            <symbol id="ikon-node" viewBox="0 0 24 24">
+              <path fill="#5FA04E" d="M12 1.3 21.3 6.65v10.7L12 22.7 2.7 17.35V6.65L12 1.3z"/>
+              <text x="12" y="16.4" text-anchor="middle" font-family="Arial,sans-serif" font-size="10.5" font-weight="700" fill="#fff">n</text>
+            </symbol>
+          </defs>
+        </svg>
+
+        <ul class="labor__stack" data-reveal aria-label="Unser Technologie-Stack">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-html"/></svg><span>HTML5</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-css"/></svg><span>CSS3</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg><span>JavaScript</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-svg"/></svg><span>SVG</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-gsap"/></svg><span>GSAP</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-lenis"/></svg><span>Lenis</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-canvas"/></svg><span>Canvas&nbsp;2D</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-node"/></svg><span>Node.js</span></li>
+        </ul>
+
+        <div class="labor__lab" data-reveal>
+          <div class="lab__tabs" role="tablist" aria-label="Code-Beispiele wählen">
+            <button class="lab__tab" role="tab" id="labt-trio" aria-controls="labp-trio" aria-selected="true">Zusammenspiel</button>
+            <button class="lab__tab" role="tab" id="labt-svg" aria-controls="labp-svg" aria-selected="false">SVG-Zeichner</button>
+            <button class="lab__tab" role="tab" id="labt-wuerfel" aria-controls="labp-wuerfel" aria-selected="false">3D-Würfel</button>
+            <button class="lab__tab" role="tab" id="labt-staub" aria-controls="labp-staub" aria-selected="false">Partikel-Staub</button>
+            <button class="lab__tab" role="tab" id="labt-decode" aria-controls="labp-decode" aria-selected="false">Text-Decoder</button>
+            <button class="lab__tab" role="tab" id="labt-grav" aria-controls="labp-grav" aria-selected="false">Schwerkraft</button>
+          </div>
+
+          <!-- ── Demo 0: Zusammenspiel — drei Sprachen bauen EIN Bauteil ── -->
+          <div class="lab__panel" id="labp-trio" role="tabpanel" aria-labelledby="labt-trio">
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-html"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-css"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>ein-bauteil · drei Sprachen</span></div>
+                <div class="lab__mehr">
+                  <div class="mehr__block" data-block="html">
+                    <p class="mehr__tag mehr__tag--html"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-html"/></svg>HTML — baut die Struktur</p>
+                    <pre class="lab__code"><code data-lang="html">&lt;article class="karte"&gt;
+  &lt;h4&gt;Ihr Projekt&lt;/h4&gt;
+  &lt;p&gt;&lt;b id="zahl"&gt;0&lt;/b&gt; % fertig&lt;/p&gt;
+  &lt;button id="los"&gt;Los geht's&lt;/button&gt;
+&lt;/article&gt;</code></pre>
+                  </div>
+                  <div class="mehr__block" data-block="css">
+                    <p class="mehr__tag mehr__tag--css"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-css"/></svg>CSS — gestaltet sie</p>
+                    <pre class="lab__code"><code data-lang="css">.karte {
+  background: #2438ff;
+  color: #f6f4ee;
+  border-radius: 14px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 22px 50px #00000059;
+}</code></pre>
+                  </div>
+                  <div class="mehr__block" data-block="js">
+                    <p class="mehr__tag mehr__tag--js"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>JavaScript — macht sie lebendig</p>
+                    <pre class="lab__code"><code data-lang="js">const zahl = { v: 0 };
+gsap.to(zahl, {
+  v: 100, duration: 1.6, ease: 'power2.out',
+  onUpdate: () =&gt; el.textContent = Math.round(zahl.v)
+});</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage">
+                  <p class="mehr__schritt" id="trioSchritt" aria-live="polite">Drei Sprachen · ein Bauteil</p>
+                  <article class="mkarte" id="trioKarte">
+                    <h3>Ihr Projekt</h3>
+                    <p><b id="trioZahl">0</b>&nbsp;% fertig</p>
+                    <button id="trioLos" type="button">Los geht's</button>
+                  </article>
+                  <button class="lab__replay" id="trioReplay" type="button">↻ Nochmal ansehen</button>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang lab__lang--html">HTML5</span><span class="lab__lang lab__lang--cssx">CSS3</span><span class="lab__lang">JavaScript</span> Keine Sprache kann es allein: HTML liefert das Gerüst, CSS zieht das Design darüber, JavaScript bringt Bewegung hinein. Links leuchtet immer der Block, der gerade arbeitet — rechts sehen Sie sein Werk.</p>
+          </div>
+
+          <!-- ── Demo 1: SVG-Zeichner — die Linie zeichnet sich selbst ── -->
+          <div class="lab__panel" id="labp-svg" role="tabpanel" aria-labelledby="labt-svg" hidden>
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-svg"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>signatur.svg + zeichnen.js</span></div>
+                <div class="lab__mehr">
+                  <div class="mehr__block" data-block="svg">
+                    <p class="mehr__tag mehr__tag--svg"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-svg"/></svg>SVG — der Pfad</p>
+                    <pre class="lab__code"><code data-lang="html">&lt;svg viewBox="0 0 120 44"&gt;
+  &lt;path id="linie" fill="none"
+        stroke="#f6f4ee" stroke-width="3"
+        d="M6 34 Q16 8 28 24 T56 22 T86 20 T114 8"/&gt;
+&lt;/svg&gt;</code></pre>
+                  </div>
+                  <div class="mehr__block" data-block="js2">
+                    <p class="mehr__tag mehr__tag--js"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>JavaScript — zeichnet ihn</p>
+                    <pre class="lab__code"><code data-lang="js">const laenge = linie.getTotalLength();   /* Pfad vermessen */
+
+gsap.fromTo(linie,
+  { strokeDasharray: laenge, strokeDashoffset: laenge },
+  { strokeDashoffset: 0, duration: 1.8, ease: 'power2.inOut' });</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage">
+                  <svg class="lab__linie" viewBox="0 0 120 44" aria-label="Eine Linie zeichnet sich selbst">
+                    <path id="labLinie" fill="none" stroke="#f6f4ee" stroke-width="3" stroke-linecap="round" d="M6 34 Q16 8 28 24 T56 22 T86 20 T114 8"/>
+                  </svg>
+                  <button class="lab__replay" id="labLinieBtn" type="button">↻ Zeichnen</button>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang lab__lang--svg">SVG</span><span class="lab__lang">JavaScript</span> Ein SVG-Pfad kennt seine eigene Länge. <code>stroke-dasharray</code> zerlegt die Linie in genau ein Strich-Stück, <code>stroke-dashoffset</code> schiebt es aus dem Bild — und GSAP zieht es herein: der Stift zeichnet live.</p>
+          </div>
+
+          <!-- ── Demo 2: 3D-Würfel — pures CSS, null JavaScript ── -->
+          <div class="lab__panel" id="labp-wuerfel" role="tabpanel" aria-labelledby="labt-wuerfel" hidden>
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-css"/></svg>wuerfel.css</span></div>
+                <pre class="lab__code"><code data-lang="css">/* Sechs Flächen, ein Raum: preserve-3d */
+.buehne  { perspective: 700px; }
+
+.wuerfel {
+  transform-style: preserve-3d;
+  animation: drehen 10s linear infinite;
+}
+.wuerfel:hover { animation-play-state: paused; }
+
+.seite--vorn   { transform: translateZ(52px); }
+.seite--hinten { transform: rotateY(180deg) translateZ(52px); }
+.seite--rechts { transform: rotateY(90deg)  translateZ(52px); }
+.seite--oben   { transform: rotateX(90deg)  translateZ(52px); }
+
+@keyframes drehen {
+  to { transform: rotateX(360deg) rotateY(720deg); }
+}</code></pre>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage">
+                  <div class="lab__buehne" aria-label="Rotierender 3D-Würfel aus purem CSS">
+                    <div class="lab__wuerfel">
+                      <i class="w-s w-s--v">CSS</i>
+                      <i class="w-s w-s--h">3D</i>
+                      <i class="w-s w-s--r">HTML</i>
+                      <i class="w-s w-s--l">JS</i>
+                      <i class="w-s w-s--o">SVG</i>
+                      <i class="w-s w-s--u">addus.</i>
+                    </div>
+                  </div>
+                  <p class="lab__hinweis">Anhalten: Maus auf den Würfel</p>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang lab__lang--cssx">CSS3</span> Null JavaScript: <code>perspective</code> öffnet den Raum, <code>preserve-3d</code> lässt die sechs Flächen darin leben, eine einzige <code>animation</code> dreht alles — der Browser rechnet die 3D-Projektion selbst.</p>
+          </div>
+
+          <!-- ── Demo 3: Partikel-Staub ── -->
+          <div class="lab__panel" id="labp-staub" role="tabpanel" aria-labelledby="labt-staub" hidden>
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>staub.js</span></div>
+                <pre class="lab__code"><code data-lang="js">/* 90 Partikel weichen dem Cursor aus */
+function malen() {
+  ctx.clearRect(0, 0, w, h);
+  for (const p of punkte) {
+    const dx = p.x - maus.x, dy = p.y - maus.y;
+    const d  = Math.hypot(dx, dy) || 1;
+    if (d &lt; 80) { p.x += dx / d * 2.4; p.y += dy / d * 2.4; }
+    p.x += (p.hx - p.x) * .05;   /* zurück zum Heimatpunkt */
+    p.y += (p.hy - p.y) * .05;
+    ctx.fillRect(p.x, p.y, 2, 2);
+  }
+  requestAnimationFrame(malen);
+}</code></pre>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage lab__stage--voll">
+                  <canvas id="labStaub" aria-label="Interaktives Partikelfeld — bewegen Sie den Cursor darüber"></canvas>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang">JavaScript</span><span class="lab__lang lab__lang--lib">Canvas&nbsp;2D</span> Kein Bild, keine Bibliothek: <code>requestAnimationFrame</code> zeichnet jedes Partikel 60× pro Sekunde neu. Dieselbe Technik treibt den Staub in unserem Hero an.</p>
+          </div>
+
+          <!-- ── Demo 4: Text-Decoder — Zeichen rotieren, rasten einzeln ein ── -->
+          <div class="lab__panel" id="labp-decode" role="tabpanel" aria-labelledby="labt-decode" hidden>
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>decoder.js</span></div>
+                <pre class="lab__code"><code data-lang="js">/* Zeichen rotieren zufällig — dann rasten sie einzeln ein */
+const GLYPHEN = '!&lt;&gt;-_/[]{}=+*^?#';
+
+function entschluesseln(el, wort) {
+  let frame = 0;
+  (function tick() {
+    el.textContent = [...wort].map((zeichen, i) =&gt;
+      frame / 3 &gt; i
+        ? zeichen
+        : GLYPHEN[Math.random() * GLYPHEN.length | 0]
+    ).join('');
+    if (frame++ &lt; wort.length * 3 + 3) requestAnimationFrame(tick);
+  })();
+}
+
+entschluesseln(ziel, 'HANDCODE.');</code></pre>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage">
+                  <p class="lab__decoder" id="labDecoder" aria-label="HANDCODE.">HANDCODE.</p>
+                  <button class="lab__replay" id="labDecoderBtn" type="button">↻ Entschlüsseln</button>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang">JavaScript</span><span class="lab__lang lab__lang--lib">Vanilla&nbsp;ES6</span> Kein Framework, keine Bibliothek: Spread-Operator, <code>map()</code> und <code>requestAnimationFrame</code> reichen. Jedes Zeichen würfelt Glyphen, bis sein Frame-Fenster erreicht ist — dann rastet es ein.</p>
+          </div>
+
+          <!-- ── Demo 6: Schwerkraft — die Sprachen als werfbare Physik-Bälle ── -->
+          <div class="lab__panel" id="labp-grav" role="tabpanel" aria-labelledby="labt-grav" hidden>
+            <div class="lab__duo">
+              <div class="lab__fenster lab__fenster--code">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span class="fenster__datei"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-js"/></svg>physik.js</span></div>
+                <pre class="lab__code"><code data-lang="js">/* Schwerkraft, Aufprall, Reibung — pure Mathematik */
+ball.vy += 0.5;                /* Gravitation zieht */
+ball.x  += ball.vx;
+ball.y  += ball.vy;
+
+if (ball.y &gt; boden) {          /* Aufprall */
+  ball.y   = boden;
+  ball.vy *= -0.78;            /* Energie verpufft */
+  ball.vx *=  0.99;            /* Rollreibung */
+}
+
+/* Kollision: Impulse entlang der Verbindungslinie tauschen */
+const d = Math.hypot(b.x - a.x, b.y - a.y);
+if (d &lt; a.r + b.r) tauscheImpulse(a, b);</code></pre>
+              </div>
+              <div class="lab__fenster lab__fenster--stage">
+                <div class="fenster__kopf" aria-hidden="true"><i></i><i></i><i></i><span>Vorschau</span></div>
+                <div class="lab__stage lab__stage--voll">
+                  <canvas id="labGrav" aria-label="Physik-Spielplatz: fünf Sprach-Bälle mit echter Schwerkraft — greifen und werfen"></canvas>
+                  <p class="lab__hinweis lab__hinweis--frei">Greifen &amp; werfen — jede Kugel ist eine Sprache</p>
+                </div>
+              </div>
+            </div>
+            <p class="lab__fuss"><span class="lab__lang">JavaScript</span><span class="lab__lang lab__lang--lib">Canvas&nbsp;2D</span> Keine Physik-Engine, nur Mathematik: Gravitation ist eine Addition, der Aufprall eine Multiplikation, die Kollision ein Impulstausch entlang der Verbindungslinie. Werfen Sie unsere fünf Sprachen durch den Raum.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ PROZESS — Der Fahrplan ═══ -->
     <section id="prozess" class="fahrplan s-tinte" aria-labelledby="prz-headline">
       <div class="wrap">
@@ -527,7 +825,8 @@
                  srcset="assets/img/adam-portrait-400.jpg 400w, assets/img/adam-portrait-600.jpg 600w, assets/img/adam-portrait-800.jpg 800w"
                  sizes="(max-width: 820px) 92vw, 460px"
                  alt="Adam Dia, Gründer und Entwickler von addus., Porträt"
-                 loading="eager" decoding="async" fetchpriority="low">
+                 width="800" height="1732"
+                 loading="lazy" decoding="async">
             <figcaption>Adam Dia · Gründer &amp; Entwickler · seit 2024</figcaption>
           </figure>
           <div class="ueber__text" data-reveal>
@@ -709,6 +1008,7 @@
   <script src="js/vendor/lenis.min.js" defer></script>
   <script src="js/vendor/gsap.min.js" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/split-type.min.js" defer></script>
   <script src="js/plakat.js" defer></script>
 </body>
 </html>

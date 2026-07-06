@@ -884,8 +884,13 @@ a.trust__link:hover .btn__pfeil{transform:translate(4px,-4px)}
 @media(max-width:900px){
   .nav__menu,.nav__cta{display:none}
   .nav__burger{display:block}
+  /* backdrop-filter-Blur kostet auf Mobil-GPUs pro Scroll-Frame:
+     stattdessen fast deckendes Papier ohne Blur */
+  .nav--solid{backdrop-filter:none;background:oklch(96.5% 0.009 92 / .97)}
 }
 @media(min-width:901px){.menu{display:none}}
+/* Offenes Vollbild-Menü: Seite dahinter friert ein (JS stoppt zusätzlich Lenis) */
+body.menu-open{overflow:hidden}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
@@ -901,6 +906,9 @@ body::after{
   opacity:.28;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .55 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
 }
+/* Mobil: der fixe 200%-Blend-Layer zwingt jede Scroll-Frame durch einen
+   Compositing-Pass — auf Handy-GPUs die teuerste Fläche der Seite. Weg. */
+@media(max-width:899px){body::after{content:none}}
 
 /* ── Preloader ── */
 html:not(.js) .lader{display:none}
@@ -965,6 +973,9 @@ body.laden{overflow:hidden}
 .cursor.is-label span{display:block}
 .cursor.is-link{width:44px;height:44px}
 @media(pointer:fine){html.js .cursor{display:flex}}
+/* Unsichtbar bis zur ersten Mausbewegung (JS setzt .is-an) — kein Geisterpunkt oben links */
+.cursor{opacity:0}
+.cursor.is-an{opacity:1}
 
 /* ── Hero: Kino-Plakat (Projektor-Beam · Filmstaub · Tiefenbühne) ── */
 .hero{position:relative}
@@ -1215,4 +1226,307 @@ html.motion-off .audit__scan,html:not(.js) .audit__scan{display:none}
 /* ═══ FOOTER-MARKE: Letter-Spans ═══════════════════════════ */
 .ftr__marke .lq{display:inline-block}
 
+
+
+/* ═══ LABOR — Code links, Effekt rechts ════════════════════ */
+.labor{padding-block:clamp(4rem,10vh,7rem)}
+
+/* Stack-Leiste: Werkzeuge als Chips */
+.labor__stack{
+  list-style:none;margin:0 0 clamp(2rem,5vh,3.5rem);padding:0;
+  display:flex;flex-wrap:wrap;gap:.6rem;
+}
+.labor__stack li{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.55rem .95rem;
+  border:1px solid oklch(98% 0.005 92 / .28);border-radius:99px;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.78rem;letter-spacing:.04em;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s,border-color .35s;
+}
+.labor__stack li:hover{
+  transform:translateY(-3px);
+  background:oklch(98% 0.005 92 / .08);border-color:oklch(98% 0.005 92 / .6);
+}
+/* Original-Markenzeichen: Symbole bringen ihre Markenfarben selbst mit */
+.labor__stack li{padding:.7rem 1.15rem;font-size:.85rem;gap:.7rem}
+.labor__stack svg{width:2em;height:2em;flex:none;border-radius:4px}
+
+/* Tabs */
+.lab__tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.1rem}
+.lab__tab{
+  appearance:none;cursor:pointer;
+  background:transparent;color:inherit;
+  border:1px solid oklch(98% 0.005 92 / .3);border-radius:99px;
+  padding:.5rem 1.05rem;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.lab__tab:hover{border-color:oklch(98% 0.005 92 / .7)}
+.lab__tab[aria-selected="true"]{background:var(--papier);color:var(--blau);border-color:var(--papier)}
+
+/* Split-Screen: Editor ↔ Bühne */
+.lab__duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
+@media (max-width:900px){
+  .lab__duo{grid-template-columns:1fr;gap:.8rem}
+  /* Mobil: Effekt ZUERST und klebt oben im Viewport — der Code scrollt
+     darunter vorbei, die Wirkung bleibt dabei durchgehend sichtbar */
+  .lab__fenster--stage{
+    order:-1;
+    position:sticky;top:calc(var(--nav-h) + .4rem);z-index:3;
+  }
+  .lab__stage{min-height:190px;padding:1rem;gap:.8rem}
+  .lab__stage--voll canvas{min-height:190px}
+  .lab__buehne{padding:.8rem 0}
+  /* Code-Fenster kompakt: scrollt intern statt die Seite zu strecken */
+  .lab__fenster--code{max-height:42vh;overflow-y:auto;scrollbar-width:thin}
+  .lab__fenster--code .fenster__kopf{position:sticky;top:0;z-index:1}
+  .lab__fenster--code .lab__mehr{min-height:0;overflow-y:visible}
+  .lab__code{font-size:.72rem;padding:.9rem 1rem}
+}
+
+.lab__fenster{
+  display:flex;flex-direction:column;min-width:0;
+  background:oklch(15% 0.03 272);
+  border:1px solid oklch(98% 0.005 92 / .14);border-radius:12px;
+  box-shadow:0 24px 60px oklch(10% 0.04 272 / .45);
+  overflow:hidden;
+}
+.fenster__kopf{
+  display:flex;align-items:center;gap:.45rem;
+  padding:.6rem .9rem;
+  background:oklch(12% 0.025 272);
+  border-bottom:1px solid oklch(98% 0.005 92 / .1);
+}
+.fenster__kopf i{width:.65rem;height:.65rem;border-radius:50%;background:oklch(98% 0.005 92 / .22)}
+.fenster__kopf i:first-child{background:oklch(65% 0.2 25 / .8)}
+.fenster__kopf i:nth-child(2){background:oklch(80% 0.16 90 / .8)}
+.fenster__kopf i:nth-child(3){background:oklch(70% 0.18 150 / .8)}
+.fenster__kopf span{
+  margin-left:auto;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.72rem;letter-spacing:.06em;
+  color:oklch(90% 0.01 92 / .55);
+}
+/* Dateiname mit Original-Sprach-Icon */
+.fenster__datei{display:inline-flex;align-items:center;gap:.45rem}
+.fenster__datei svg{width:1.25em;height:1.25em;border-radius:2px}
+
+/* Code-Fenster */
+.lab__code{
+  margin:0;padding:1.1rem 1.2rem;flex:1;
+  overflow-x:auto;
+  font-family:var(--mono,ui-monospace,'Cascadia Code',Consolas,monospace);
+  font-size:.8rem;line-height:1.65;tab-size:2;
+  color:oklch(88% 0.012 92);
+  scrollbar-width:thin;
+}
+.lab__code code{font:inherit}
+/* Syntax-Token — vom Mini-Highlighter in plakat.js gesetzt */
+.tk-c{color:oklch(65% 0.015 92 / .55);font-style:italic}   /* Kommentar */
+.tk-k{color:oklch(78% 0.13 275)}                            /* Keyword  */
+.tk-s{color:oklch(84% 0.1 85)}                              /* String   */
+.tk-n{color:oklch(80% 0.13 55)}                             /* Zahl     */
+.tk-f{color:oklch(82% 0.1 200)}                             /* Funktion */
+.tk-p{color:oklch(75% 0.16 320)}                            /* @-Regel / Property */
+
+/* Bühne */
+.lab__stage{
+  position:relative;flex:1;min-height:300px;
+  display:grid;place-items:center;align-content:center;gap:1.2rem;
+  padding:1.5rem;
+  background-image:radial-gradient(oklch(98% 0.005 92 / .1) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.lab__stage--voll{padding:0;place-items:stretch}
+.lab__stage--voll canvas{width:100%;height:100%;min-height:300px;display:block;cursor:crosshair}
+
+.lab__replay{
+  appearance:none;cursor:pointer;
+  background:transparent;color:inherit;
+  border:1px solid oklch(98% 0.005 92 / .35);border-radius:99px;
+  padding:.45rem 1rem;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.75rem;letter-spacing:.05em;
+  transition:background .3s,color .3s;
+}
+.lab__replay:hover{background:var(--papier);color:var(--blau)}
+
+/* Demo 4: Text-Decoder — Terminal-Ästhetik, Zeichen rasten ein */
+.lab__decoder{
+  margin:0;
+  font-family:var(--mono,ui-monospace,'Cascadia Code',Consolas,monospace);
+  font-size:clamp(1.7rem,4vw,2.8rem);font-weight:700;letter-spacing:.06em;line-height:1.1;
+  font-variant-numeric:tabular-nums;
+  color:oklch(88% 0.15 155);                                /* Phosphor-Grün */
+  text-shadow:0 0 18px oklch(88% 0.15 155 / .45);
+}
+
+/* Fußzeile: Sprache markiert + Erklärung */
+.lab__fuss{
+  margin:1.1rem 0 0;max-width:72ch;
+  font-size:.88rem;line-height:1.7;color:oklch(90% 0.01 92 / .75);
+}
+.lab__fuss code{
+  font-family:var(--mono,ui-monospace,monospace);font-size:.82em;
+  padding:.1em .35em;border-radius:4px;
+  background:oklch(98% 0.005 92 / .12);color:var(--papier);
+}
+.lab__lang{
+  display:inline-block;margin-right:.4rem;padding:.14em .6em;
+  border-radius:4px;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--papier);color:var(--blau);font-weight:700;
+}
+.lab__lang--lib{background:oklch(98% 0.005 92 / .16);color:var(--papier);font-weight:400}
+.lab__lang--css{background:oklch(84% 0.1 85);color:oklch(18% 0.02 272)}
+
+/* ═══ LABOR: Zusammenspiel — drei Sprachen, ein Bauteil ═════ */
+.lab__mehr{flex:1;overflow-y:auto;scrollbar-width:thin}
+.mehr__block{
+  padding:.35rem 0 .55rem;
+  border-left:3px solid transparent;
+  opacity:.38;
+  transition:opacity .45s,border-color .45s,background .45s;
+}
+.mehr__block + .mehr__block{border-top:1px solid oklch(98% 0.005 92 / .07)}
+.mehr__block.aktiv{
+  opacity:1;
+  background:oklch(98% 0.005 92 / .035);
+}
+.mehr__block.aktiv[data-block="html"]{border-left-color:#E34F26}
+.mehr__block.aktiv[data-block="css"]{border-left-color:#33A9DC}
+.mehr__block.aktiv[data-block="js"]{border-left-color:#F7DF1E}
+.mehr__block.aktiv[data-block="svg"]{border-left-color:#FFB13B}
+.mehr__block.aktiv[data-block="js2"]{border-left-color:#F7DF1E}
+/* Ruhezustand (keiner aktiv): alle voll lesbar */
+.lab__mehr:not(.spielt) .mehr__block{opacity:1}
+
+.mehr__tag{
+  display:flex;align-items:center;gap:.5rem;
+  margin:0;padding:.55rem 1.1rem 0;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+  color:oklch(90% 0.01 92 / .65);
+}
+.mehr__tag svg{width:1.3em;height:1.3em;border-radius:2px}
+.mehr__tag--html{color:#EF8A6A}
+.mehr__tag--css{color:#6FC3E8}
+.mehr__tag--js{color:#F7DF1E}
+.mehr__block .lab__code{padding:.5rem 1.1rem .7rem;flex:none}
+
+/* Kopfzeile mit mehreren Sprach-Icons */
+.fenster__datei svg + svg{margin-left:-.35em}
+
+/* Schritt-Anzeige über der Bühne */
+.mehr__schritt{
+  margin:0;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;
+  color:oklch(90% 0.01 92 / .6);
+}
+
+/* Die Mini-Karte: roh (nur HTML) → gestaltet (CSS) → lebendig (JS) */
+.mkarte{
+  text-align:center;
+  padding:2rem 2.4rem;border-radius:14px;
+  background:var(--blau);color:var(--papier);
+  border:1px solid transparent;
+  box-shadow:0 22px 50px oklch(10% 0.04 272 / .35);
+  transition:background .7s,color .7s,border-radius .7s,box-shadow .7s,border-color .7s;
+}
+.mkarte h3{margin:0 0 .4rem;font-size:1.15rem;letter-spacing:-.01em}
+.mkarte p{margin:0 0 1.1rem;font-size:.95rem}
+.mkarte b{font-variant-numeric:tabular-nums}
+.mkarte button{
+  cursor:pointer;appearance:none;
+  padding:.55rem 1.3rem;border-radius:99px;
+  border:1px solid var(--papier);background:transparent;color:inherit;
+  font:inherit;font-size:.85rem;
+  transition:background .3s,color .3s,border-radius .7s,border-color .7s;
+}
+.mkarte button:hover{background:var(--papier);color:var(--blau)}
+/* Rohbau: so sähe es NUR mit HTML aus */
+.mkarte--roh{
+  background:transparent;color:oklch(90% 0.01 92 / .8);
+  border:1px dashed oklch(98% 0.005 92 / .5);border-radius:0;
+  box-shadow:none;
+  font-family:ui-serif,Georgia,serif;
+}
+.mkarte--roh button{border:1px dashed oklch(98% 0.005 92 / .5);border-radius:0}
+
+/* Sprach-Chips in Markenfarben */
+.lab__lang--html{background:#E34F26;color:#fff}
+.lab__lang--cssx{background:#1572B6;color:#fff}
+
+/* Zusammenspiel v2: Daten-Pulse, Farbring, Zeilen-Typing */
+.lab__duo{position:relative}
+.bote{
+  position:absolute;left:0;top:0;z-index:6;
+  width:27px;height:27px;margin:-13.5px 0 0 -13.5px;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.6rem;font-weight:800;
+  opacity:0;pointer-events:none;will-change:transform;
+}
+.bote__funke{
+  position:absolute;left:0;top:0;z-index:5;
+  width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;
+  pointer-events:none;filter:blur(.5px);
+}
+.brocken{
+  position:absolute;left:0;top:0;z-index:5;
+  transform:translate(-50%,-50%);
+  padding:.16em .5em;border-radius:4px;white-space:nowrap;
+  border:1px solid transparent;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.6rem;letter-spacing:.02em;
+  color:oklch(96.5% 0.009 92 / .92);
+  opacity:0;pointer-events:none;will-change:transform;
+}
+.linie-geist{
+  stroke:oklch(96.5% 0.009 92 / .9);stroke-width:3;fill:none;stroke-linecap:round;
+  stroke-dasharray:4 8;
+}
+.lab__hinweis--frei{position:absolute;left:0;right:0;bottom:.7rem;text-align:center;pointer-events:none}
+#labGrav{cursor:grab}
+#labGrav:active{cursor:grabbing}
+.mkarte{position:relative}
+.mkarte__ring{
+  position:absolute;inset:-7px;border-radius:inherit;
+  border:2px solid transparent;
+  opacity:0;pointer-events:none;
+}
+.lab__mehr .zeile{display:block}
+
+/* ═══ LABOR v3: SVG-Zeichner · 3D-Würfel · Build-Terminal ═══ */
+.mehr__tag--svg{color:#FFB13B}
+.lab__lang--svg{background:#FFB13B;color:#101010}
+.lab__lang--node{background:#5FA04E;color:#fff}
+
+/* SVG-Zeichner */
+.lab__linie{width:min(78%,380px);height:auto;overflow:visible}
+.lab__linie path{filter:drop-shadow(0 0 10px oklch(96.5% 0.009 92 / .35))}
+
+/* 3D-Würfel — pures CSS, exakt der gezeigte Code */
+.lab__buehne{perspective:700px;padding:1.4rem 0}
+.lab__wuerfel{
+  width:104px;height:104px;position:relative;margin:0 auto;
+  transform-style:preserve-3d;
+  animation:lab-wuerfel 10s linear infinite;
+}
+.lab__wuerfel:hover{animation-play-state:paused}
+.w-s{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--mono,ui-monospace,monospace);font-size:.95rem;font-weight:700;font-style:normal;
+  border:1px solid oklch(98% 0.005 92 / .35);
+  backface-visibility:visible;
+}
+.w-s--v{background:#1572B6e6;transform:translateZ(52px)}
+.w-s--h{background:#2438ffe6;transform:rotateY(180deg) translateZ(52px)}
+.w-s--r{background:#E34F26e6;transform:rotateY(90deg) translateZ(52px)}
+.w-s--l{background:#F7DF1Ee6;color:#101010;transform:rotateY(-90deg) translateZ(52px)}
+.w-s--o{background:#FFB13Be6;color:#101010;transform:rotateX(90deg) translateZ(52px)}
+.w-s--u{background:#101010e6;transform:rotateX(-90deg) translateZ(52px)}
+@keyframes lab-wuerfel{to{transform:rotateX(360deg) rotateY(720deg)}}
+@media (prefers-reduced-motion:reduce){
+  .lab__wuerfel{animation:none;transform:rotateX(-20deg) rotateY(32deg)}
+}
+.lab__hinweis{
+  margin:0;font-family:var(--mono,ui-monospace,monospace);font-size:.72rem;letter-spacing:.06em;
+  color:oklch(90% 0.01 92 / .5);
+}
 
