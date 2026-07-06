@@ -419,6 +419,10 @@
         var panel = document.getElementById(t.getAttribute('aria-controls'));
         if (panel) panel.hidden = !an;
       });
+      /* Panelhöhen differieren um bis zu ~250px — ohne Refresh rechnen
+         alle ScrollTrigger unterhalb des Labors mit alten Positionen
+         (Ghost-Glyph & Reveals verrutschen sichtbar). */
+      safeRefresh();
     }
     tabs.forEach(function (t, i) {
       t.tabIndex = i === 0 ? 0 : -1;
