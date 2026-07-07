@@ -143,16 +143,27 @@
       var box = f.parentElement;
       if (!box) return;
       var cw = box.clientWidth;
-      /* Nur bei Breitenänderung neu skalieren — verhindert ResizeObserver-Loop
+      /* Handy: Demos im Phone-Format rendern (Mobile-Layout, lesbar);
+         Desktop: volle Demo-Breite aus data-rw/rh. */
+      var mobil = window.innerWidth < 900;
+      var rw = mobil ? 420 : (parseInt(f.dataset.rw, 10) || 1300);
+      var rh = mobil ? 720 : (parseInt(f.dataset.rh, 10) || 975);
+      /* Nur bei Breiten-/Format-Änderung neu skalieren — verhindert ResizeObserver-Loop
          (box.style.height unten löst sonst erneut den Observer aus). */
-      if (cw < 10 || cw === parseFloat(f.dataset.lastCw)) return;
-      f.dataset.lastCw = cw;
+      var key = cw + 'x' + rw;
+      if (cw < 10 || key === f.dataset.lastKey) return;
+      f.dataset.lastKey = key;
       changed = true;
-      var rw = parseInt(f.dataset.rw, 10) || 1300;
-      var rh = parseInt(f.dataset.rh, 10) || 975;
+      /* Breakpoint gewechselt (z. B. Rotation): passende Quelle nachladen */
+      var want = frameSrc(f);
+      if (want && f.getAttribute('src') && f.getAttribute('src') !== want) f.src = want;
       /* Demo füllt die Breite exakt; Rahmenhöhe = skalierte Demo + Leiste.
          +1px Overscan schluckt Rundungs-Slivers an den Kanten. */
       var s = (cw + 1) / rw;
+      /* aspect-ratio-Platzhalter abschalten, sonst leitet der Browser aus der
+         gesetzten Höhe eine NEUE Breite ab (Feedback-Schleife: Rahmen wächst). */
+      box.style.aspectRatio = 'auto';
+      box.style.width = '100%';
       box.style.height = (Math.ceil(rh * s) + 29) + 'px';
       f.style.width = rw + 'px';
       f.style.height = rh + 'px';
@@ -169,18 +180,23 @@
     frames.forEach(function (f) { if (f.parentElement) frameRO.observe(f.parentElement); });
   }
 
+  /* Handy bekommt die extra gebauten Mobile-Poster (demos/mobil/), Desktop die volle Demo */
+  function frameSrc(f) {
+    return (window.innerWidth < 900 && f.dataset.srcMobil) ? f.dataset.srcMobil : f.dataset.src;
+  }
   if ('IntersectionObserver' in window && frames.length) {
     var frameIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         var f = e.target;
-        if (f.dataset.src && !f.src) f.src = f.dataset.src;
+        var src = frameSrc(f);
+        if (src && !f.src) f.src = src;
         frameIO.unobserve(f);
       });
     }, { rootMargin: '900px' });
     frames.forEach(function (f) { frameIO.observe(f); });
   } else {
-    frames.forEach(function (f) { if (f.dataset.src) f.src = f.dataset.src; });
+    frames.forEach(function (f) { var src = frameSrc(f); if (src) f.src = src; });
   }
 
   /* ── KONTAKTFORMULAR: Formspree + Turnstile ───────────── */
@@ -554,7 +570,7 @@
   /* ── SCROLL-STORY: gepinnter Hero in drei Akten ─────────
      Akt 1: Plakat löst sich auf (Zeilen scheren wie Filmstreifen raus)
      Akt 2: drei Statements fliegen durch die Kamera, Zahlen
-            zählen mit dem Scrub (14 Tage · 699 € · Handcode)
+            zählen mit dem Scrub (14 Tage · 27 €/Monat · Handcode)
      Akt 3: Letterbox-Abblende
      Akt 4: Abspann auf der Letterbox — Handoff in die Werkschau
      WICHTIG: vor dem Intro erstellen + immediateRender:true —
@@ -775,7 +791,7 @@
       })
       .to('.lader__in, .lader__hint', { autoAlpha: 0, y: -20, duration: .2 }, '-=.05');
     /* Hardcuts: Wort knallt rein, kein Fade dazwischen */
-    ['Kein Baukasten.', 'Kein Abo.', 'Null Blabla.'].forEach(function (w) {
+    ['Kein Baukasten.', 'Alles inklusive.', 'Null Blabla.'].forEach(function (w) {
       otl.add(function () { if (wort) wort.textContent = w; });
       otl.fromTo(wort,
         { scale: 1.16, autoAlpha: 1 },
@@ -981,21 +997,56 @@
     });
   });
 
+  /* Handy: Fortschritt (01/04 + Balken) folgt dem nativen Swipe-Scroller */
+  mm.add('(max-width: 899px)', function () {
+    var spur = document.querySelector('.werk__spur');
+    if (!spur) return;
+    var nr = document.getElementById('werkNr');
+    var balken = document.getElementById('werkBalken');
+    var raf = 0;
+    function upd() {
+      raf = 0;
+      var max = spur.scrollWidth - spur.clientWidth;
+      var p = max > 0 ? spur.scrollLeft / max : 0;
+      if (balken) balken.style.transform = 'scaleX(' + p + ')';
+      if (nr) nr.textContent = '0' + (Math.min(3, Math.floor(p * 4)) + 1);
+    }
+    function onScroll() { if (!raf) raf = requestAnimationFrame(upd); }
+    spur.addEventListener('scroll', onScroll, { passive: true });
+    upd();
+    return function () {
+      spur.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  });
+
   /* ── WERKSCHAU-AUFTRITT: Tinte-Vorhang hebt sich lamellenweise ── */
   gsap.to('.werk__vorhang i', {
     scaleY: 0, ease: 'expo.inOut', duration: .75, stagger: .07,
     scrollTrigger: { trigger: '.werk', start: 'top 72%', once: true }
   });
-  gsap.from('.werk__stueck', {
-    y: 130,
-    rotation: function (i) { return i % 2 ? 2.6 : -2.6; },
-    scale: .93,
-    autoAlpha: 0,
-    duration: 1,
-    stagger: .11,
-    ease: 'expo.out',
-    scrollTrigger: { trigger: '.werk__viewport', start: 'top 82%', once: true }
-  });
+  /* Handy: nur Fade — Transforms auf Kindern des Snap-Scrollers
+     erzeugen Sprünge/Ruckler beim Swipen. Desktop: voller Auftritt. */
+  if (window.matchMedia('(min-width: 900px)').matches) {
+    gsap.from('.werk__stueck', {
+      y: 130,
+      rotation: function (i) { return i % 2 ? 2.6 : -2.6; },
+      scale: .93,
+      autoAlpha: 0,
+      duration: 1,
+      stagger: .11,
+      ease: 'expo.out',
+      scrollTrigger: { trigger: '.werk__viewport', start: 'top 82%', once: true }
+    });
+  } else {
+    gsap.from('.werk__stueck', {
+      autoAlpha: 0,
+      duration: .6,
+      stagger: .08,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.werk__viewport', start: 'top 85%', once: true }
+    });
+  }
   gsap.from('.werk__fortschritt', {
     autoAlpha: 0, x: -40, duration: .7,
     scrollTrigger: { trigger: '.werk__viewport', start: 'top 82%', once: true }
@@ -1064,7 +1115,7 @@
     });
   });
 
-  /* ── PREIS-ODOMETER: Ziffernsäulen rollen auf 699 ─────── */
+  /* ── PREIS-ODOMETER: Ziffernsäulen rollen auf den Monatspreis (27) ─────── */
   (function odo() {
     var el = document.querySelector('.preis__zahl .odo');
     if (!el) return;

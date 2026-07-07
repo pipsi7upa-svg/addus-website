@@ -40,7 +40,7 @@ import { animate, inView, stagger } from './vendor/motion.js';
       );
     }
 
-    // 2) Counter 1999 → 699 with smooth ease, kicks in after items finish
+    // 2) Counter rollt vom data-from- auf den data-to-Wert (z. B. → 59 € Start), kickt nach den Items ein
     if (counter) {
       const from = parseInt(counter.dataset.from, 10);
       const to   = parseInt(counter.dataset.to, 10);

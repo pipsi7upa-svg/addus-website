@@ -326,6 +326,7 @@ body.menu-open .menu{clip-path:inset(0);visibility:visible}
   height:20px;line-height:20px;padding:0 14px;border-radius:100px;
   background:oklch(18% 0.02 272);color:oklch(72% 0.01 272);
   font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  white-space:nowrap;max-width:62%;overflow:hidden;text-overflow:ellipsis;
 }
 .werk__frame{
   position:absolute;top:30px;left:0;
@@ -363,8 +364,16 @@ body.menu-open .menu{clip-path:inset(0);visibility:visible}
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
     padding-inline:calc((100vw - var(--w))/2);
+    overscroll-behavior-x:contain; /* kein Browser-Back-Swipe / Ruckeln am Rand */
+    touch-action:pan-x pan-y;
+    scrollbar-width:none;
   }
-  .werk__stueck{width:min(86vw,560px);scroll-snap-align:center}
+  .werk__spur::-webkit-scrollbar{display:none}
+  /* Phone-Format: JS rendert Demos auf Handy mit 420px-Viewport (Mobile-Layout der Demos) */
+  .werk__stueck{width:min(78vw,420px);scroll-snap-align:center;scroll-snap-stop:always}
+  .werk__rahmen{aspect-ratio:420/750}
+  .werk__label{flex-wrap:wrap;row-gap:.3rem}
+  .werk__meta{margin-left:0;width:100%;text-align:left}
 }
 
 /* ═══ PROBLEME → LÖSUNGEN (Streichliste) ═══════════════════
