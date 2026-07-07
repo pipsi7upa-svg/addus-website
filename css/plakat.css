@@ -244,6 +244,11 @@ body.menu-open .menu{clip-path:inset(0);visibility:visible}
   transition:transform .35s var(--ease-out);
 }
 .btn .btn__pfeil{transition:transform .3s var(--ease-out)}
+/* Pressed-State über die eigenständige scale-Property — kollidiert
+   nicht mit dem GSAP-Magnet-Transform (translate), beide komponieren */
+.btn{scale:1;transition:color .25s var(--ease-out),scale .18s var(--ease-out)}
+.btn:active{scale:.965}
+@media (prefers-reduced-motion:reduce){.btn:active{scale:1}}
 .btn--voll{background:var(--papier);color:var(--blau)}
 .btn--voll::before{background:var(--tinte);transform:translateY(101%)}
 .btn--voll:hover{color:var(--papier)}
@@ -843,6 +848,15 @@ a.trust__link:hover .btn__pfeil{transform:translate(4px,-4px)}
 }
 .feld input::placeholder,.feld textarea::placeholder{color:oklch(96.5% 0.009 92 / .78)}
 .feld input:focus,.feld textarea:focus{border-color:var(--papier)}
+/* Fokus hebt auch das Label — Feld fühlt sich „aktiv" an */
+.feld:focus-within label{opacity:1}
+/* Invalide erst NACH Interaktion (user-invalid), kein zweiter Accent:
+   gestrichelte Linie + waches Label signalisieren den Fehler leise */
+.feld input:user-invalid,.feld textarea:user-invalid{
+  border-bottom-style:dashed;border-color:var(--papier);
+}
+.feld:has(:user-invalid) label{opacity:1}
+.feld:has(:user-invalid) label::after{content:' — bitte prüfen';text-transform:none;letter-spacing:0}
 .feld textarea{min-height:6.5em;resize:vertical}
 .form__dsgvo{display:flex;gap:.8em;align-items:flex-start;font-size:var(--t-s);line-height:1.45;cursor:pointer}
 .form__dsgvo input{
@@ -860,7 +874,7 @@ a.trust__link:hover .btn__pfeil{transform:translate(4px,-4px)}
   border:2.5px solid var(--papier);border-radius:14px;
   padding:clamp(1.6rem,4vh,2.4rem);
 }
-.form__erfolg.is-shown{display:block}
+.form__erfolg.is-shown{display:block;animation:formAuf .55s var(--ease-out) both}
 .form__erfolg h3{font-size:var(--t-xl);font-weight:800;letter-spacing:-.02em;line-height:1;margin-bottom:.4em}
 .form__erfolg p{font-size:var(--t-m);max-width:44ch}
 .form__fehler{
@@ -870,7 +884,11 @@ a.trust__link:hover .btn__pfeil{transform:translate(4px,-4px)}
   font-family:var(--mono);font-size:var(--t-s);line-height:1.45;
   color:var(--papier);
 }
-.form__fehler.is-shown{display:block}
+.form__fehler.is-shown{display:block;animation:formAuf .4s var(--ease-out) both}
+@keyframes formAuf{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .form__erfolg.is-shown,.form__fehler.is-shown{animation:none}
+}
 .cf-turnstile{min-height:0}
 
 /* ═══ FOOTER ═══════════════════════════════════════════════ */
