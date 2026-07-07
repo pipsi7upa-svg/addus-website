@@ -918,15 +918,31 @@ body.menu-open{overflow:hidden}
    AUSBAU II — Preloader · Cursor · Netz · Korn · Ghost-Ziffern
    ═══════════════════════════════════════════════════════════ */
 
-/* Siebdruck-Korn über allem (sehr subtil) */
+/* Siebdruck-Korn über allem (sehr subtil).
+   Zwei Lagen: feines Korn (220px-Kachel) + grobe Wolken-Lage
+   (620px, niedrige Frequenz) — die zweite Lage bricht den
+   Kachel-Rapport, die Fläche wirkt bedruckt statt gerastert. */
 body::after{
   content:'';position:fixed;inset:-50%;z-index:300;pointer-events:none;
-  opacity:.28;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .55 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+  opacity:.3;mix-blend-mode:overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .55 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 620 620' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .48 0 0 0 0 .6 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  background-size:220px 220px,620px 620px;
 }
 /* Mobil: der fixe 200%-Blend-Layer zwingt jede Scroll-Frame durch einen
    Compositing-Pass — auf Handy-GPUs die teuerste Fläche der Seite. Weg. */
 @media(max-width:899px){body::after{content:none}}
+/* Mobil-Ersatz: Korn direkt in die dunklen Kobalt-/Tinte-Flächen
+   gebacken — background-blend-mode bleibt im selben Paint-Layer,
+   kein Compositing-Pass, kein FPS-Hit. Hell bleibt clean. */
+@media(max-width:899px){
+  .s-blau,.s-tinte{
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .55 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+    background-size:220px 220px;
+    background-blend-mode:overlay;
+  }
+}
 
 /* ── Preloader ── */
 html:not(.js) .lader{display:none}
