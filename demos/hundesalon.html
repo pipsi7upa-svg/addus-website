@@ -536,8 +536,11 @@
         ap.classList.toggle("fast", !!fast);
         pos(el); setTimeout(cb, fast ? 420 : 660);
       }
+      /* Kein scrollIntoView: scrollt bei same-origin-Einbettung (Werkschau-iframe)
+         auch die Elternseite mit. window.scrollTo bleibt im eigenen Frame. */
       function scrollZu(el, cb) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        var y = el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight - el.offsetHeight) / 2;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
         setTimeout(cb, 950);
       }
       function klick(cb) {

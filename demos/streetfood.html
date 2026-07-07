@@ -513,9 +513,12 @@
         var i = 0;
         (function s() { if (i <= txt.length) { el.value = txt.slice(0, i++); setTimeout(s, 55); } else cb && cb(); })();
       }
-      /* NEU: Scroll-Step — erst smooth scrollen, dann Cursor nach dem Scroll positionieren */
+      /* Scroll-Step — erst smooth scrollen, dann Cursor nach dem Scroll positionieren.
+         Kein scrollIntoView: scrollt bei same-origin-Einbettung (Werkschau-iframe)
+         auch die Elternseite mit. window.scrollTo bleibt im eigenen Frame. */
       function scrollZu(el, cb) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        var y = el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight - el.offsetHeight) / 2;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
         setTimeout(function () { move(el, cb); }, 900);
       }
 
