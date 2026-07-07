@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Röstwerk Marie — Mobile-Poster | Demo von addus</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @font-face {
+      font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap;
+      src: url("../../assets/fonts/fraunces-normal-latin.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Fraunces"; font-style: italic; font-weight: 100 900; font-display: swap;
+      src: url("../../assets/fonts/fraunces-italic-latin.woff2") format("woff2");
+    }
+    :root {
+      --creme: #F7F0E6; --creme-tief: #EFE4D3; --braun: #4A3428; --braun-tief: #38261C;
+      --terra: #C96F4A; --terra-tief: #A9522F; --milch: #FDFAF5; --ink-soft: #7A6555;
+      --display: "Fraunces", Georgia, serif;
+      --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--body); background: var(--creme); color: var(--braun);
+      overflow: hidden; -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+
+    /* ---------- Kopf ---------- */
+    .kopf {
+      position: absolute; top: 0; left: 0; right: 0; height: 54px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 18px;
+      background: rgba(247, 240, 230, .92); border-bottom: 1px solid rgba(74, 52, 40, .12);
+    }
+    .kopf b { font-family: var(--display); font-weight: 620; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+    .kopf b svg { width: 20px; height: 20px; color: var(--terra); }
+    .kopf .cta { background: var(--terra); color: #fff; font-weight: 700; font-size: .74rem; padding: 7px 14px; border-radius: 999px; }
+
+    /* ---------- Szenen ---------- */
+    .szene {
+      position: absolute; inset: 0; padding: 74px 24px 60px; z-index: 1;
+      opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .szene.on { opacity: 1; visibility: visible; z-index: 2; }
+    .an { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .on .an { opacity: 1; transform: none; }
+    .on .d1 { transition-delay: .15s; } .on .d2 { transition-delay: .3s; }
+    .on .d3 { transition-delay: .45s; } .on .d4 { transition-delay: .6s; } .on .d5 { transition-delay: .75s; }
+
+    .chip {
+      display: inline-flex; align-self: flex-start; background: var(--creme-tief); color: var(--terra-tief);
+      font-weight: 700; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 13px; border-radius: 999px; margin-bottom: 16px;
+    }
+    h1, h2 { font-family: var(--display); letter-spacing: -.025em; }
+    h1 { font-weight: 400; font-size: 2.55rem; line-height: 1.03; margin-bottom: 12px; }
+    h1 b { font-weight: 640; font-style: italic; color: var(--terra); }
+    .lede { color: var(--ink-soft); font-size: .95rem; max-width: 30ch; }
+
+    /* Szene 1: Tasse + Dampf */
+    .cup-stage { position: relative; margin: auto auto 8px; width: 230px; }
+    .megaword {
+      position: absolute; top: -34px; left: 50%; transform: translateX(-50%);
+      font-family: var(--display); font-weight: 800; font-style: italic; font-size: 4rem;
+      color: var(--braun); opacity: .12; white-space: nowrap; z-index: 0;
+    }
+    .cup {
+      position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 1.05;
+      border-radius: 14% 14% 48% 48% / 10% 10% 52% 52%;
+      overflow: hidden; border: 8px solid var(--milch);
+      box-shadow: 0 18px 40px -18px rgba(74, 52, 40, .45); background: var(--braun);
+    }
+    .cup img { width: 100%; height: 100%; object-fit: cover; }
+    .teller { position: absolute; z-index: 0; left: 50%; bottom: -10px; transform: translateX(-50%); width: 82%; height: 22px; border-radius: 50%; background: var(--creme-tief); }
+    .steam { position: absolute; z-index: 2; left: 50%; top: -46px; transform: translateX(-50%); width: 90px; height: 66px; overflow: visible; }
+    .steam path { fill: none; stroke: var(--braun); stroke-width: 4; stroke-linecap: round; opacity: 0; animation: steam 4.2s ease-in-out infinite; }
+    .steam path:nth-child(2) { animation-delay: 1.3s; } .steam path:nth-child(3) { animation-delay: 2.5s; }
+    @keyframes steam {
+      0% { opacity: 0; transform: translateY(12px) scaleY(.85); }
+      30% { opacity: .32; } 70% { opacity: .12; }
+      100% { opacity: 0; transform: translateY(-14px) scaleY(1.08); }
+    }
+    .hint { text-align: center; font-size: .82rem; font-weight: 700; color: var(--terra-tief); }
+    .hint span { display: block; font-weight: 400; color: var(--ink-soft); }
+
+    /* Szene 2: Karte */
+    h2 { font-weight: 750; font-size: 1.9rem; line-height: 1.1; margin-bottom: 18px; }
+    .rows { display: grid; gap: 12px; }
+    .row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--milch); border-radius: 16px; padding: 10px 14px 10px 10px;
+      box-shadow: 0 10px 26px -16px rgba(74, 52, 40, .35);
+    }
+    .row img { width: 58px; height: 58px; border-radius: 12px; object-fit: cover; flex: none; }
+    .row h3 { font-family: var(--display); font-weight: 720; font-size: 1.08rem; }
+    .row p { font-size: .78rem; color: var(--ink-soft); }
+    .row .preis { margin-left: auto; font-family: var(--display); font-weight: 800; font-size: 1.05rem; color: var(--terra-tief); white-space: nowrap; }
+    .ticker { position: absolute; left: 0; right: 0; bottom: 54px; background: var(--braun); color: var(--creme); padding: 9px 0; overflow: hidden; }
+    .ticker div { display: flex; width: max-content; animation: lauf 18s linear infinite; }
+    .ticker span { font-family: var(--display); font-size: .88rem; white-space: nowrap; padding-right: 18px; }
+    .ticker i { font-style: normal; color: var(--terra); padding-right: 18px; }
+    @keyframes lauf { to { transform: translateX(-50%); } }
+
+    /* Szene 3: Reservierung */
+    .resa-card {
+      background: var(--milch); border-radius: 20px; padding: 20px;
+      box-shadow: 0 16px 40px -18px rgba(74, 52, 40, .4); display: grid; gap: 12px;
+    }
+    .feld { background: var(--creme); border: 1.5px solid rgba(74, 52, 40, .16); border-radius: 12px; padding: 9px 14px; }
+    .feld label { display: block; font-size: .64rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--terra-tief); }
+    .feld b { font-size: .95rem; font-weight: 600; }
+    .btn { background: var(--braun); color: var(--creme); text-align: center; font-weight: 700; padding: 13px; border-radius: 999px; }
+    .toast {
+      position: absolute; left: 50%; bottom: 66px; transform: translate(-50%, 14px);
+      background: var(--braun); color: var(--creme); font-weight: 700; font-size: .85rem;
+      padding: 11px 20px; border-radius: 999px; opacity: 0; white-space: nowrap;
+      transition: opacity .4s ease .1s, transform .4s ease .1s;
+    }
+    .on .toast { opacity: 1; transform: translate(-50%, 0); transition-delay: 1.5s; }
+
+    /* ---------- Punkte + Badge ---------- */
+    .punkte { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 20; }
+    .punkte i { width: 6px; height: 6px; border-radius: 999px; background: var(--braun); opacity: .25; transition: all .4s ease; }
+    .punkte i.on { opacity: 1; width: 20px; background: var(--terra); }
+    .badge {
+      position: absolute; right: 14px; bottom: 14px; z-index: 20;
+      font-size: .6rem; font-weight: 700; color: var(--ink-soft);
+      background: var(--creme-tief); padding: 5px 10px; border-radius: 999px;
+    }
+
+    /* Fallback ohne JS / reduzierte Motion: Szene 1 steht */
+    .szene--1 { opacity: 1; visibility: visible; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .szene { opacity: 0 !important; visibility: hidden !important; }
+      .szene--1 { opacity: 1 !important; visibility: visible !important; }
+      .szene--1 .an, .on .an { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="kopf">
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>Röstwerk Marie</b>
+    <span class="cta">Reservieren</span>
+  </header>
+
+  <!-- Szene 1: Hero -->
+  <section class="szene szene--1 on">
+    <span class="chip an">Café &amp; Rösterei am Markt</span>
+    <h1 class="an d1">Guter Kaffee.<br><b>Gute Laune.</b></h1>
+    <p class="lede an d2">Selbst geröstet, jeden Morgen frisch gebacken.</p>
+    <div class="cup-stage an d3">
+      <span class="megaword" aria-hidden="true">Kaffee.</span>
+      <svg class="steam" viewBox="0 0 90 66" aria-hidden="true">
+        <path d="M22 58 C 16 46, 30 40, 24 28 C 20 19, 27 13, 24 6"/>
+        <path d="M45 60 C 39 48, 53 42, 47 30 C 43 21, 50 15, 47 8"/>
+        <path d="M68 58 C 62 46, 76 40, 70 28 C 66 19, 73 13, 70 6"/>
+      </svg>
+      <div class="cup"><img src="../img/cafe/latte.jpg" alt="Cappuccino mit Latte-Art-Herz" fetchpriority="high"></div>
+      <div class="teller" aria-hidden="true"></div>
+    </div>
+    <p class="hint an d4">Täglich frisch geröstet<span>Di–So ab 8:30 Uhr</span></p>
+  </section>
+
+  <!-- Szene 2: Karte -->
+  <section class="szene">
+    <span class="chip an">Unsere Karte</span>
+    <h2 class="an d1">Drei gute Gründe<br>zu bleiben.</h2>
+    <div class="rows">
+      <div class="row an d2">
+        <img src="../img/cafe/latte.jpg" alt="">
+        <div><h3>Kaffee</h3><p>Eigene Trommelröstung</p></div>
+        <span class="preis">3,60 €</span>
+      </div>
+      <div class="row an d3">
+        <img src="../img/cafe/fruehstueck.jpg" alt="">
+        <div><h3>Frühstück</h3><p>Croissants vom Blech</p></div>
+        <span class="preis">12,90 €</span>
+      </div>
+      <div class="row an d4">
+        <img src="../img/cafe/kuchen.jpg" alt="">
+        <div><h3>Kuchen</h3><p>Immer hausgebacken</p></div>
+        <span class="preis">4,20 €</span>
+      </div>
+    </div>
+    <div class="ticker an d5" aria-hidden="true">
+      <div>
+        <span>Espresso</span><i>✦</i><span>Cappuccino</span><i>✦</i><span>Flat White</span><i>✦</i><span>Croissant</span><i>✦</i><span>Zimtschnecke</span><i>✦</i>
+        <span>Espresso</span><i>✦</i><span>Cappuccino</span><i>✦</i><span>Flat White</span><i>✦</i><span>Croissant</span><i>✦</i><span>Zimtschnecke</span><i>✦</i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Szene 3: Reservierung -->
+  <section class="szene">
+    <span class="chip an">Reservierung</span>
+    <h2 class="an d1">Ihr Tisch<br>wartet schon.</h2>
+    <p class="lede an d2" style="margin-bottom:18px">Kurz eintragen — Bestätigung noch am selben Tag.</p>
+    <div class="resa-card an d3">
+      <div class="feld"><label>Name</label><b>Lena · Fensterplatz</b></div>
+      <div class="feld"><label>Personen</label><b>2</b></div>
+      <div class="btn">Tisch reservieren</div>
+    </div>
+    <div class="toast">✓ Reserviert — bis Samstag, Lena!</div>
+  </section>
+
+  <div class="punkte" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <span class="badge">Demo von addus</span>
+
+  <script>
+    (function () {
+      var szenen = [].slice.call(document.querySelectorAll(".szene"));
+      var punkte = [].slice.call(document.querySelectorAll(".punkte i"));
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var i = 0;
+      setInterval(function () {
+        i = (i + 1) % szenen.length;
+        szenen.forEach(function (s, k) { s.classList.toggle("on", k === i); });
+        punkte.forEach(function (p, k) { p.classList.toggle("on", k === i); });
+      }, 4600);
+    })();
+  </script>
+</body>
+</html>

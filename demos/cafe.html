@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Röstwerk Marie — Café &amp; Rösterei | Demo von addus</title>
+  <meta name="description" content="Demo-Website Café &amp; Rösterei: Guter Kaffee, ehrliches Frühstück, hausgemachter Kuchen. Eine Referenzseite von addus.">
+  <meta name="robots" content="noindex, nofollow">
+  <script>document.documentElement.className += " js";</script>
+  <style>
+    /* Fraunces self-hosted (variable) — kein Google-Fonts-Request, Text landet sofort */
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url("../assets/fonts/fraunces-normal-latin.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: italic;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url("../assets/fonts/fraunces-italic-latin.woff2") format("woff2");
+    }
+    :root {
+      --creme: #F7F0E6;
+      --creme-tief: #EFE4D3;
+      --braun: #4A3428;
+      --braun-tief: #38261C;
+      --terra: #C96F4A;
+      --terra-tief: #A9522F;
+      --koralle: #FF6F52;
+      --milch: #FDFAF5;
+      --ink-soft: #7A6555;
+      --radius: 20px;
+      --shadow: 0 16px 44px -20px rgba(74, 52, 40, .35);
+      --display: "Fraunces", Georgia, serif;
+      --body: "Segoe UI", "Avenir Next", system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--creme);
+      color: var(--braun);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 24px); }
+    section[id] { scroll-margin-top: 76px; }
+    .ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .skip {
+      position: absolute; left: -999px; top: 8px; z-index: 200;
+      background: var(--braun); color: #fff; padding: 10px 18px; border-radius: 999px;
+    }
+    .skip:focus { left: 8px; }
+    :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
+
+    /* ---------- Sticker ---------- */
+    .sticker {
+      position: fixed; top: 86px; right: 18px; z-index: 90;
+      background: var(--koralle); color: #fff;
+      font-family: var(--display); font-weight: 800; font-size: 1.05rem;
+      padding: 16px 18px; border-radius: 50% 46% 52% 48% / 48% 52% 46% 52%;
+      transform: rotate(8deg);
+      box-shadow: 0 10px 24px -10px rgba(255, 111, 82, .55);
+      text-decoration: none; line-height: 1.15; text-align: center;
+      transition: transform .2s ease;
+    }
+    .sticker small { display: block; font-family: var(--body); font-weight: 700; font-size: .62rem; letter-spacing: .04em; }
+    .sticker:hover { transform: rotate(2deg) scale(1.05); }
+    @media (max-width: 640px) { .sticker { top: auto; bottom: 16px; right: 14px; font-size: .95rem; padding: 14px 15px; } }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247, 240, 230, .9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(74, 52, 40, .12);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand {
+      font-family: var(--display); font-weight: 600; font-size: 1.3rem;
+      text-decoration: none; display: flex; align-items: center; gap: 10px;
+      letter-spacing: -.01em;
+    }
+    .brand svg { width: 26px; height: 26px; color: var(--terra); flex: none; }
+    .nav__links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav__links a { text-decoration: none; font-weight: 700; font-size: .95rem; color: var(--ink-soft); }
+    .nav__links a:hover { color: var(--terra-tief); }
+    .btn {
+      display: inline-block; text-decoration: none; font-family: var(--body);
+      font-weight: 700; border-radius: 999px; cursor: pointer; border: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn--cta {
+      background: var(--braun); color: var(--creme); padding: 14px 30px; font-size: 1rem;
+      box-shadow: 0 12px 26px -12px rgba(74, 52, 40, .55);
+    }
+    .btn--cta:hover { transform: translateY(-2px); background: var(--braun-tief); }
+    .btn--nav { background: var(--terra); color: #fff; padding: 10px 22px; font-size: .92rem; }
+    .btn--nav:hover { background: var(--terra-tief); }
+    @media (max-width: 760px) { .nav__links { gap: 18px; } .nav__links li:not(:last-child) { display: none; } }
+
+    /* ---------- Hero: editorialer Split ---------- */
+    .hero { position: relative; padding: 56px 0 48px; overflow: hidden; }
+    .hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; position: relative; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--creme-tief); color: var(--terra-tief);
+      font-weight: 700; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 999px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--display); font-weight: 380;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.02; letter-spacing: -.03em; margin-bottom: 24px;
+    }
+    .hero h1 b { font-weight: 640; font-style: italic; color: var(--terra); letter-spacing: -.01em; }
+    .hero p.lede { font-size: clamp(1.05rem, 1.4vw, 1.14rem); color: var(--ink-soft); max-width: 42ch; margin-bottom: 32px; }
+    .hero__actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .hero__hint { font-size: .9rem; font-weight: 700; color: var(--terra-tief); }
+    .hero__hint span { display: block; font-weight: 400; color: var(--ink-soft); }
+
+    /* Signature: Latte-Foto in Tassenform-Maske + animierter SVG-Dampf + Riesenwort */
+    .cup-stage { position: relative; padding-top: 70px; }
+    .megaword {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      font-family: var(--display); font-weight: 800; font-style: italic;
+      font-size: clamp(3.6rem, 11vw, 8.2rem);
+      line-height: 1; letter-spacing: -.04em; color: var(--braun);
+      opacity: .13; white-space: nowrap; pointer-events: none; user-select: none;
+      z-index: 0;
+    }
+    .cup {
+      position: relative; z-index: 1;
+      width: min(78%, 380px); margin: 0 auto; aspect-ratio: 1 / 1.06;
+      border-radius: 14% 14% 48% 48% / 10% 10% 52% 52%;
+      overflow: hidden; border: 10px solid var(--milch);
+      box-shadow: var(--shadow);
+      background: var(--braun);
+    }
+    .cup img { width: 100%; height: 100%; object-fit: cover; }
+    .cup__henkel {
+      position: absolute; z-index: 0; right: 3%; top: 45%;
+      width: 72px; height: 94px;
+      border: 14px solid var(--milch); border-radius: 50%;
+      box-shadow: var(--shadow);
+    }
+    .cup__teller {
+      position: absolute; z-index: 0; left: 50%; bottom: -14px; transform: translateX(-50%);
+      width: 84%; height: 30px; border-radius: 50%;
+      background: var(--creme-tief);
+      box-shadow: 0 10px 20px -12px rgba(74, 52, 40, .4);
+    }
+    .steam {
+      position: absolute; z-index: 2; left: 50%; top: 12px; transform: translateX(-50%);
+      width: 120px; height: 88px; overflow: visible; pointer-events: none;
+    }
+    .steam path {
+      fill: none; stroke: var(--braun); stroke-width: 5; stroke-linecap: round;
+      opacity: 0; animation: steam 4.2s ease-in-out infinite;
+    }
+    .steam path:nth-child(2) { animation-delay: 1.3s; stroke-width: 4; }
+    .steam path:nth-child(3) { animation-delay: 2.5s; stroke-width: 4; }
+    @keyframes steam {
+      0% { opacity: 0; transform: translateY(14px) scaleY(.85); }
+      30% { opacity: .34; }
+      70% { opacity: .14; }
+      100% { opacity: 0; transform: translateY(-18px) scaleY(1.08); }
+    }
+    @media (max-width: 860px) {
+      .hero { padding: 36px 0 32px; }
+      .hero__grid { grid-template-columns: 1fr; gap: 20px; }
+      .cup-stage { max-width: 340px; margin: 0 auto; width: 100%; padding-top: 54px; }
+      .cup__henkel { width: 50px; height: 68px; border-width: 10px; }
+      .steam { width: 90px; height: 66px; }
+    }
+
+    /* ---------- Ticker: laufende Tageskarte ---------- */
+    .ticker {
+      background: var(--braun); color: var(--creme);
+      overflow: hidden; padding: 14px 0;
+      border-top: 1px solid var(--braun-tief); border-bottom: 1px solid var(--braun-tief);
+    }
+    .ticker__spur {
+      display: flex; gap: 0; width: max-content;
+      animation: ticker 26s linear infinite;
+    }
+    .ticker__block {
+      display: flex; align-items: baseline; gap: 26px; padding-right: 26px;
+      font-family: var(--display); font-weight: 500; font-size: 1.06rem;
+      white-space: nowrap; letter-spacing: .01em;
+    }
+    .ticker__block i { font-style: normal; color: var(--terra); font-size: .8em; }
+    .ticker__block em { font-style: italic; color: var(--terra); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ---------- Sections ---------- */
+    .section { padding: clamp(56px, 10vw, 88px) 0; }
+    .section--tief { background: var(--braun); color: var(--creme); }
+    .section__head { max-width: 580px; margin-bottom: clamp(34px, 6vw, 52px); }
+    .section__head h2 {
+      font-family: var(--display); font-weight: 780;
+      font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -.025em;
+      margin: 14px 0 12px;
+    }
+    .section__head p { color: var(--ink-soft); font-size: 1.05rem; }
+
+    /* ---------- Karten ---------- */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .card {
+      background: var(--milch); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); display: flex; flex-direction: column;
+      transition: transform .25s ease;
+    }
+    .card:hover, .card.is-hot { transform: translateY(-7px); }
+    .card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+    .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .card:hover .card__media img, .card.is-hot .card__media img { transform: scale(1.06); }
+    .card__nr {
+      position: absolute; top: 14px; left: 16px;
+      font-family: var(--display); font-weight: 800; font-size: 1rem;
+      background: var(--creme); color: var(--terra-tief);
+      padding: 5px 13px; border-radius: 999px;
+    }
+    .card__body { padding: 26px 24px; display: flex; flex-direction: column; flex: 1; }
+    .card__body h3 {
+      font-family: var(--display); font-weight: 750; font-size: 1.5rem;
+      letter-spacing: -.02em; margin-bottom: 8px;
+    }
+    .card__body > p { color: var(--ink-soft); font-size: .97rem; flex: 1; }
+    .card__price {
+      margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(74, 52, 40, .28);
+      font-weight: 700; color: var(--terra-tief); font-size: .93rem;
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .card__price b { font-family: var(--display); font-weight: 800; font-size: 1.2rem; color: var(--braun); }
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; gap: 18px; max-width: 460px; margin: 0 auto; } }
+
+    /* ---------- Röst-Philosophie ---------- */
+    .roest { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+    .roest__fotos { position: relative; }
+    .roest__fotos .f1 {
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+      aspect-ratio: 4 / 3;
+    }
+    .roest__fotos .f1 img { width: 100%; height: 100%; object-fit: cover; }
+    .roest__fotos .f2 {
+      position: absolute; right: -16px; bottom: -36px; width: 44%;
+      border-radius: var(--radius); overflow: hidden;
+      border: 8px solid var(--braun); box-shadow: var(--shadow);
+      aspect-ratio: 3 / 4;
+    }
+    .roest__fotos .f2 img { width: 100%; height: 100%; object-fit: cover; }
+    .roest .eyebrow { background: rgba(247, 240, 230, .14); color: var(--creme); }
+    .roest h2 {
+      font-family: var(--display); font-weight: 380;
+      font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.025em;
+      margin-bottom: 18px;
+    }
+    .roest h2 b { font-weight: 640; font-style: italic; color: var(--terra); }
+    .roest > div > p { color: rgba(247, 240, 230, .78); max-width: 46ch; margin-bottom: 28px; }
+    .zeiten {
+      background: rgba(247, 240, 230, .08); border: 1px solid rgba(247, 240, 230, .18);
+      border-radius: var(--radius); padding: 24px 26px;
+    }
+    .zeiten h3 {
+      font-family: var(--display); font-weight: 750; font-size: 1.2rem;
+      margin-bottom: 12px; color: var(--creme);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .zeiten h3 svg { width: 20px; height: 20px; color: var(--terra); flex: none; }
+    .zeiten dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; font-size: .97rem; }
+    .zeiten dt { color: rgba(247, 240, 230, .68); }
+    .zeiten dd { font-weight: 700; text-align: right; }
+    @media (max-width: 860px) {
+      .roest { grid-template-columns: 1fr; gap: 52px; }
+      .roest__fotos { max-width: 440px; }
+      .roest__fotos .f2 { right: -8px; bottom: -26px; border-width: 6px; }
+    }
+
+    /* ---------- Reservierung ---------- */
+    .resa {
+      background: var(--milch); border-radius: 28px; box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 60px);
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 44px; align-items: center;
+    }
+    .resa h2 {
+      font-family: var(--display); font-weight: 780;
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.1; letter-spacing: -.02em;
+      margin: 12px 0;
+    }
+    .resa > div > p { color: var(--ink-soft); max-width: 40ch; }
+    .resa__form { display: grid; gap: 16px; }
+    .feld { display: grid; gap: 6px; }
+    .feld label { font-weight: 700; font-size: .88rem; letter-spacing: .03em; color: var(--terra-tief); }
+    .feld input {
+      font-family: var(--body); font-size: 1.05rem; color: var(--braun);
+      background: var(--creme); border: 1.5px solid rgba(74, 52, 40, .18);
+      border-radius: 14px; padding: 14px 18px; width: 100%; min-height: 48px;
+    }
+    .feld input:focus { outline: 3px solid var(--terra); outline-offset: 1px; }
+    .resa__form .btn--cta { justify-self: start; margin-top: 6px; }
+    @media (max-width: 860px) {
+      .resa { grid-template-columns: 1fr; gap: 26px; }
+      .resa__form .btn--cta { justify-self: stretch; text-align: center; }
+    }
+
+    /* ---------- Footer ---------- */
+    .footer { padding: 44px 0 56px; }
+    .footer__wort {
+      font-family: var(--display); font-weight: 380; font-style: italic;
+      font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: -.03em;
+      color: var(--braun); opacity: .35; margin-bottom: 22px; line-height: 1.05;
+    }
+    .footer__inner {
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      font-size: .9rem; color: var(--ink-soft);
+      border-top: 1px solid rgba(74, 52, 40, .15); padding-top: 30px;
+    }
+    .footer b { color: var(--braun); }
+    .footer a { color: var(--terra-tief); font-weight: 700; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ---------- Reveal (nur mit JS aktiv — ohne JS ist alles sofort sichtbar) ---------- */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Autopilot-Cursor (nur Desktop) ---------- */
+    .ap {
+      position: fixed; top: 0; left: 0; width: 34px; height: 40px; z-index: 9999;
+      pointer-events: none; opacity: 0; transform: translate(-80px, -80px);
+      transition: transform .58s cubic-bezier(.3, .05, .2, 1), opacity .3s;
+      filter: drop-shadow(0 5px 10px rgba(56, 38, 28, .6)); will-change: transform;
+    }
+    .ap.on { opacity: 1; }
+    .ap.fast { transition-duration: .34s; }
+    .ap.press svg { transform: scale(.8); transform-origin: 6px 5px; }
+    .ap svg { transition: transform .12s; }
+    .ripple {
+      position: fixed; width: 14px; height: 14px; border-radius: 50%;
+      border: 2.5px solid var(--terra); z-index: 9998; pointer-events: none;
+      transform: translate(-50%, -50%); animation: rip .55s ease-out forwards;
+    }
+    @keyframes rip { from { opacity: .9; scale: .4; } to { opacity: 0; scale: 2.6; } }
+    .toast {
+      position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 16px);
+      background: var(--braun); color: var(--creme);
+      font-weight: 700; font-size: .98rem; padding: 14px 26px; border-radius: 999px;
+      box-shadow: 0 16px 36px -14px rgba(56, 38, 28, .6);
+      opacity: 0; pointer-events: none; z-index: 9997;
+      transition: opacity .35s ease, transform .35s ease;
+      max-width: calc(100vw - 40px); text-align: center;
+    }
+    .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      .ap, .toast { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <a class="sticker" href="https://addus.de" aria-label="Demo-Angebot: Website ab 59 Euro Start — zu addus">Ja,&nbsp;59&nbsp;€!<small>Website von addus</small></a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        Röstwerk Marie
+      </a>
+      <ul class="nav__links">
+        <li><a href="#karte">Karte</a></li>
+        <li><a href="#roesterei">Rösterei</a></li>
+        <li><a class="btn btn--nav" href="#reservieren">Tisch reservieren</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div>
+          <span class="eyebrow">Café &amp; Rösterei am Markt</span>
+          <h1>Guter Kaffee.<br><b>Gute Laune.</b></h1>
+          <p class="lede">Wir rösten unsere Bohnen selbst, backen jeden Morgen frisch — und lassen Ihnen so viel Zeit, wie eine gute Tasse eben braucht.</p>
+          <div class="hero__actions">
+            <a class="btn btn--cta" href="#karte">Karte ansehen</a>
+            <p class="hero__hint">Täglich frisch geröstet<span>Di–So ab 8:30 Uhr</span></p>
+          </div>
+        </div>
+        <div class="cup-stage">
+          <span class="megaword" aria-hidden="true">Kaffee.</span>
+          <svg class="steam" viewBox="0 0 120 88" aria-hidden="true">
+            <path d="M30 78 C 22 62, 40 54, 32 38 C 26 26, 36 18, 32 8"/>
+            <path d="M60 80 C 52 64, 70 56, 62 40 C 56 28, 66 20, 62 10"/>
+            <path d="M90 78 C 82 62, 100 54, 92 38 C 86 26, 96 18, 92 8"/>
+          </svg>
+          <div class="cup__henkel" aria-hidden="true"></div>
+          <div class="cup">
+            <img src="img/cafe/latte.jpg" alt="Cappuccino mit Latte-Art-Herz, Nahaufnahme von oben" width="760" height="806" fetchpriority="high" decoding="async">
+          </div>
+          <div class="cup__teller" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker: Tageskarte -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__spur">
+        <div class="ticker__block">
+          <span>Espresso</span><i>✦</i><span>Cappuccino</span><i>✦</i><em>Flat White</em><i>✦</i><span>Filterkaffee</span><i>✦</i><span>Croissant</span><i>✦</i><em>Zimtschnecke</em><i>✦</i><span>Schokokuchen</span><i>✦</i><span>Hafermilch? Klar.</span><i>✦</i>
+        </div>
+        <div class="ticker__block">
+          <span>Espresso</span><i>✦</i><span>Cappuccino</span><i>✦</i><em>Flat White</em><i>✦</i><span>Filterkaffee</span><i>✦</i><span>Croissant</span><i>✦</i><em>Zimtschnecke</em><i>✦</i><span>Schokokuchen</span><i>✦</i><span>Hafermilch? Klar.</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte -->
+    <section class="section" id="karte">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <span class="eyebrow">Unsere Karte</span>
+          <h2>Drei gute Gründe zu bleiben.</h2>
+          <p>Alles hausgemacht, alles ohne Eile. Die vollständige Karte liegt am Tresen — das hier sind die Klassiker.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__media">
+              <img src="img/cafe/latte.jpg" alt="Cappuccino mit Latte-Art aus eigener Röstung" loading="lazy" decoding="async" width="640" height="480">
+              <span class="card__nr">Nº 1</span>
+            </div>
+            <div class="card__body">
+              <h3>Kaffee</h3>
+              <p>Espresso, Cappuccino, Flat White — aus eigener Trommelröstung, auf Wunsch mit Hafermilch.</p>
+              <p class="card__price"><span>Cappuccino</span><b>3,60 €</b></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media">
+              <img src="img/cafe/fruehstueck.jpg" alt="Frisches Croissant mit einer Tasse Kaffee zum Frühstück" loading="lazy" decoding="async" width="640" height="480">
+              <span class="card__nr">Nº 2</span>
+            </div>
+            <div class="card__body">
+              <h3>Frühstück</h3>
+              <p>Croissants vom Blech, Sauerteigbrot, weiche Eier und guter Käse — bis 13 Uhr, am Wochenende bis 15 Uhr.</p>
+              <p class="card__price"><span>Frühstück „Marie"</span><b>12,90 €</b></p>
+            </div>
+          </article>
+          <article class="card reveal" id="kuchenkarte">
+            <div class="card__media">
+              <img src="img/cafe/kuchen.jpg" alt="Warmer Schokokuchen mit Vanilleeis und Cappuccino" loading="lazy" decoding="async" width="640" height="480">
+              <span class="card__nr">Nº 3</span>
+            </div>
+            <div class="card__body">
+              <h3>Kuchen</h3>
+              <p>Jeden Tag zwei Kuchen, immer hausgebacken. Der warme Schokokuchen mit Vanilleeis ist fast immer dabei.</p>
+              <p class="card__price"><span>Kuchenstück</span><b>4,20 €</b></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Röst-Philosophie -->
+    <section class="section section--tief" id="roesterei">
+      <div class="wrap roest">
+        <div class="roest__fotos reveal">
+          <div class="f1">
+            <img src="img/cafe/bohnen.jpg" alt="Kaffeebohnen fallen beim Rösten aus der Trommel" loading="lazy" decoding="async" width="800" height="600">
+          </div>
+          <div class="f2">
+            <img src="img/cafe/barista.jpg" alt="Barista in Schürze gießt ein frisch zubereitetes Getränk ein" loading="lazy" decoding="async" width="480" height="640">
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Unsere Rösterei</span>
+          <h2>Langsam geröstet.<br><b>Mit Absicht.</b></h2>
+          <p>Wir rösten in kleinen Chargen, hell und langsam — so bleibt die Frucht in der Bohne und die Bitterkeit draußen. Jeden Mittwoch läuft die Trommel, freitags gibt es die frischen Bohnen auch für zu Hause.</p>
+          <div class="zeiten" id="zeiten">
+            <h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Öffnungszeiten</h3>
+            <dl>
+              <dt>Dienstag – Freitag</dt><dd>8:30 – 18:00 Uhr</dd>
+              <dt>Samstag &amp; Sonntag</dt><dd>9:00 – 17:00 Uhr</dd>
+              <dt>Montag</dt><dd>Rösttag — geschlossen</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservierung -->
+    <section class="section" id="reservieren">
+      <div class="wrap">
+        <div class="resa reveal">
+          <div>
+            <span class="eyebrow">Reservierung</span>
+            <h2>Ihr Tisch wartet schon.</h2>
+            <p>Kurz eintragen, wir bestätigen noch am selben Tag — auch Fensterplätze und der große Tisch für Runden ab sechs.</p>
+          </div>
+          <form class="resa__form" aria-label="Tisch reservieren (Demo)">
+            <div class="feld">
+              <label for="rName">Name</label>
+              <input id="rName" type="text" placeholder="z. B. Lena · Fensterplatz" readonly>
+            </div>
+            <div class="feld">
+              <label for="rPers">Personen</label>
+              <input id="rPers" type="text" inputmode="numeric" placeholder="2" readonly>
+            </div>
+            <button class="btn btn--cta" id="rSenden" type="button">Tisch reservieren</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__wort" aria-hidden="true">Bis gleich, am Markt.</p>
+      <div class="footer__inner">
+        <p><b>Röstwerk Marie</b> · Marktgasse 4 · 12345 Musterstadt<br>Di–So ab 8:30 Uhr · Tel. 0000 000000</p>
+        <p>Demo-Seite von <a href="https://addus.de">addus</a> — Ihre Website: 59 € Start, 27 €/Monat.<br>Fotos: Pexels · Fiktives Unternehmen.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status">✓ Reserviert — bis Samstag, Lena!</div>
+
+  <div class="ap" id="ap" aria-hidden="true"><svg viewBox="0 0 26 32"><path d="M2 2l8 24 3.5-9.5L23 13z" fill="#fff" stroke="#38261C" stroke-width="2" stroke-linejoin="round"/></svg></div>
+
+  <script>
+    /* Im addus-Werkschau-iframe scrollt nichts — lazy Bilder sofort laden */
+    if (window.self !== window.top) {
+      document.querySelectorAll('img[loading="lazy"]').forEach(function (i) { i.loading = "eager"; });
+    }
+    (function () {
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------- Reveals: früher Trigger, kurze Distanz — Text landet sofort ---------- */
+      var els = document.querySelectorAll(".reveal");
+      if (reduced || !("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("in"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
+        els.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight) { el.classList.add("in"); } else { io.observe(el); }
+        });
+      }
+
+      /* ---------- Autopilot-Showcase: nur Desktop mit Maus ---------- */
+      if (reduced || !window.matchMedia("(min-width: 900px) and (pointer: fine)").matches) return;
+
+      var ap = document.getElementById("ap"), run = 0, stopped = false;
+
+      function abort() {
+        if (stopped) return;
+        stopped = true; run++;
+        ap.classList.remove("on");
+        document.getElementById("toast").classList.remove("is-on");
+        document.getElementById("kuchenkarte").classList.remove("is-hot");
+      }
+      window.addEventListener("wheel", abort, { passive: true });
+      window.addEventListener("touchstart", abort, { passive: true });
+      window.addEventListener("mousedown", abort, { passive: true });
+      window.addEventListener("keydown", abort, { passive: true });
+
+      function co(el, ox, oy) {
+        var r = el.getBoundingClientRect();
+        return { x: r.left + (ox !== undefined ? ox : r.width / 2), y: r.top + (oy !== undefined ? oy : r.height / 2) };
+      }
+      function setPos(el, ox, oy) { var c = co(el, ox, oy); ap.style.transform = "translate(" + c.x + "px," + c.y + "px)"; }
+      function move(el, cb, fast, ox, oy) { ap.classList.toggle("fast", !!fast); setPos(el, ox, oy); setTimeout(cb, fast ? 400 : 640); }
+      function klick(el, cb) {
+        ap.classList.add("press");
+        var c = ap.getBoundingClientRect(), r = document.createElement("span");
+        r.className = "ripple"; r.style.left = (c.left + 6) + "px"; r.style.top = (c.top + 5) + "px";
+        document.body.appendChild(r); setTimeout(function () { r.remove(); }, 600);
+        setTimeout(function () { ap.classList.remove("press"); cb && cb(); }, 240);
+      }
+      function tippen(el, txt, cb) {
+        var i = 0;
+        (function s() { if (i <= txt.length) { el.value = txt.slice(0, i++); setTimeout(s, 55); } else { cb && cb(); } })();
+      }
+      function scrollZu(el, cb) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(cb, 900);
+      }
+
+      function demo() {
+        if (stopped) return;
+        var id = ++run;
+        function ok() { return !stopped && run === id; }
+        var kuchen = document.getElementById("kuchenkarte"),
+            zeiten = document.getElementById("zeiten"),
+            name = document.getElementById("rName"),
+            pers = document.getElementById("rPers"),
+            senden = document.getElementById("rSenden"),
+            toast = document.getElementById("toast");
+        var steps = [
+          function (nx) { name.value = pers.value = ""; toast.classList.remove("is-on"); window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(nx, 1200); },
+          function (nx) { setPos(document.body, window.innerWidth * .55, 150); ap.classList.add("on"); setTimeout(nx, 350); },
+          function (nx) { scrollZu(kuchen, nx); },
+          function (nx) { move(kuchen, nx); },
+          function (nx) { kuchen.classList.add("is-hot"); setTimeout(nx, 850); },
+          function (nx) { kuchen.classList.remove("is-hot"); scrollZu(zeiten, nx); },
+          function (nx) { move(zeiten, nx, false, 70, 44); },
+          function (nx) { setTimeout(nx, 900); },
+          function (nx) { scrollZu(name.parentElement, nx); },
+          function (nx) { move(name.parentElement, nx); },
+          function (nx) { klick(name.parentElement, nx); },
+          function (nx) { tippen(name, "Lena · Fensterplatz", nx); },
+          function (nx) { move(pers.parentElement, nx, true); },
+          function (nx) { klick(pers.parentElement, nx); },
+          function (nx) { tippen(pers, "2", nx); },
+          function (nx) { move(senden, nx); },
+          function (nx) { klick(senden, nx); },
+          function (nx) { toast.classList.add("is-on"); setTimeout(nx, 2500); },
+          function (nx) { toast.classList.remove("is-on"); ap.classList.remove("on"); setTimeout(nx, 1400); },
+          function () { if (ok()) demo(); }
+        ];
+        (function lauf(i) { if (!ok()) return; if (i >= steps.length) return; steps[i](function () { lauf(i + 1); }); })(0);
+      }
+      setTimeout(demo, 1200);
+    })();
+  </script>
+</body>
+</html>

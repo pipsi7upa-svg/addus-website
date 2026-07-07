@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knall &amp; Kruste — Streetfood-Truck | Demo von addus</title>
+  <meta name="description" content="Demo-Website Streetfood-Truck: Burger, Tacos, Pommes — laut, ehrlich, handgemacht. Eine Referenzseite von addus.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --grund: #232323;
+      --grund-tief: #1A1A1A;
+      --rot: #E63B2E;
+      --gelb: #F2B705;
+      --teal: #1FA79A;
+      --creme: #FBF6EC;
+      --koralle: #FF6F52;
+      --ink: #232323;
+      --ink-soft: #6B6257;
+      --hell: #F5EFE3;
+      --hell-soft: rgba(251, 246, 236, .72);
+      --display: "Anton", sans-serif;
+      --body: "Work Sans", sans-serif;
+      --radius: 18px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--grund);
+      color: var(--hell);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    .skip {
+      position: absolute; left: -999px; top: 8px; z-index: 300;
+      background: var(--rot); color: #fff; padding: 10px 18px; border-radius: 999px;
+    }
+    .skip:focus { left: 8px; }
+    :focus-visible { outline: 3px solid var(--gelb); outline-offset: 3px; border-radius: 4px; }
+
+    /* ---------- Sticker ---------- */
+    .sticker {
+      position: fixed; top: 84px; right: 18px; z-index: 90;
+      background: var(--koralle); color: #fff;
+      font-family: var(--display); font-size: 1.1rem; letter-spacing: .02em;
+      padding: 16px 18px; border-radius: 50% 46% 52% 48% / 48% 52% 46% 52%;
+      transform: rotate(8deg);
+      box-shadow: 0 10px 24px -10px rgba(255, 111, 82, .6);
+      text-decoration: none; line-height: 1.15; text-align: center;
+      transition: transform .2s ease;
+    }
+    .sticker small { display: block; font-family: var(--body); font-weight: 700; font-size: .6rem; letter-spacing: .05em; }
+    .sticker:hover { transform: rotate(2deg) scale(1.05); }
+    @media (max-width: 640px) { .sticker { top: auto; bottom: 16px; right: 14px; font-size: .95rem; padding: 14px 15px; } }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(26, 26, 26, .85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(251, 246, 236, .1);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .brand {
+      font-family: var(--display); font-size: 1.3rem; letter-spacing: .03em;
+      text-decoration: none; display: flex; align-items: center; gap: 10px; color: var(--creme);
+      text-transform: uppercase;
+    }
+    .brand em { font-style: normal; color: var(--gelb); }
+    .brand img { width: 26px; height: 26px; }
+    .nav__links { display: flex; gap: 26px; list-style: none; align-items: center; }
+    .nav__links a { text-decoration: none; font-weight: 600; font-size: .93rem; color: var(--hell-soft); }
+    .nav__links a:hover { color: var(--gelb); }
+    .btn {
+      display: inline-block; text-decoration: none; font-family: var(--display);
+      letter-spacing: .04em; text-transform: uppercase; border: none; cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn--cta {
+      background: var(--rot); color: #fff; padding: 15px 30px; font-size: 1.05rem;
+      box-shadow: 5px 5px 0 var(--gelb); border-radius: 6px;
+    }
+    .btn--cta:hover, .btn--cta.is-hot { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--gelb); }
+    .btn--nav { background: var(--gelb); color: var(--ink); padding: 10px 20px; font-size: .88rem; border-radius: 6px; }
+    .btn--nav:hover { background: var(--rot); color: #fff; }
+    @media (max-width: 760px) { .nav__links li:not(:last-child) { display: none; } }
+
+    /* ---------- SIGNATURE: Hero "Markt bei Nacht" — Vollbild-Foto + Sticker-Typo ---------- */
+    .hero {
+      position: relative; min-height: min(92vh, 780px);
+      display: grid; align-items: center;
+      isolation: isolate; overflow: hidden;
+      padding: 90px 0 110px;
+    }
+    .hero__bg { position: absolute; inset: 0; z-index: -2; }
+    .hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(180deg, rgba(26,26,26,.55) 0%, rgba(26,26,26,.35) 40%, rgba(35,35,35,.94) 100%);
+    }
+    .hero__inner { text-align: center; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .hero__pill {
+      display: inline-block; background: var(--teal); color: #fff;
+      font-weight: 700; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 999px; transform: rotate(-2deg); margin-bottom: 28px;
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, .35);
+    }
+    .hero h1 {
+      font-family: var(--display); text-transform: uppercase;
+      font-size: clamp(3rem, 9.5vw, 6.4rem); line-height: .98; letter-spacing: .01em;
+      color: var(--creme);
+      text-shadow: 5px 5px 0 var(--rot), 9px 9px 0 rgba(0, 0, 0, .35);
+    }
+    .hero h1 .knallt {
+      display: inline-block; background: var(--gelb); color: var(--ink);
+      padding: .02em .18em .06em; transform: rotate(-2.5deg);
+      text-shadow: none; box-shadow: 6px 6px 0 var(--rot);
+    }
+    .hero p.lede {
+      font-size: clamp(1.02rem, 2vw, 1.2rem); color: var(--hell-soft);
+      max-width: 48ch; margin: 28px auto 38px;
+    }
+    .hero__actions { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .hero__hint { font-size: .88rem; font-weight: 700; color: var(--gelb); text-align: left; line-height: 1.4; }
+    .hero__hint span { display: block; font-weight: 400; color: var(--hell-soft); }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 92px 0; }
+    .section--tief { background: var(--grund-tief); }
+    .section__head { max-width: 620px; margin-bottom: 54px; }
+    .section__head--center { margin-left: auto; margin-right: auto; text-align: center; }
+    .kicker {
+      display: inline-block; font-weight: 700; font-size: .8rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+    }
+    .section__head h2 {
+      font-family: var(--display); text-transform: uppercase;
+      font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.04; letter-spacing: .01em;
+      color: var(--creme); text-shadow: 3px 3px 0 rgba(230, 59, 46, .55);
+      margin-bottom: 12px;
+    }
+    .section__head p { color: var(--hell-soft); font-size: 1.03rem; }
+
+    /* ---------- Menü-Karten ---------- */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .card {
+      background: var(--creme); color: var(--ink); border-radius: var(--radius);
+      overflow: hidden; display: flex; flex-direction: column;
+      box-shadow: 0 18px 42px -20px rgba(0, 0, 0, .7);
+      transition: transform .25s ease, box-shadow .25s ease, opacity .7s ease;
+    }
+    .card:hover, .card.is-hot { transform: translateY(-8px); box-shadow: 0 26px 52px -20px rgba(0, 0, 0, .85); }
+    .card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+    .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .card:hover .card__media img, .card.is-hot .card__media img { transform: scale(1.06); }
+    .card__tag {
+      position: absolute; top: 14px; left: -6px;
+      background: var(--rot); color: #fff; font-family: var(--display);
+      font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
+      padding: 6px 14px 6px 18px; transform: rotate(-2deg);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, .3);
+    }
+    .card__tag--teal { background: var(--teal); }
+    .card__tag--gelb { background: var(--gelb); color: var(--ink); }
+    .card__body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .card__body h3 { font-family: var(--display); text-transform: uppercase; font-size: 1.45rem; letter-spacing: .02em; margin-bottom: 8px; }
+    .card__body p { color: var(--ink-soft); font-size: .96rem; flex: 1; }
+    .card__price {
+      margin-top: 18px; padding-top: 16px; border-top: 2px dashed rgba(35, 35, 35, .18);
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      font-weight: 600; font-size: .9rem; color: var(--ink-soft);
+    }
+    .card__price b { font-family: var(--display); font-size: 1.5rem; color: var(--rot); letter-spacing: .02em; }
+    @media (max-width: 880px) { .cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
+
+    /* ---------- Wochenplan ---------- */
+    .plan { max-width: 720px; margin: 0 auto; display: grid; gap: 12px; }
+    .plan__row {
+      display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 16px;
+      background: rgba(251, 246, 236, .05);
+      border: 1px solid rgba(251, 246, 236, .1);
+      border-radius: 14px; padding: 16px 22px;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .plan__row:hover, .plan__row.is-hot { transform: translateX(6px); background: rgba(251, 246, 236, .09); border-color: rgba(242, 183, 5, .45); }
+    .plan__tag { font-family: var(--display); font-size: 1.05rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gelb); }
+    .plan__ort { font-weight: 600; color: var(--hell); }
+    .plan__ort span { display: block; font-weight: 400; font-size: .88rem; color: var(--hell-soft); }
+    .plan__zeit { font-size: .9rem; font-weight: 600; color: var(--hell-soft); white-space: nowrap; }
+    .plan__row--heute {
+      background: var(--gelb); border-color: var(--gelb);
+      transform: rotate(-.6deg);
+      box-shadow: 5px 5px 0 var(--rot);
+    }
+    .plan__row--heute .plan__tag { color: var(--rot); }
+    .plan__row--heute .plan__ort, .plan__row--heute .plan__zeit { color: var(--ink); }
+    .plan__row--heute .plan__ort span { color: rgba(35, 35, 35, .65); }
+    .plan__row--heute:hover, .plan__row--heute.is-hot { transform: rotate(0deg) translateX(6px); background: var(--gelb); border-color: var(--gelb); }
+    .heute-badge {
+      display: inline-block; background: var(--rot); color: #fff;
+      font-family: var(--display); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px; margin-left: 8px; transform: rotate(-3deg);
+      vertical-align: middle;
+    }
+    @media (max-width: 560px) {
+      .plan__row { grid-template-columns: 52px 1fr; padding: 14px 16px; }
+      .plan__zeit { grid-column: 2; }
+    }
+
+    /* ---------- Catering-Formular ---------- */
+    .catering {
+      max-width: 760px; margin: 0 auto;
+      background: var(--creme); color: var(--ink);
+      border-radius: 22px; padding: clamp(28px, 5vw, 48px);
+      box-shadow: 8px 8px 0 var(--teal);
+      transform: rotate(-.5deg);
+    }
+    .catering.reveal.in { transform: rotate(-.5deg); }
+    .catering h2 {
+      font-family: var(--display); text-transform: uppercase;
+      font-size: clamp(1.7rem, 3.6vw, 2.3rem); line-height: 1.06; margin-bottom: 8px;
+    }
+    .catering > p { color: var(--ink-soft); margin-bottom: 28px; max-width: 52ch; }
+    .catering__form { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 14px; align-items: end; }
+    .feld label {
+      display: block; font-weight: 700; font-size: .76rem; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 6px;
+    }
+    .feld input {
+      width: 100%; font-family: var(--body); font-size: 1rem; font-weight: 600; color: var(--ink);
+      background: #fff; border: 2px solid rgba(35, 35, 35, .18); border-radius: 10px;
+      padding: 13px 15px; transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .feld input:focus, .feld.is-fokus input { outline: none; border-color: var(--rot); box-shadow: 0 0 0 3px rgba(230, 59, 46, .18); }
+    .catering .btn--cta { white-space: nowrap; font-size: .95rem; padding: 14px 24px; }
+    @media (max-width: 720px) {
+      .catering__form { grid-template-columns: 1fr; }
+      .catering, .catering.reveal.in { transform: none; }
+    }
+
+    /* ---------- Footer ---------- */
+    .footer { padding: 48px 0 60px; background: var(--grund-tief); }
+    .footer__inner {
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      font-size: .88rem; color: var(--hell-soft);
+      border-top: 1px solid rgba(251, 246, 236, .1); padding-top: 32px;
+    }
+    .footer b { color: var(--gelb); font-family: var(--display); font-weight: 400; letter-spacing: .04em; text-transform: uppercase; }
+    .footer a { color: var(--gelb); font-weight: 700; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ---------- Toast ---------- */
+    .toast {
+      position: fixed; left: 50%; bottom: 28px; z-index: 200;
+      transform: translate(-50%, 160%);
+      background: var(--teal); color: #fff; font-weight: 700; font-size: 1rem;
+      padding: 15px 26px; border-radius: 12px;
+      box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .7), 4px 4px 0 rgba(0, 0, 0, .25);
+      transition: transform .4s cubic-bezier(.2, .9, .3, 1.2);
+      pointer-events: none; white-space: nowrap; max-width: 94vw;
+    }
+    .toast.is-on { transform: translate(-50%, 0); }
+    @media (max-width: 560px) { .toast { font-size: .88rem; white-space: normal; text-align: center; } }
+
+    /* ---------- Autopilot-Cursor ---------- */
+    .ap {
+      position: fixed; top: 0; left: 0; width: 34px; height: 40px; z-index: 9999;
+      pointer-events: none; opacity: 0; transform: translate(-80px, -80px);
+      transition: transform .58s cubic-bezier(.3, .05, .2, 1), opacity .3s;
+      filter: drop-shadow(0 5px 10px rgba(0, 0, 0, .7)); will-change: transform;
+    }
+    .ap.on { opacity: 1; }
+    .ap.fast { transition-duration: .34s; }
+    .ap.press svg { transform: scale(.8); transform-origin: 6px 5px; }
+    .ap svg { transition: transform .12s; }
+    .ripple {
+      position: fixed; width: 14px; height: 14px; border-radius: 50%;
+      border: 2.5px solid var(--gelb); z-index: 9998; pointer-events: none;
+      transform: translate(-50%, -50%); animation: rip .55s ease-out forwards;
+    }
+    @keyframes rip { from { opacity: .9; scale: .4; } to { opacity: 0; scale: 2.6; } }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .ap, .ripple { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <a class="sticker" href="https://addus.de" aria-label="Demo-Angebot: Website ab 59 Euro Start — zu addus">Ja,&nbsp;59&nbsp;€!<small>Website von addus</small></a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top">
+        <img src="https://api.iconify.design/lucide:flame.svg?color=%23F2B705" alt="" width="26" height="26">
+        Knall&nbsp;<em>&amp;</em>&nbsp;Kruste
+      </a>
+      <ul class="nav__links">
+        <li><a href="#menu">Menü</a></li>
+        <li><a href="#wochenplan">Wochenplan</a></li>
+        <li><a class="btn btn--nav" href="#catering">Catering</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- SIGNATURE: Hero "Markt bei Nacht" — Vollbild-Nachtmarkt + Hartschatten-Sticker-Typo -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <img src="img/streetfood/hero-markt.jpg" alt="" width="1600" height="1067" fetchpriority="high">
+      </div>
+      <div class="hero__inner">
+        <span class="hero__pill">Foodtruck · Handgemacht · Jeden Tag woanders</span>
+        <h1>Streetfood, das <span class="knallt">knallt</span>.</h1>
+        <p class="lede">Smashed Burger, Tacos mit Feuer und Pommes, die man nicht teilt. Frisch vom Grill, direkt auf die Hand — wo unser Truck steht, riecht die ganze Straße danach.</p>
+        <div class="hero__actions">
+          <a class="btn btn--cta" href="#menu">Menü ansehen</a>
+          <p class="hero__hint">Mo–Sa unterwegs<span>Standort im Wochenplan</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menü -->
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section__head section__head--center reveal">
+          <span class="kicker">Das Menü</span>
+          <h2>Drei Klassiker. Null Kompromisse.</h2>
+          <p>Kurze Karte, lange Schlange: Wir machen wenig — aber das jeden Tag frisch und richtig laut im Geschmack.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal" id="cardBurger">
+            <div class="card__media">
+              <img src="img/streetfood/burger.jpg" alt="Zwei saftige Smashed Burger mit geschmolzenem Käse" loading="lazy" width="640" height="480">
+              <span class="card__tag">Bestseller</span>
+            </div>
+            <div class="card__body">
+              <h3>Smash-Burger</h3>
+              <p>Doppelt gesmashtes Rind, gereifter Cheddar, karamellisierte Zwiebeln und unsere Knall-Sauce im Brioche-Bun.</p>
+              <p class="card__price"><span>Doppel-Patty +2,50 €</span><b>9,50 €</b></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media">
+              <img src="img/streetfood/tacos.jpg" alt="Mexikanische Tacos mit Guacamole und frischem Koriander" loading="lazy" width="640" height="480">
+              <span class="card__tag card__tag--teal">Mit Feuer</span>
+            </div>
+            <div class="card__body">
+              <h3>Tacos al Pastor</h3>
+              <p>Drei Mais-Tortillas mit mariniertem Schweinebauch, Ananas-Salsa, Guacamole und Limette. Schärfe von zahm bis mutig.</p>
+              <p class="card__price"><span>3 Stück · vegetarisch möglich</span><b>8,90 €</b></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media">
+              <img src="img/streetfood/pommes.jpg" alt="Knusprige Pommes frites mit hausgemachter Sauce" loading="lazy" width="640" height="480">
+              <span class="card__tag card__tag--gelb">Handgeschnitten</span>
+            </div>
+            <div class="card__body">
+              <h3>Knall-Pommes</h3>
+              <p>Doppelt frittiert, außen krachend, innen weich — mit Rauchsalz und wahlweise Trüffel-Mayo oder Chili-Cheese.</p>
+              <p class="card__price"><span>groß genug für zwei — theoretisch</span><b>4,50 €</b></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wochenplan -->
+    <section class="section section--tief" id="wochenplan">
+      <div class="wrap">
+        <div class="section__head section__head--center reveal">
+          <span class="kicker">Wo steht der Truck?</span>
+          <h2>Der Wochenplan</h2>
+          <p>Sechs Tage, sechs Ecken der Stadt. Sonntag ruht der Grill — da schneiden wir Zwiebeln für Montag.</p>
+        </div>
+        <div class="plan reveal">
+          <div class="plan__row">
+            <span class="plan__tag">Mo</span>
+            <p class="plan__ort">Alter Güterbahnhof<span>Nordstadt, vor Halle 3</span></p>
+            <span class="plan__zeit">11:30–15:00</span>
+          </div>
+          <div class="plan__row">
+            <span class="plan__tag">Di</span>
+            <p class="plan__ort">Campus-Wiese<span>Uni-Viertel, Mensa-Vorplatz</span></p>
+            <span class="plan__zeit">11:00–15:00</span>
+          </div>
+          <div class="plan__row plan__row--heute" id="planHeute">
+            <span class="plan__tag">Mi</span>
+            <p class="plan__ort">Hafenmarkt<span>Am Kran 7, direkt am Wasser</span></p>
+            <span class="plan__zeit">12:00–21:00 <span class="heute-badge">Heute!</span></span>
+          </div>
+          <div class="plan__row">
+            <span class="plan__tag">Do</span>
+            <p class="plan__ort">Rathausplatz<span>Altstadt, beim Brunnen</span></p>
+            <span class="plan__zeit">11:30–15:00</span>
+          </div>
+          <div class="plan__row">
+            <span class="plan__tag">Fr</span>
+            <p class="plan__ort">Feierabendmarkt Süd<span>Lindenallee, Stand 12</span></p>
+            <span class="plan__zeit">16:00–22:00</span>
+          </div>
+          <div class="plan__row">
+            <span class="plan__tag">Sa</span>
+            <p class="plan__ort">Wochenmarkt Zentrum<span>Marktplatz, Ecke Kirchgasse</span></p>
+            <span class="plan__zeit">09:00–14:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catering -->
+    <section class="section" id="catering">
+      <div class="wrap">
+        <div class="catering reveal">
+          <span class="kicker">Catering</span>
+          <h2>Der Truck kommt auch zu Ihnen.</h2>
+          <p>Firmenfest, Hochzeit, Geburtstag — wir parken vor der Tür und grillen, bis alle satt sind. Kurz anfragen, Antwort kommt noch am selben Tag.</p>
+          <form class="catering__form" aria-label="Catering-Anfrage (Demo)">
+            <div class="feld" id="feldEvent">
+              <label for="cEvent">Event</label>
+              <input id="cEvent" type="text" placeholder="z. B. Firmenfest, 40 Personen" readonly>
+            </div>
+            <div class="feld" id="feldDatum">
+              <label for="cDatum">Datum</label>
+              <input id="cDatum" type="text" placeholder="TT.MM." readonly>
+            </div>
+            <button class="btn btn--cta" id="cSenden" type="button">Anfrage senden</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p><b>Knall &amp; Kruste</b> · Foodtruck · Mo–Sa unterwegs<br>Tel. 0000 000000 · hallo@knallundkruste.de</p>
+      <p>Demo-Seite von <a href="https://addus.de">addus</a> — Ihre Website: 59 € Start, 27 €/Monat.<br>Fotos: Pexels · Fiktives Unternehmen.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">✓ Anfrage raus — Antwort noch heute!</div>
+
+  <div class="ap" id="ap" aria-hidden="true"><svg viewBox="0 0 26 32"><path d="M2 2l8 24 3.5-9.5L23 13z" fill="#fff" stroke="#1c1c1c" stroke-width="2" stroke-linejoin="round"/></svg></div>
+
+  <script>
+    /* ---------- Reveal ---------- */
+    (function () {
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var els = document.querySelectorAll(".reveal");
+      if (reduced || !("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    /* ---------- Autopilot mit Scroll-Steps ---------- */
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var ap = document.getElementById("ap"), run = 0, stopped = false;
+
+      /* Abbruch bei echter User-Interaktion — dauerhaft, kein Neustart */
+      function abbruch() {
+        if (stopped) return;
+        stopped = true;
+        run++; /* run-Guard erhöhen: laufende Steps sterben */
+        ap.classList.remove("on");
+        document.getElementById("toast").classList.remove("is-on");
+      }
+      window.addEventListener("wheel", abbruch, { passive: true });
+      window.addEventListener("touchstart", abbruch, { passive: true });
+      window.addEventListener("mousedown", abbruch, { passive: true });
+      window.addEventListener("keydown", abbruch);
+
+      /* Helpers: Cursor / Klick / Tippen */
+      function co(el, ox, oy) {
+        var r = el.getBoundingClientRect();
+        return { x: r.left + (ox !== undefined ? ox : r.width / 2), y: r.top + (oy !== undefined ? oy : r.height / 2) };
+      }
+      function setPos(el, ox, oy) { var c = co(el, ox, oy); ap.style.transform = "translate(" + c.x + "px," + c.y + "px)"; }
+      function move(el, cb, fast, ox, oy) { ap.classList.toggle("fast", !!fast); setPos(el, ox, oy); setTimeout(cb, fast ? 400 : 640); }
+      function klick(el, cb) {
+        ap.classList.add("press");
+        var c = ap.getBoundingClientRect(), r = document.createElement("span");
+        r.className = "ripple"; r.style.left = (c.left + 6) + "px"; r.style.top = (c.top + 5) + "px";
+        document.body.appendChild(r); setTimeout(function () { r.remove(); }, 600);
+        setTimeout(function () { ap.classList.remove("press"); cb && cb(); }, 240);
+      }
+      function tippen(el, txt, cb) {
+        var i = 0;
+        (function s() { if (i <= txt.length) { el.value = txt.slice(0, i++); setTimeout(s, 55); } else cb && cb(); })();
+      }
+      /* NEU: Scroll-Step — erst smooth scrollen, dann Cursor nach dem Scroll positionieren */
+      function scrollZu(el, cb) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(function () { move(el, cb); }, 900);
+      }
+
+      function demo() {
+        if (stopped) return;
+        var id = ++run;
+        function ok() { return run === id; }
+        var burger = document.getElementById("cardBurger"),
+            heute = document.getElementById("planHeute"),
+            fEvent = document.getElementById("feldEvent"),
+            fDatum = document.getElementById("feldDatum"),
+            iEvent = document.getElementById("cEvent"),
+            iDatum = document.getElementById("cDatum"),
+            senden = document.getElementById("cSenden"),
+            toast = document.getElementById("toast");
+        var steps = [
+          /* Reset + Start oben */
+          function (nx) { iEvent.value = iDatum.value = ""; toast.classList.remove("is-on"); window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(nx, 1200); },
+          function (nx) { setPos(document.body, window.innerWidth * .55, 160); ap.classList.add("on"); setTimeout(nx, 350); },
+          /* Burger-Karte anfahren + Hover */
+          function (nx) { scrollZu(burger, nx); },
+          function (nx) { burger.classList.add("is-hot"); setTimeout(nx, 850); },
+          function (nx) { burger.classList.remove("is-hot"); nx(); },
+          /* Wochenplan: "Heute!"-Standort hovern */
+          function (nx) { scrollZu(heute, nx); },
+          function (nx) { heute.classList.add("is-hot"); setTimeout(nx, 850); },
+          function (nx) { heute.classList.remove("is-hot"); nx(); },
+          /* Catering-Formular ausfüllen */
+          function (nx) { scrollZu(fEvent, nx); },
+          function (nx) { klick(fEvent, nx); },
+          function (nx) { fEvent.classList.add("is-fokus"); tippen(iEvent, "Firmenfest, 40 Personen", nx); },
+          function (nx) { fEvent.classList.remove("is-fokus"); move(fDatum, nx, true); },
+          function (nx) { klick(fDatum, nx); },
+          function (nx) { fDatum.classList.add("is-fokus"); tippen(iDatum, "24.07.", nx); },
+          function (nx) { fDatum.classList.remove("is-fokus"); move(senden, nx); },
+          function (nx) { senden.classList.add("is-hot"); klick(senden, nx); },
+          function (nx) { senden.classList.remove("is-hot"); toast.classList.add("is-on"); setTimeout(nx, 2500); },
+          /* Zurücksetzen + nach oben + Loop */
+          function (nx) { toast.classList.remove("is-on"); ap.classList.remove("on"); iEvent.value = iDatum.value = ""; window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(nx, 1800); },
+          function () { demo(); }
+        ];
+        (function lauf(i) {
+          if (!ok() || stopped) return;
+          if (i >= steps.length) return;
+          steps[i](function () { lauf(i + 1); });
+        })(0);
+      }
+      setTimeout(demo, 1200);
+    })();
+  </script>
+</body>
+</html>

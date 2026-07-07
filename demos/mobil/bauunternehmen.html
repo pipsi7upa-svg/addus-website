@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BETON &amp; STAHL Bau — Mobile-Poster | Demo von addus</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --grund: #14171A; --grund-hell: #1D2126; --gelb: #FFB400; --weiss: #F4F5F6;
+      --grau: rgba(244, 245, 246, .66); --linie: rgba(244, 245, 246, .14);
+      --display: "Arial Black", "Segoe UI Black", system-ui, sans-serif;
+      --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--body); background: var(--grund); color: var(--weiss);
+      overflow: hidden; -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+    .ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .kopf {
+      position: absolute; top: 0; left: 0; right: 0; height: 54px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 18px;
+      background: rgba(20, 23, 26, .95); border-bottom: 2px solid var(--gelb);
+    }
+    .kopf b { font-family: var(--display); font-size: .88rem; letter-spacing: .04em; display: flex; align-items: center; gap: 9px; }
+    .kopf b svg { width: 19px; height: 19px; color: var(--gelb); }
+    .kopf b i { font-style: normal; color: var(--gelb); }
+    .kopf .cta { background: var(--gelb); color: var(--grund); font-weight: 800; font-size: .72rem; padding: 7px 14px; border-radius: 3px; text-transform: uppercase; letter-spacing: .04em; }
+
+    .szene {
+      position: absolute; inset: 0; padding: 74px 24px 60px; z-index: 1;
+      opacity: 0; visibility: hidden; transition: opacity .55s ease, visibility .55s;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .szene.on { opacity: 1; visibility: visible; z-index: 2; }
+    .an { opacity: 0; transform: translateY(18px); transition: opacity .45s ease, transform .45s ease; }
+    .on .an { opacity: 1; transform: none; }
+    .on .d1 { transition-delay: .12s; } .on .d2 { transition-delay: .24s; }
+    .on .d3 { transition-delay: .36s; } .on .d4 { transition-delay: .48s; } .on .d5 { transition-delay: .6s; }
+
+    .chip {
+      display: inline-flex; align-self: flex-start; border: 1.5px solid var(--gelb); color: var(--gelb);
+      font-weight: 800; font-size: .64rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 3px; margin-bottom: 16px;
+    }
+    h1, h2 { font-family: var(--display); text-transform: uppercase; letter-spacing: -.005em; }
+    h1 { font-size: 2.35rem; line-height: 1.02; margin-bottom: 12px; }
+    h1 em { font-style: normal; color: var(--gelb); }
+    .lede { color: var(--grau); font-size: .95rem; max-width: 32ch; }
+
+    /* Szene 1: Kran-Bild, kantig */
+    .held {
+      position: relative; margin: auto 0 10px;
+      border-top: 5px solid var(--gelb);
+      box-shadow: 0 22px 48px -18px rgba(0, 0, 0, .8);
+      aspect-ratio: 16 / 10.5; overflow: hidden;
+    }
+    .held img { width: 100%; height: 100%; object-fit: cover; }
+    .held::after {
+      content: "SEIT 1998"; position: absolute; right: 0; bottom: 0;
+      background: var(--gelb); color: var(--grund);
+      font-family: var(--display); font-size: .68rem; letter-spacing: .1em;
+      padding: 6px 12px;
+    }
+    .fakten { display: flex; gap: 0; border: 1px solid var(--linie); }
+    .fakt { flex: 1; text-align: center; padding: 10px 4px; }
+    .fakt + .fakt { border-left: 1px solid var(--linie); }
+    .fakt b { display: block; font-family: var(--display); font-size: 1.15rem; color: var(--gelb); }
+    .fakt span { font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--grau); }
+
+    /* Szene 2: Leistungen */
+    h2 { font-size: 1.7rem; line-height: 1.05; margin-bottom: 18px; }
+    .rows { display: grid; gap: 10px; }
+    .row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--grund-hell); border-left: none; border: 1px solid var(--linie);
+      padding: 12px 14px;
+    }
+    .row .nr { font-family: var(--display); font-size: 1.2rem; color: var(--gelb); flex: none; width: 34px; }
+    .row h3 { font-family: var(--display); font-size: .95rem; text-transform: uppercase; }
+    .row p { font-size: .76rem; color: var(--grau); }
+    .row img { width: 54px; height: 54px; object-fit: cover; margin-left: auto; flex: none; }
+
+    /* Szene 3: CTA */
+    .arbeiter {
+      border-top: 5px solid var(--gelb); overflow: hidden; margin-bottom: 16px;
+      aspect-ratio: 16 / 10; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .8);
+    }
+    .arbeiter img { width: 100%; height: 100%; object-fit: cover; }
+    .versprechen { font-size: .95rem; color: var(--grau); margin-bottom: 14px; }
+    .versprechen b { color: var(--weiss); }
+    .btn {
+      background: var(--gelb); color: var(--grund); text-align: center; font-weight: 800;
+      font-family: var(--display); text-transform: uppercase; letter-spacing: .06em;
+      padding: 14px; border-radius: 3px;
+    }
+
+    .punkte { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 20; }
+    .punkte i { width: 6px; height: 6px; border-radius: 999px; background: var(--weiss); opacity: .25; transition: all .4s ease; }
+    .punkte i.on { opacity: 1; width: 20px; background: var(--gelb); }
+    .badge {
+      position: absolute; right: 14px; bottom: 14px; z-index: 20;
+      font-size: .6rem; font-weight: 700; color: var(--grau);
+      background: var(--grund-hell); padding: 5px 10px; border-radius: 999px;
+    }
+
+    .szene--1 { opacity: 1; visibility: visible; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .szene { opacity: 0 !important; visibility: hidden !important; }
+      .szene--1 { opacity: 1 !important; visibility: visible !important; }
+      .szene--1 .an, .on .an { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="kopf">
+    <b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>BETON <i>&amp;</i> STAHL</b>
+    <span class="cta">Anfragen</span>
+  </header>
+
+  <!-- Szene 1: Hero -->
+  <section class="szene szene--1 on">
+    <span class="chip an">Bauunternehmen · Meisterbetrieb</span>
+    <h1 class="an d1">Wir bauen Ihre <em>Zukunft</em>.</h1>
+    <p class="lede an d2">Hochbau, Tiefbau, Sanierung — termintreu und zum Festpreis.</p>
+    <div class="held an d3"><img src="../img/bauunternehmen/hero-kran.jpg" alt="Baukran vor blauem Himmel auf der Baustelle" fetchpriority="high"></div>
+    <div class="fakten an d4">
+      <div class="fakt"><b>250+</b><span>Projekte</span></div>
+      <div class="fakt"><b>27</b><span>Jahre</span></div>
+      <div class="fakt"><b>100 %</b><span>Festpreis</span></div>
+    </div>
+  </section>
+
+  <!-- Szene 2: Leistungen -->
+  <section class="szene">
+    <span class="chip an">Leistungen</span>
+    <h2 class="an d1">Drei Gewerke.<br>Ein Ansprechpartner.</h2>
+    <div class="rows">
+      <div class="row an d2">
+        <span class="nr">01</span>
+        <div><h3>Hochbau</h3><p>Rohbau bis schlüsselfertig</p></div>
+        <img src="../img/bauunternehmen/hochbau.jpg" alt="">
+      </div>
+      <div class="row an d3">
+        <span class="nr">02</span>
+        <div><h3>Tiefbau</h3><p>Erdarbeiten &amp; Fundamente</p></div>
+        <img src="../img/bauunternehmen/tiefbau.jpg" alt="">
+      </div>
+      <div class="row an d4">
+        <span class="nr">03</span>
+        <div><h3>Sanierung</h3><p>Altbau, Energie, Dach</p></div>
+        <img src="../img/bauunternehmen/sanierung.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- Szene 3: CTA -->
+  <section class="szene">
+    <span class="chip an">Projekt starten</span>
+    <h2 class="an d1">Reden wir über<br>Ihr Bauvorhaben.</h2>
+    <div class="arbeiter an d2"><img src="../img/bauunternehmen/arbeiter.jpg" alt="Bauarbeiter mit Helm auf der Baustelle"></div>
+    <p class="versprechen an d3"><b>Angebot in 48 Stunden.</b><br>Festpreis. Ein Ansprechpartner. Termintreu.</p>
+    <div class="btn an d4">Projekt starten</div>
+  </section>
+
+  <div class="punkte" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <span class="badge">Demo von addus</span>
+
+  <script>
+    (function () {
+      var szenen = [].slice.call(document.querySelectorAll(".szene"));
+      var punkte = [].slice.call(document.querySelectorAll(".punkte i"));
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var i = 0;
+      setInterval(function () {
+        i = (i + 1) % szenen.length;
+        szenen.forEach(function (s, k) { s.classList.toggle("on", k === i); });
+        punkte.forEach(function (p, k) { p.classList.toggle("on", k === i); });
+      }, 4600);
+    })();
+  </script>
+</body>
+</html>

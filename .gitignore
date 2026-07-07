@@ -99,3 +99,8 @@ index-taste.html
 
 .frugal-fable/
 .playwright-mcp/
+
+# Interne Briefings (enthalten Secrets)
+Briefing-fuer-Fabel.md
+Fabel.txt
+Fabel5-Upgrade-Briefing.md

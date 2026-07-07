@@ -12,7 +12,7 @@ Lüneburg, Hamburg, Harburg, Winsen (Luhe), Uelzen, Celle, Buchholz in der Nordh
 
 ## Leistungen
 
-- **Webdesign**: Individuelle Websites ab 699 € (netto), responsive Design, CMS zur Selbstbearbeitung
+- **Webdesign**: Individuelle Websites für 59 € Startgebühr (einmalig) + 27 €/Monat, jeweils zzgl. 19 % USt. — inkl. Design, Hosting auf Cloudflare, SSL und laufender Pflege. Monatlich kündbar, keine Mindestlaufzeit. Übernahme jederzeit zum Festpreis von 790 € netto möglich.
 - **SEO & Google-Sichtbarkeit**: Suchmaschinenoptimierung, Google My Business, lokale Sichtbarkeit
 - **E-Commerce**: Online-Shops mit Produktverwaltung und Zahlungsintegration
 

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pfote &amp; Schaum — Mobile-Poster | Demo von addus</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @font-face {
+      font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 200 800; font-display: swap;
+      src: url("../../assets/fonts/bricolage-vf-latin.woff2") format("woff2");
+    }
+    :root {
+      --creme: #FBF9F5; --mint: #CDE7DC; --mint-soft: #E4F2EB; --tanne: #3E5F52;
+      --pfirsich: #F3B6A0; --pfirsich-tief: #E08A67; --ink: #2B2B2B; --ink-soft: #5D5A55;
+      --white: #FFFFFF;
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--body); background: var(--creme); color: var(--ink);
+      overflow: hidden; -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+    .ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .kopf {
+      position: absolute; top: 0; left: 0; right: 0; height: 54px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 18px;
+      background: rgba(251, 249, 245, .92); border-bottom: 1px solid rgba(62, 95, 82, .1);
+    }
+    .kopf b { font-family: var(--display); font-weight: 800; font-size: 1.02rem; color: var(--tanne); display: flex; align-items: center; gap: 8px; }
+    .kopf b svg { width: 20px; height: 20px; }
+    .kopf .cta { background: var(--pfirsich); color: var(--ink); font-weight: 700; font-size: .74rem; padding: 7px 14px; border-radius: 999px; }
+
+    .szene {
+      position: absolute; inset: 0; padding: 74px 24px 60px; z-index: 1;
+      opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .szene.on { opacity: 1; visibility: visible; z-index: 2; }
+    .szene--mint { background: var(--mint-soft); }
+    .an { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .on .an { opacity: 1; transform: none; }
+    .on .d1 { transition-delay: .15s; } .on .d2 { transition-delay: .3s; }
+    .on .d3 { transition-delay: .45s; } .on .d4 { transition-delay: .6s; } .on .d5 { transition-delay: .75s; }
+
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+      background: var(--mint); color: var(--tanne);
+      font-weight: 700; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase;
+      padding: 6px 13px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .chip svg { width: 13px; height: 13px; }
+    h1, h2 { font-family: var(--display); font-weight: 800; letter-spacing: -.02em; }
+    h1 { font-size: 2.35rem; line-height: 1.06; margin-bottom: 12px; }
+    h1 em { font-style: normal; color: var(--tanne); position: relative; white-space: nowrap; }
+    h1 em svg { position: absolute; left: 0; bottom: -.16em; width: 100%; height: .28em; overflow: visible; }
+    .lede { color: var(--ink-soft); font-size: .95rem; max-width: 32ch; }
+
+    /* Szene 1: Welpen-Bubble */
+    .bubbles { position: relative; width: 240px; margin: auto auto 10px; aspect-ratio: 1; }
+    .bubble { position: absolute; border-radius: 50%; overflow: hidden; box-shadow: 0 14px 32px -14px rgba(62, 95, 82, .38); }
+    .bubble img { width: 100%; height: 100%; object-fit: cover; }
+    .bubble--main { inset: 8% 6% 8% 6%; border-radius: 53% 47% 50% 50% / 51% 49% 51% 49%; border: 7px solid var(--white); }
+    .bubble--s1 { width: 27%; aspect-ratio: 1; top: -2%; right: 0; border: 5px solid var(--white); }
+    .dot { position: absolute; border-radius: 50%; background: var(--mint); }
+    .dot--1 { width: 22px; height: 22px; top: 12%; left: 0; }
+    .dot--2 { width: 12px; height: 12px; bottom: 10%; right: 4%; background: var(--pfirsich); }
+    .float { animation: float 6.5s ease-in-out infinite; }
+    .float--slow { animation-duration: 9s; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    .hint { text-align: center; font-size: .82rem; font-weight: 700; color: var(--tanne); }
+    .hint span { display: block; font-weight: 400; color: var(--ink-soft); }
+
+    /* Szene 2: Leistungen */
+    h2 { font-size: 1.8rem; line-height: 1.12; margin-bottom: 18px; }
+    .rows { display: grid; gap: 12px; }
+    .row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white); border-radius: 16px; padding: 12px 14px;
+      box-shadow: 0 10px 26px -16px rgba(62, 95, 82, .35);
+    }
+    .row .icon {
+      width: 44px; height: 44px; border-radius: 13px; flex: none;
+      background: var(--pfirsich); color: var(--ink); display: grid; place-items: center;
+    }
+    .row .icon svg { width: 22px; height: 22px; }
+    .row h3 { font-family: var(--display); font-weight: 800; font-size: 1.05rem; }
+    .row p { font-size: .78rem; color: var(--ink-soft); }
+    .row .preis { margin-left: auto; font-family: var(--display); font-weight: 800; font-size: 1rem; color: var(--tanne); white-space: nowrap; }
+
+    /* Szene 3: Stimme + CTA */
+    .quote { background: var(--white); border-radius: 18px; padding: 18px; box-shadow: 0 12px 30px -16px rgba(62, 95, 82, .35); margin-bottom: 16px; }
+    .paws { display: flex; gap: 6px; color: var(--pfirsich-tief); margin-bottom: 10px; }
+    .paws svg { width: 17px; height: 17px; }
+    .quote p { font-family: var(--display); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
+    .quote footer { margin-top: 8px; font-size: .78rem; color: var(--ink-soft); }
+    .quote footer b { color: var(--tanne); }
+    .btn { background: var(--tanne); color: #fff; text-align: center; font-weight: 700; padding: 13px; border-radius: 999px; }
+    .toast {
+      position: absolute; left: 50%; bottom: 66px; transform: translate(-50%, 14px);
+      background: var(--tanne); color: #fff; font-weight: 700; font-size: .85rem;
+      padding: 11px 20px; border-radius: 999px; opacity: 0; white-space: nowrap;
+      transition: opacity .4s ease .1s, transform .4s ease .1s;
+    }
+    .on .toast { opacity: 1; transform: translate(-50%, 0); transition-delay: 1.5s; }
+
+    .punkte { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 20; }
+    .punkte i { width: 6px; height: 6px; border-radius: 999px; background: var(--tanne); opacity: .25; transition: all .4s ease; }
+    .punkte i.on { opacity: 1; width: 20px; background: var(--pfirsich-tief); }
+    .badge {
+      position: absolute; right: 14px; bottom: 14px; z-index: 20;
+      font-size: .6rem; font-weight: 700; color: var(--ink-soft);
+      background: var(--mint); padding: 5px 10px; border-radius: 999px;
+    }
+
+    .szene--1 { opacity: 1; visibility: visible; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .szene { opacity: 0 !important; visibility: hidden !important; }
+      .szene--1 { opacity: 1 !important; visibility: visible !important; }
+      .szene--1 .an, .on .an { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="i-pfote" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol>
+    <symbol id="i-tropfen" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></symbol>
+    <symbol id="i-schere" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+  </svg>
+
+  <header class="kopf">
+    <b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>Pfote &amp; Schaum</b>
+    <span class="cta">Termin sichern</span>
+  </header>
+
+  <!-- Szene 1: Hero -->
+  <section class="szene szene--1 on">
+    <span class="chip an"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>Hundesalon</span>
+    <h1 class="an d1">Für Fellnasen, die <em>strahlen<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10 Q 50 2 100 8 T 197 6" fill="none" stroke="#F3B6A0" stroke-width="6" stroke-linecap="round"/></svg></em>.</h1>
+    <p class="lede an d2">Warmes Wasser, ruhige Hand, ganz viel Geduld.</p>
+    <div class="bubbles an d3">
+      <div class="dot dot--1 float--slow float" aria-hidden="true"></div>
+      <div class="bubble bubble--main"><img src="../img/hundesalon/hero-welpe-bad.jpg" alt="Nasser Welpe in der Badewanne" fetchpriority="high"></div>
+      <div class="bubble bubble--s1 float"><img src="../img/hundesalon/baden.jpg" alt=""></div>
+      <div class="dot dot--2 float" aria-hidden="true"></div>
+    </div>
+    <p class="hint an d4">Mo–Sa geöffnet<span>Termine auch am Abend</span></p>
+  </section>
+
+  <!-- Szene 2: Leistungen -->
+  <section class="szene szene--mint">
+    <span class="chip an" style="background:var(--white)">Unsere Leistungen</span>
+    <h2 class="an d1">Drei Dinge.<br>Richtig gut gemacht.</h2>
+    <div class="rows">
+      <div class="row an d2">
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tropfen"/></svg></span>
+        <div><h3>Baden</h3><p>45–60 Min. · milde Pflege</p></div>
+        <span class="preis">ab 29 €</span>
+      </div>
+      <div class="row an d3">
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-schere"/></svg></span>
+        <div><h3>Schneiden</h3><p>60–90 Min. · Wunschfrisur</p></div>
+        <span class="preis">ab 49 €</span>
+      </div>
+      <div class="row an d4">
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg></span>
+        <div><h3>Krallenpflege</h3><p>15–20 Min. · stressarm</p></div>
+        <span class="preis">ab 12 €</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Szene 3: Stimme + Termin -->
+  <section class="szene">
+    <span class="chip an">Stimmen</span>
+    <div class="quote an d1">
+      <div class="paws" aria-label="5 von 5 Pfoten">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pfote"/></svg>
+      </div>
+      <p>„Balu legt sich hier freiwillig auf den Tisch — und sein Fell hat noch nie so geglänzt."</p>
+      <footer><b>Familie Sommer</b> · Stammkunden seit 2023</footer>
+    </div>
+    <h2 class="an d2" style="font-size:1.6rem">Wann dürfen<br>wir schrubben?</h2>
+    <div class="btn an d3" style="margin-top:10px">Termin sichern</div>
+    <div class="toast">✓ Termin angefragt — wir rufen heute zurück!</div>
+  </section>
+
+  <div class="punkte" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <span class="badge">Demo von addus</span>
+
+  <script>
+    (function () {
+      var szenen = [].slice.call(document.querySelectorAll(".szene"));
+      var punkte = [].slice.call(document.querySelectorAll(".punkte i"));
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var i = 0;
+      setInterval(function () {
+        i = (i + 1) % szenen.length;
+        szenen.forEach(function (s, k) { s.classList.toggle("on", k === i); });
+        punkte.forEach(function (p, k) { p.classList.toggle("on", k === i); });
+      }, 4600);
+    })();
+  </script>
+</body>
+</html>
