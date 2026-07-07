@@ -118,6 +118,15 @@ body.menu-open .nav{transform:none}
   transform:scaleX(0);transform-origin:left;
   pointer-events:none;
 }
+/* Scroll-driven Animation: Progressbar läuft auf dem Compositor
+   statt pro Scroll-Frame in JS (plakat.js überspringt sie dann). */
+@supports (animation-timeline: scroll()){
+  .nav__progress{
+    animation:navFortschritt linear both;
+    animation-timeline:scroll(root);
+  }
+}
+@keyframes navFortschritt{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .nav__in{width:var(--w);margin-inline:auto;display:flex;align-items:center;gap:2rem}
 .nav__brand{font-size:1.6rem;font-weight:800;letter-spacing:-.03em;line-height:1}
 .nav__brand b{color:currentColor}

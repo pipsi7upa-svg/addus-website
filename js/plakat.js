@@ -64,6 +64,9 @@
   messenScrollMax();
   window.addEventListener('resize', messenScrollMax);
   if (window.ScrollTrigger) ScrollTrigger.addEventListener('refresh', messenScrollMax);
+  /* Progressbar nativ via animation-timeline: scroll(root)?
+     Dann übernimmt der Compositor — JS lässt die Finger davon. */
+  var nativeProgress = window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()');
   function navState() {
     if (!nav) return;
     var y = window.scrollY;
@@ -76,7 +79,7 @@
       && !nav.contains(document.activeElement);
     nav.classList.toggle('nav--hidden', verstecken);
     lastY = y;
-    if (navProg) {
+    if (navProg && !nativeProgress) {
       navProg.style.transform = 'scaleX(' + (scrollMax > 0 ? Math.min(1, y / scrollMax) : 0) + ')';
     }
   }
