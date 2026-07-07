@@ -788,6 +788,13 @@ a.trust__link:hover .btn__pfeil{transform:translate(4px,-4px)}
 }
 .ueber__punkte span{font-size:var(--t-m)}
 .ueber__punkte strong{font-weight:700}
+/* Signatur: persönliche Gegenzeichnung unter den Punkten — leise,
+   Papier-Ton auf Tinte. Zeichnet sich per JS; Ruhezustand = fertig. */
+.ueber__signatur{
+  display:block;width:clamp(150px,16vw,220px);height:auto;
+  margin-top:clamp(1.6rem,4vh,2.4rem);
+  color:var(--papier);opacity:.85;
+}
 .ueber__cta{margin-top:clamp(1.8rem,4vh,2.6rem)}
 
 /* ═══ JOURNAL ══════════════════════════════════════════════ */

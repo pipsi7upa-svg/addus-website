@@ -1229,6 +1229,26 @@
     scrollTrigger: { trigger: '.ueber__foto', start: 'top 88%', once: true }
   });
 
+  /* ── SIGNATUR: zeichnet sich beim Reveal selbst ─────────
+     Labor-Technik (stroke-dashoffset). Dash wird erst hier
+     gesetzt → ohne Motion steht die Signatur fertig im Markup. */
+  (function signatur() {
+    var svg = document.getElementById('signatur');
+    if (!svg) return;
+    var pfade = Array.prototype.slice.call(svg.querySelectorAll('path'));
+    pfade.forEach(function (p) {
+      var l = p.getTotalLength();
+      p.style.strokeDasharray = l;
+      p.style.strokeDashoffset = l;
+    });
+    var tl = gsap.timeline({
+      scrollTrigger: { trigger: svg, start: 'top 88%', once: true }
+    });
+    pfade.forEach(function (p, i) {
+      tl.to(p, { strokeDashoffset: 0, duration: i === 2 ? .5 : .9, ease: 'power2.inOut' }, i ? '>-.12' : 0);
+    });
+  })();
+
   /* ── MAGNETIC BUTTONS (nur feine Pointer) ─────────────── */
   if (window.matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('[data-magnet]').forEach(function (btn) {
