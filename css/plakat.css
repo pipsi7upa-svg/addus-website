@@ -467,7 +467,30 @@ html:not(.js) .streich__flip,html.motion-off .streich__flip{transform:translateY
 }
 
 /* ═══ PREIS (Kobalt-Drench) ════════════════════════════════ */
-.preis{overflow:clip}
+.preis{overflow:clip;position:relative}
+/* Kinetischer Kobalt-Mesh — die EINE atmende Fläche der Seite.
+   Nur Kobalt-Töne (kein zweiter Accent), transform-only-Loop,
+   Blur wird im gecachten Layer gerendert. Grain liegt drüber
+   und kaschiert Banding. */
+.preis::before{
+  content:'';position:absolute;inset:-20%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38% 45% at 22% 28%, oklch(62% .22 264 / .42), transparent 70%),
+    radial-gradient(46% 52% at 78% 16%, oklch(40% .26 268 / .8), transparent 72%),
+    radial-gradient(52% 62% at 62% 88%, oklch(56% .25 266 / .38), transparent 70%);
+  filter:blur(46px);
+  animation:preisMesh 26s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes preisMesh{
+  from{transform:translate3d(-3%,-2%,0) rotate(0deg) scale(1)}
+  to{transform:translate3d(3%,2.5%,0) rotate(5deg) scale(1.12)}
+}
+/* Ruhezustand: Mesh steht — Mobil (GPU/Akku), reduced motion, motion-off */
+@media(max-width:899px){.preis::before{animation:none;filter:blur(32px)}}
+@media(prefers-reduced-motion:reduce){.preis::before{animation:none}}
+html.motion-off .preis::before{animation:none}
+.preis>.wrap{position:relative;z-index:1}
 .preis__buehne{
   display:flex;flex-direction:column;align-items:flex-start;
   padding-bottom:clamp(3rem,8vh,6rem);
