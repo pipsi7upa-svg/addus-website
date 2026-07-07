@@ -984,6 +984,22 @@
        cachen, pro Frame nur die gecachte Spur-X-Translation addieren. */
     var basen = [];
     var fokusIdx = 0;
+    /* Sprach-Boten: „diese Seite ist aus genau diesen Bausteinen
+       gebaut" — beim ersten Fokus eines Panels fliegen HTML/CSS/JS
+       vom Label in den Rahmen. Einmalig pro Panel (dataset-Flag),
+       nutzt das vorhandene botFlug()-System (hoisted). */
+    function botenZeigen(stueck) {
+      if (stueck.dataset.boten) return;
+      stueck.dataset.boten = '1';
+      var von = stueck.querySelector('.werk__label');
+      var zu = stueck.querySelector('.werk__rahmen');
+      if (!von || !zu) return;
+      ['html', 'css', 'js'].forEach(function (s, i) {
+        gsap.delayedCall(i * .22, function () {
+          botFlug(stueck, von, zu, s, { hoehe: 90 + i * 26, seitwaerts: (i - 1) * 110, dauer: .7 });
+        });
+      });
+    }
     function messenBasen() {
       var spurX = Number(gsap.getProperty(spur, 'x')) || 0;
       basen = stuecke.map(function (s) {
@@ -1026,9 +1042,17 @@
             stuecke[fokusIdx].classList.remove('is-fokus');
             stuecke[best].classList.add('is-fokus');
             fokusIdx = best;
+            botenZeigen(stuecke[best]);
           }
         }
       }
+    });
+
+    /* Erstes Panel bekommt nie einen Fokus-Wechsel — Boten starten,
+       sobald die Werkschau ins Bild kommt */
+    ScrollTrigger.create({
+      trigger: vp, start: 'top 60%', once: true,
+      onEnter: function () { botenZeigen(stuecke[0]); }
     });
   });
 
