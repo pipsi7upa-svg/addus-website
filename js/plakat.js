@@ -453,6 +453,38 @@
     });
   })();
 
+  /* ── KAPITELZÄHLER: „Akt X / 10" in der Nav ─────────────
+     Gespeist aus den vorhandenen data-ghost-Akten. Läuft ohne
+     GSAP (IntersectionObserver), damit er auch bei motion-off
+     die Orientierung liefert. Nicht-numerische Akte (Labor
+     „</>") werden übersprungen — Zähler behält den letzten Akt. */
+  (function akte() {
+    var out = document.getElementById('navAkt');
+    if (!out || !('IntersectionObserver' in window)) return;
+    var koepfe = Array.prototype.filter.call(
+      document.querySelectorAll('.skopf[data-ghost]'),
+      function (k) { return /^\d+$/.test(k.getAttribute('data-ghost')); }
+    );
+    if (!koepfe.length) return;
+    var gesamt = String(koepfe.length).padStart(2, '0');
+    var io = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var sec = e.target, kopf = sec.querySelector('.skopf[data-ghost]');
+        var n = kopf ? kopf.getAttribute('data-ghost') : '';
+        if (!/^\d+$/.test(n) || out.dataset.akt === n) return;
+        out.dataset.akt = n;
+        out.textContent = 'Akt ' + n + ' / ' + gesamt;
+        out.classList.add('is-an');
+      });
+    /* schmales Band um die Bildschirmmitte → genau eine Sektion aktiv */
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    koepfe.forEach(function (k) {
+      var sec = k.closest('section');
+      if (sec) io.observe(sec);
+    });
+  })();
+
   /* ── Ohne GSAP / mit reduced motion: hier Schluss ─────── */
   if (!motion) return;
 

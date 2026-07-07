@@ -131,6 +131,15 @@ body.menu-open .nav{transform:none}
   background:currentColor;transition:right .3s var(--ease-out);
 }
 .nav__link:hover::after,.nav__link:focus-visible::after{right:0}
+/* Kapitelzähler: verlängert die Kino-Metapher (Ghost-Akte) in die Nav.
+   Geist Mono wie alle Meta-Labels, bewusst leise (opacity .55). */
+.nav__akt{
+  font-family:var(--mono);font-size:var(--t-xs);font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;
+  opacity:0;transition:opacity .45s var(--ease-out);
+}
+.nav__akt.is-an{opacity:.55}
+@media(max-width:1080px){.nav__akt{display:none}}
 .nav__cta{
   font-weight:700;font-size:var(--t-s);
   padding:.65em 1.3em;border:2px solid currentColor;border-radius:100px;
