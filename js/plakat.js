@@ -453,17 +453,6 @@
     });
   })();
 
-  /* ── KASSENBON: Datum stempeln (läuft auch ohne Motion) ─ */
-  (function bonDatum() {
-    var el = document.getElementById('receiptDate');
-    if (!el) return;
-    var d = new Date();
-    el.textContent =
-      String(d.getDate()).padStart(2, '0') + ' · ' +
-      String(d.getMonth() + 1).padStart(2, '0') + ' · ' +
-      d.getFullYear();
-  })();
-
   /* ── Ohne GSAP / mit reduced motion: hier Schluss ─────── */
   if (!motion) return;
 
@@ -1145,27 +1134,6 @@
         scrollTrigger: { trigger: el, start: 'top 85%', once: true }
       });
     });
-  })();
-
-  /* ── KASSENBON: Zeilen drucken sich, Stempel fällt ──────
-     GSAP-Port von receipt.js (Motion One) — keine zweite Lib.
-     Ruhezustand im CSS = fertiger Bon (motion-off/no-js safe). */
-  (function bon() {
-    var bon = document.getElementById('receipt');
-    if (!bon) return;
-    var zeilen = bon.querySelectorAll('[data-line]');
-    var stempel = document.getElementById('receiptStamp');
-    gsap.set(zeilen, { autoAlpha: 0, y: 8 });
-    if (stempel) gsap.set(stempel, { autoAlpha: 0, scale: 2.6, rotate: -32 });
-    var tl = gsap.timeline({
-      scrollTrigger: { trigger: bon, start: 'top 78%', once: true }
-    });
-    tl.to(zeilen, { autoAlpha: 1, y: 0, duration: .45, stagger: .055, ease: 'power3.out' });
-    if (stempel) {
-      tl.to(stempel, { autoAlpha: .92, scale: 1, rotate: -9, duration: .6, ease: 'back.out(2.4)' }, '-=.15')
-        /* Nachwackler — Tinte setzt sich */
-        .to(stempel, { scale: 1.02, rotate: -9.5, duration: .09, yoyo: true, repeat: 1, ease: 'power1.out' });
-    }
   })();
 
   /* ── AUDIT: Grade-Ticker + Scan-Linie ─────────────────── */

@@ -480,67 +480,19 @@ html:not(.js) .streich__flip,html.motion-off .streich__flip{transform:translateY
   margin-top:1.4rem;
 }
 .preis__satz b{font-weight:800}
-/* ── KASSENBON — Inklusiv-Liste als gedruckter Beleg.
-   Papier-Objekt auf Kobalt-Bühne (Plakat-Metapher), Geist Mono
-   als Thermodruck, Abrisskante unten, Kobalt-Stempel (kein
-   zweiter Accent). Ruhezustand = fertig gedruckt (motion-off). */
-.bon{
-  position:relative;
-  margin-top:clamp(2.4rem,6vh,4rem);
-  width:min(100%,560px);
-  background:var(--papier);color:var(--tinte);
-  padding:clamp(1.4rem,3vw,2.2rem) clamp(1.1rem,2.6vw,2rem) clamp(1.8rem,4vw,2.6rem);
-  transform:rotate(-.6deg);
-  box-shadow:0 26px 60px -18px oklch(20% .09 264 / .5);
-  font-family:var(--mono);
+.preis__inkl{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:.9rem 2.5rem;
+  margin-top:clamp(2rem,5vh,3.2rem);
+  width:100%;max-width:900px;
 }
-.bon::after{ /* Abrisskante */
-  content:'';position:absolute;left:0;right:0;top:100%;height:11px;
-  background:
-    linear-gradient(45deg,var(--papier) 5.5px,#0000 0),
-    linear-gradient(-45deg,var(--papier) 5.5px,#0000 0);
-  background-size:11px 11px;background-repeat:repeat-x;
-}
-.bon__kopf{
-  display:flex;flex-direction:column;gap:.35em;text-align:center;
-  font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;
-  padding-bottom:1rem;margin-bottom:1rem;border-bottom:2px dashed var(--linie);
-}
-.bon__kopf .bon__marke{
-  font-family:var(--font);font-weight:800;font-size:var(--t-l);
-  letter-spacing:-.03em;text-transform:none;line-height:1;
-}
-.preis__inkl{margin:0;width:100%}
 .preis__inkl li{
-  display:flex;align-items:baseline;gap:.55em;
-  font-size:clamp(.72rem,.66rem + .3vw,.88rem);font-weight:500;
-  padding:.42em 0;
+  display:flex;gap:.7em;align-items:baseline;
+  font-size:var(--t-m);font-weight:500;
+  border-bottom:1px solid var(--linie-blau);
+  padding-bottom:.55em;
 }
-.preis__inkl li::before{ /* Punktlinie zwischen Position und Betrag */
-  content:'';order:2;flex:1;min-width:1.5em;
-  border-bottom:2px dotted var(--linie);transform:translateY(-.25em);
-}
-.preis__inkl li i,.bon__summe i{order:3;font-style:normal;font-weight:700;white-space:nowrap}
-.bon__summe{
-  display:flex;align-items:baseline;gap:.55em;
-  margin-top:1rem;padding-top:1rem;border-top:2px dashed var(--linie);
-  font-size:var(--t-s);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-}
-.bon__summe::before{
-  content:'';order:2;flex:1;min-width:1.5em;
-  border-bottom:2px dotted var(--linie);transform:translateY(-.25em);
-}
-.bon__stempel{ /* Gummistempel — Kobalt-Tinte, multiply = ins Papier gedrückt */
-  position:absolute;right:clamp(.8rem,4vw,2.2rem);bottom:clamp(2.6rem,18%,5rem);
-  font-family:var(--font);font-weight:800;text-transform:uppercase;
-  font-size:clamp(1.4rem,1rem + 1.6vw,2.2rem);letter-spacing:.04em;line-height:1;
-  color:var(--blau);border:3px solid var(--blau);border-radius:8px;
-  padding:.22em .5em .26em;
-  box-shadow:inset 0 0 0 5px var(--papier),inset 0 0 0 7px var(--blau);
-  transform:rotate(-9deg);
-  mix-blend-mode:multiply;opacity:.92;
-  pointer-events:none;
-}
+.preis__inkl li::before{content:'✓';font-weight:800;flex-shrink:0}
 .preis__fuss{
   margin-top:clamp(2rem,5vh,3rem);
   display:flex;flex-wrap:wrap;gap:1rem;align-items:center;
