@@ -92,6 +92,9 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     targets.forEach(function (el) { io.observe(el); });
+    /* Sicherheitsnetz: was nach einigen Sekunden noch nicht im Blick war, wird ohne Beobachter sichtbar
+       (Elemente außerhalb des Schirms, also ohne sichtbaren Sprung). */
+    setTimeout(function () { targets.forEach(function (el) { el.classList.add('is-in'); }); io.disconnect(); }, 6000);
   } else {
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
