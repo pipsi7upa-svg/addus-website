@@ -188,7 +188,7 @@
     var cs = document.querySelector('link[data-cc-style]');
     if (!cs) {
       cs = document.createElement('link');
-      cs.rel = 'stylesheet'; cs.href = '/landing/cookieconsent.css'; cs.setAttribute('data-cc-style', '');
+      cs.rel = 'stylesheet'; cs.href = 'landing/cookieconsent.css'; cs.setAttribute('data-cc-style', '');
       cs.addEventListener('load', runConsent, { once: true });
       cs.addEventListener('error', runConsent, { once: true });
       document.head.appendChild(cs);
